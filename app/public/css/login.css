@@ -1,0 +1,27 @@
+/*                                          Estilos gerais                                                         */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+/*                                             cabeçalho                                                            */
+  header {
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  nav.grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  nav.grid img {
+    max-width: 90px;
+    cursor: pointer;
+  }
+  
