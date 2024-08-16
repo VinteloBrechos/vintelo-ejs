@@ -18,6 +18,8 @@ app.use(express.static(path.join(__dirname, 'app/public')))
 const rotas = require("./app/routes/routers");
 app.use("/", rotas);
 
+console.log("teste")
+
 app.listen(port,() => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
