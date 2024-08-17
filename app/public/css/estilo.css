@@ -316,29 +316,21 @@ body, html {
 
 
    /*                                                      botão para as categorias                                     */ 
-   .button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
+   .perfil-btn {
+    padding: 8px 15px;
+    font-size: 18px;
+    color: #fff;
     background-color: #7D2838;
     border: none;
     border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
+    cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-/* Efeito ao passar o mouse sobre o botão */
-.button:hover {
+  }
+  
+  .perfil-btn:hover {
     background-color: #7D2838;
-}
-
-/* Efeito de foco para acessibilidade */
-.button:focus {
-    outline: 2px solid #7D2838;
-    outline-offset: 2px;
-}
+  }
+  
 
 /*                                          Estilos para a seção de produtos                                           */
 .Produtos {
@@ -413,6 +405,8 @@ nav.grid li.celula img {
   text-align: center;
 }
 
+/*                                        Estilos para o botão dos perfis                                             */
+
 .perfil-btn {
   padding: 8px 15px;
   font-size: 18px;
@@ -427,11 +421,6 @@ nav.grid li.celula img {
 .perfil-btn:hover {
   background-color: #7D2838;
 }
-
-/*                                              Estilos para o botão                                               */
-
-
-
 
 
 

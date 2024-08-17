@@ -13,6 +13,10 @@ router.get('/login', function(req, res){
     res.render('pages/login');
 })
 
+router.get('/vestidos', function(req, res){
+    res.render('pages/vestidos');
+})
+
 
 
 module.exports = router;
