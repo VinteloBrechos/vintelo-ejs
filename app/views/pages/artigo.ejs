@@ -3,42 +3,76 @@
   <meta charset="UTF-8">
   <head>
     <title>Artigos Vintélo</title>
-    <link rel="stylesheet" href="css/estilo2.css">
+    <link rel="stylesheet" href="css/artigos.css">
   </head>
   <body>
     <header>
+      
       <nav class="grid">
-      <img src="../../public/imagens/metalizado.png">
+        <!-- Menu Hamburger -->
+        <div class="menu-hamburger">
+          <input id="menu-hamburguer" type="checkbox" />
+          <label for="menu-hamburguer">
+            <div class="menu">
+              <span class="hamburguer"></span>
+            </div>
+          </label>
+  
+          <!-- Itens do Menu Hamburger -->
+          <ul class="menu-hamburguer-elements">
+            <li><a href="#">Informações do Perfil</a></li>
+            <li><a href="#">Senha</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Lista de Desejos</a></li>
+            <li><a href="#">Configurações</a></li>
+          </ul>
+        </div>
+  
+        <!-- Logo Centralizada -->
+        <center><img src="imagens/logo.png" class="logo"></center>
+  
+        <!-- Link para Carrinho -->
+        <a href="carrinho.ejs">
+          <img src="imagens/carrinho.png" alt="Descrição da Imagem" />
+        </a>
+      </nav>
+     
+    </header>
+      <nav class="grid">
+      <img src="imagens/metalizado.png">
       <h2>METALIZADO: 7 LOOKS PARA VOCÊ SE
         INSPIRAR</h2>
+      </nav>
+      <br>
+    
       <p>“Brilha, brilha, movie star”. A tendência metalizada de 2024 é a oportunidade para você
         transformar cada momento em uma chance para reluzir, incorporando esse brilho
         atemporal ao seu estilo diário, reinventando o básico com um toque de glamour.</p>
-      </nav>
-    </header>
+      
+  
         <main>
           
-          <img src="../../public/imagens/look1.png" class="look1">
+          <img src="imagens/look1.png" class="look1">
         <br>
         <br>
         <br>
         <br>
-        <img src="../../public/imagens/look2.png" class="look2">
+        <img src="imagens/look2.png" class="look2">
         <br>
         <br>
         <br>
         <br>
-        <img src="../../public/imagens/look3.png" class="look3">
+        <img src="imagens/look3.png" class="look3">
         <br>
         <br>
         <br>
         <br>
-        <img src="../../public/imagens/look4.png" class="look4">
+        <img src="imagens/look4.png" class="look4">
         <br>
         <br>
         <br>
         <br>
-        <img src="../../public/imagens/look5.png" class="look5">
+        <img src="imagens/look5.png" class="look5">
         <br>
         <br>
         <br>
@@ -55,7 +89,7 @@
         </main>
         <footer>
           <figure class="rodapé">
-            <img src="../../public/imagens/rodape.png">
+            <img src="imagens/footer.png">
             
           </figure>
   </body>

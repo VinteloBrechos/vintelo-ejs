@@ -12,6 +12,125 @@
     line-height: 1.6;
     padding: 0 20px;
   }
+
+/*                                                   cabeçalho                                            */
+nav.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+/* Menu Hamburger */
+.menu-hamburger {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: flex-start;
+  z-index: 2;
+  margin-top: 10px;
+}
+
+/* Itens do Menu */
+.menu-hamburguer-elements {
+  width: 60%;
+  height: 100vh;
+  background-color: rgba(255, 252, 252, 0.9);
+  position: fixed;
+  left: -100%;
+  top: 0;
+  transition: left 0.8s cubic-bezier(1, 0, 0, 1);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-hamburguer-elements li {
+  list-style: none;
+  font-size: 1.4rem;
+  margin: 2rem 0;
+}
+
+.menu-hamburguer-elements a {
+  color: rgb(85, 27, 27);
+  text-decoration: none;
+}
+
+.menu-hamburguer-elements a:hover {
+  color: rgb(71, 22, 22);
+}
+
+/* Botão do Menu Hamburger */
+.menu {
+  background-color: rgb(102, 31, 31);
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburguer {
+  position: relative;
+  display: block;
+  background: #ffffff;
+  width: 30px;
+  height: 2px;
+  transition: 0.5s ease-in-out;
+}
+
+.hamburguer:before,
+.hamburguer:after {
+  background: #ffffff;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
+
+.hamburguer:before {
+  top: -10px;
+}
+
+.hamburguer:after {
+  bottom: -10px;
+}
+
+/* Ocultar Checkbox */
+input {
+  display: none;
+}
+
+/* Animação Hamburger ao Clicar */
+input:checked ~ label .hamburguer {
+  transform: rotate(45deg);
+}
+
+input:checked ~ label .hamburguer:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+input:checked ~ label .hamburguer:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+/* Mostrar Menu quando o botão Hamburger for clicado */
+input:checked ~ .menu-hamburguer-elements {
+  left: 0;
+}
+
+/* Estilo da Logo */
+.logo {
+  max-width: 150px;
+  height: auto;
+}
   
   /*                                             Estilizando o header                                                   */
   header {
@@ -21,17 +140,7 @@
     margin-bottom: 20px;
   }
   
-  header nav.grid {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    grid-gap: 20px;
-    align-items: center;
-  }
-  
-  header img {
-    width: 100%;
-    max-width: 100px;
-  }
+
   
   header h2 {
     font-size: 24px;
@@ -76,7 +185,7 @@
   
   /* Estilizando o footer */
   footer {
-    background-color: #fff;
+    background-color: #7D2838;
     padding: 20px 0;
     margin-top: 40px;
     border-top: 2px solid #ccc;
