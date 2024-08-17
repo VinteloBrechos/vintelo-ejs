@@ -47,22 +47,200 @@ main p {
   color: #666;
 }
 
-/*                                                    rodape                                             */
-footer {
-  margin-top: 50px;
-  background-color: #7D2838;
+
+/*                                         Estilos padrão - Mobile First                                                 */
+main {
   padding: 20px;
+  text-align: center;
+  font-size: 16px;
 }
 
-footer .rodapé {
+/* Ajustes para tablets */
+@media (min-width: 768px) {
+  main {
+    padding: 40px;
+    font-size: 18px;
+  }
+}
+
+/* Ajustes para desktops */
+@media (min-width: 1024px) {
+  main {
+    padding: 60px;
+    font-size: 20px;
+  }
+}
+
+/* Ajustes para telas maiores */
+@media (min-width: 1440px) {
+  main {
+    padding: 80px;
+    font-size: 22px;
+  }
+}
+
+
+
+/*                                                      formulario                                                    */
+
+.headerh1 {
+  font-size: 24px;
+  color: #7D2838;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+  color: #7D2838;
+  text-decoration: none;
+  padding: 010px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.social-btn {
+  background-color: #7D2838;
+  color: white;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.or-text {
+  text-align: center;
+  margin: 10px0;
+  color: #999;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.password-strength {
+  font-size: 12px;
+  color: green;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.checkbox-groupinput {
+  margin-right: 10px;
+}
+
+.submit-btn {
+  background-color: #7D2838;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
   text-align: center;
 }
 
-footer .img-responsiva {
-  max-width: 100%;
-  height: auto;
+.submit-btn:hover {
+  background-color: #7D2838;
 }
 
-center {
+
+
+
+/*                                                    rodape                                             */
+
+.footer {
+  background-color: #7D2838;
+  color: #fff;
+  padding: 20px 0;
   text-align: center;
+}
+
+.footer .footer-image {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.footer .social-media {
+  margin-bottom: 20px;
+}
+
+.footer .social-media p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-link img {
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.footer .social-link img:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+/*                                            Responsividade para Mobile                                              */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 2fr;
+  }
+
+  .celula {
+    margin: 0 auto;
+  }
+
+  .footer .social-links {
+    flex-direction: column;
+  }
 }

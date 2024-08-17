@@ -17,6 +17,22 @@ router.get('/vestidos', function(req, res){
     res.render('pages/vestidos');
 })
 
+router.get('/saias', function(req, res){
+    res.render('pages/saias');
+})
 
+
+router.get('/blusas', function(req, res){
+    res.render('pages/blusas');
+})
+
+
+router.get('/acessorios', function(req, res){
+    res.render('pages/acessorios');
+})
+
+router.get('/index', function(req, res){
+    res.render('pages/index');
+})
 
 module.exports = router;

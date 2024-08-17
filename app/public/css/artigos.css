@@ -153,6 +153,39 @@ input:checked ~ .menu-hamburguer-elements {
   }
   
   /*                                             Estilizando o main                                                      */
+ 
+ /* Estilos padrão - Mobile First */
+main {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Ajustes para tablets */
+@media (min-width: 768px) {
+  main {
+    padding: 40px;
+    font-size: 18px;
+  }
+}
+
+/* Ajustes para desktops */
+@media (min-width: 1024px) {
+  main {
+    padding: 60px;
+    font-size: 20px;
+  }
+}
+
+/* Ajustes para telas maiores */
+@media (min-width: 1440px) {
+  main {
+    padding: 80px;
+    font-size: 22px;
+  }
+}
+
+ 
   main {
     display: flex;
     flex-direction: column;
@@ -161,7 +194,7 @@ input:checked ~ .menu-hamburguer-elements {
   
   main img {
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
     margin: 20px 0;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -183,21 +216,61 @@ input:checked ~ .menu-hamburguer-elements {
     padding: 0 20px;
   }
   
-  /* Estilizando o footer */
-  footer {
-    background-color: #7D2838;
-    padding: 20px 0;
-    margin-top: 40px;
-    border-top: 2px solid #ccc;
+  /*                               Footer                  */
+.footer {
+  background-color: #7D2838;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer .footer-image {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.footer .social-media {
+  margin-bottom: 20px;
+}
+
+.footer .social-media p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-link img {
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.footer .social-link img:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+/*                                            Responsividade para Mobile                                              */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 2fr;
   }
-  
-  footer figure.rodapé {
-    text-align: center;
+
+  .celula {
+    margin: 0 auto;
   }
-  
-  footer img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
+
+  .footer .social-links {
+    flex-direction: column;
   }
-  
+}
