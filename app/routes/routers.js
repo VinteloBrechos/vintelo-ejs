@@ -51,4 +51,8 @@ router.get('/produto4', function(req, res){
     res.render('pages/produto4');
 })
 
+router.get('/cadastro', function(req, res){
+    res.render('pages/cadastro');
+})
+
 module.exports = router;

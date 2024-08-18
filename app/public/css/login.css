@@ -10,45 +10,61 @@ body {
   background-color: #f4f4f4;
   color: #333;
 }
+
 /*                                              header                                                  */
+/* Estilos para dispositivos móveis primeiro */
 header {
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header nav.grid {
+header .grid {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header nav.grid img {
+header img {
   height: 40px;
 }
 
-header nav.grid a img {
-  height: 30px;
+/* Estilos para telas maiores (tablets e acima) */
+@media (min-width: 768px) {
+  header {
+    padding: 40px;
+  }
+
+  header img {
+    height: 50px;
+  }
 }
 
-main {
-  padding: 50px;
-  text-align: center;
+/* Estilos para desktops */
+@media (min-width: 1024px) {
+  header {
+    padding: 50px;
+  }
+
+  header img {
+    height: 60px;
+  }
 }
+
 
 main h2 {
-  font-size: 28px;
+  font-size: 24px;
   color: #333;
   margin-bottom: 15px;
 }
 
 main p {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
 }
 
-
 /*                                         Estilos padrão - Mobile First                                                 */
+/*                                                   Estilos padrão - Mobile First                                     */
 main {
   padding: 20px;
   text-align: center;
@@ -84,22 +100,22 @@ main {
 /*                                                      formulario                                                    */
 
 .headerh1 {
-  font-size: 24px;
+  font-size: 22px;
   color: #7D2838;
 }
 
 .back-button {
   position: absolute;
   left: 0;
-  font-size: 24px;
+  font-size: 22px;
   color: #7D2838;
   text-decoration: none;
-  padding: 010px;
+  padding: 10px;
 }
 
 h2 {
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -112,9 +128,9 @@ h2 {
 .social-btn {
   background-color: #7D2838;
   color: white;
-  font-size: 18px;
-  width: 40px;
-  height: 40px;
+  font-size: 16px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +140,7 @@ h2 {
 
 .or-text {
   text-align: center;
-  margin: 10px0;
+  margin: 10px 0;
   color: #999;
 }
 
@@ -163,7 +179,7 @@ input[type="email"] {
   margin-bottom: 15px;
 }
 
-.checkbox-groupinput {
+.checkbox-group input {
   margin-right: 10px;
 }
 
@@ -179,32 +195,29 @@ input[type="email"] {
 }
 
 .submit-btn:hover {
-  background-color: #7D2838;
+  background-color: #651e2c;
 }
-
-
-
 
 /*                                                    rodape                                             */
 
 .footer {
   background-color: #7D2838;
   color: #fff;
-  padding: 20px 0;
+  padding: 15px 0;
   text-align: center;
 }
 
 .footer .footer-image {
-  height: 80px;
-  margin-bottom: 20px;
+  height: 60px;
+  margin-bottom: 15px;
 }
 
 .footer .social-media {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .footer .social-media p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 10px;
 }
 
@@ -213,11 +226,11 @@ input[type="email"] {
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .footer .social-link img {
-  height: 30px;
+  height: 25px;
   transition: transform 0.3s;
 }
 
@@ -226,21 +239,43 @@ input[type="email"] {
 }
 
 .copyright {
-  font-size: 0.9rem;
-  margin-top: 20px;
+  font-size: 0.8rem;
+  margin-top: 15px;
 }
 
-/*                                            Responsividade para Mobile                                              */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 2fr;
+/*                                            Responsividade para tablets e desktops                                              */
+@media (min-width: 768px) {
+  header nav img {
+    height: 40px;
   }
 
-  .celula {
-    margin: 0 auto;
+  main {
+    padding: 50px;
+  }
+
+  main h2 {
+    font-size: 28px;
+  }
+
+  main p {
+    font-size: 18px;
+  }
+
+  .social-btn {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer .footer-image {
+    height: 80px;
   }
 
   .footer .social-links {
-    flex-direction: column;
+    gap: 15px;
+  }
+
+  .copyright {
+    font-size: 0.9rem;
   }
 }

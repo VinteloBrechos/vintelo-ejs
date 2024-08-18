@@ -1,49 +1,43 @@
-/*                                                 Reset básico                                                         */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    padding: 0 20px;
-  }
-
-/*                                                   cabeçalho                                            */
-nav.grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
+/*                                          Estilos gerais                                                         */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
 }
 
-/* Menu Hamburger */
+
+/*                                               menu                                                             */
+ 
+
+
+/* MENU HAMBURGUER GERAL */
 .menu-hamburger {
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-self: flex-start;
-  z-index: 2;
-  margin-top: 10px;
+  overflow: auto;
+  z-index: 1;
+  color: white;
 }
 
-/* Itens do Menu */
+/* ELEMENTOS DO MENU */
 .menu-hamburguer-elements {
   width: 60%;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(255, 252, 252, 0.9);
   position: fixed;
   left: -100%;
   top: 0;
-  transition: left 0.8s cubic-bezier(1, 0, 0, 1);
+  transition: left cubic-bezier(1, 0, 0, 1) .8s;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  padding-top: 15vh;
+  z-index: -1;
 }
 
 .menu-hamburguer-elements li {
@@ -61,16 +55,15 @@ nav.grid {
   color: rgb(71, 22, 22);
 }
 
-/* Botão do Menu Hamburger */
+/* BOTÃO MENU HAMBURGER */
 .menu {
   background-color: rgb(102, 31, 31);
   width: 60px;
   height: 60px;
+  margin: 0rem 0rem;
   border-radius: 30px;
   cursor: pointer;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .hamburguer {
@@ -79,12 +72,14 @@ nav.grid {
   background: #ffffff;
   width: 30px;
   height: 2px;
+  top: 29px;
+  left: 15px;
   transition: 0.5s ease-in-out;
 }
 
 .hamburguer:before,
 .hamburguer:after {
-  background: #ffffff;
+  background: #ffff;
   content: '';
   display: block;
   width: 100%;
@@ -101,12 +96,12 @@ nav.grid {
   bottom: -10px;
 }
 
-/* Ocultar Checkbox */
+/* OCULTAR CHECKBOX */
 input {
   display: none;
 }
 
-/* Animação Hamburger ao Clicar */
+/* ANIMAÇÃO HAMBURGER AO CLICAR */
 input:checked ~ label .hamburguer {
   transform: rotate(45deg);
 }
@@ -121,27 +116,63 @@ input:checked ~ label .hamburguer:after {
   bottom: 0;
 }
 
-/* Mostrar Menu quando o botão Hamburger for clicado */
+/* MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO */
 input:checked ~ .menu-hamburguer-elements {
   left: 0;
 }
 
-/* Estilo da Logo */
-.logo {
-  max-width: 150px;
-  height: auto;
-}
-  
-  /*                                             Estilizando o header                                                   */
-  header {
-    background-color: #fff;
-    padding: 20px 0;
-    border-bottom: 2px solid #ccc;
-    margin-bottom: 20px;
-  }
-  
 
-  
+/*                                             Cabeçalho                                                          */
+
+
+
+
+h2 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+p {
+  color: #666;
+  font-size: 16px;
+  text-align: center;
+}
+
+header {
+  background-color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+nav.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+/*                                                                 header                                               */
+nav.grid img {
+  max-width: 100px;
+  cursor: pointer;
+}
+
+nav.grid-2 {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 2fr 2fr;  /* Duas colunas */
+  gap: 10px;
+  padding: 10px 0;
+  background-color: #fff;
+}
+
+nav.grid-2 img {
+  display: flex;
+  justify-content: center;
+}
+
+
   header h2 {
     font-size: 24px;
     color: #333;
