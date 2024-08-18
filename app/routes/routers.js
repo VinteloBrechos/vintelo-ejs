@@ -55,4 +55,8 @@ router.get('/cadastro', function(req, res){
     res.render('pages/cadastro');
 })
 
+router.get('/carrinho', function(req, res){
+    res.render('pages/carrinho');
+})
+
 module.exports = router;

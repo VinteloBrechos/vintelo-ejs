@@ -85,15 +85,15 @@ header img {
         background-color: white;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 800px;
-        padding: 40px;
+        width: 400px;
+        padding: 10px;
         text-align: center;
       }
       
       .content p {
-        font-size: 36px;
+        font-size: 16px;
         color: #333;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
       }
 
       
@@ -106,7 +106,7 @@ header img {
         text-decoration: none;
         background-color: #7D2838;
         color: white;
-        padding: 20px 40px;
+        padding: 10px 20px;
         border-radius: 10px;
         transition: background-color 0.3s ease;
       }
