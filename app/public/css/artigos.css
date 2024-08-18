@@ -162,8 +162,8 @@ nav.grid-2 {
   display: flex;
   justify-content: center;
   grid-template-columns: 2fr 2fr;  /* Duas colunas */
-  gap: 10px;
-  padding: 10px 0;
+  gap: 20px;
+  padding: 10px 30px;
   background-color: #fff;
 }
 
