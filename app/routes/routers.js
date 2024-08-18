@@ -35,4 +35,20 @@ router.get('/index', function(req, res){
     res.render('pages/index');
 })
 
+router.get('/produto1', function(req, res){
+    res.render('pages/produto1');
+})
+
+router.get('/produto2', function(req, res){
+    res.render('pages/produto2');
+})
+
+router.get('/produto3', function(req, res){
+    res.render('pages/produto3');
+})
+
+router.get('/produto4', function(req, res){
+    res.render('pages/produto4');
+})
+
 module.exports = router;
