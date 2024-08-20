@@ -59,4 +59,16 @@ router.get('/carrinho', function(req, res){
     res.render('pages/carrinho');
 })
 
+router.get('/perfil1', function(req, res){
+    res.render('pages/perfil1');
+})
+
+router.get('/perfil2', function(req, res){
+    res.render('pages/perfil2');
+})
+
+router.get('/perfil3', function(req, res){
+    res.render('pages/perfil3');
+})
+
 module.exports = router;

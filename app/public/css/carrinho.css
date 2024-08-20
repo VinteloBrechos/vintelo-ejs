@@ -18,114 +18,120 @@ header {
 
 /*                                              MENU HAMBURGUER GERAL                                                  */
 .menu-hamburger {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: flex-start;
+  overflow: auto;
+  z-index: 1;
+  color: white;
+}
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-self: flex-start;
-    overflow: auto;
-    z-index: 1;
-    color: white;
-  }
-  
-  /* ELEMENTOS DO MENU */
-  .menu-hamburguer-elements {
-    width: 60%;
-    height: 100%;
-    background-color: rgba(255, 252, 252, 0.9);
-    position: fixed;
-    left: -100%;
-    top: 0;
-    transition: left cubic-bezier(1, 0, 0, 1) .8s;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 15vh;
-    z-index: -1;
-  }
-  
-  .menu-hamburguer-elements li {
-    list-style: none;
-    font-size: 1.4rem;
-    margin: 2rem 0;
-  }
-  
-  .menu-hamburguer-elements a {
-    color: rgb(85, 27, 27);
-    text-decoration: none;
-  }
-  
-  .menu-hamburguer-elements a:hover {
-    color: rgb(71, 22, 22);
-  }
-  
-  /* BOTÃO MENU HAMBURGER */
-  .menu {
-    background-color: rgb(102, 31, 31);
-    width: 38px;
-    height: 38px;
-    margin: 0rem 0rem;
-    border-radius: 30px;
-    cursor: pointer;
-    display: flex;
-  }
-  
-  .hamburguer {
-    position: relative;
-    display: block;
-    background: #ffffff;
-    width: 18px;
-    height: 1.5px;
-    top: 18px;
-    left: 10px;
-    transition: 0.5s ease-in-out;
-  }
-  
-  .hamburguer:before,
-  .hamburguer:after {
-    background: #ffff;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: 0.5s ease-in-out;
-  }
-  
-  .hamburguer:before {
-    top: -10px;
-  }
-  
-  .hamburguer:after {
-    bottom: -10px;
-  }
-  
-  /* OCULTAR CHECKBOX */
-  input {
-    display: none;
-  }
-  
-  /* ANIMAÇÃO HAMBURGER AO CLICAR */
-  input:checked ~ label .hamburguer {
-    transform: rotate(45deg);
-  }
-  
-  input:checked ~ label .hamburguer:before {
-    transform: rotate(90deg);
-    top: 0;
-  }
-  
-  input:checked ~ label .hamburguer:after {
-    transform: rotate(90deg);
-    bottom: 0;
-  }
-  
-  /* MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO */
-  input:checked ~ .menu-hamburguer-elements {
-    left: 0;
-  }
-  
+/* ELEMENTOS DO MENU */
+.menu-hamburguer-elements {
+  width: 60%;
+  height: 100%;
+  background-color: rgba(255, 252, 252, 0.9);
+  position: fixed;
+  right: 100%; /* Muda a posição para a direita */
+  top: 0;
+  transition: right cubic-bezier(1, 0, 0, 1) .8s; /* Atualiza a transição para right */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end; /* Alinha os itens à direita */
+  padding-top: 15vh; /* Ajuste o padding conforme necessário */
+  z-index: -1;
+}
+
+/* Alinha os itens dentro da lista à direita */
+.menu-hamburguer-elements ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinha os itens à direita */
+  width: 100%;
+}
+
+.menu-hamburguer-elements li {
+  list-style: none;
+  font-size: 1.4rem;
+  margin: 2rem 0;
+}
+
+.menu-hamburguer-elements a {
+  color: rgb(85, 27, 27);
+  text-decoration: none;
+}
+
+.menu-hamburguer-elements a:hover {
+  color: rgb(71, 22, 22);
+}
+
+/* BOTÃO MENU HAMBURGER */
+.menu {
+  background-color: rgb(102, 31, 31);
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+}
+
+.hamburguer {
+  position: relative;
+  display: block;
+  background: #ffffff;
+  width: 18px;
+  height: 1.5px;
+  top: 18px;
+  left: 10px;
+  transition: 0.5s ease-in-out;
+}
+
+.hamburguer:before,
+.hamburguer:after {
+  background: #ffff;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
+
+.hamburguer:before {
+  top: -10px;
+}
+
+.hamburguer:after {
+  bottom: -10px;
+}
+
+/* OCULTAR CHECKBOX */
+input {
+  display: none;
+}
+
+/* ANIMAÇÃO HAMBURGER AO CLICAR */
+input:checked ~ label .hamburguer {
+  transform: rotate(45deg);
+}
+
+input:checked ~ label .hamburguer:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+input:checked ~ label .hamburguer:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+/* MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO */
+input:checked ~ .menu-hamburguer-elements {
+  right: 0; /* Atualiza a posição para mostrar o menu */
+}
+
 
 header h1 {
     font-size: 1.5em;
@@ -284,8 +290,8 @@ nav.grid {
 
 .product img {
     border-radius: 10px;
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 190px;
 }
 
 /*                                                  Estilos do footer                                                  */

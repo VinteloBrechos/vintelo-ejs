@@ -1,4 +1,4 @@
-/*                                         Reset básico                                                   */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +11,7 @@ body {
   color: #333;
 }
 
-/*                                              header                                                  */
-/* Estilos para dispositivos móveis primeiro */
+/* Header - Mobile First */
 header {
   background-color: #fff;
   padding: 20px;
@@ -29,7 +28,7 @@ header img {
   height: 40px;
 }
 
-/* Estilos para telas maiores (tablets e acima) */
+/* Estilos para tablets e acima */
 @media (min-width: 768px) {
   header {
     padding: 40px;
@@ -51,6 +50,12 @@ header img {
   }
 }
 
+/* Main content - Mobile First */
+main {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
 
 main h2 {
   font-size: 24px;
@@ -61,14 +66,6 @@ main h2 {
 main p {
   font-size: 16px;
   color: #666;
-}
-
-/*                                         Estilos padrão - Mobile First                                                 */
-/*                                                   Estilos padrão - Mobile First                                     */
-main {
-  padding: 20px;
-  text-align: center;
-  font-size: 16px;
 }
 
 /* Ajustes para tablets */
@@ -95,10 +92,7 @@ main {
   }
 }
 
-
-
-/*                                                      formulario                                                    */
-
+/* Formulário */
 .headerh1 {
   font-size: 22px;
   color: #7D2838;
@@ -198,8 +192,7 @@ input[type="email"] {
   background-color: #651e2c;
 }
 
-/*                                                    rodape                                             */
-
+/* Footer - Mobile First */
 .footer {
   background-color: #7D2838;
   color: #fff;
@@ -243,39 +236,27 @@ input[type="email"] {
   margin-top: 15px;
 }
 
-/*                                            Responsividade para tablets e desktops                                              */
+/* Ajustes de layout para tablets */
 @media (min-width: 768px) {
-  header nav img {
-    height: 40px;
+  .footer .social-media {
+    margin-bottom: 20px;
   }
 
-  main {
-    padding: 50px;
-  }
-
-  main h2 {
-    font-size: 28px;
-  }
-
-  main p {
-    font-size: 18px;
-  }
-
-  .social-btn {
-    font-size: 18px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .footer .footer-image {
-    height: 80px;
-  }
-
-  .footer .social-links {
-    gap: 15px;
-  }
-
-  .copyright {
-    font-size: 0.9rem;
+  .footer .social-link img {
+    height: 30px;
   }
 }
+
+/* Ajustes de layout para desktops */
+@media (min-width: 1024px) {
+  .footer .social-media {
+    margin-bottom: 25px;
+  }
+
+  .footer .social-link img {
+    height: 35px;
+  }
+}
+
+
+/*                                            Responsividade para tablets e desktops                                              */

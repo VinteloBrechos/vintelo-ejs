@@ -105,8 +105,8 @@ main {
 
 .grid {
   display: grid;
-  grid-template-columns: 2fr 2fr;  /* Duas colunas */
-  gap: 10px;  /* Espaçamento entre colunas */
+  grid-template-columns: 4fr 4fr;  /* Duas colunas */
+  gap: 0px;  /* Espaçamento entre colunas */
 }
 
 /*                                        Estilização das células                                                  */

@@ -42,9 +42,8 @@ main {
   /*                                                 reset basico                                                    */
  /* Estilos para dispositivos móveis primeiro */
 header {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  box-shadow: 0px rgba(0, 0, 0, 0.1);
 }
 
 header .grid {
@@ -196,4 +195,7 @@ header img {
       font-size: 0.9rem;
     }
   }
+
+
+
   
