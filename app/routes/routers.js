@@ -71,5 +71,9 @@ router.get('/perfil3', function(req, res){
     res.render('pages/perfil3');
 })
 
+router.get('/comprador', function(req, res){
+    res.render('pages/comprador');
+})
+
 
 module.exports = router;

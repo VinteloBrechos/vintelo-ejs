@@ -447,16 +447,32 @@ nav.grid {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: -12px 10px;
+  padding: 12px 10px;
 }
 
 nav.grid-2 {
   display: flex;
-  width: 1000px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: -12px 10px;
+  padding: 12px 10px; /* Corrigido para evitar valores negativos */
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  nav.grid-2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  nav.grid-2 {
+    width: 100%;
+    padding: 8px 15px; /* Ajusta o padding para telas médias */
+  }
+}
+
 
 .perfil-btn {
   padding: 10px 15px;

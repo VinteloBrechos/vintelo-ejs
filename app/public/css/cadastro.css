@@ -42,7 +42,7 @@ main {
   /*                                                 reset basico                                                    */
  /* Estilos para dispositivos móveis primeiro */
 header {
-  padding: 30px;
+  padding: 60px;
   box-shadow: 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -53,7 +53,7 @@ header .grid {
 }
 
 header img {
-  height: 40px;
+  height: 60px;
 }
 
 /* Estilos para telas maiores (tablets e acima) */

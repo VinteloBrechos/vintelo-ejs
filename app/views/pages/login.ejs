@@ -27,67 +27,54 @@
          <br>
 
         <div class="social-login">
-            <a href="#" class="social-btn facebook">f</a>
-            <a href="#" class="social-btn twitter">t</a>
-            <a href="#" class="social-btn google">G</a>
+            <a href="#" ><img src="imagens/face.jpg"></a>
+            <a href="#" ><img src="imagens/insta.jpg"></a>
+            <a href="#" ><img src="imagens/google.jpg"></a>
         </div>
          <br>
          <br>
          <br>
-
-        <p class="or-text">ou acesse via email</p>
-        <br>
-        <br>
-        <br>
-       
-        <form>
-            <label for="username">Nome de usuário</label>
-            <input type="text" id="username" name="username" value="Esther">
-            <br>
-            <br>
-            <br>
-
-            <label for="password">Senha</label>
-            <input type="password" id="password" name="password" value="HJ@#9783kja">
-            <p class="password-strength">Forte</p>
-            <br>
-            <br>
-            <br>
-
-            <label for="email">Endereço de email</label>
-            <script>
-              function validar() {
-                  var email = document.getElementById('email');
-                  if (email.value =="") {
-                      alert('Endereço de email inválido');
-                      email.focus
-                  }
-              }
-          </script>
-            <input type="email" id="email" name="email" value="conta.sanders@exemplo.com">
-            <br>
-            <br>
-            <br>
-
-            <label for="cpf">Adicionar CPF</label>
-            <input type="text" id="cpf" name="cpf" value="098765439/46">
-            <br>
-            <br>
-            <br>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Lembre-me</label>
-            </div>
-           
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="notifications" name="notifications">
-                <label for="notifications">Receber notificações</label>
+          <p class="divider">ou acesse via email</p>
+          <br>
+          <br>
+          <form action="#" method="post">
+          <div class="form-group">
+          <label for="username">Nome de usuário</label>
+          <input type="text" id="username" name="username" placeholder="Maria de Lourdes" required>
+          </div>
+          <br>
+          <br>
+          <div class="form-group">
+          <label for="email">Endereço de email</label>
+          <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
+          </div>
+          <br>
+          <br>
+          <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" placeholder="HJ@#9783kja" required>
+          <p class="password-strength">Forte</p>
+          </div>
+          <br>
+          <br>
+          <div class="checkbox-group">
+          <label>
+          <input type="checkbox" name="stay-connected" checked>
+                             Mantenha-me conectado
+          </label>
+          <label>
+          <input type="checkbox" name="notifications" checked>
+                             Receber notificações
+          </label>
+          <label>
+          <input type="checkbox" name="terms" required>
+                             Li e concordo com os <a href="#">Termos de Uso</a>
+          </label>
+          </div>
                 <br>
                 <br>
                 <br>
-            </div><button type="submit" class="submit-btn">Cadastrar-se</button>
+            </div><button type="submit" class="submit-btn"><a href="/comprador">Cadastrar-se</a></button>
         </form>
     </div>
             <br>
