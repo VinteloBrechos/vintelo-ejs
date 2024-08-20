@@ -55,6 +55,15 @@
             <br>
 
             <label for="email">Endereço de email</label>
+            <script>
+              function validar() {
+                  var email = document.getElementById('email');
+                  if (email.value =="") {
+                      alert('Endereço de email inválido');
+                      email.focus
+                  }
+              }
+          </script>
             <input type="email" id="email" name="email" value="conta.sanders@exemplo.com">
             <br>
             <br>
