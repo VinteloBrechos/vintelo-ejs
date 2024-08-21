@@ -458,6 +458,16 @@ nav.grid-2 {
   padding: 12px 10px; /* Corrigido para evitar valores negativos */
 }
 
+.avaliacao a {
+  color: white;
+  text-decoration: none; /* Para remover o sublinhado, se desejado */
+}
+
+.avaliacao a:hover {
+  color: lightgray; /* Altere esta cor conforme desejar para o efeito hover */
+}
+
+
 /* Responsividade */
 @media (max-width: 768px) {
   nav.grid-2 {
