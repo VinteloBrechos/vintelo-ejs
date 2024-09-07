@@ -54,17 +54,17 @@ header img {
 main {
   padding: 20px;
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 main h2 {
-  font-size: 24px;
+  font-size: 28px;
   color: #333;
   margin-bottom: 15px;
 }
 
 main p {
-  font-size: 16px;
+  font-size: 20px;
   color: #666;
 }
 
@@ -80,7 +80,7 @@ main p {
 @media (min-width: 1024px) {
   main {
     padding: 60px;
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 
@@ -88,7 +88,7 @@ main p {
 @media (min-width: 1440px) {
   main {
     padding: 80px;
-    font-size: 22px;
+    font-size: 28px;
   }
 }
 
@@ -100,12 +100,12 @@ main p {
   margin-bottom: 20px;
 }
 h1 {
-  font-size: 24px;
+  font-size: 28px;
   color: #6f2a2a;
   margin-bottom: 10px;
 }
 p {
-  font-size: 14px;
+  font-size: 18px;
   color: #888;
 }
 
@@ -136,18 +136,18 @@ p {
 }
 
 .divider {
-  font-size: 12px;
+  font-size: 25px;
   color: #888;
   margin: 20px 0;
   position: relative;
 }
 .divider::before, .divider::after {
   content: '';
-  width: 40%;
+  width: 50%;
   height: 1px;
   background-color: #ddd;
   position: absolute;
-  top: 50%;
+  top: 60%;
 }
 .divider::before {
   left: 0;
@@ -160,21 +160,21 @@ p {
   text-align: left;
 }
 .form-group label {
-  font-size: 14px;
+  font-size: 18px;
   color: #333;
   margin-bottom: 5px;
   display: block;
 }
 .form-group input {
   width: 100%;
-  padding: 10px;
+  padding: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 25px;
   color: #333;
 }
 .password-strength {
-  font-size: 12px;
+  font-size: 16px;
   color: green;
   text-align: right;
   margin-top: 5px;
@@ -184,7 +184,7 @@ p {
   margin-bottom: 20px;
 }
 .checkbox-group label {
-  font-size: 14px;
+  font-size: 25px;
   color: #333;
   display: block;
   margin-bottom: 10px;
@@ -194,12 +194,12 @@ p {
 }
 .submit-btn {
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   background-color: #6f2a2a;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
 }
 .submit-btn:hover {
@@ -209,89 +209,42 @@ p {
   .social-btn {
       width: 40px;
       height: 40px;
-      font-size: 20px;
+      font-size: 24px;
   }
 }
 .submit-btn {
   background-color: #7D2838;
-  color: white;
   padding: 10px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 30px;
   cursor: pointer;
   text-align: center;
 }
 
-.submit-btn:hover {
-  background-color: #651e2c;
+/* Estilo para o link dentro do botão */
+.submit-btn .link-branco {
+  color: white; /* Define a cor do link para branco */
+  text-decoration: none; /* Remove o sublinhado do link */
+  display: inline-block; /* Ajusta o comportamento do link */
+  width: 100%; /* Garante que o link ocupe o espaço do botão */
+  height: 100%; /* Garante que o link ocupe o espaço do botão */
 }
+
+/* Estilo ao passar o mouse */
+.submit-btn:hover {
+  background-color: #651e2c; /* Altera a cor de fundo do botão */
+}
+
+.submit-btn:hover .link-branco {
+  color: white; /* Mantém a cor do texto branca ao passar o mouse */
+}
+
 
 /* Footer - Mobile First */
 .footer {
   background-color: #7D2838;
   color: #fff;
-  padding: 15px 0;
+  padding: 50px 0;
   text-align: center;
 }
-
-.footer .footer-image {
-  height: 60px;
-  margin-bottom: 15px;
-}
-
-.footer .social-media {
-  margin-bottom: 15px;
-}
-
-.footer .social-media p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.footer .social-links {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.footer .social-link img {
-  height: 25px;
-  transition: transform 0.3s;
-}
-
-.footer .social-link img:hover {
-  transform: scale(1.2);
-}
-
-.copyright {
-  font-size: 0.8rem;
-  margin-top: 15px;
-}
-
-/* Ajustes de layout para tablets */
-@media (min-width: 768px) {
-  .footer .social-media {
-    margin-bottom: 20px;
-  }
-
-  .footer .social-link img {
-    height: 30px;
-  }
-}
-
-/* Ajustes de layout para desktops */
-@media (min-width: 1024px) {
-  .footer .social-media {
-    margin-bottom: 25px;
-  }
-
-  .footer .social-link img {
-    height: 35px;
-  }
-}
-
-
-/*                                            Responsividade para tablets e desktops                                              */

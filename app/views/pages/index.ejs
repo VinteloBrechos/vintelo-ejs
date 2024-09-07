@@ -10,7 +10,10 @@
 
     <header>
 
-      <center> <section class="banner"><img src="imagens/off.gif" alt="Banner GIF" class="img-responsiva"></section>
+      <center>
+       <div class="discount-banner">
+        <span class="highlight"><img-responsiva>10% OFF Na primeira compra</img-responsiva></span>
+      </div>
       </center> 
       
       <br>
@@ -55,19 +58,18 @@
           <img src="imagens/carrinho.png" alt="Descrição da Imagem" />
         </a>
       </nav>
-      <br>
-      <p>Bem-Vindo ao site vintélo.</p>
     </header>
      <br>
     <main>
+      <p>Bem-Vindo ao site vintélo.</p>
+       <br>
        <br>
       <!--barra de pesquisa -->
-        <center><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
           <div class="search-container">
             <i class="fas fa-search search-icon"></i>
             <input type="text" class="search-box" placeholder="Buscar...">
           </div>
-        </center>
        <br>
        <br>
        <br>
@@ -84,25 +86,24 @@
        <br>
        <br>
        <br>
-       <br>
-       <br>
-       <br>
-            <!-- Category Navigation -->
-        <nav class="category-nav">
-          <h3>Navegue por <span>categoria</span></h3>
-          <br>
-          <ul>
-            <li><a href="/vestidos">Vestidos</a></li>
-            <li><a href="/saias">Saias</a></li>
-            <li><a href="/blusas">Blusas</a></li>
-            <li><a href="/acessorios">Acessórios</a></li>
-          </ul>
-        </nav>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
+      <nav class="category-nav">
+        <h3>Navegue por <span>categoria</span></h3>
+        <br>
+        <center>
+        <div class="carousel-container">
+            <ul>
+                <li><a href="/vestidos">Vestidos</a></li>
+                <li><a href="/saias">Saias</a></li>
+                <li><a href="/blusas">Blusas</a></li>
+                <li><a href="/acessorios">Acessórios</a></li>
+                <li><a href="/blusas">Calças</a></li>
+                <li><a href="/acessorios">Calçados</a></li>
+            </ul>
+        </div>
+      </center>
+      </nav>
+       
+    <script src="script.js"></script>
          <br>
          <center><h3>Novidades</h3></center>   
 
@@ -158,56 +159,54 @@
        </section>
          <br>
          <br>
-         <br>
-         <br>
-        <section class="exemplo de anuncio">
-          <center><img src="imagens/exemplo de anuncio.png" class="img-responsiva"></center>
+        <section class="ad-container">
+          <article class="ad-left">
+            <h1>Exemplo</h1>
+            <p>de anúncio!</p>
+          </article>
+          <aside class="ad-right">
+            <h2>Anúncio</h2>
+            <p>aqui</p>
+          </aside>
         </section>
          <br>
          <br>
-         <br>
-         <br>
-        <section class="brechós"></section>
-  
+         <section class="brechós">
           <h2>Encontre outros Brechós</h2>
+          <nav class="grid-2">
+              <section class="perfis">
+                  <div class="perfil-item">
+                      <img class="perfil-img" src="imagens/brecho1.png" alt="Perfil Karine" />
+                      <figcaption class="nome">Karine</figcaption>
+                      <p class="avaliacao"><a href="/perfil1">Seguir</a></p>
+                  </div>
+              </section>
+  
+              <section class="perfis">
+                  <div class="perfil-item">
+                      <img class="perfil-img" src="imagens/brecho2.png" alt="Perfil Coisitas" />
+                      <figcaption class="nome">Coisitas</figcaption>
+                      <p class="avaliacao"><a href="/perfil2">Seguir</a></p>
+                  </div>
+              </section>
+  
+              <section class="perfis">
+                  <div class="perfil-item">
+                      <img class="perfil-img" src="imagens/brecho3.png" alt="Perfil Mayte" />
+                      <figcaption class="nome">Mayte</figcaption>
+                      <p class="avaliacao"><a href="/perfil3">Seguir</a></p>
+                  </div>
+              </section>
+          </nav>
+      </section>
             <br>
-         
-        
-             
-            <nav class="grid-2">
-              <section class="perfis">
-                <div class="perfil-item">
-                  <img class="perfil-img" src="imagens/brecho1.png" alt="Perfil Karine" />
-                  <figcaption class="Nome">Karine</figcaption>
-                  <p class="avaliacao"><a href="/perfil1">Visitar Perfil</a></p>
-                  <br>
-                </div>
-              </section>
-
-              <section class="perfis">
-                <div class="perfil-item">
-                  <img class="perfil-img" src="imagens/brecho2.png" alt="Perfil Coisitas" />
-                  <figcaption class="Nome">Coisitas</figcaption>
-                  <p class="avaliacao"><a href="/perfil2">Visitar Perfil</a></p>
-                </div>
-              </section>
-            
-              <section class="perfis">
-                <div class="perfil-item">
-                  <img class="perfil-img" src="imagens/brecho3.png" alt="Perfil Mayte" />
-                  <figcaption class="Nome">Mayte</figcaption>
-                  <p class="avaliacao"><a href="/perfil3">Visitar Perfil</a></p>
-                  <br>
-                </div>
-              </section>
-            </nav>
-    
-             
+            <br>
 
             <a href="/cadastro">  
               <center><img src="imagens/cadastro.png" class="img-responsiva"></center>
             </a>
-  
+            <br>
+            <br>
   
         <section class="grid-container">
           <div class="artigos">
@@ -220,7 +219,8 @@
             </header>
           </div>
         </section>
-  
+        <br>
+        <br>
     </main>
     <!-- Rodapé -->
     <footer class="footer">
