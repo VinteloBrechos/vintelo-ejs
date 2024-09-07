@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Crie seu Brechó</title>
+    <link rel="stylesheet" href="css/criarbrecho.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/index">
+                <img src="imagens/seta.png" alt="Seta Voltar">
+              </a>
+            <center>
+              <img src="imagens/logo.png" alt="Vintelo Logo" class="logo">
+            </center>
+        </header>
+         <br>
+         <br>
+        <center>
+         <h1>Crie seu brechó</h1>
+         <p>Insira os dados do seu brechó</p>
+        </center>
+        <br>
+        <br>
+        <br>
+        <form class="form">
+            <div class="profile-picture">
+                <img src="profile.png" alt="Profile Picture">
+                <span class="edit-icon">✏️</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="input-group">
+                <label for="nome">Nome do brechó</label>
+                <input type="text" id="nome" placeholder="Brechó da Lourdinha" required>
+                <span class="check-icon">✔️</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="input-group">
+                <label for="contato">Contato</label>
+                <input type="text" id="contato" placeholder="(11) 95730-5748" required>
+                <span class="check-icon">✔️</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="input-group">
+                <label for="endereco">Adicionar endereço</label>
+                <input type="text" id="endereco" placeholder="Av. Paulista - São Paulo" required>
+                <span class="check-icon">✔️</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <p>Onde deseja receber?</p>
+            <div class="payment-options">
+                <button class="payment-button visa">Cartão</button>
+                <button class="payment-button boleto">Boleto</button>
+                <button class="payment-button other">Outra forma</button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="submit-button">Criar brechó</button>
+        </form>
+    </div>
+</body>
+</html>

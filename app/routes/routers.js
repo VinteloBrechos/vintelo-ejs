@@ -71,8 +71,12 @@ router.get('/perfil3', function(req, res){
     res.render('pages/perfil3');
 })
 
-router.get('/comprador', function(req, res){
-    res.render('pages/comprador');
+router.get('/homecomprador', function(req, res){
+    res.render('pages/homecomprador');
+})
+
+router.get('/criarbrecho', function(req, res){
+    res.render('pages/criarbrecho');
 })
 
 

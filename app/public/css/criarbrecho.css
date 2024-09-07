@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+
+}
+
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.logo {
+    height: 40px;
+}
+
+h1 {
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+p {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.profile-picture {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+
+.input-group {
+    position: relative;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    padding-right: 100px;
+    font-size: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group .check-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: green;
+}
+
+.payment-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.payment-button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 35px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+.payment-button:hover {
+    background-color: #ddd;
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #800020;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #6b0018;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .input-group input {
+        font-size: 13px;
+    }
+
+    .submit-button {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .payment-button {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-picture img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .input-group input {
+        font-size: 12px;
+    }
+
+    .submit-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .payment-button {
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+}
