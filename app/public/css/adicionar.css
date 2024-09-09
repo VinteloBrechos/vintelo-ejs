@@ -1,3 +1,4 @@
+/* Estilos Globais */
 * {
     margin: 0;
     padding: 0;
@@ -12,12 +13,23 @@ body {
     background-color: #fff6f0;
 }
 
+/*                                                         Cabeçalho                                                    */
 header {
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .grid {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-}
+  }
+  
+  header img {
+    height: 80px;
+  }
+  
 
 .back-button {
     background: none;
@@ -26,31 +38,25 @@ header {
     cursor: pointer;
 }
 
+/*                                                 Conteúdo Principal */
 main {
     padding: 20px;
     flex-grow: 1;
 }
 
-.add-images {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.add-images h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+/*                                               Seção de Adição de Imagens                                            */
 
 .image-upload {
     display: flex;
     gap: 10px;
     justify-content: center;
+    flex-wrap: wrap; /* Para adaptação em telas menores */
 }
 
 .main-image {
     flex: 2;
     background-color: #7b2d36;
-    height: 150px;
+    height: 500px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,42 +66,46 @@ main {
 .side-images {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     flex: 1;
 }
 
 .upload-button {
     width: 100%;
-    height: 50px;
+    height: 153px;
     background-color: #7b2d36;
     border: none;
     border-radius: 8px;
     color: #fff;
-    font-size: 24px;
+    font-size: 25px;
     cursor: pointer;
 }
 
 .image-instructions {
-    font-size: 12px;
+    font-size: 30px;
     color: #8d8d8d;
     margin-top: 10px;
 }
 
+/*                                                 Formulário de Detalhes da Peça                                       */
 .item-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
 .item-form input {
-    padding: 10px;
+    padding: 40px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
+    font-size: 25px;
 }
 
+/*                                                  Botões de Seleção de Tamanho                                        */
 .size-options {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -105,15 +115,12 @@ main {
     border-radius: 4px;
     background-color: #f6f6f6;
     cursor: pointer;
+    flex: 1; 
+    font-size: 25px;
 }
 
-.tips {
-    background-color: #e0e0e0;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
 
+/*                                                      Botão de Conclusão                                              */
 .submit-button {
     width: 100%;
     padding: 15px;
@@ -122,8 +129,10 @@ main {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 25px;
 }
 
+/*                                                           Rodapé                                                     */
 footer {
     background-color: #7b2d36;
     color: #fff;
@@ -154,62 +163,93 @@ footer {
     height: 24px;
 }
 
-/*                                                      Rodapé                                                      */
+/* Estilos Específicos do Rodapé */
 .footer {
     background-color: #7D2838;
     color: #fff;
     padding: 20px 0;
     text-align: center;
-  }
-  
-  .footer .footer-image {
+}
+
+.footer .footer-image {
     height: 80px;
     margin-bottom: 20px;
-  }
-  
-  .footer .social-media {
+}
+
+.footer .social-media {
     margin-bottom: 20px;
-  }
-  
-  .footer .social-media p {
+}
+
+.footer .social-media p {
     font-size: 1.2rem;
     margin-bottom: 10px;
-  }
-  
-  .footer .social-links {
+}
+
+.footer .social-links {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
     gap: 15px;
-  }
-  
-  .footer .social-link img {
+}
+
+.footer .social-link img {
     height: 30px;
     transition: transform 0.3s;
-  }
-  
-  .footer .social-link img:hover {
+}
+
+.footer .social-link img:hover {
     transform: scale(1.2);
-  }
-  
-  .copyright {
+}
+
+.copyright {
     font-size: 0.9rem;
     margin-top: 20px;
-  }
-  
-  /*                                            Responsividade para Mobile                                              */
-  @media (max-width: 768px) {
-    .grid {
-      grid-template-columns: 2fr;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+    .main-image, .side-images {
+        flex: 1 1 100%; /* Imagens ocupam 100% da largura em telas menores */
+        max-width: 100%;
     }
   
-    .celula {
-      margin: 0 auto;
+    .size-options {
+        justify-content: space-between; /* Ajusta layout dos botões de tamanho */
     }
-  
+
     .footer .social-links {
-      flex-direction: column;
+        flex-direction: column; /* Ícones do rodapé em coluna */
     }
-  }
-  
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 5px; /* Reduz o padding do cabeçalho */
+    }
+
+    .back-button {
+        font-size: 20px; /* Ajusta tamanho do botão voltar */
+    }
+
+    .add-images h2 {
+        font-size: 16px; /* Ajusta tamanho da fonte do título */
+    }
+
+    .item-form input {
+        font-size: 14px; /* Ajusta tamanho da fonte dos inputs */
+    }
+
+    .size-button {
+        padding: 8px 10px; /* Ajusta padding dos botões de tamanho */
+    }
+
+    .submit-button {
+        padding: 12px; /* Ajusta padding do botão de submissão */
+        font-size: 16px; /* Ajusta tamanho da fonte */
+    }
+
+    .footer .social-link img {
+        height: 25px; /* Ajusta tamanho dos ícones das redes sociais */
+    }
+}

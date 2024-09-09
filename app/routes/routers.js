@@ -75,9 +75,15 @@ router.get('/homecomprador', function(req, res){
     res.render('pages/homecomprador');
 })
 
+router.get('/homevendedor', function(req, res){
+    res.render('pages/homevendedor');
+})
+
 router.get('/criarbrecho', function(req, res){
     res.render('pages/criarbrecho');
 })
 
-
+router.get('/adicionar', function(req, res){
+    res.render('pages/adicionar');
+})
 module.exports = router;

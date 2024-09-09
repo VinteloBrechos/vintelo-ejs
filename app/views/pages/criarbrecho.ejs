@@ -1,72 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
+ <html>
+  <head>
     <meta charset="UTF-8">
     <title>Crie seu Brechó</title>
     <link rel="stylesheet" href="css/criarbrecho.css">
-</head>
-<body>
-    <div class="container">
+  </head>
+    <body>
         <header>
-            <a href="/index">
-                <img src="imagens/seta.png" alt="Seta Voltar">
-              </a>
-            <center>
-              <img src="imagens/logo.png" alt="Vintelo Logo" class="logo">
+              <nav class="grid">
+                <a href="/homecomprador">
+                 <img src="imagens/seta.png" alt="Seta Voltar">
+                </a>
+                <img src="imagens/logo.png" alt="Logo">
+                <a href="/carrinho">
+                 <img src="imagens/carrinho.png" alt="Carrinho">
+                </a>
+              </nav>
             </center>
-        </header>
+          </header>
          <br>
          <br>
-        <center>
-         <h1>Crie seu brechó</h1>
-         <p>Insira os dados do seu brechó</p>
-        </center>
-        <br>
-        <br>
-        <br>
-        <form class="form">
-            <div class="profile-picture">
-                <img src="profile.png" alt="Profile Picture">
-                <span class="edit-icon">✏️</span>
-            </div>
+        <main>
+            <center>
+            <h1>Crie seu brechó</h1>
+            <p>Insira os dados do seu brechó</p>
+            </center>
             <br>
             <br>
             <br>
-            <div class="input-group">
-                <label for="nome">Nome do brechó</label>
-                <input type="text" id="nome" placeholder="Brechó da Lourdinha" required>
-                <span class="check-icon">✔️</span>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="input-group">
-                <label for="contato">Contato</label>
-                <input type="text" id="contato" placeholder="(11) 95730-5748" required>
-                <span class="check-icon">✔️</span>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="input-group">
-                <label for="endereco">Adicionar endereço</label>
-                <input type="text" id="endereco" placeholder="Av. Paulista - São Paulo" required>
-                <span class="check-icon">✔️</span>
-            </div>
-            <br>
-            <br>
-            <br>
-            <p>Onde deseja receber?</p>
-            <div class="payment-options">
-                <button class="payment-button visa">Cartão</button>
-                <button class="payment-button boleto">Boleto</button>
-                <button class="payment-button other">Outra forma</button>
-            </div>
-            <br>
-            <br>
-            <br>
-            <button type="submit" class="submit-button">Criar brechó</button>
-        </form>
-    </div>
-</body>
+            <form class="form">
+                <figure class="profile-picture">
+                    <img src="imagens/maria.png" alt="Foto do Perfil">
+                </figure>
+                <br>
+                <br>
+                <br>
+                <section class="input-group">
+                    <label for="nome">Nome do brechó</label>
+                    <br>
+                    <input type="text" id="nome" placeholder="Brechó da Lourdinha" required>
+                    <span class="check-icon">✔️</span>
+                </section>
+                <br>
+                <br>
+                <br>
+                <section class="input-group">
+                    <label for="contato">Contato</label>
+                    <br>
+                    <input type="text" id="contato" placeholder="(11) 95730-5748" required>
+                    <span class="check-icon">✔️</span>
+                </section>
+                <br>
+                <br>
+                <br>
+                <section class="input-group">
+                    <label for="endereco">Adicionar endereço</label>
+                    <br>
+                    <input type="text" id="endereco" placeholder="Av. Paulista - São Paulo" required>
+                    <span class="check-icon">✔️</span>
+                </section>
+                <br>
+                <br>
+                <br>
+                <p>Onde deseja receber?</p>
+                <section class="payment-options">
+                    <button type="button" class="payment-button visa">
+                        <img src="imagens/visa.png" alt="Visa"> Cartão
+                    </button>
+                    <button type="button" class="payment-button boleto">
+                        <img src="imagens/boleto.png" alt="Boleto"> Boleto
+                    </button>
+                    <button type="button" class="payment-button other">
+                        <img src="imagens/+.png" alt="Outra forma"> Outra forma
+                    </button>
+                </section>
+                <br>
+                <br>
+                <br>
+                <button type="submit" class="submit-button">
+                  <a href="/homevendedor" class="link-branco">Criar brechó</a>
+                </button>
+            </form>
+        </main>
+    </body>
 </html>

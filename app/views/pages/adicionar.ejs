@@ -7,12 +7,18 @@
 </head>
 <body>
     <header>
-        <button class="back-button">←</button>
-        <h1>Adicione uma peça</h1>
-    </header>
+        <nav class="grid">
+          <a href="/homevendedor">
+            <img src="imagens/seta.png" alt="Seta Voltar">
+          </a>
+          <img src="imagens/logo.png" alt="Logo">
+          <a href="/carrinho">
+            <img src="imagens/carrinho.png" alt="Carrinho">
+          </a>
+        </nav>
+      </header>
     <main>
         <section class="add-images">
-            <h2>adicionar<br>Imagens</h2>
             <div class="image-upload">
                 <div class="main-image">
                     <button class="upload-button">📷</button>
@@ -23,7 +29,9 @@
                     <button class="upload-button">📷</button>
                 </div>
             </div>
-            <p class="image-instructions">Clique para editar e arraste para ordenar</p>
+            <br>
+            <center><p class="image-instructions">Clique para editar e arraste para ordenar</p></center> 
+            <br>
         </section>
 
         <form class="item-form">
@@ -42,9 +50,6 @@
             <input type="text" placeholder="Outros">
         </form>
 
-        <section class="tips">
-            <p><strong>Você sabia?</strong> Quanto mais imagens você colocar em seu anúncio, suas chances de venda dobram.</p>
-        </section>
 
         <button class="submit-button">Concluído</button>
     </main>

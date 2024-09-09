@@ -27,28 +27,28 @@ header {
   color: white;
 }
 
-/* ELEMENTOS DO MENU */
+/*                                               ELEMENTOS DO MENU                                                     */
 .menu-hamburguer-elements {
   width: 60%;
   height: 100%;
   background-color: rgba(255, 252, 252, 0.9);
   position: fixed;
-  right: 100%; /* Muda a posição para a direita */
+  right: 100%; 
   top: 0;
-  transition: right cubic-bezier(1, 0, 0, 1) .8s; /* Atualiza a transição para right */
+  transition: right cubic-bezier(1, 0, 0, 1) .8s; 
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: flex-end; /* Alinha os itens à direita */
-  padding-top: 15vh; /* Ajuste o padding conforme necessário */
+  justify-content: flex-end; 
+  padding-top: 15vh; 
   z-index: -1;
 }
 
-/* Alinha os itens dentro da lista à direita */
+
 .menu-hamburguer-elements ul {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Alinha os itens à direita */
+  align-items: flex-end; 
   width: 100%;
 }
 
@@ -67,7 +67,7 @@ header {
   color: rgb(71, 22, 22);
 }
 
-/* BOTÃO MENU HAMBURGER */
+/*                                               BOTÃO MENU HAMBURGER                                                  */
 .menu {
   background-color: rgb(102, 31, 31);
   width: 38px;
@@ -107,12 +107,12 @@ header {
   bottom: -10px;
 }
 
-/* OCULTAR CHECKBOX */
+/*                                                      OCULTAR CHECKBOX                                                */
 input {
   display: none;
 }
 
-/* ANIMAÇÃO HAMBURGER AO CLICAR */
+/*                                                ANIMAÇÃO HAMBURGER AO CLICAR                                          */
 input:checked ~ label .hamburguer {
   transform: rotate(45deg);
 }
@@ -127,9 +127,9 @@ input:checked ~ label .hamburguer:after {
   bottom: 0;
 }
 
-/* MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO */
+/*                                         MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO                           */
 input:checked ~ .menu-hamburguer-elements {
-  right: 0; /* Atualiza a posição para mostrar o menu */
+  right: 0; 
 }
 
 
@@ -164,7 +164,6 @@ header button {
 .cart-item img {
     border-radius: 10px;
     width: 80px;
-    height: 80px;
 }
 
 .item-details {
@@ -296,14 +295,14 @@ nav.grid {
 
 /*                                                  Estilos do footer                                                  */
 .footer {
-    background-color: #800020;
+    background-color: #7D2838;
     padding: 1em;
     text-align: center;
 }
 
 .finalize-btn {
-    background-color: #fff;
-    color: #800020;
+    background-color: #7D2838;
+    color: #ffffff;
     padding: 1em 2em;
     border: none;
     border-radius: 10px;
