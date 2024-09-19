@@ -86,4 +86,8 @@ router.get('/criarbrecho', function(req, res){
 router.get('/adicionar', function(req, res){
     res.render('pages/adicionar');
 })
+
+router.get('/blog', function(req, res){
+    res.render('pages/blog');
+})
 module.exports = router;
