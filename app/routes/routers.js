@@ -90,4 +90,8 @@ router.get('/adicionar', function(req, res){
 router.get('/blog', function(req, res){
     res.render('pages/blog');
 })
+
+router.get('/bossartigo', function(req, res){
+    res.render('pages/bossartigo');
+})
 module.exports = router;

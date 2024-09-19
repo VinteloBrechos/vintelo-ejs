@@ -6,12 +6,7 @@ body {
   background-color: #ffffff;
 }
 
-/*                                       fonte de todo o site                                                     */
-.vidaloka-regular {
-  font-family: "Vidaloka", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+
 
 /*                                            banner em gif                                                       */
 .discount-banner {
@@ -40,12 +35,11 @@ body {
     opacity: 1;
   }
 }
-
-/*                                               menu                                                             */
+/*                                                     menu                                                             */
  
 
 
-/* MENU HAMBURGUER GERAL */
+/*                                              MENU HAMBURGUER GERAL                                                  */
 .menu-hamburger {
 
   display: flex;
