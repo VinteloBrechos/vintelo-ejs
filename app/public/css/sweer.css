@@ -6,97 +6,105 @@
 
 body {
     font-family: 'Arial', sans-serif;
+    background-color: #fff;
     color: #333;
-    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 header {
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 5%;
 }
 
-.back-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+.back-btn {
+    background: none;
+    border: none;
     font-size: 24px;
-    text-decoration: none;
-    color: #000;
+    cursor: pointer;
 }
 
 h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+.light {
+    font-weight: normal;
+    color: #888;
 }
 
 .highlight {
+    color: #6b8c72;
     font-weight: bold;
+    font-size: 24px;
 }
 
-.main-info {
+.main-content {
     text-align: center;
-    margin-bottom: 40px;
+    padding: 5%;
 }
 
-.main-info img {
-    max-width: 90%;
-}
-
-.grid {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-.grid-2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-.fast-fashion, .moda-sustentavel {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.date-info {
-    font-size: 12px;
-    color: #777;
-    margin-top: 10px;
-}
-
-section {
-    padding: 20px;
-}
-
-.fast-fashion, .moda-sustentavel {
-    margin-bottom: 30px;
-}
-
-h2 {
-    font-size: 18px;
-    color: #4d4d4d;
-}
-
-p {
-    margin: 10px 0;
-    font-size: 16px;
+.description {
+    font-size: 14px;
     line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 0 10px;
 }
 
-section img {
+.main-img {
     width: 100%;
-    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #888;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.gallery-item {
+    width: 48%;
+    text-align: left;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.gallery-item p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.view-all {
     display: block;
-    margin: 15px auto;
+    text-align: right;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    text-decoration: underline;
 }
 
 /*                                                      Rodapé                                                      */
@@ -108,7 +116,7 @@ section img {
   }
   
   .footer .footer-image {
-    height: 80px;
+    height: 50px;
     margin-bottom: 20px;
   }
   
@@ -130,7 +138,7 @@ section img {
   }
   
   .footer .social-link img {
-    height: 60px;
+    height: 40px;
     transition: transform 0.3s;
   }
   
@@ -153,8 +161,5 @@ section img {
       margin: 0 auto;
     }
   
-    .footer .social-links {
-      flex-direction: column;
-    }
   }
   

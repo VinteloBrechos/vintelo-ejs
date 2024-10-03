@@ -94,4 +94,21 @@ router.get('/blog', function(req, res){
 router.get('/bossartigo', function(req, res){
     res.render('pages/bossartigo');
 })
+
+router.get('/gucciartigo', function(req, res){
+    res.render('pages/gucciartigo');
+})
+
+router.get('/ecologicoartigo', function(req, res){
+    res.render('pages/ecologicoartigo');
+})
+
+router.get('/tensustentavel', function(req, res){
+    res.render('pages/tensustentavel');
+})
+
+router.get('/sweer', function(req, res){
+    res.render('pages/sweer');
+})
+
 module.exports = router;

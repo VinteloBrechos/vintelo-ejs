@@ -10,7 +10,6 @@ body {
     background-color: #fff;
     color: #333;
     line-height: 1.6;
-    padding: 20px;
 }
 
 /*                                              Container principal                                                    */
@@ -18,13 +17,20 @@ body {
     max-width: 400px;
     margin: 0 auto;
     background-color: #fff;
+    padding: 20px;
 }
 
 /*                                              Estilo do cabeçalho                                                    */
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+header {
+    background-color: #fff;
+    padding: 2%;
+  }
+
+header .grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
 .back-button {
     position: absolute;
@@ -40,19 +46,25 @@ h1 {
     font-size: 24px;
     font-weight: bold;
     margin-top: 40px;
+    position: center;
 }
 
 /*                                                    Estilo do conteúdo                                                */
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
-.image-main, .image-secondary {
+.image-main {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    padding: 10%;
+    position: center;
+}
+
+.img-responsiva {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    padding: 5%;
+    position: center;
 }
 
 .subtitle {
@@ -65,7 +77,9 @@ h1 {
     font-size: 14px;
     color: #555;
     text-align: justify;
+    padding: 8%;
 }
+
 
 @media (min-width: 600px) {
     .container {
@@ -80,3 +94,62 @@ h1 {
         font-size: 16px;
     }
 }
+/*                                                      Rodapé                                                      */
+.footer {
+    background-color: #7D2838;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer .footer-image {
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-media {
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-media p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer .social-link img {
+    height: 60px;
+    transition: transform 0.3s;
+  }
+  
+  .footer .social-link img:hover {
+    transform: scale(1.2);
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+  
+  /*                                            Responsividade para Mobile                                              */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 2fr;
+    }
+  
+    .celula {
+      margin: 0 auto;
+    }
+  
+    .footer .social-links {
+      flex-direction: column;
+    }
+  }
+  

@@ -40,6 +40,23 @@ header span {
     padding: 40px;
 }
 
+a {
+  color: #000; /* Cor preta */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+a:hover {
+  color: #333; /* Cor um pouco mais escura ao passar o mouse */
+}
+
+a:visited {
+  color: #000; /* Cor preta para links já visitados */
+}
+
+a:focus, a:active {
+  outline: none; /* Remove a borda de foco (a linha azul) */
+}
+
 .card {
     display: flex;
     flex-direction: row; /* Coloca imagem e texto lado a lado */
@@ -114,3 +131,60 @@ header span {
     border-radius: 10%;
     object-fit: cover;
 }
+
+/*                                                      Rodapé                                                      */
+.footer {
+    background-color: #7D2838;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer .footer-image {
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-media {
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-media p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer .social-link img {
+    height: 60px;
+    transition: transform 0.3s;
+  }
+  
+  .footer .social-link img:hover {
+    transform: scale(1.2);
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+  
+  /*                                            Responsividade para Mobile                                              */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 2fr;
+    }
+  
+    .celula {
+      margin: 0 auto;
+    }
+  
+  }
+  
