@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  header {
+    padding: 16px 0;
+  }
+  
+  header .grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .confirmation-section {
+    margin-top: 20px;
+  }
+  
+ .img-responsive {
+    width: 100px;
+    margin: 0 auto;
+  }
+  
+  .confirmation-section h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 20px 0 10px;
+  }
+  
+  .confirmation-section p {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .buttons-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .view-orders-button {
+    background-color: #f8f8f8;
+    color: #7b2f35;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .continue-shopping-button {
+    background-color: #7b2f35;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 600px;
+    }
+  
+    .confirmation-section .illustration img {
+      width: 150px;
+    }
+  
+    .view-orders-button, .continue-shopping-button {
+      font-size: 18px;
+      padding: 18px;
+    }
+  }
+  

@@ -111,4 +111,28 @@ router.get('/sweer', function(req, res){
     res.render('pages/sweer');
 })
 
+router.get('/sacola', function(req, res){
+    res.render('pages/sacola');
+})
+
+router.get('/pedidoconf', function(req, res){
+    res.render('pages/pedidoconf');
+})
+
+router.get('/finalizandocompra1', function(req, res){
+    res.render('pages/finalizandocompra1');
+})
+
+router.get('/finalizandocompra2', function(req, res){
+    res.render('pages/finalizandocompra2');
+})
+
+router.get('/finalizandocompra3', function(req, res){
+    res.render('pages/finalizandocompra3');
+})
+
+router.get('/finalizandocompra4', function(req, res){
+    res.render('pages/finalizandocompra4');
+})
+
 module.exports = router;
