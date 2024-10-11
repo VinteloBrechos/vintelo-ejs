@@ -7,15 +7,22 @@
   body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
-    color: #333;
-    padding: 5%;
+  }
+  /*                                                        cabeçalho                                                  */
+  header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  .header {
+  header .grid {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 16px 0;
+  }
+  
+  header img {
+    height: 40px;
   }
   
   .header h2 {
@@ -23,6 +30,10 @@
     font-weight: bold;
   }
   
+  /*                                                     corpo da pagina                                             */
+  main{
+    padding: 5%;
+  }
   .product-section {
     padding: 16px 0;
   }
@@ -158,7 +169,6 @@
     border: none;
     padding: 16px;
     font-size: 16px;
-    border-radius: 8px;
     cursor: pointer;
     margin-top: 24px;
   }

@@ -40,15 +40,11 @@ header img {
 }
 
 /*                                                   Estilos para desktops                                               */
-@media (min-width: 1024px) {
-  header {
-    padding: 50px;
-  }
 
   header img {
-    height: 60px;
+    height: 40%;
   }
-}
+
 
 /*                                                Main content - Mobile First                                           */
 main {
@@ -58,13 +54,13 @@ main {
 }
 
 main h2 {
-  font-size: 28px;
+  font-size: 250%;
   color: #333;
   margin-bottom: 15px;
 }
 
 main p {
-  font-size: 20px;
+  font-size: 200%;
   color: #666;
 }
 
@@ -100,12 +96,12 @@ main p {
   margin-bottom: 20px;
 }
 h1 {
-  font-size: 28px;
+  font-size: 150%;
   color: #6f2a2a;
   margin-bottom: 10px;
 }
 p {
-  font-size: 18px;
+  font-size: 200%;
   color: #888;
 }
 
@@ -128,15 +124,14 @@ p {
 }
 
 .social-login img {
-  width: 70px;
-  height: 70px;
+  width: 35%;
   object-fit: cover;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .divider {
-  font-size: 25px;
+  font-size: 200%;
   color: #888;
   margin: 20px 0;
   position: relative;
@@ -170,7 +165,7 @@ p {
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 200%;
   color: #333;
 }
 .password-strength {

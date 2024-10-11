@@ -23,120 +23,94 @@ header img {
 }
 
 /*                                                 Estilização principal                                                */
-main {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
+main{
+    padding: 5%;
 }
 
 h1 {
-    font-size: 30px;
-    margin: 10px 0;
-    color: #800020;
-}
-
-label, p {
-    font-size: 25px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/*                                                        Formulário                                                    */
-.form {
+    text-align: center;
+    font-weight: 600;
+    font-size: 200%;
+    margin-bottom: 5%;
+  }
+  
+  .profile-section {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-}
-
-/*                                                      Foto de perfil                                                  */
-.profile-picture {
+    align-items: center;
+    margin-bottom: 10%;
     position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.profile-picture img {
-    width: 150px;
-    height: 150px;
+  }
+  
+  .profile-pic {
+    width: 25%;
     border-radius: 50%;
-    border: 2px solid #ccc;
-}
-
-/*                                                  Grupo de input                                                      */
-.input-group {
-    position: relative;
-    text-align: left;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 20px;
-    padding-right: 60px;
-    font-size: 25px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-.input-group .check-icon {
+    border: 2px solid #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-icon {
     position: absolute;
-    right: 10px;
+    top: 35%;
+    right: 38%;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 2%;
+    font-size: 150%;
+    cursor: pointer;
+  }
+  
+  .profile-name {
+    font-size: 200%;
+    font-weight: 600;
+    margin-top: 5%;
+  }
+  
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 190%;
+    color: #888;
+    margin-bottom: 2%;
+  }
+  
+  input {
+    width: 100%;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 100%;
+    margin-bottom: 5%;
+    position: relative;
+    font-size: 200%;
+  }
+  
+  .check-icon {
+    position: absolute;
+    right: 5%;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 35px;
     color: green;
-}
-
-/*                                                Opções de pagamento                                                   */
-.payment-options {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.payment-button {
-    display: flex; 
-    align-items: center;
-    gap: 15px; 
-    padding: 20px 30px;
-    border: 1px solid #ccc; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    background-color: #f0f0f0; 
-    transition: background-color 0.3s; 
-    width: 100%; 
-    max-width: 200px; 
-    text-align: left;
-    font-size: 25px; 
-}
-
-.payment-button img {
-    width: 60px;
-    height: 60px; 
-}
-
-.payment-button:hover {
-    background-color: #ddd; 
-}
-
-
-
-/*                                                   Botão de envio                                                      */
-.submit-button {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #800020;
+    font-size: 120%;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background-color: #8C1D40;
     color: white;
     border: none;
-    border-radius: 0px;
+    padding: 5% 0;
+    font-size: 200%;
     cursor: pointer;
-    font-size: 30px;
+    margin-top: 10%;
     transition: background-color 0.3s;
-}
+  }
 
-.submit-btn .link-branco {
+  .submit-btn .link-branco {
     color: white; 
     text-decoration: none; 
     display: inline-block;
@@ -144,49 +118,8 @@ label, p {
     height: 100%; 
   }
   
-.submit-button:hover {
-    background-color: #6b0018;
-}
+  .submit-btn:hover {
+    background-color: #720d2c;
+  }
 
-
-/*                                               Responsividade                                                         */
-@media (max-width: 768px) {
-    main {
-        padding: 15px;
-    }
-
-    .input-group input {
-        font-size: 18px;
-    }
-
-    .submit-button {
-        font-size: 18px;
-        padding: 12px;
-    }
-
-    .payment-button {
-        padding: 10px 20px;
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-picture img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .input-group input {
-        font-size: 16px;
-    }
-
-    .submit-button {
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    .payment-button {
-        padding: 8px 16px;
-        font-size: 16px;
-    }
-}
+  

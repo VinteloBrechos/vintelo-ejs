@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Crie seu Brechó</title>
     <link rel="stylesheet" href="css/criarbrecho.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   </head>
     <body>
         <header>
@@ -20,67 +21,36 @@
           </header>
          <br>
          <br>
-        <main>
-            <center>
-            <h1>Crie seu brechó</h1>
-            <p>Insira os dados do seu brechó</p>
-            </center>
-            <br>
-            <br>
-            <br>
-            <form class="form">
-                <figure class="profile-picture">
-                    <img src="imagens/maria.png" alt="Foto do Perfil">
-                </figure>
-                <br>
-                <br>
-                <br>
-                <section class="input-group">
-                    <label for="nome">Nome do brechó</label>
-                    <br>
-                    <input type="text" id="nome" placeholder="Brechó da Lourdinha" required>
-                    <span class="check-icon">✔️</span>
-                </section>
-                <br>
-                <br>
-                <br>
-                <section class="input-group">
-                    <label for="contato">Contato</label>
-                    <br>
-                    <input type="text" id="contato" placeholder="(11) 95730-5748" required>
-                    <span class="check-icon">✔️</span>
-                </section>
-                <br>
-                <br>
-                <br>
-                <section class="input-group">
-                    <label for="endereco">Adicionar endereço</label>
-                    <br>
-                    <input type="text" id="endereco" placeholder="Av. Paulista - São Paulo" required>
-                    <span class="check-icon">✔️</span>
-                </section>
-                <br>
-                <br>
-                <br>
-                <p>Onde deseja receber?</p>
-                <section class="payment-options">
-                    <button type="button" class="payment-button visa">
-                        <img src="imagens/visa.png" alt="Visa"> Cartão
-                    </button>
-                    <button type="button" class="payment-button boleto">
-                        <img src="imagens/boleto.png" alt="Boleto"> Boleto
-                    </button>
-                    <button type="button" class="payment-button other">
-                        <img src="imagens/+.png" alt="Outra forma"> Outra forma
-                    </button>
-                </section>
-                <br>
-                <br>
-                <br>
-                <button type="submit" class="submit-button">
-                  <a href="/homevendedor" class="link-branco">Criar brechó</a>
-                </button>
-            </form>
+        <main class="container">
+           <h1>Complete seu cadastro</h1>
+       
+           <section class="profile-section">
+             <img src="imagens/brecho1.png" alt="Maria de Lourdes" class="profile-pic">
+             <span class="edit-icon">&#9432;</span>
+             <p class="profile-name">Maria de Lourdes</p>
+           </section>
+       
+           <form class="form">
+             <label for="nome-completo">Nome completo</label>
+             <input type="text" id="nome-completo" value="Maria de Lourdes Felix Gonçalves" readonly>
+ 
+             <br>
+             <label for="contato">Contato</label>
+             <input type="text" id="contato" value="(11) 95730-5748" readonly>
+
+             <br>
+             <label for="cpf">Adicionar CPF</label>
+             <input type="text" id="cpf" value="098765439/46" readonly>
+
+             <br>
+             <label for="endereco">Adicionar endereço</label>
+             <input type="text" id="endereco" value="Av. Paulista - São Paulo" readonly>
+
         </main>
-    </body>
-</html>
+            <footer>
+             <button type="submit" class="submit-btn"> <a href="/homevendedor" class="link-branco">Cadastrar-se</a></button>
+            </form>
+         </main>
+        </footer>
+       </body>
+       </html>
