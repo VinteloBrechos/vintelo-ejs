@@ -252,30 +252,53 @@ p{
 }
 
 /*                                                           barra de pesquisa                                                                */
-
 .search-container {
-  width: 300px;
+  width: 100%; 
+  max-width: 100%; 
   position: relative;
+  margin: 0 auto; 
 }
 
+/* Estilo da barra de pesquisa */
 .search-box {
-  width: 50%;
-  padding: 5% 220% 10% 15%; 
-  border-radius: 25px;
+  width: 90%; 
+  padding: 3% 10% 3% 12%; 
+  border-radius: 50px;
   border: 1px solid #ccc;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2% 5% rgba(0, 0, 0, 0.2);
   outline: none;
-  font-size: 100%;
+  font-size: 1em; 
+  transition: all 0.3s ease;
 }
 
+/* Ícone de pesquisa */
 .search-icon {
   position: absolute;
-  left: 10px;
+  left: 4%; 
   top: 50%;
   transform: translateY(-50%);
   color: #49102e;
-  font-size: 20px;
+  font-size: 1.2em; 
 }
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .search-box {
+    width: 100%; 
+    padding: 4% 15% 4% 10%; 
+  }
+
+  .search-icon {
+    left: 6%; 
+  }
+}
+
+@media (min-width: 1200px) {
+  .search-box {
+    width: 80%; 
+  }
+}
+
 
 
 /*                                                          Carrossel de banners                                                              */
@@ -658,59 +681,130 @@ h2 {
 
  
 /*                                                Estilos para a seção de artigos                                        */
-.br-carousel {
-  --carousel-height: 100%;
-  --carousel-min-height: 400px;
-  display: flex;
-  height: var(--carousel-height);
-  min-height: var(--carousel-min-height);
-  position: relative;
-  width: var(--carousel-height);
-}
 
-.carousel-stage, .carousel-page {
+.carousel-container {
+  max-width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: var(--carousel-height);
-  height: var(--carousel-height);
-}
-
-.carousel-stage {
   overflow: hidden;
-  position: relative;
 }
 
-.carousel-page {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in-out;
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-.carousel-page[active] {
-  opacity: 1;
-  visibility: visible;
+.carousel-slide img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-.carousel-btn-prev, .carousel-btn-next {
+/*     Botões de navegação          */
+.prev, .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
-.carousel-btn-prev {
-  left: 0;
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.carousel-btn-next {
-  right: 0;
+.prev {
+  left: 10px;
 }
 
-.carousel-step .step-progress-btn {
+.next {
+  right: 10px;
+}
+
+/* Indicadores */
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-indicators div {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
   cursor: pointer;
 }
 
+.carousel-indicators div.active {
+  background-color: #333;
+}
+
+/* Título */
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* Texto adicional */
+.boss-milao-verao {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #888;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Link do artigo */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  .carousel-container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  h3 {
+    font-size: 2rem;
+  }
+
+  .boss-milao-verao {
+    font-size: 1.2rem;
+  }
+
+  a {
+    font-size: 1.1rem;
+  }
+}
 
 
 /*                                                      Rodapé                                                      */
