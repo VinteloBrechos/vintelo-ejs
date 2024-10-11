@@ -26,25 +26,25 @@
           <ul class="menu-hamburguer-elements show">
           
             <li>
-              <a href="#">informações do perfil</a>
+              <a href="#"><img src="imagens/icone informaçao.png"> informações do perfil</a>
             </li>
             <li>
-              <a href="#">senha</a>
+              <a href="/sacola1"><img src="imagens/icone sacola.png">Sacola</a>
             </li>
             <li>
-              <a href="#">carrinho</a>
-            </li>
-          
-            <li>
-              <a href="#">lista de desejos</a>
+              <a href="#"><img src="imagens/caminhao.png">Minhas compras</a>
             </li>
           
             <li>
-              <a href="#">configurações</a>
+              <a href="#"><img src="imagens/cartao.png">Meus Cartões</a>
             </li>
           
             <li>
-              <a href="#">lista de desejos</a>
+              <a href="/favoritos"><img src="imagens/coraçao de fav.png">Lista de Desejos</a>
+            </li>
+          
+            <li>
+              <a href="/blog"><img src="imagens/icone blog.png">Blog</a>
             </li>
           </ul>
         </nav>
@@ -226,32 +226,35 @@
             <br>
             <br>
             <!--                                        Seção de artigos                                             -->
-            <h3>Tendências na Vintélo</h3>  
-            <br>
-            <section class="carousel-container">
-              <button class="prev">&#10094;</button>
-              <section class="carousel-slide">
-                <figure>
-                  <img src="imagens/boss milão.png" alt="Boss Milão Verão">
+              
+            <article class="carousel">
+              <button class="br-button carousel-btn-prev terciary circle" type="button" aria-label="Anterior">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              
+              <section class="carousel-stage">
+                <figure class="carousel-page active" role="group" aria-roledescription="slide" aria-live="polite">
+                  <img src="imagens/boss.png" alt="Página 1" class="carousel-content">
+                  <figcaption class="carousel-title">Página 1</figcaption>
                 </figure>
-                <figure>
-                  <img src="imagens/desfile vogue.png" alt="Desfile Vogue">
+                <figure class="carousel-page" role="group" aria-roledescription="slide" aria-live="polite">
+                  <img src="imagens/desfile vogue.png" alt="Página 2" class="carousel-content">
+                  <figcaption class="carousel-title">Página 2</figcaption>
                 </figure>
-                <figure>
-                  <img src="imagens/boss.jpg" alt="Boss">
+                <figure class="carousel-page" role="group" aria-roledescription="slide" aria-live="polite">
+                  <img src="imagens/gucci-milao 1.png" alt="Página 3" class="carousel-content">
+                  <figcaption class="carousel-title">Página 3</figcaption>
+                </figure>
+                <figure class="carousel-page" role="group" aria-roledescription="slide" aria-live="polite">
+                  <img src="imagens/boss milao.png" alt="Página 4" class="carousel-content">
+                  <figcaption class="carousel-title">Página 4</figcaption>
                 </figure>
               </section>
-              <button class="next">&#10095;</button>
-            </section>
-            
-            <nav class="carousel-indicators"></nav>
-            
-            <article>
-              <p class="boss-milao-verao">BOSS | MILÃO | VERÃO</p>
-              <a href="/bossartigo">Ler agora</a>
-            </article>
-            
-  
+              
+              <button class="br-button carousel-btn-next terciary circle" type="button" aria-label="Próximo">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </article>            
         <br>
         <br>
     </main>

@@ -1,4 +1,4 @@
-// load the things we need
+
 const express = require('express');
 const path = require('path');
 
@@ -23,4 +23,5 @@ console.log("teste")
 app.listen(port,() => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
+
 

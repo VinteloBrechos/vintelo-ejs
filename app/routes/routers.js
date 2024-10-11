@@ -135,4 +135,12 @@ router.get('/finalizandocompra4', function(req, res){
     res.render('pages/finalizandocompra4');
 })
 
+router.get('/favoritos', function(req, res){
+    res.render('pages/favoritos');
+})
+
+router.get('/sacola1', function(req, res){
+    res.render('pages/sacola1');
+})
+
 module.exports = router;
