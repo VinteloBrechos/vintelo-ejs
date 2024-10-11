@@ -28,7 +28,7 @@ header .grid {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 120%;
     font-weight: bold;
     text-align: center;
     flex: 1;
@@ -74,14 +74,14 @@ main {
 
 /*                                                      Rodapé                                                      */
 .footer {
-    background-color: #7D2838;
+    background-color: #818F84;
     color: #fff;
     padding: 20px 0;
     text-align: center;
   }
   
   .footer .footer-image {
-    height: 80px;
+    height: 60px;
     margin-bottom: 20px;
   }
   
@@ -103,7 +103,7 @@ main {
   }
   
   .footer .social-link img {
-    height: 60px;
+    height: 40px;
     transition: transform 0.3s;
   }
   
