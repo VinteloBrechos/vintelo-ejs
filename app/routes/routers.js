@@ -143,4 +143,8 @@ router.get('/sacola1', function(req, res){
     res.render('pages/sacola1');
 })
 
+router.get('/avaliaçao', function(req, res){
+    res.render('pages/avaliaçao');
+})
+
 module.exports = router;

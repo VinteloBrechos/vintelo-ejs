@@ -83,8 +83,8 @@ body {
 /* BOTÃO MENU HAMBURGER */
 .menu {
   background-color: rgb(102, 31, 31);
-  width: 65px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   margin: 0rem 0rem;
   border-radius: 40px;
   cursor: pointer;
@@ -95,12 +95,13 @@ body {
   position: relative;
   display: block;
   background: #ffffff;
-  width: 35px;
-  height: 3px;
-  top: 30px;
+  width: 50px;
+  height: 4px;
+  top: 37px;
   left: 15px;
   transition: 0.5s ease-in-out;
 }
+
 
 .hamburguer:before,
 .hamburguer:after {
@@ -145,7 +146,10 @@ input:checked ~ label .hamburguer:after {
 input:checked ~ .menu-hamburguer-elements {
   left: 0;
 }
-
+img.icone{
+  width: auto;
+  height: auto;
+}
 
 /*                                             Cabeçalho                                                          */
 
@@ -180,7 +184,7 @@ nav.grid {
 }
 
 nav.grid img {
-  height: 80px;
+  height: 100px;
   cursor: pointer;
 }
 
@@ -314,7 +318,7 @@ p{
 .carousel-slide {
   display: flex;
   width: 100%;
-  animation: slide-animation 12s infinite;
+  animation: slide-animation 15s infinite;
 }
 
 
@@ -481,7 +485,9 @@ h2 {
   text-align: center;
 }
 
-
+.submit-btn:hover .link-branco {
+  color: white; 
+}
 /*                                                Seção de perfis                                                    */
 
 .perfis {
