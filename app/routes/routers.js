@@ -79,8 +79,8 @@ router.get('/homevendedor', function(req, res){
     res.render('pages/homevendedor');
 })
 
-router.get('/criarbrecho', function(req, res){
-    res.render('pages/criarbrecho');
+router.get('/continuarcadastro', function(req, res){
+    res.render('pages/continuarcadastro');
 })
 
 router.get('/adicionar', function(req, res){
@@ -143,8 +143,8 @@ router.get('/sacola1', function(req, res){
     res.render('pages/sacola1');
 })
 
-router.get('/avaliaçao', function(req, res){
-    res.render('pages/avaliaçao');
+router.get('/avaliasao', function(req, res){
+    res.render('pages/avaliasao');
 })
 
 module.exports = router;

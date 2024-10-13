@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   color: #333;
 }
 
@@ -25,26 +25,8 @@ header .grid {
 }
 
 header img {
-  height: 80px;
+  height: 100px;
 }
-
-/*                                               Estilos para tablets e acima                                            */
-@media (min-width: 768px) {
-  header {
-    padding: 40px;
-  }
-
-  header img {
-    height: 50px;
-  }
-}
-
-/*                                                   Estilos para desktops                                               */
-
-  header img {
-    height: 40%;
-  }
-
 
 /*                                                Main content - Mobile First                                           */
 main {
@@ -169,7 +151,7 @@ p {
   color: #333;
 }
 .password-strength {
-  font-size: 16px;
+  font-size: 25px;
   color: green;
   text-align: right;
   margin-top: 5px;
@@ -179,7 +161,7 @@ p {
   margin-bottom: 20px;
 }
 .checkbox-group label {
-  font-size: 25px;
+  font-size: 30px;
   color: #333;
   display: block;
   margin-bottom: 10px;
@@ -194,7 +176,7 @@ p {
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 40px;
   cursor: pointer;
 }
 .submit-btn:hover {
