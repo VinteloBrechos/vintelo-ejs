@@ -23,7 +23,7 @@ body {
 
 
 .highlight {
-  font-weight: bold;
+  font-weight: prata;
 }
 
 /* Animação */
@@ -146,12 +146,71 @@ input:checked ~ label .hamburguer:after {
 input:checked ~ .menu-hamburguer-elements {
   left: 0;
 }
-img.icone{
-  width: auto;
-  height: auto;
+
+/*                                                     icones de menu                                                   */
+
+.sidebar-menu ul {
+  list-style: none;
 }
 
-/*                                             Cabeçalho                                                          */
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: #000000;
+}
+
+.sidebar-menu li img {
+  width: auto;
+  margin-right: 0.75rem;
+}
+
+.sidebar-menu li:last-child {
+  margin-bottom: 0;
+}
+
+/*                                      icone criar brecho na home comprador                                           */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+}
+
+.create-btn {
+  background-color: #7D2838;
+  color: #fff;
+  padding:1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-btn:hover {
+  background-color: #7D2838;
+}
+
+/*                                                   Cabeçalho                                                          */
 
 
 
@@ -250,7 +309,7 @@ main {
   }
 }
 
-p{
+.bemvindo{
   font-size: 30px;
   color: #a3a1a1;
   text-align: left;
@@ -267,7 +326,7 @@ p{
 /* Estilo da barra de pesquisa */
 .search-box {
   width: 90%; 
-  padding: 4% 2% 5% 7%; 
+  padding: 4% 2% 4% 7%; 
   border-radius: 20px;
   border: 5px solid #ccc;
   box-shadow: 0 2% 5% rgba(0, 0, 0, 0.2);
@@ -462,7 +521,7 @@ h3 {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .product-card {
@@ -707,68 +766,105 @@ h2 {
 
  
 /*                                                Estilos para a seção de artigos                                        */
-.carousel {
-  width: 90%;
-  max-width: 1200px;
-  overflow: hidden;
+.carousel-2 {
   position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-.carousel-item {
-  position: relative;
+.carousel-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-.carousel-item img {
+.carousel-artigos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  border-radius: 8px;
+  transition: transform 0.5s ease;
+}
+
+.carousel-artigos img {
+  width: 100%;
   height: auto;
+  border-radius: 10px;
+  max-width: 600px;
 }
 
 .carousel-text {
   position: absolute;
   bottom: 20px;
-  left: 20px;
+  left: 30px;
   color: #000;
-  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
 }
 
 .carousel-text p {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .carousel-text h1 {
-  font-size: 3rem;
-  line-height: 1.2;
-  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.carousel-text a.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 1rem;
-  text-decoration: none;
+.read-more {
+  background-color: transparent;
+  border: none;
   color: #000;
-  font-weight: bold;
-  border-bottom: 2px solid #000;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 768px) {
   .carousel-text h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
   }
 
   .carousel-text p {
+      font-size: 1.2rem;
+  }
+
+  .read-more {
       font-size: 1rem;
   }
 
-  .carousel-text a.read-more {
-      font-size: 0.9rem;
+  .prev, .next {
+      padding: 12px;
+      font-size: 20px;
   }
 }
-
 
 
 /*                                                      Rodapé                                                      */
