@@ -61,11 +61,19 @@
     <main>
       <br>
       <!--                                        barra de pesquisa                                              -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-          <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-box" placeholder="Buscar...">
-          </div>
+      <section class="search-section">
+        <div class="search-container">
+          <form class="search-form">
+            <button type="button" class="search-icon">
+              <img src="imagens/pesquisa.png" alt="Pesquisar">
+            </button>
+            <input type="text" placeholder="Buscar..." required>
+            <button type="button" class="mic-icon">
+              <img src="imagens/microfone.png" alt="Microfone">
+            </button>
+          </form>
+        </div>
+      </section>      
        <br>
        <p class="bemvindo">Bem-Víndo ao site Vintélo</p>
        <!--                                       Carrossel de banners                                              -->
@@ -139,7 +147,7 @@
         <section class="ad-container">
           <article class="ad-left">
             <h1>Exemplo</h1>
-            <p>de anúncio!</p>
+            <p class="anuncio">de anúncio!</p>
           </article>
           <aside class="ad-right">
             <h2>Anúncio</h2>
@@ -197,7 +205,7 @@
             <section class="ad-container">
               <article class="ad-left">
                 <h1>Exemplo</h1>
-                <p>de anúncio!</p>
+                <p class="anuncio">de anúncio!</p>
               </article>
               <aside class="ad-right">
                 <h2>Anúncio</h2>
@@ -207,36 +215,14 @@
             <br>
             <br>
             <!--                                        Seção de artigos                                             -->
-            <section class="artigos">
             <h3>Tendências na<span>Vintélo</span></h3>
-            <br>
-            <section class="carousel-2">
-              <div class="carousel-container-2">
-                <div class="carousel-artigos">
-                  <img src="imagens/boss milão.png" alt="Desfile Boss Milão Verão">
-                  <img src="imagens/boss.jpg" alt="Desfile Boss Milão Verão">
-                </div>
-              </div>
-            </section>
+            <section class="artigos">
+              <br>
+              <img src="imagens/boss milão.png" class="img-Boss">
               <p class="p-artigos">Confira:</p>
               <h3 class="h3-artigos">BOSS | MILÃO | VERÃO |</h3>
               <a href="/blog" class="link-preto">Ler agora</a>
             </section>   
- <!--                                                  mini cadastro                                                    -->
-     <section class="newsletter">
-        <h2>Fique por dentro das novidades</h2>
-        <p>Informe seu e-mail e receba as novidades!</p>
-        <form>
-            <label>
-                <input type="radio" name="news-option"> Vender
-            </label>
-            <label>
-                <input type="radio" name="news-option"> Comprar
-            </label>
-            <input type="email" placeholder="E-mail*" required>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </section>
     </main>
     <!--                                                    Rodapé                                                      -->
     <footer class="footer">

@@ -1,6 +1,6 @@
 /*                                          Estilos gerais                                                         */
 body {
-  font-family: Prata, Montserrat;
+  font-family: Prata, Montserrat, cinzel decorative;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -285,53 +285,49 @@ nav.grid-2 p:hover {
 }
 
 /*                                                           barra de pesquisa                                                                */
+.search-section {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .search-container {
-  width: 100%; 
-  max-width: 100%; 
-  position: relative;
-  margin: 0 auto; 
+  width: 100%;
 }
 
-/* Estilo da barra de pesquisa */
-.search-box {
-  width: 90%; 
-  padding: 4% 1% 3% 7%; 
+.search-form {
+  display: flex;
+  align-items: center;
+  background-color: #66666617;
   border-radius: 20px;
-  border: 5px solid #ccc;
-  box-shadow: 0 2% 5% rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.search-form input {
+  border: none;
+  padding: 10px 15px;
+  flex: 1;
+  font-size: 35px;
   outline: none;
-  font-size: 150%; 
-  transition: all 0.3s ease;
+  background-color: #66666604;
 }
 
-/* Ícone de pesquisa */
-.search-icon {
-  position: absolute;
-  left: 4%; 
-  top: 50%;
-  transform: translateY(-50%);
-  color: #49102e;
-  font-size: 20px; 
+.search-icon, .mic-icon {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-  .search-box {
-    width: 100%; 
-    padding: 4% 15% 4% 10%; 
-  }
-
-  .search-icon {
-    left: 6%; 
-  }
+.search-icon img, .mic-icon img {
+  width: 40px;
+  height: 40px;
 }
 
-@media (min-width: 1200px) {
-  .search-box {
-    width: 80%; 
-  }
+.mic-icon img {
+  width: 50px; /* O ícone de microfone pode ser ligeiramente maior */
+  height: 50px;
 }
-
 
 
 /*                                                          Carrossel de banners                                                              */
@@ -598,17 +594,19 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 20px; 
+  padding-left: 50px; 
+  align-items: center;
 }
 
 .ad-left h1 {
-  font-size: 50px; 
+  font-size: 40px; 
   margin: 0;
 }
 
-.ad-left p {
+.anuncio{
   font-size: 30px;
-  margin: 0;
+  color: #ffffff;
+  padding: 0px;
 }
 
 .ad-right {
@@ -756,37 +754,8 @@ h2 {
   text-align: left;
 }
 
-.carousel-2 {
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
-  height: 400px;
-}
-
-.carousel-container-2 {
-  display: flex;
-  width: 50%;
-  height: 100%;
-  position: relative;
-}
-
-.carousel-artigos {
-  display: flex;
-  width: 300%;
-  animation: slide 15s infinite;
-}
-
-.carousel-artigos img {
+.img-Boss{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.carousel-text {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
 }
 
 .link-preto {
