@@ -186,17 +186,3 @@ header {
   }
   
   /*                                            Responsividade para Mobile                                              */
-  @media (max-width: 768px) {
-    .grid {
-      grid-template-columns: 2fr;
-    }
-  
-    .celula {
-      margin: 0 auto;
-    }
-  
-    .footer .social-links {
-      flex-direction: column;
-    }
-  }
-  
