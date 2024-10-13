@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Prata, Montserrat;
     margin: 0;
     padding: 0;
     background-color: #fff;
@@ -12,6 +12,10 @@ header {
     text-align: center;
 }
 
+header img {
+  height: 100px;
+}
+
 .back-button {
     border: none;
     background: none;
@@ -21,7 +25,7 @@ header {
 }
 
 header h1 {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: normal;
     text-align: center;
 }

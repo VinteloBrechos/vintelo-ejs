@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Prata, Montserrat;
     background-color: #fff;
     color: #333;
 }
@@ -44,7 +44,7 @@ h1 {
 .highlight {
     color: #6b8c72;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .main-content {

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Prata, Montserrat;
     color: #333;
     background-color: #f8f8f8;
 }
@@ -25,7 +25,7 @@ header {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 38px;
     margin-bottom: 20px;
 }
 
@@ -88,7 +88,7 @@ h2 {
 
 p {
     margin: 10px 0;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
 }
 

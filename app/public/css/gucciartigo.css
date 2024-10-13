@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Prata, Montserrat;
     background-color: #fff;
     color: #333;
 }
@@ -18,6 +18,10 @@ header .grid {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+header img {
+  height: 30px;
 }
 
 .back-btn {

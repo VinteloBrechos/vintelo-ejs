@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Prata, Montserrat;
     background-color: #fff;
     color: #333;
     line-height: 1.6;
@@ -31,6 +31,9 @@ header .grid {
     justify-content: space-between;
     align-items: center;
   }
+  header img {
+    height: 90px;
+  }
 
 .back-button {
     position: absolute;
@@ -43,7 +46,7 @@ header .grid {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 44px;
     font-weight: bold;
     margin-top: 40px;
     position: center;
@@ -80,20 +83,6 @@ h1 {
     padding: 8%;
 }
 
-
-@media (min-width: 600px) {
-    .container {
-        max-width: 600px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .description {
-        font-size: 16px;
-    }
-}
 /*                                                      Rodapé                                                      */
 .footer {
     background-color: #818F84;

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Prata, Montserrat;
     background-color: #fff;
     color: #333;
 }
@@ -21,6 +21,10 @@ header {
     gap: 10px;
     margin-bottom: 20px;
     padding: 2%;
+}
+
+header img {
+  height: 60px;
 }
 
 .back-btn {
