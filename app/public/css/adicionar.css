@@ -172,7 +172,7 @@ footer {
 }
 
 .footer .footer-image {
-    height: 80px;
+    height: 170px;
     margin-bottom: 20px;
 }
 
@@ -181,7 +181,7 @@ footer {
 }
 
 .footer .social-media p {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-bottom: 10px;
 }
 
@@ -194,7 +194,7 @@ footer {
 }
 
 .footer .social-link img {
-    height: 30px;
+    height: 80px;
     transition: transform 0.3s;
 }
 
@@ -203,53 +203,7 @@ footer {
 }
 
 .copyright {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-top: 20px;
 }
 
-/* Responsividade para Mobile */
-@media (max-width: 768px) {
-    .main-image, .side-images {
-        flex: 1 1 100%; /* Imagens ocupam 100% da largura em telas menores */
-        max-width: 100%;
-    }
-  
-    .size-options {
-        justify-content: space-between; /* Ajusta layout dos botões de tamanho */
-    }
-
-    .footer .social-links {
-        flex-direction: column; /* Ícones do rodapé em coluna */
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 5px; /* Reduz o padding do cabeçalho */
-    }
-
-    .back-button {
-        font-size: 20px; /* Ajusta tamanho do botão voltar */
-    }
-
-    .add-images h2 {
-        font-size: 16px; /* Ajusta tamanho da fonte do título */
-    }
-
-    .item-form input {
-        font-size: 14px; /* Ajusta tamanho da fonte dos inputs */
-    }
-
-    .size-button {
-        padding: 8px 10px; /* Ajusta padding dos botões de tamanho */
-    }
-
-    .submit-button {
-        padding: 12px; /* Ajusta padding do botão de submissão */
-        font-size: 16px; /* Ajusta tamanho da fonte */
-    }
-
-    .footer .social-link img {
-        height: 25px; /* Ajusta tamanho dos ícones das redes sociais */
-    }
-}

@@ -79,14 +79,22 @@
       <br>
     </header>
     <main>
-      <p class="bemvindo">Bem-Víndo ao site Vintélo</p>
+            <!--                                        barra de pesquisa                                              -->
+      <section class="search-section">
+        <div class="search-container">
+          <form class="search-form">
+            <button type="button" class="search-icon">
+              <img src="imagens/pesquisa.png" alt="Pesquisar">
+            </button>
+            <input type="text" placeholder="Busque..." required>
+            <button type="button" class="mic-icon">
+              <img src="imagens/microfone.png" alt="Microfone">
+            </button>
+          </form>
+        </div>
+      </section>      
        <br>
-      <!--barra de pesquisa -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-      <div class="search-container">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" class="search-box" placeholder="Buscar...">
-      </div>
+       <p class="bemvindo">Bem-Víndo ao site Vintélo</p>
        <br>
       <div class="carousel-container">
         <div class="carousel-slide">
@@ -212,21 +220,15 @@
             <br>
             <br>
         
-        <section class="grid-container">
-          <div class="artigos">
-
-            <header>
-              <h3>Tendências na Vintélo</h3>
+            <!--                                        Seção de artigos                                             -->
+            <h3>Tendências na<span>Vintélo</span></h3>
+            <section class="artigos">
               <br>
-              <img src="imagens/boss milão.png" alt="Boss Milão Verão">
-              <p class="boss-milao-verao">B0SS | MILÃO | VERÃO</p>
-              <br>
-              <a href="/artigo">Ler agora</a>
-            </header>
-          </div>
-        </section>
-        <br>
-        <br>
+              <img src="imagens/boss milão.png" class="img-Boss">
+              <p class="p-artigos">Confira:</p>
+              <h3 class="h3-artigos">BOSS | MILÃO | VERÃO |</h3>
+              <a href="/blog" class="link-preto">Ler agora</a>
+            </section>   
     </main>
     <!-- Rodapé -->
     <footer class="footer">

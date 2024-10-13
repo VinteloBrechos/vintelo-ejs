@@ -147,4 +147,12 @@ router.get('/avaliasao', function(req, res){
     res.render('pages/avaliasao');
 })
 
+router.get('/perfilvender', function(req, res){
+    res.render('pages/perfilvender');
+})
+
+router.get('/criarbrecho', function(req, res){
+    res.render('pages/criarbrecho');
+})
+
 module.exports = router;

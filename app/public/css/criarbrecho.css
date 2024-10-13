@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Prata, Montserrat;
+    background-color: #f9f9f9;
+}
+
+/*                                                       cabeçalho                                                      */
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header img {
+    height: 40px;
+  }
+
+/*                                                    formulário                                                       */
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.logo {
+    width: 100px;
+    margin: 0 auto;
+}
+
+main {
+    padding: 20px;
+}
+
+.form-section {
+    text-align: center;
+}
+
+h2 {
+    color: #8c2b44;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.profile-section {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 0;
+    right: 37%;
+    background-color: #8c2b44;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 12px;
+}
+/*                                               formulário                                                           */
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    display: none;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.check-icon {
+    position: absolute;
+    right: 10%;
+    color: green;
+    font-size: 18px;
+}
+
+
+/*                                                 forma de pagamento                                                 */
+h3 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.pagamento{
+    color: #000000;
+    font-size: 18px;
+    text-align: left;
+}
+
+.grid-pagamento{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.payment-option img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.payment-option span {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.error-icon {
+    color: red;
+    font-size: 18px;
+}
+
+.payment-option.selected {
+    border: 2px solid green;
+}
+
+.add-option {
+    width: 30px;
+    height: 30px;
+    background-color: #8c2b44;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+ 
+/*                                                       rodape                                                         */
+footer {
+    text-align: center;
+}
+
+.create-button {
+    width: 100%;
+    padding: 25px;
+    background-color: #8c2b44;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
