@@ -155,4 +155,8 @@ router.get('/criarbrecho', function(req, res){
     res.render('pages/criarbrecho');
 })
 
+router.get('/entrar', function(req, res){
+    res.render('pages/entrar');
+})
+
 module.exports = router;
