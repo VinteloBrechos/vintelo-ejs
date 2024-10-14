@@ -147,6 +147,10 @@ input:checked ~ .menu-hamburguer-elements {
   left: 0;
 }
 
+.logo-menu{
+  padding: 10px;
+  position: center;
+}
 /*                                                     icones de menu                                                   */
 
 .sidebar-menu ul {
@@ -162,7 +166,8 @@ input:checked ~ .menu-hamburguer-elements {
 }
 
 .sidebar-menu li img {
-  width: auto;
+  width: 90px;
+  height: 30px;
   margin-right: 0.75rem;
 }
 
@@ -746,6 +751,21 @@ h2 {
   color: #666;
   font-size: 16px;
   text-align: left;
+}
+
+.titulo-artigos{
+  color: #7D2838;
+  font-size: 70px;
+  text-align: center;
+  font-family: Montserrat;
+}
+
+.titulo-artigos2{
+  color: #7D2838;
+  font-size: 60px;
+  text-align: left;
+  font-family: Prata;
+  padding: 5px;
 }
 
 .h3-artigos{

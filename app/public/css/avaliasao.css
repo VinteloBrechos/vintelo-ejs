@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Prata, Montserrat;
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
@@ -13,7 +13,7 @@ body {
 
 header {
     background-color: #fff;
-    padding: 1rem;
+    padding: 20px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -23,39 +23,59 @@ nav {
     align-items: center;
 }
 
-.back-button, .profile-button {
+.profile-button {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
 .profile-button img {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 
+.titulo-header{
+    font-size: 50px;
+}
+
+.Seta-voltar{
+    width: 100px;
+    height: 100px;
+}
+/*                                                     header                                                           */
 .summary {
-    padding: 1rem;
+    padding: 2.5rem;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #dddddd00;
 }
 
 .stars {
     color: orange;
 }
 
+.avaliaçao{
+    font-size: 30px;
+}
+/*                                               2 cabeçalho                                                          */
 .add-review {
     background-color: #8b0000;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 10px;
     border-radius: 5px;
+    width: 400px;
     cursor: pointer;
+    font-size: 30px;
+}
+
+.editar{
+    width: 30px;
+    height: 30px;
 }
 
 .reviews {
@@ -63,34 +83,40 @@ nav {
     padding: 1rem;
 }
 
-.reviews li {
+.reviews {
     background-color: #fff;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 10px;
     margin-bottom: 1rem;
     display: grid;
-    grid-template-columns: 50px 1fr;
-    gap: 1rem;
 }
 
+.grid-reviw{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .reviews img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 
 .reviews h2 {
     font-size: 1rem;
+    text-align: center;
 }
 
 .reviews time {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     color: #999;
 }
 
 .reviews p {
     margin-top: 0.5rem;
 }
+
+
 
 @media (max-width: 768px) {
     .summary {

@@ -126,6 +126,7 @@ h3 {
     color: #000000;
     font-size: 18px;
     text-align: left;
+    display: inline-block;
 }
 
 .grid-pagamento{
@@ -134,6 +135,12 @@ h3 {
     align-items: center;
 }
 
+.check-icon-2 {
+    position: absolute;
+    right: 10%;
+    color: green;
+    font-size: 18px;
+}
 
 .payment-option img {
     width: 40px;

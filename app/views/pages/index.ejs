@@ -25,32 +25,53 @@
           
           <ul class="menu-hamburguer-elements show">
 
-            <li>
-              <a href="#"><img class="logo" src="imagens/logo.png"></a>
+              <section class="logo.menu">
+                <img src="imagens/logo.png" class="logo-menu">
+              </section>
+              <br>
+              <br>
+              <br>
+              <a href="/cadastro">
+                <section class="profile-section">
+                  <img src="imagens/icone sem cadastro.png" alt="Maria de Lourdes" class="profile-pic">
+                  <div class="profile-info">
+                      <h2>Nome de usuário</h2>
+                  </div>
+                  <button class="create-btn">Criar Conta</button>
+              </section>
+              </a>
             </li>
-          
-            <li>
-              <a href="#"><img class="icone" src="imagens/informaçao da conta.png"></a>
-            </li>
-            <li>
-              <a href="/sacola1"><img class="icone" src="imagens/sacola.png"></a>
-            </li>
-            <li>
-              <a href="#"><img class="icone" src="imagens/minhas compras.png"></a>
-            </li>
-          
-            <li>
-              <a href="#"><img class="icone" src="imagens/meus cartoes.png"></a>
-            </li>
-          
-            <li>
-              <a href="/favoritos"><img class="icone" src="imagens/icone favoritos.png"></a>
-            </li>
-          
-            <li>
-              <a href="/blog"><img class="icone" src="imagens/blog.png"></a>
-            </li>
-          </ul>
+            <br>
+            <br>
+            <br>
+            <aside class="sidebar-menu">
+              <ul>
+                  <li>
+                    <a href="#"><img src="imagens/icone informaçao.png" alt="Informação da conta"></a>
+                      Informação da conta
+                  </li>
+                  <li>
+                    <a href="/sacola1"><img src="imagens/icone sacola.png" alt="Sacola"></a>
+                      Sacola
+                  </li>
+                  <li>
+                    <a href="/minhascompras"><img src="imagens/caminhao.png" class="minhas-compras"></a>
+                      Minhas compras
+                  </li>
+                  <li>
+                    <a href="#"><img src="imagens/cartao.png" alt="Meus cartões"></a>
+                      Meus cartões
+                  </li>
+                  <li>
+                    <a href="/favoritos"><img src="imagens/coraçao de fav.png" alt="Favoritos"></a>
+                      Favoritos
+                  </li>
+                  <li>
+                    <a href="/blog"><img src="imagens/icone blog.png" alt="Blog"></a>
+                      Blog
+                  </li>
+              </ul>
+          </aside>
         </nav>
         <center> <img src="imagens/logo.png" class="logo"> </center>
         <a href="/cadastro">
@@ -110,7 +131,7 @@
           </nav>
          <section class="product-grid">
           <article class="product-card">
-              <a href="/produto1"><img src="imagens/vestido branco.png" alt="Vestido branco com decote"></a>
+              <a href="/produto2"><img src="imagens/vestido branco.png" alt="Vestido branco com decote"></a>
               <h2>Vestido branco com decote</h2>
               <p class="price">R$49,99</p>
               <button class="favorite"><img src="imagens/heart.png"></button>
@@ -118,7 +139,7 @@
           </article>
   
           <article class="product-card">
-              <a href="/produto2"><img src="imagens/vestido roxo.png" alt="Vestido roxo de manga com decote"></a>
+              <a href="/produto3"><img src="imagens/vestido roxo.png" alt="Vestido roxo de manga com decote"></a>
               <h2>Vestido roxo de manga com decote</h2>
               <p class="price">R$39,99</p>
               <button class="favorite"><img src="imagens/heart.png"></button>
@@ -126,7 +147,7 @@
           </article>
   
           <article class="product-card">
-              <a href="/produto3"><img src="imagens/conjunto de blusa rosa.png" alt="Conjunto rosa de lã"></a>
+              <a href="/produto4"><img src="imagens/conjunto de blusa rosa.png" alt="Conjunto rosa de lã"></a>
               <h2>Conjunto rosa de lã</h2>
               <p class="price">R$29,99</p>
               <button class="favorite"><img src="imagens/heart.png"></button>
@@ -134,7 +155,7 @@
           </article>
   
           <article class="product-card">
-              <a href="/produto4"><img src="imagens/regata branca.png" alt="Regata branca"></a>
+              <a href="/produto1"><img src="imagens/regata branca.png" alt="Regata branca"></a>
               <h2>Regata branca</h2>
               <p class="price">R$19,99</p>
               <button class="favorite"><img src="imagens/heart.png"></button>
@@ -215,10 +236,10 @@
             <br>
             <br>
             <!--                                        Seção de artigos                                             -->
-            <h3>Tendências na<span>Vintélo</span></h3>
+            <span><p class="titulo-artigos2">Tendências na</p><h3 class="titulo-artigos">Vintélo</h3></span>
             <section class="artigos">
               <br>
-              <img src="imagens/boss milão.png" class="img-Boss">
+              <a href="/blog"><img src="imagens/boss milão.png" class="img-Boss"></a>
               <p class="p-artigos">Confira:</p>
               <h3 class="h3-artigos">BOSS | MILÃO | VERÃO |</h3>
               <a href="/blog" class="link-preto">Ler agora</a>
