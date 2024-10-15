@@ -6,11 +6,19 @@
     <link rel="stylesheet" href="css/entrar.css">
   </head>
   <body>
-<header>
-    <button class="back-btn">&#8592;</button>
-    <img src="imagens/logo.png" alt="Logo Vintélo" class="logo">
-  </header>
-  
+    <header>
+      <nav class="grid">
+        <a href="/cadastro">
+          <img src="imagens/seta.png" alt="Seta Voltar">
+        </a>
+        <img src="imagens/logo.png" alt="Logo">
+        <a href="/carrinho">
+          <img src="imagens/carrinho.png" alt="Carrinho">
+        </a>
+      </nav>
+    </header>
+  <br>
+  <br>
   <main>
     <h1>Entrar</h1>
     <p class="description">Acesse usando seu cadastro de outra plataforma</p>
@@ -22,7 +30,8 @@
     </section>
   
     <p class="divider">ou acesse via email</p>
-  
+    <br>
+    <br>
     <form>
       <label for="username">Email ou nome de usuário</label>
       <input type="text" id="username" value="Maria">
@@ -33,14 +42,17 @@
       <span class="password-strength">Forte</span>
     </form>
   
-    <a href="#" class="forgot-password">Esqueceu sua senha?</a>
-  
+    <a href="/esqueceusenha" class="forgot-password">Esqueceu sua senha?</a>
+    <br>
+    <br>
     <label class="stay-connected">
       <input type="checkbox" checked>
       <span class="toggle"></span>
       Mantenha-me conectado
     </label>
-  
-    <button class="login-btn">Entrar</button>
   </main>
+  <footer>
+    <br>
+    <a href="/homecomprador"><button class="login-btn">Entrar</button></a> 
+  </footer>
   

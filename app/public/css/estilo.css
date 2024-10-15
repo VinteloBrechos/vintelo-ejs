@@ -181,7 +181,7 @@ input:checked ~ .menu-hamburguer-elements {
   align-items: center;
   gap: 1rem;
   background-color: #fff;
-  padding: 1rem 1rem;
+  padding: 1rem 3rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
 }
@@ -479,6 +479,11 @@ h3 {
 .ver{
   font-size: 40px;
   color: #464344;
+}
+
+.img-sacola{
+  width: 1px;
+  height: auto;
 }
 
 .grid-produtos{

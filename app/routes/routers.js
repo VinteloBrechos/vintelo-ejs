@@ -159,4 +159,8 @@ router.get('/entrar', function(req, res){
     res.render('pages/entrar');
 })
 
+router.get('/esqueceusenha', function(req, res){
+    res.render('pages/esqueceusenha');
+})
+
 module.exports = router;

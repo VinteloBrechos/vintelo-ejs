@@ -25,6 +25,10 @@ header img {
   height: 40px;
 }
 
+.img-responsiva{
+  position: center;
+  
+}
 /*                                                  corpo da pagina                                                   */
 main{
   padding: 5%;

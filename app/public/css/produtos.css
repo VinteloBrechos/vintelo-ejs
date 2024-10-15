@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Prata, Montserrat;
     background-color: #fdfdfd;
     color: #333;
     line-height: 1.6;
@@ -35,7 +35,7 @@ header img {
 
 /*                                                 Main                                                                */
 main {
-    padding: 40px 20px;
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -47,6 +47,7 @@ main {
     border-radius: 0px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
 
 
 h1 {
@@ -116,20 +117,3 @@ h1 {
 }
 
 
-
-
-  /*                                            Responsividade para Mobile                                              */
-  @media (max-width: 768px) {
-    .grid {
-      grid-template-columns: 2fr;
-    }
-  
-    .celula {
-      margin: 0 auto;
-    }
-  
-    .footer .social-links {
-      flex-direction: column;
-    }
-  }
-  
