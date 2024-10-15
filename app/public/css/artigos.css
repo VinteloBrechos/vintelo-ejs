@@ -5,127 +5,7 @@ body {
   padding: 0;
   background-color: #ffffff;
 }
-
-
-/*                                               menu                                                             */
- 
-
-
-/* MENU HAMBURGUER GERAL */
-.menu-hamburger {
-
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-self: flex-start;
-  overflow: auto;
-  z-index: 1;
-  color: white;
-}
-
-/* ELEMENTOS DO MENU */
-.menu-hamburguer-elements {
-  width: 60%;
-  height: 100%;
-  background-color: rgba(255, 252, 252, 0.9);
-  position: fixed;
-  left: -100%;
-  top: 0;
-  transition: left cubic-bezier(1, 0, 0, 1) .8s;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 15vh;
-  z-index: -1;
-}
-
-.menu-hamburguer-elements li {
-  list-style: none;
-  font-size: 1.4rem;
-  margin: 2rem 0;
-}
-
-.menu-hamburguer-elements a {
-  color: rgb(85, 27, 27);
-  text-decoration: none;
-}
-
-.menu-hamburguer-elements a:hover {
-  color: rgb(71, 22, 22);
-}
-
-/* BOTÃO MENU HAMBURGER */
-.menu {
-  background-color: rgb(102, 31, 31);
-  width: 60px;
-  height: 60px;
-  margin: 0rem 0rem;
-  border-radius: 30px;
-  cursor: pointer;
-  display: flex;
-}
-
-.hamburguer {
-  position: relative;
-  display: block;
-  background: #ffffff;
-  width: 30px;
-  height: 2px;
-  top: 29px;
-  left: 15px;
-  transition: 0.5s ease-in-out;
-}
-
-.hamburguer:before,
-.hamburguer:after {
-  background: #ffff;
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transition: 0.5s ease-in-out;
-}
-
-.hamburguer:before {
-  top: -10px;
-}
-
-.hamburguer:after {
-  bottom: -10px;
-}
-
-/* OCULTAR CHECKBOX */
-input {
-  display: none;
-}
-
-/* ANIMAÇÃO HAMBURGER AO CLICAR */
-input:checked ~ label .hamburguer {
-  transform: rotate(45deg);
-}
-
-input:checked ~ label .hamburguer:before {
-  transform: rotate(90deg);
-  top: 0;
-}
-
-input:checked ~ label .hamburguer:after {
-  transform: rotate(90deg);
-  bottom: 0;
-}
-
-/* MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO */
-input:checked ~ .menu-hamburguer-elements {
-  left: 0;
-}
-
-
 /*                                             Cabeçalho                                                          */
-
-
-
 
 h2 {
   color: #333;
@@ -142,39 +22,38 @@ p {
 
 header {
   background-color: #fff;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-nav.grid {
+header .grid {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
 }
-/*                                                                 header                                               */
-nav.grid img {
-  max-width: 100px;
-  cursor: pointer;
+
+header img {
+  height: 100px;
 }
 
 nav.grid-2 {
   display: flex;
-  justify-content: center;
-  grid-template-columns: 2fr 2fr;  /* Duas colunas */
-  gap: 20px;
-  padding: 10px 30px;
+  justify-content:space-between;
+  gap: 100px;
+  padding: 10px 80px;
   background-color: #fff;
 }
 
 nav.grid-2 img {
+  width: 190%;
+  height: auto;
   display: flex;
   justify-content: center;
 }
 
 
-  header h2 {
-    font-size: 24px;
+  header h3 {
+    font-size: 50%;
     color: #333;
   }
   
@@ -249,14 +128,14 @@ main {
   
   /*                               Footer                  */
 .footer {
-  background-color: #7D2838;
-  color: #fff;
+  background-color: #818F84;
+  color: #ffffff;
   padding: 20px 0;
   text-align: center;
 }
 
 .footer .footer-image {
-  height: 80px;
+  height: 150px;
   margin-bottom: 20px;
 }
 
@@ -265,7 +144,8 @@ main {
 }
 
 .footer .social-media p {
-  font-size: 1.2rem;
+  padding: 2%;
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
@@ -278,7 +158,7 @@ main {
 }
 
 .footer .social-link img {
-  height: 30px;
+  height: 90px;
   transition: transform 0.3s;
 }
 
@@ -287,21 +167,9 @@ main {
 }
 
 .copyright {
-  font-size: 0.9rem;
+  padding: 2%;
+  font-size: 2rem;
   margin-top: 20px;
 }
 
-/*                                            Responsividade para Mobile                                              */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 2fr;
-  }
 
-  .celula {
-    margin: 0 auto;
-  }
-
-  .footer .social-links {
-    flex-direction: column;
-  }
-}
