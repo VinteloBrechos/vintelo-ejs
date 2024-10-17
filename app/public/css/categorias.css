@@ -39,6 +39,52 @@ main h2 {
   margin-bottom: 15px;
 }
 
+/*                                                           barra de pesquisa                                                                */
+.search-section {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  background-color: #66666617;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.search-form input {
+  border: none;
+  padding: 15px 15px;
+  flex: 1;
+  font-size: 35px;
+  outline: none;
+  background-color: #66666604;
+}
+
+.search-icon, .mic-icon {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-icon img, .mic-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.mic-icon img {
+  width: 50px; /* O ícone de microfone pode ser ligeiramente maior */
+  height: 50px;
+}
+
+/*                                            filtros das categorias                                                  */
 
 /*                                              Grid de duas colunas                                                  */
 .Produtos {

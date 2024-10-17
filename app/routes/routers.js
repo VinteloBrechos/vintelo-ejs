@@ -166,4 +166,8 @@ router.get('/esqueceusenha', function(req, res){
 router.get('/estatistica', function(req, res){
     res.render('pages/estatistica');
 })
+
+router.get('/categorias', function(req, res){
+    res.render('pages/categorias');
+})
 module.exports = router;

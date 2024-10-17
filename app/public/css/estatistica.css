@@ -27,7 +27,30 @@
   header img {
     height: 100px;
   }
+/*                                                      animação                                                     */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 50%;
+  height: 80vh;
+  border-bottom: 2px solid #fff;
+}
 
+.bar {
+  width: 15%;
+  background-color: #7b2d37;
+  animation: grow 2s ease-out forwards;
+}
+
+@keyframes grow {
+  from {
+      height: 0;
+  }
+  to {
+      height: 100%;
+  }
+}
 
   /*                                                      Rodapé                                                      */
 .footer {
@@ -42,7 +65,7 @@
     font-size: 20px;
   }
   .footer .footer-image {
-    height: 150px;
+    height: 90px;
     margin-bottom: 20px;
   }
   
