@@ -163,4 +163,7 @@ router.get('/esqueceusenha', function(req, res){
     res.render('pages/esqueceusenha');
 })
 
+router.get('/estatistica', function(req, res){
+    res.render('pages/estatistica');
+})
 module.exports = router;
