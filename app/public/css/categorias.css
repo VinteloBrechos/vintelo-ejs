@@ -41,7 +41,7 @@ main h2 {
 
 /*                                                           barra de pesquisa                                                                */
 .search-section {
-  padding: 20px;
+  padding: 0px 50px;
   display: flex;
   justify-content: center;
 }
@@ -85,37 +85,39 @@ main h2 {
 }
 
 /*                                            filtros das categorias                                                  */
-
-/*                                              Grid de duas colunas                                                  */
-.Produtos {
-  margin: 20px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 4fr 4fr;  /* Duas colunas */
-  gap: 0px;  /* Espaçamento entre colunas */
-}
-
-/*                                        Estilização das células                                                  */
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-bottom: 30px;
+.main{
   padding: 50px;
+}
+.titulo {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: left;
+  padding: 20px 50px;
+}
+
+.carousel-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 50px;
+}
+
+.product-list {
+  display: inline-flex;  /* Coloca os itens em linha */
+  gap: 50px;
 }
 
 .product {
   background-color: white;
-  border-radius: 40px;
+  border-radius: 30px;
   padding: 10px;
   text-align: center;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  min-width: 300px;  /* Largura mínima para que o item fique alinhado horizontalmente */
+  flex-shrink: 0;  /* Impede que os itens encolham */
 }
 
 .product img {
-  width: 95%;
+  width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -123,17 +125,21 @@ main h2 {
 
 .legenda {
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 40px;
   color: #555;
   text-align: left;
 }
 
 .legenda + .legenda {
-  font-size: 15px;
+  font-size: 35px;
   color: #000;
   font-weight: bold;
 }
 
+/* Adiciona rolagem suave */
+.carousel-container {
+  scroll-behavior: smooth;
+}
 
 
 /*                                                          Footer                                                     */
