@@ -164,3 +164,16 @@ header {
       background-color: #5a1f2b; /* Cor mais escura ao passar o mouse */
     }
     
+
+/*                                       parte oculta do longin
+/* Estilos para tornar a segunda seção invisível no mobile */
+.login.css {
+  display: none;
+}
+
+/* Tornar visível a partir de tablets (768px) */
+@media (min-width: 768px) {
+  .login.css {
+    display: inline-block;
+  }
+}

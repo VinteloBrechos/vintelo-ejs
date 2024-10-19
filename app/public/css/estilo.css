@@ -512,6 +512,12 @@ h3 {
   padding: 50px;
 }
 
+.produto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+  gap: 3rem;
+}
+
 .product-card {
   background-color: #fff;
   border-radius: 40px;
@@ -562,6 +568,24 @@ h3 {
 }
 
 
+/*                                           seção produtos ocultos para mobile                                     */
+
+/* A partir de 768px, exibe 4 colunas */
+@media (min-width: 768px) {
+  .produto-grid {
+      display: none;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+/* A partir de 768px, exibe 4 colunas */
+@media (max-width: 769px) {
+.produto-grid {
+    display: inline-block;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
 /*                                                Seção de perfis                                                    */
 .titulobrecho{
   font-size: 50px;
@@ -609,18 +633,26 @@ h3 {
   padding: 0px 50px;
 }
 /*                                                       banner  de cadastro                                                                  */
+
 .img-cashback{
   display: block;
   margin: 0;
   border-radius: 10%;
 }
 /* Estilo padrão: ocultar o banner */
- @media  (min-width: 768px) and (max-width: 992px) {
-  .img-cashback#phone {display: block;}
-  .img-cashback#pc {display: none;}
+ @media  (max-width: 768px)  {
+  .img-cashback#phone  {display: block;}
+  .img-cashback {display: none;}
+  
+}
+
+@media  (min-width: 993px){
+  .img-cashback {display: none;}
   
 }
 /*                                                    Estilos para o botão dos perfis                                                         */
+
+
 h2 {
   font-size: 24px;
   color: #7b2d36;
@@ -773,14 +805,42 @@ h2 {
   text-decoration: none; 
 }
 
-/* Animação do carrossel */
-@keyframes slide {
-  0% { transform: translateX(0); }
-  33% { transform: translateX(-100%); }
-  66% { transform: translateX(-200%); }
-  100% { transform: translateX(0); }
+/*                                                ocultação do blog                                                 */
+.sweet-colors {
+  gap: 20px;
+  padding: 40px;
+  max-width: 2200px;
+  margin: 0 auto;
+  background-color: #edd4d5; /* Cor suave de fundo da seção */
 }
-
+.image-container{
+  width: 100%; /* A imagem ocupa toda a largura do container */
+  height: auto;
+}
+/* Ate 768px  exibe */
+@media (max-width: 768px) {
+  .artigos {
+      display: block;
+    }
+  }
+/* A partir de 769px, oculta*/
+@media (min-width: 992px) {
+  .artigos {
+    display: none;
+  }
+}
+/* Ate 768px oculta */
+@media (max-width: 768px) {
+  .sweet-colors {
+      display: none;
+    }
+  }
+/* A partir de 769px exibe*/
+@media (min-width: 992px) {
+  .sweet-colors {
+    display: block;
+  }
+}
 
 /*                                                      Rodapé                                                      */
 .footer {

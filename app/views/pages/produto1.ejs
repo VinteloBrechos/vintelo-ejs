@@ -25,7 +25,16 @@
     <main>
         <section class="product-view">
             <figure>
-                <img src="imagens/produto1.png" alt="img-responsiva" class="main-image">
+                              <!-- Imagem que será ampliada -->
+             <img id="imagem-clique" src="imagens/produto1.png" alt="Imagem" class="imagem-pequena">
+
+                       <!-- Modal para exibir a imagem ampliada -->
+              <div id="modal" class="modal">
+               <span class="fechar">&times;</span>
+               <img class="modal-conteudo" id="imagem-modal">
+              </div>
+
+              <script src="script.js"></script>
                 <br>
                 <img src="imagens/fila-regatas.png" alt="img-responsiva">
                 <div class="produto-container">
