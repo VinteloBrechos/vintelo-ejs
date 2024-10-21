@@ -504,26 +504,26 @@ h3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   gap: 3rem;
-  padding: 50px;
+  padding: 20px 80px;
 }
 
 .product-card {
   background-color: #fff;
   border-radius: 40px;
-  padding: 1rem;
+  padding: 5px;
   text-align: center;
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.274);
 }
 
 .product-card img {
-  width: 100%;
+  width: 90%;
   height: auto;
   border-radius: 8px;
 }
 
 .product-card h2 {
-  font-size: 35px;
+  font-size: 30px;
   margin: 0.5rem 0;
   color: #4e4e4e;
   text-align: left;
@@ -533,7 +533,7 @@ h3 {
   font-weight: bold;
   color: #000000;
   margin-bottom: 1rem;
-  font-size: 35px;
+  font-size: 30px;
   text-align: left;
 }
 
@@ -854,6 +854,23 @@ h1 {
   font-size: 34px;
   text-decoration: none;
   color: #333;
+}
+.produtos-ocultos{
+  padding: 20px;
+  display: none;
+}
+
+/* Ate 768px  exibe */
+@media (max-width: 768px) {
+  .produtos-ocultos {
+      display: none;
+    }
+  }
+/* A partir de 769px, oculta*/
+@media (min-width: 992px) {
+  .produtos-ocultos {
+    display: block;
+  }
 }
 
 /*                                              Estilos para a seção de artigos                                        */
