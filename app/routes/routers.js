@@ -170,4 +170,12 @@ router.get('/estatistica', function(req, res){
 router.get('/categorias', function(req, res){
     res.render('pages/categorias');
 })
+
+router.get('/homedescontos', function(req, res){
+    res.render('pages/homedescontos');
+})
+
+router.get('/homebrechos', function(req, res){
+    res.render('pages/homebrechos');
+})
 module.exports = router;

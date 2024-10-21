@@ -451,7 +451,19 @@ nav.grid-2 p:hover {
   color: #ffffff; 
 }
 
-  
+/*                                          seção de produtos com desconto                                             */
+
+.discount-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #7d283891;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+}
+
 
 /*                                          Estilos para a seção de produtos                                           */
 h3 {
@@ -490,15 +502,9 @@ h3 {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   gap: 3rem;
   padding: 50px;
-}
-
-.produto-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
-  gap: 3rem;
 }
 
 .product-card {
@@ -749,7 +755,7 @@ h3 {
 /*                                    seção de artigos que ficara oculta para mobile                                  */
 .artigos-section {
   text-align: center;
-  padding: 0px 60px;
+  padding: 20px 60px;
   display: none;
 }
 
@@ -848,50 +854,6 @@ h1 {
   font-size: 34px;
   text-decoration: none;
   color: #333;
-}
-
-.produtos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 15px;
-  padding: 50px;
-  display: none;
-}
-
-.article-produtos {
-  background-color: white;
-  padding: 15px;
-  border-radius: 30px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-article img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-article h2 {
-  font-size: 14px;
-  margin: 10px 0;
-  color: #000;
-  text-align: left;
-}
-
-article p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-  text-align: left;
-}
-/* Adicionar responsividade para telas maiores (acima de 768px - tablets) */
-@media (min-width: 768px) {
-  .produtos {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 70px;
-  }
 }
 
 /*                                              Estilos para a seção de artigos                                        */
