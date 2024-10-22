@@ -4,7 +4,7 @@
   }
   a {
     text-decoration: none;
-    color: #b0283c;
+    color: #000000;
   }
   
   .produto-container {
@@ -54,7 +54,7 @@
   
   .preco-produto {
     font-size: 20px;
-    color: #b0283c;
+    color: #000000;
     margin-bottom: 20px;
     text-align: left;
   }
@@ -75,7 +75,7 @@
   .btn-tamanho {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #b0283c;
+    background-color: #7b2f35;
     color: white;
     border: none;
     border-radius: 5px;
@@ -99,7 +99,7 @@
     width: 100%;
     padding: 15px;
     font-size: 16px;
-    background-color: #b0283c;
+    background-color: #7b2f35;
     color: white;
     border: none;
     border-radius: 5px;
@@ -122,7 +122,7 @@
     display: inline-block;
     padding: 8px 12px;
     font-size: 14px;
-    border: 1px solid #b0283c;
+    border: 1px solid #000000;
     border-radius: 5px;
     cursor: pointer;
   }
