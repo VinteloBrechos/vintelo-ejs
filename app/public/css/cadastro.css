@@ -1,14 +1,12 @@
-/*                                                   plano de fundo                                                  */
-body {
-    background: linear-gradient(to right, #FEF2F4, #FAC6CF); /* Degradê de rosa claro para rosa escuro */
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/*                                                    imagem do maniquim                                               */
-.img-responsiva {
-  width: 70%;  
-  height: auto; 
-  max-width: 100%; 
-  display: block; 
+body {
+  font-family: 'Prata', 'Montserrat';
+  background: linear-gradient(180deg, #fef2f4 0%, #f5c9d0 100%);
 }
 
 /*                                                   Estilos padrão - Mobile First                                     */
@@ -41,11 +39,6 @@ main {
     font-size: 22px;
   }
 }
-
-
-
-  
-  
   
   /*                                                 reset basico                                                    */
  /* Estilos para dispositivos móveis primeiro */
@@ -143,15 +136,3 @@ header {
     }
     
 
-/*                                       parte oculta do longin
-/* Estilos para tornar a segunda seção invisível no mobile */
-.login.css {
-  display: none;
-}
-
-/* Tornar visível a partir de tablets (768px) */
-@media (min-width: 768px) {
-  .login.css {
-    display: inline-block;
-  }
-}

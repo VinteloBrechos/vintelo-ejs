@@ -1,51 +1,60 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Prata, Montserrat;
-    background-color: #f9f9f9;
+    font-family: 'Prata', 'Montserrat';
 }
 
-/*                                                       cabeçalho                                                      */
+/* Cabeçalho */
 header {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  header .grid {
+}
+
+header .grid {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  header img {
+}
+
+.logo-vintelo {
     height: 40px;
-  }
-
-/*                                                    formulário                                                       */
-
-.back-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: auto;
 }
 
-.logo {
-    width: 100px;
-    margin: 0 auto;
-}
-
-main {
+/* Container principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
+    min-height: 100vh;
+    gap: 20px;
+}
+
+.image-section {
+    width: 50%;
+    background: linear-gradient(180deg, #fef2f4 0%, #f5c9d0 100%);
+    padding: 20px;
+    text-align: center;
+}
+
+.mannequin {
+    max-width: 80%;
+    height: auto;
 }
 
 .form-section {
-    text-align: center;
+    width: 50%;
+    padding: 20px;
+}
+
+.logo-top {
+    width: 100px;
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -55,26 +64,30 @@ h2 {
 }
 
 p {
-    color: #666;
+    text-align: center;
     margin-bottom: 20px;
+    color: #666;
 }
 
 .profile-section {
     position: relative;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .profile-img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    object-fit: cover;
+    display: block;
     margin: 0 auto;
 }
 
 .edit-icon {
     position: absolute;
     top: 0;
-    right: 37%;
+    right: 35%;
     background-color: #8c2b44;
     color: #fff;
     border: none;
@@ -83,76 +96,53 @@ p {
     padding: 5px;
     font-size: 12px;
 }
-/*                                               formulário                                                           */
+
 .form-group {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
     position: relative;
 }
 
-.form-group label {
-    display: none;
-}
-
 .form-group input {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #ffffff00;
 }
 
 .check-icon {
     position: absolute;
-    right: 10%;
+    right: 10px;
     color: green;
     font-size: 18px;
 }
 
-
-/*                                                 forma de pagamento                                                 */
 h3 {
+    font-size: 18px;
     color: #333;
-    margin-top: 20px;
     margin-bottom: 10px;
-    font-size: 18px;
-    text-align: left;
 }
 
-.img-pagamento{
-    width: 30px;
-    height: auto;
-}
-.pagamento{
-    color: #000000;
-    font-size: 18px;
-    text-align: center;
-    display: flex;
-}
-
-.grid-pagamento{
+.grid-pagamento {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.check-icon-2 {
-    font-size: 24px;
-    color: green; /* Cor para ícones de confirmação */
-}
-
-
-.payment-option img {
+.grid-pagamento img {
     width: 40px;
-    margin-right: 10px;
 }
 
-.payment-option span {
+.pagamento {
     flex-grow: 1;
-    text-align: left;
+    margin-left: 10px;
 }
 
 .error-icon {
@@ -160,32 +150,123 @@ h3 {
     font-size: 18px;
 }
 
-.payment-option.selected {
-    border: 2px solid green;
+.check-icon-2 {
+    color: green;
+    font-size: 18px;
 }
 
 .add-option {
-    width: 30px;
-    height: 30px;
     background-color: #8c2b44;
-    color: #fff;
-    font-size: 20px;
+    color: white;
     border: none;
     border-radius: 50%;
-    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/*                                                       rodape                                                         */
+/* Rodapé */
 footer {
     text-align: center;
+    padding: 20px;
 }
 
 .create-button {
-    width: 100%;
-    padding: 25px;
     background-color: #8c2b44;
-    color: #fff;
+    color: white;
+    padding: 15px;
     border: none;
+    border-radius: 5px;
+    width: 100%;
     font-size: 16px;
-    cursor: pointer;
+    cursor: not-allowed;
+}
+
+/* Estilos para telas maiores */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .image-section {
+        padding: 40px;
+    }
+
+    .form-section {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-section {
+            width: 50%;
+            background: linear-gradient(180deg, #fef2f4 0%, #f5c9d0 100%);
+            padding: 20px;
+            text-align: center;
+            display: none;
+        };
+    }
+
+    @media (min-width: 992px) {
+        .image-section {
+                width: 50%;
+                background: linear-gradient(180deg, #fef2f4 0%, #f5c9d0 100%);
+                padding: 20px;
+                text-align: center;
+                display: block;
+            }
+        }
+    
+        /* Estilos para tablets e desktops (mínimo 768px) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .image-section {
+        width: 50%;
+        padding: 40px;
+    }
+
+    .form-section {
+        width: 50%;
+        padding: 40px;
+    }
+
+    .logo-top {
+        width: 100px;
+    }
+
+    .mannequin {
+        max-width: 80%;
+        height: auto;
+    }
+}
+
+/* Estilos para dispositivos móveis (máximo 768px) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        display: none;
+    }
+
+    .form-section {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .logo-top {
+        width: 80px;
+    }
 }

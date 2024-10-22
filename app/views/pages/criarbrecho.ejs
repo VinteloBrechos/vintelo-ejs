@@ -9,70 +9,73 @@
 <body>
     <header>
         <nav class="grid">
-          <a href="/homecomprador">
-            <img src="imagens/seta.png" alt="Seta Voltar">
-          </a>
-          <img src="imagens/logo.png" alt="Logo">
-          <a href="/carrinho">
-            <img src="imagens/carrinho.png" alt="Carrinho">
-          </a>
+            <a href="/homecomprador">
+                <img src="imagens/seta.png" alt="Seta Voltar">
+            </a>
+            <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
+            <a href="/carrinho">
+              <img src="imagens/carrinho.png" alt="Logo" class="logo-vintelo">
+            </a>
         </nav>
-      </header>
+    </header>
 
     <main>
-        <section class="form-section">
-            <h2>Crie seu brechó</h2>
-            <p>Insira os dados do seu brechó</p>
-            
-            <div class="profile-section">
-                <img src="imagens/maria.png" alt="Foto do Perfil" class="profile-img">
-                <button class="edit-icon">✎</button>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="nome">Nome do brechó</label>
-                <input type="text" id="nome" value="Brechó da Lourdinha" disabled>
-                <span class="check-icon">✔</span>
-            </div>
+        
+        <section class="container">
+            <aside class="image-section">
+                <img src="imagens/maniquim.png" alt="Mannequin" class="mannequin">
+            </aside>
+            <section class="form-section">
+                <center><h2>Crie seu brechó</h2></center>
+                <p>Insira os dados do seu brechó</p>
+                
+                <div class="profile-section">
+                    <img src="imagens/maria.png" alt="Foto do Perfil" class="profile-img">
+                    <button class="edit-icon">✎</button>
+                </div>
 
-            <div class="form-group">
-                <label for="contato">Contato</label>
-                <input type="text" id="contato" value="(11) 95730-5748" disabled>
-                <span class="check-icon">✔</span>
-            </div>
+                <div class="form-group">
+                    <label for="nome">Nome do brechó</label>
+                    <input type="text" id="nome" value="Maria" disabled>
+                    <span class="check-icon">✔</span>
+                </div>
 
-            <div class="form-group">
-                <label for="endereco">Adicionar endereço</label>
-                <input type="text" id="endereco" value="Av. Paulista - São Paulo" disabled>
-                <span class="check-icon">✔</span>
-            </div>
-            <br>
-            <h3>Onde deseja receber?</h3>
-            <br>
-            <nav class="grid-pagamento"> 
-                <img src="imagens/visa.png" class="img-pagamento">
-                <p class="pagamento">Cartão</p>
-                <span class="error-icon">❌</span>
-            </nav>
-            <br>
-            <nav class="grid-pagamento">
-                <img src="imagens/boleto.png" class="img-pagamento">
-                <p class="pagamento">Boleto</p>
-                <span class="check-icon-2">✔</span> 
-            </nav>
-            <br>
-            <nav class="grid-pagamento">
-                <button class="add-option">+</button>
-                <p class="pagamento">Outra forma</p>
-                <span class="check-icon-2">✔</span>
-            </nav>
-            
+                <div class="form-group">
+                    <label for="contato">Contato <br></label>
+                    <input type="text" id="contato" value="(11) 95730-5748" disabled>
+                    <span class="check-icon">✔</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Endereço do brechó</label>
+                    <input type="text" id="endereco" value="Av. Paulista - São Paulo" disabled>
+                    <span class="check-icon">✔</span>
+                </div>
+
+                <h3>Onde deseja receber?</h3>
+
+                <nav class="grid-pagamento">
+                    <img src="imagens/visa.png" alt="Visa Cartão">
+                    <p class="pagamento">Adicionar cartão</p>
+                    <span class="error-icon">❌</span>
+                </nav>
+
+                <nav class="grid-pagamento">
+                    <img src="imagens/boleto.png" alt="Boleto">
+                    <p class="pagamento">Boleto</p>
+                    <span class="check-icon-2">✔</span>
+                </nav>
+
+                <nav class="grid-pagamento">
+                    <button class="add-option">+</button>
+                    <p class="pagamento">Outra forma</p>
+                    <span class="check-icon-2">✔</span>
+                </nav>
+                <button class="create-button" disabled><a href="/perfilvender" class="link-branco">Criar brechó</a></button>
+            </section>
         </section>
-        </main>
-        <br>
-        <footer>
-            <a href="/homevendedor"><button class="create-button">Criar brechó</button></a>
-        </footer>
     </main>
+
+
 </body>
 </html>
