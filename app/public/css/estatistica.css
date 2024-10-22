@@ -27,30 +27,16 @@
   header img {
     height: 100px;
   }
-/*                                                      animação                                                     */
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  width: 50%;
-  height: 80vh;
-  border-bottom: 2px solid #fff;
-}
-
-.bar {
-  width: 15%;
-  background-color: #7b2d37;
-  animation: grow 2s ease-out forwards;
-}
-
-@keyframes grow {
-  from {
-      height: 0;
+  .titulo{
+    font-size: 50px;
+    padding: 70px 50px;
   }
-  to {
-      height: 100%;
+  .estatistica{
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    position: center;
   }
-}
 
   /*                                                      Rodapé                                                      */
 .footer {

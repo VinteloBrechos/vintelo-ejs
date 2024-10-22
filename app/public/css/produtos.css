@@ -34,156 +34,82 @@ header img {
 }
 
 /*                                                 Main                                                                */
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-
 .main-image {
-    width: 100%;
-    border-radius: 0px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-radius: 0px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-
+.main{
+margin: 0;
+padding: 20px;
+}
 
 h1 {
-  font-size: 120%;
-  color: #333;
-  margin-bottom: 10px;
-  text-align: start;
+font-size: 120%;
+color: #333;
+margin-bottom: 10px;
+text-align: start;
 }
 
 .preco {
-  font-size: 100%;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: start;
+font-size: 100%;
+color: #333;
+margin-bottom: 20px;
+text-align: start;
 }
 
 .preco p {
-  text-decoration: line-through;
-  color: gray;
-  margin-top: 5px;
-  text-align: start;
+text-decoration: line-through;
+color: gray;
+margin-top: 5px;
+text-align: start;
 }
 
 .tamanho-disponivel {
-  margin-bottom: 20px;
-  text-align: start;
+margin-bottom: 20px;
+text-align: start;
 }
 
 .tamanho {
-  background-color: #f5f5f5;
-  padding: 10px;
-  font-size: 16px;
-  color: #333;
-  border-radius: 4px;
-  display: inline-block;
-  margin-top: 5px;
+background-color: #f5f5f5;
+padding: 10px;
+font-size: 16px;
+color: #333;
+border-radius: 4px;
+display: inline-block;
+margin-top: 5px;
 }
 
 .descricao {
-  text-align: left;
-  margin-bottom: 20px;
+text-align: left;
+margin-bottom: 20px;
 }
 
 .descricao p {
-  font-size: 14px;
-  color: #333;
-  margin: 5px 0;
+font-size: 14px;
+color: #333;
+margin: 5px 0;
 }
 
 .submit-btn {
-  width: 100%;
-  background-color: #7b2f35;
-  color: white;
-  border: none;
-  padding: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 24px;
+width: 100%;
+background-color: #7b2f35;
+color: white;
+border: none;
+padding: 20px;
+font-size: 16px;
+cursor: pointer;
+margin-top: 24px;
 }
 
 .submit-btn .link-branco {
-  color: white; 
-  text-decoration: none; 
-  display: inline-block;
-  width: 100%; 
-  height: 100%; 
+color: white; 
+text-decoration: none; 
+display: inline-block;
+width: 100%; 
+height: 100%; 
 }
 
 
 
-/* Estilos para a imagem normal */
-.imagem-pequena {
-  width: 200px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.imagem-pequena:hover {
-  transform: scale(1.05); /* Um pequeno zoom ao passar o mouse */
-}
-
-/* Estilos para o modal (janela pop-up) */
-.modal {
-  display: none; /* O modal é oculto por padrão */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
-}
-
-.modal-conteudo {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  border-radius: 8px;
-}
-
-.modal-conteudo {
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
-
-/* Animação de zoom */
-@keyframes zoom {
-  from {transform: scale(0)}
-  to {transform: scale(1)}
-}
-
-/* Botão para fechar o modal */
-.fechar {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.fechar:hover,
-.fechar:focus {
-  color: #ccc;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Legenda da imagem */
-#legenda {
-  text-align: center;
-  color: #fff;
-  padding: 10px 0;
-  font-size: 20px;
-}

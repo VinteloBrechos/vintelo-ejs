@@ -181,3 +181,19 @@ header {
     color: #ffffffe7;
   }
   
+
+  /* A partir de 768px, exibe 4 colunas */
+@media (max-width: 768px) {
+  .produto-grid {
+      display: block;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+/* A partir de 768px, exibe 4 colunas */
+@media (min-width: 992px) {
+.produto-grid {
+    display: block;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+

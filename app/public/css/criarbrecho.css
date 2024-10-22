@@ -122,11 +122,15 @@ h3 {
     text-align: left;
 }
 
+.img-pagamento{
+    width: 30px;
+    height: auto;
+}
 .pagamento{
     color: #000000;
     font-size: 18px;
-    text-align: left;
-    display: inline-block;
+    text-align: center;
+    display: flex;
 }
 
 .grid-pagamento{
@@ -136,11 +140,10 @@ h3 {
 }
 
 .check-icon-2 {
-    position: absolute;
-    right: 10%;
-    color: green;
-    font-size: 18px;
+    font-size: 24px;
+    color: green; /* Cor para ícones de confirmação */
 }
+
 
 .payment-option img {
     width: 40px;
@@ -171,7 +174,7 @@ h3 {
     border-radius: 50%;
     cursor: pointer;
 }
- 
+
 /*                                                       rodape                                                         */
 footer {
     text-align: center;

@@ -283,7 +283,7 @@ nav.grid-2 p:hover {
 }
    
 .bemvindo{
-  font-size: 30px;
+  font-size: 30px; 
   color: #a3a1a1;
   text-align: left;
   padding: 20px;
@@ -408,7 +408,11 @@ nav.grid-2 p:hover {
 
 
 /*                                                       botão para as categorias                                     */ 
-
+.garimpe{
+ width: auto;
+ height: auto;
+ padding: 10px 30px;
+}
 .carousel-container {
   overflow-x: auto;
   scrollbar-width: thin; 
@@ -423,7 +427,7 @@ nav.grid-2 p:hover {
   display: flex;
   gap: 40px;
   list-style: none;
-  padding: 10px 0px;
+  padding: 10px 30px;
   margin: 0;
   overflow-x: auto;
   scroll-behavior: smooth; 
@@ -576,10 +580,10 @@ h3 {
 
 
 /*                                                Seção de perfis                                                    */
-.titulobrecho{
-  font-size: 50px;
-  color: #7b2d36;
-  margin-bottom: 20px;
+.titulo-brecho{
+    width: auto;
+    height: auto;
+    padding: 10px 30px;
 }
 .perfis {
   display: flex;
@@ -874,6 +878,12 @@ h1 {
 }
 
 /*                                              Estilos para a seção de artigos                                        */
+.titulo-artigo{
+  width: auto;
+  height: auto;
+}
+
+
 .artigos{
   padding: 100px;
   background-color: #d9d9d996;
