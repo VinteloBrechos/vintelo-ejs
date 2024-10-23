@@ -12,9 +12,7 @@ body {
 header {
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 header .grid {
     display: flex;
     justify-content: space-between;
@@ -30,7 +28,7 @@ header .grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 0px;
     min-height: 100vh;
     gap: 20px;
 }
@@ -268,5 +266,19 @@ footer {
 
     .logo-top {
         width: 80px;
+    }
+}
+
+/* Estilos para telas maiores */
+@media (max-width: 768px) {
+    .header {
+        display: block;
+    }
+}
+
+/* Estilos para telas maiores */
+@media (min-width: 992px) {
+    .header {
+        display: none;
     }
 }

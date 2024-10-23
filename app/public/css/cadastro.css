@@ -11,7 +11,6 @@ body {
 
 /*                                                   Estilos padrão - Mobile First                                     */
 main {
-  padding: 40px;
   text-align: center;
   font-size: 16px;
 }
@@ -19,7 +18,6 @@ main {
 /* Ajustes para tablets */
 @media (min-width: 768px) {
   main {
-    padding: 40px;
     font-size: 18px;
   }
 }
@@ -85,8 +83,8 @@ header {
       box-align: baseline;
       
     }
-    
-    .img-responsiva {
+
+    .image-section{
       width: 100%;
       height: auto;
       display: block;
@@ -99,7 +97,7 @@ header {
       transform: translate(-50%, -100%);
       text-align: center;
       color: rgb(0, 0, 0);
-      padding: 20px; 
+      padding: 10px; 
       width: 520px;
       height: 250px;
       background: rgb(255, 255, 255); 
@@ -135,4 +133,3 @@ header {
       background-color: #5a1f2b; /* Cor mais escura ao passar o mouse */
     }
     
-
