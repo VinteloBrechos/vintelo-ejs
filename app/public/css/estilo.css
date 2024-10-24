@@ -353,7 +353,7 @@ nav.grid-2 p:hover {
 
 
 .carousel-slide img {
-  width: 100%;
+  width: 90%;
   flex: 1 0 100%;
 }
 
@@ -509,6 +509,8 @@ h3 {
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   gap: 3rem;
   padding: 20px 80px;
+  align-items: center;
+  position: center;
 }
 
 .product-card {

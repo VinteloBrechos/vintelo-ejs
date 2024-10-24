@@ -1,34 +1,100 @@
 <!DOCTYPE html>
-<html>
-  <meta charset="UTF-8">
-  <head>
-    <title>Cadastro Vintélo</title>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Brechó - Vintélo</title>
     <link rel="stylesheet" href="css/cadastro.css">
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <nav class="nav-grid">
-        <a href="/index">
-          <img src="imagens/seta.png" alt="Seta Voltar">
-        </a>
-        <img src="imagens/logo.png" alt="Logo" class="logo">
-      </nav>
+        <nav class="grid">
+            <a href="/index">
+                <img src="imagens/seta.png" alt="Seta Voltar">
+            </a>
+            <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
+            <a href="/carrinho">
+              <img src="imagens/carrinho.png" alt="Carrinho de Compras" class="logo-vintelo">
+            </a>
+        </nav>
     </header>
-    
-    <main>
-      <div class="container">
-        <img src="imagens/maniquim.png" class="image-section" alt="Maniquim">
-        <div class="content">
-          <h1>Sua essência na aparência</h1>
-          <p>Crie seu estilo individual e único e fique incrível todos os dias.</p>
-          <br>
-          <div class="buttons">
-            <a href="/login" class="button">Cadastrar</a>
-            <a href="/entrar" class="button">Entrar</a>
-          </div>
-        </div>
-      </div>
-    </main>
 
+    <main class="login-container">
+        <aside class="image-section">
+          <section class="seta">
+            <a href="/index">
+                <img src="imagens/seta.png" >
+            </a>
+          </section>
+            <img src="imagens/maniquim.png" alt="Mannequin" class="mannequin">
+            <div class="content">
+              <h1>Sua essência na aparência</h1>
+              <p>Crie seu estilo individual e único e fique incrível todos os dias.</p>
+              <br>
+              <div class="buttons">
+                <a href="/login" class="button">Cadastrar</a>
+                <a href="/entrar" class="button">Entrar</a>
+              </div>
+            </div>
+    
+        </aside>
+        <section class="form-section">
+            <div class="form-container">
+                <center>
+                    <h2>Acesso fácil</h2>
+                    <p>Conecte-se usando seu cadastro de outra plataforma</p>
+                </center>
+                
+                <div class="social-login">
+                    <a href="#"><img src="imagens/face.jpg"></a>
+                    <a href="#"><img src="imagens/insta.jpg"></a>
+                    <a href="#"><img src="imagens/google.jpg"></a>
+                </div>
+
+                <p class="divider">ou acesse via email</p>
+                
+                <div class="login-register">
+                    <div class="login">
+                        <h3>Entrar</h3>
+                        <form action="#" method="post">
+                            <label for="username">Email ou nome de usuário</label>
+                            <input type="text" id="username" name="username" placeholder="Maria" required>
+                            
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="password" placeholder="HJ@#9783kja" required>
+                            
+                            <button class="submit-btn">Entrar</button>
+                        </form>
+                    </div>
+
+                    <div class="register">
+                        <h3>Cadastrar</h3>
+                        <form action="#" method="post">
+                            <label for="new-username">Nome de usuário</label>
+                            <input type="text" id="new-username" name="new-username" placeholder="Maria de Lourdes" required>
+                            
+                            <label for="email">Endereço de email</label>
+                            <input type="email" id="email" name="email" placeholder="maria.lourdes@exemplo.com" required>
+                            
+                            <label for="new-password">Senha</label>
+                            <input type="password" id="new-password" name="new-password" placeholder="HJ@#9783kja" required>
+                            
+                            <label for="phone">Contato</label>
+                            <input type="text" id="phone" name="phone" placeholder="(11) 95730-5748" required>
+                            
+                            <label for="cpf">Adicionar CPF</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="098765439/46" required>
+                            
+                            <label for="address">Adicionar endereço</label>
+                            <input type="text" id="address" name="address" placeholder="Av. Paulista - São Paulo" required>
+
+
+                            <button class="submit-btn">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
