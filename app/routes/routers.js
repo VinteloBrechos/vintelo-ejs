@@ -191,4 +191,8 @@ router.get('/brecho', function(req, res){
     res.render('pages/brecho');
 })
 
+router.get('/homeplusize', function(req, res){
+    res.render('pages/homeplusize');
+})
+
 module.exports = router;
