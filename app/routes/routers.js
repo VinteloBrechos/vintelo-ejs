@@ -175,7 +175,20 @@ router.get('/homedescontos', function(req, res){
     res.render('pages/homedescontos');
 })
 
-router.get('/homebrechos', function(req, res){
-    res.render('pages/homebrechos');
+router.get('/homebrecho', function(req, res){
+    res.render('pages/homebrecho');
 })
+
+router.get('/homenovidades', function(req, res){
+    res.render('pages/homenovidades');
+})
+
+router.get('/minhascompras', function(req, res){
+    res.render('pages/minhascompras');
+})
+
+router.get('/brecho', function(req, res){
+    res.render('pages/brecho');
+})
+
 module.exports = router;
