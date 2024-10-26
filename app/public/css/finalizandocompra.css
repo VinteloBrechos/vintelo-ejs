@@ -97,7 +97,7 @@
 }
 
 .search-container {
-  width: 100%;
+  width: 50%;
 }
 
 .search-form {
@@ -110,9 +110,9 @@
 
 .search-form input {
   border: none;
-  padding: 15px 15px;
+  padding: 10px 10px;
   flex: 1;
-  font-size: 35px;
+  font-size: 20px;
   outline: none;
   background-color: #66666604;
 }
@@ -124,14 +124,14 @@
   cursor: pointer;
 }
 
-.search-icon img, .mic-icon img {
-  width: 40px;
-  height: 40px;
+.search-icon img {
+  width: 20px;
+  height: 20px;
 }
 
 .mic-icon img {
-  width: 50px; /* O ícone de microfone pode ser ligeiramente maior */
-  height: 50px;
+  width: 30px; /* O ícone de microfone pode ser ligeiramente maior */
+  height: 30px;
 }
 
 
@@ -143,10 +143,11 @@ nav.grid {
   padding: 10px; /* Espaçamento interno para o nav */
 }
 
-nav.grid a {
+nav.grid-2 a {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0px 80px;
 }
 
 .img-grid{
@@ -155,8 +156,7 @@ nav.grid a {
 }
 
 .logo{
-  width: 150px;
-
+  width: 120px;
 }
   .adicionar{
     padding: 10px 80px;
@@ -287,7 +287,7 @@ nav.grid a {
     text-align: right;
   }
   
-  .finalize-button {
+  .finalize-button2 {
     width: 100%;
     background-color: #7b2f35;
     color: white;
@@ -331,3 +331,52 @@ nav.grid a {
   }
   
 
+
+/*                                                      Rodapé                                                      */
+.footer {
+  background-color: #7D2838;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.p-footer{
+  color: #ffffffe7;
+  font-size: 20px;
+}
+.footer .footer-image {
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.footer .social-media {
+  margin-bottom: 20px;
+}
+
+.footer .social-media p {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-link img {
+  height: 90px;
+  transition: transform 0.3s;
+}
+
+.footer .social-link img:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  font-size: 15px;
+  margin-top: 20px;
+  color: #ffffffe7;
+}
