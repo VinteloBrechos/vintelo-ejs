@@ -31,6 +31,11 @@
     font-size: 100%;
     text-align: center;
   }
+
+  .pedidoconf{
+    width: 90%;
+    height: auto;
+  }
   .back-button {
     background: none;
     border: none;
@@ -67,7 +72,7 @@
   }
   
   .view-orders-button {
-    background-color: #f8f8f8;
+    background-color: #e1e1e1;
     color: #7b2f35;
     border: none;
     padding: 16px;
@@ -80,9 +85,8 @@
     background-color: #7b2f35;
     color: white;
     border: none;
-    padding: 16px;
+    padding: 26px;
     font-size: 16px;
-    border-radius: 8px;
     cursor: pointer;
   }
   

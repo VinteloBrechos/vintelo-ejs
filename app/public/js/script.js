@@ -30,3 +30,14 @@ img.onclick = function() {
 fechar.onclick = function() {
   modal.style.display = "none";
 }
+
+
+//       formas de pagamento 
+function selectPayment(element) {
+  // Remove a classe 'selected' de todos os itens de pagamento
+  const paymentOptions = document.querySelectorAll('.payment-option');
+  paymentOptions.forEach(option => option.classList.remove('selected'));
+  
+  // Adiciona a classe 'selected' ao item clicado
+  element.classList.add('selected');
+}

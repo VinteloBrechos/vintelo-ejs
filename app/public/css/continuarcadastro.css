@@ -8,8 +8,7 @@
 /*                                             Estilização do cabeçalho                                                 */
 header {
     background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
 }
 
 header .grid {
@@ -19,7 +18,7 @@ header .grid {
 }
 
 header img {
-    height: 80px;
+    height: 110px;
 }
 
 /*                                                 Estilização principal                                                */
@@ -51,11 +50,10 @@ h1 {
   
   .edit-icon {
     position: absolute;
-    top: 35%;
-    right: 38%;
+    top: 36%;
+    right: 35%;
     background-color: #7D2838;
     border-radius: 50%;
-    padding: 2%;
     font-size: 100%;
     cursor: pointer;
   }
@@ -98,13 +96,21 @@ h1 {
     font-size: 120%;
   }
   
+  .pag{
+    text-align: end;
+    font-size: 40px;
+    padding: 10px 50px;
+    color: #666666;
+  }
+  
+
   .submit-btn {
     width: 100%;
     background-color: #8C1D40;
     color: white;
     border: none;
     padding: 5% 0;
-    font-size: 200%;
+    font-size: 50px;
     cursor: pointer;
     margin-top: 10%;
     transition: background-color 0.3s;

@@ -1,0 +1,125 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: prata, montserrat;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .back-button {
+    font-size: 18px;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+  }
+  
+  header h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .section {
+    margin-bottom: 60px;
+  }
+  
+  .section h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .item .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
+  .item span {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .check-icon,
+  .error-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .check-icon {
+    color: green;
+  }
+  
+  .error-icon {
+    color: red;
+  }
+  
+  .item.selected {
+    background-color: #e6f7ff;
+    border: 2px solid #4a90e2;
+  }
+  
+  .total {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  footer {
+    background-color: #8C1D40;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .finalize-button {
+    width: 100%;
+    background-color: #8C1D40;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  

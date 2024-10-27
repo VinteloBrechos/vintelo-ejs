@@ -195,4 +195,9 @@ router.get('/homeplusize', function(req, res){
     res.render('pages/homeplusize');
 })
 
+router.get('/finalizandopagamento', function(req, res){
+    res.render('pages/finalizandopagamento');
+})
+
+
 module.exports = router;
