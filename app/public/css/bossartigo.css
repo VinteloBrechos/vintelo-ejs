@@ -14,7 +14,6 @@ body {
 
 /*                                              Container principal                                                    */
 .container {
-    max-width: 400px;
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
@@ -23,7 +22,7 @@ body {
 /*                                              Estilo do cabeçalho                                                    */
 header {
     background-color: #fff;
-    padding: 2%;
+    padding: 20px;
   }
 
 header .grid {
@@ -32,7 +31,7 @@ header .grid {
     align-items: center;
   }
   header img {
-    height: 90px;
+    height: 80px;
   }
 
 .back-button {
@@ -58,7 +57,7 @@ h1 {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    padding: 10%;
+    padding: 0px 50px;
     position: center;
 }
 
@@ -83,6 +82,12 @@ h1 {
     padding: 8%;
 }
 
+.description-2 {
+  font-size: 14px;
+  color: #555;
+  text-align: justify;
+  padding: 0px 50px;
+}
 /*                                                      Rodapé                                                      */
 .footer {
     background-color: #818F84;

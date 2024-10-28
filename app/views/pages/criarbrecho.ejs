@@ -14,7 +14,7 @@
             </a>
             <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
             <a href="/carrinho">
-              <img src="imagens/carrinho.png" alt="Logo" class="logo-vintelo">
+              <img src="imagens/carrinho.png" alt="carrinho" class="carrinho">
             </a>
         </nav>
     </header>
@@ -25,6 +25,7 @@
             <aside class="image-section">
                 <img src="imagens/maniquim.png" alt="Mannequin" class="mannequin">
             </aside>
+
             <section class="form-section">
                 <center><h2>Crie seu brechó</h2></center>
                 <p>Insira os dados do seu brechó</p>
@@ -34,24 +35,24 @@
                     <button class="edit-icon">✎</button>
                 </div>
 
-                <div class="form-group">
-                    <label for="nome">Nome do brechó</label>
-                    <input type="text" id="nome" value="Maria" disabled>
-                    <span class="check-icon">✔</span>
-                </div>
-
-                <div class="form-group">
-                    <label for="contato">Numero de Contato</label>
-                    <input type="text" id="contato" value="(11) 95730-5748" disabled>
-                    <span class="check-icon">✔</span>
-                </div>
-
-                <div class="form-group">
-                    <label for="endereco">Endereço do brechó</label>
-                    <input type="text" id="endereco" value="Av. Paulista - São Paulo" disabled>
-                    <span class="check-icon">✔</span>
-                </div>
-
+                <br>
+                <form action="#" method="post">
+                    <div class="form-group">
+                     <label for="username"><h1>Nome de usuário</h1></label>
+                      <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
+                    </div>
+                     <br>
+                    <div class="form-group">
+                     <label for="email"><h1>Endereço de email</h1></label>
+                      <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                     <label for="password"><h1>Senha</h1></label>
+                      <input type="password" id="password" name="password" placeholder="HJ@#9783kja" required>
+                    </div>
+                    </form>
+                <br>
                 <h3>Onde deseja receber?</h3>
 
                 <nav class="grid-pagamento">
@@ -70,12 +71,10 @@
                     <button class="add-option">+</button>
                     <p class="pagamento">Outra forma</p>
                     <span class="check-icon-2">✔</span>
-                </nav> 
-                <button class="create-button" disabled><a href="/perfilvender" class="link-branco">Criar brechó</a></button>
+                </nav>
+              <button class="create-button" disabled><a href="/perfilvender" class="link-branco">Criar brechó</a></button>
             </section>
         </section>
     </main>
-
-
 </body>
 </html>

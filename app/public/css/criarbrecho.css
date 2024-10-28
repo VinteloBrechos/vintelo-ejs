@@ -20,6 +20,10 @@ header .grid {
 }
 
 .logo-vintelo {
+    height: 50px;
+}
+
+.carrinho {
     height: 40px;
 }
 
@@ -96,27 +100,40 @@ p {
 }
 
 .form-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.form-group input {
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .form-group label {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+   
+  }
+  .form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #ffffff00;
-}
-
-.check-icon {
-    position: absolute;
-    right: 10px;
+    border-radius: 25px;
+    font-size: 20px;
+    color: #333;
+  }
+  .password-strength {
+    font-size: 20px;
     color: green;
-    font-size: 18px;
-}
+    text-align: right;
+    margin-top: 5px;
+  }
+  .checkbox-group {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .checkbox-group label {
+    font-size: 40px;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+  }
 
 h3 {
     font-size: 18px;
@@ -175,13 +192,21 @@ footer {
 .create-button {
     background-color: #8c2b44;
     color: white;
-    padding: 15px;
+    padding: 20px 50px;
     border: none;
     border-radius: 5px;
     width: 100%;
     font-size: 16px;
     cursor: not-allowed;
 }
+
+.link-branco {
+    color: white; 
+    text-decoration: none; 
+    display: inline-block;
+    width: 100%; 
+    height: 100%; 
+  }
 
 /* Estilos para telas maiores */
 @media (min-width: 768px) {
