@@ -286,8 +286,7 @@ nav.grid-2 a {
     cursor: pointer;
     text-align: right;
   }
-  
-  .finalize-button2 {
+  .finalize-button2{
     width: 100%;
     background-color: #7b2f35;
     color: white;
