@@ -199,5 +199,9 @@ router.get('/finalizandopagamento', function(req, res){
     res.render('pages/finalizandopagamento');
 })
 
+router.get('/pedidos', function(req, res){
+    res.render('pages/pedidos');
+})
+
 
 module.exports = router;
