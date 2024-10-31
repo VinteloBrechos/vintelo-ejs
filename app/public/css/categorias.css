@@ -41,13 +41,13 @@ main h2 {
 
 /*                                                           barra de pesquisa                                                                */
 .search-section {
-  padding: 0px 50px;
+  padding: 20px;
   display: flex;
   justify-content: center;
 }
 
 .search-container {
-  width: 100%;
+  width: 50%;
 }
 
 .search-form {
@@ -60,9 +60,9 @@ main h2 {
 
 .search-form input {
   border: none;
-  padding: 15px 15px;
+  padding: 10px 10px;
   flex: 1;
-  font-size: 35px;
+  font-size: 20px;
   outline: none;
   background-color: #66666604;
 }
@@ -74,14 +74,15 @@ main h2 {
   cursor: pointer;
 }
 
-.search-icon img, .mic-icon img {
-  width: 40px;
-  height: 40px;
+.search-icon img {
+  width: 20px;
+  height: 20px;
 }
 
 .mic-icon img {
-  width: 50px; /* O ícone de microfone pode ser ligeiramente maior */
-  height: 50px;
+  width: 30px; /* O ícone de microfone pode ser ligeiramente maior */
+  height: 30px;
+  padding: 20px;
 }
 
 /*                                            filtros das categorias                                                  */
