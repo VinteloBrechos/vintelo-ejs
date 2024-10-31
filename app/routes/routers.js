@@ -203,5 +203,10 @@ router.get('/pedidos', function(req, res){
     res.render('pages/pedidos');
 })
 
+router.get('/enviopedido', function(req, res){
+    res.render('pages/enviopedido');
+})
+
+
 
 module.exports = router;
