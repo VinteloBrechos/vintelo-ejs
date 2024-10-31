@@ -172,7 +172,7 @@
   font-size: 20px;
 }
 .footer .footer-image {
-  height: 150px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -194,7 +194,7 @@
 }
 
 .footer .social-link img {
-  height: 90px;
+  height: 50px;
   transition: transform 0.3s;
 }
 
@@ -214,4 +214,9 @@
   display: inline-block;
   width: 100%; 
   height: 100%; 
+}
+
+.img-responsive{
+  width: 400px;
+  height: auto;
 }

@@ -40,7 +40,7 @@
   
   header {
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 40px;
   }
   
   header .grid {
@@ -139,8 +139,7 @@ nav.grid {
   display: grid;
   grid-template-columns: auto 1fr auto auto auto; /* Define 5 colunas: logo, barra de pesquisa e ícones */
   align-items: center; /* Alinha todos os itens verticalmente no centro */
-  gap: 10px; /* Espaçamento entre os itens, ajuste conforme necessário */
-  padding: 10px; /* Espaçamento interno para o nav */
+  gap: 80px; /* Espaçamento entre os itens, ajuste conforme necessário */
 }
 
 nav.grid-2 a {
@@ -379,3 +378,7 @@ nav.grid-2 a {
   margin-top: 20px;
   color: #ffffffe7;
 }
+
+
+
+
