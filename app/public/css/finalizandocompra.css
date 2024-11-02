@@ -6,7 +6,7 @@
   
   body {
     font-family: Prata,Montserrat;
-    background-color: #f8f8f8;
+    background-color: #ffffff;
   }
  
  /*                                            banner em gif                                                       */
@@ -40,7 +40,6 @@
   
   header {
     background-color: #fff;
-    padding: 20px 40px;
   }
   
   header .grid {
@@ -90,50 +89,54 @@
     align-items: end;
   }
 /*                                                           barra de pesquisa                                                                */
-.search-section {
-  padding: 20px;
+.top-bar {
+  background-color: #8b1a1a;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.main-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
 }
 
-.search-container {
-  width: 50%;
+.main-header h1 {
+  color: #8b1a1a;
+  font-size: 1.8rem;
 }
 
-.search-form {
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.search-profile {
   display: flex;
   align-items: center;
-  background-color: #66666617;
-  border-radius: 20px;
-  overflow: hidden;
 }
 
-.search-form input {
-  border: none;
-  padding: 10px 10px;
-  flex: 1;
-  font-size: 20px;
-  outline: none;
-  background-color: #66666604;
+.search-profile form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.search-icon, .mic-icon {
-  background-color: transparent;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
 }
 
-.search-icon img {
-  width: 20px;
-  height: 20px;
+.img-tamanho{
+  width: 50px;
+  height: auto;
 }
-
-.mic-icon img {
-  width: 30px; /* O ícone de microfone pode ser ligeiramente maior */
-  height: 30px;
-}
-
 
 nav.grid {
   display: grid;
@@ -343,7 +346,7 @@ nav.grid-2 a {
   font-size: 20px;
 }
 .footer .footer-image {
-  height: 150px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -365,7 +368,7 @@ nav.grid-2 a {
 }
 
 .footer .social-link img {
-  height: 90px;
+  height: 50px;
   transition: transform 0.3s;
 }
 

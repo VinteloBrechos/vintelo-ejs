@@ -207,6 +207,8 @@ router.get('/enviopedido', function(req, res){
     res.render('pages/enviopedido');
 })
 
-
+router.get('/menu', function(req, res){
+    res.render('pages/menu');
+})
 
 module.exports = router;
