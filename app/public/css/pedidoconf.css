@@ -5,10 +5,13 @@
   }
   
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: Prata, Monteserrat;
     background-color: #f8f8f8;
     color: #333;
   }
+
+/*                                                  desktop                                         */
+
   
   .container {
     max-width: 400px;
@@ -216,7 +219,7 @@
   height: 100%; 
 }
 
-.img-responsive{
-  width: 400px;
+.img-responsiva{
+  width: 600px;
   height: auto;
 }

@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Prata, Montserrat;
   background-color: #ffffff;
   color: #333;
 }
@@ -14,6 +14,11 @@ body {
 /* Cabeçalho */
 /*                                             Estilização do cabeçalho                                                 */
 header {
+  background-color: #fff;
+  padding: 30px;
+}
+
+.header-1 {
   background-color: #fff;
   padding: 30px;
 }
@@ -29,6 +34,60 @@ header img {
   gap: 40px;
 }
 
+/*                                                   modo desktop                                                     */
+.top-bar {
+  background-color: #8c2b44;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.main-header h1 {
+  color: #8a2b38;
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.search-profile {
+  display: flex;
+  align-items: center;
+}
+
+.search-profile form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
+}
+
+.img-tamanho{
+  width: 50px;
+  height: auto;
+}
+
+.img-logo{
+  width: 100px;
+  height: auto;
+}
 
 /*                                                   Seção do Perfil                                                  */
 
@@ -258,3 +317,39 @@ header img {
   margin-top: 20px;
   color: #fff;
 }
+
+
+/*                                                  responsividade                                                       */
+.oculto-mobile{
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .oculto-mobile {
+      display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .oculto-mobile {
+      display: block;
+  }
+}
+
+.oculto-desktop{
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .oculto-desktop {
+      display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .oculto-desktop {
+      display: none;
+  }
+}
+ 
