@@ -1,7 +1,7 @@
 .top-bar {
-    background-color: #8C1D40;
-    color: white;
+    background-color: #8c2b44;
     text-align: center;
+    color: white;
     padding: 20px;
 }
 
@@ -11,6 +11,11 @@
     align-items: center;
     padding: 20px;
     background-color: #fff;
+}
+
+.main-header h1 {
+    color: #8b1a1a;
+    font-size: 1.8rem;
 }
 
 nav a {
@@ -37,33 +42,20 @@ nav a {
     margin-left: 20px;
 }
 
-.img-logo {
-    width: 120px;
+.img-tamanho{
+    width: 50px;
+    height: auto;
 }
 
-nav a {
-    color: #333;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1rem;
+.img-logo{
+    width: 100px;
+    height: auto;
 }
 
-.search-profile {
+
+main {
     display: flex;
-    align-items: center;
 }
-
-.search-profile form input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.img-tamanho {
-    width: 30px;
-    margin-left: 10px;
-}
-
 .content {
     max-width: 900px;
     margin: 40px auto;

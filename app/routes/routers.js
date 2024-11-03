@@ -211,4 +211,7 @@ router.get('/menu', function(req, res){
     res.render('pages/menu');
 })
 
+router.get('/minhascomprasdesktop', function(req, res){
+    res.render('pages/minhascomprasdesktop');
+})
 module.exports = router;

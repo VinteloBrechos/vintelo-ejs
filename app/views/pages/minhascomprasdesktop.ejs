@@ -8,17 +8,73 @@
   </head>
   <body>
 
-    <header>
-        <nav class="grid">
-          <a href="/homecomprador">
-            <img src="imagens/seta.png" alt="seta-voltar">
-          </a>
-          <img src="imagens/logo.png" alt="Logo">
-          <a href="/carrinho">
-          <img src="imagens/carrinho.png" alt="Descrição da Imagem" />
-        </a>
-        </nav>
-      </header>
+    <section class="oculto-notebook-1">
+    <header1>
+      <section class="top-bar">
+          <p>10% OFF na primeira compra</p>
+      </section>
+      <section class="main-header">
+          <img src="imagens/logo.png" class="img-logo">
+          <nav>
+              <a href="#">Vestidos</a>
+              <a href="#">Saias</a>
+              <a href="#">Blusas</a>
+              <a href="#">Calças</a>
+              <a href="#">Outros</a>
+          </nav>
+          <section class="search-profile">
+              <form>
+                  <input type="text" placeholder="Buscar...">
+              </form>
+              <ul>
+                  <li><a href="#" ></a><img src="imagens/add brecho.png" class="img-tamanho"> </li>
+                  <li><a href="#" ></a><img src="imagens/maria.png" class="img-tamanho"> </li>
+                  <li><a href="#" ><img src="imagens/icone coraçao.png" class="img-tamanho"> </a></li>
+              </ul>
+          </section>
+          </section>
+        </header>
+      <br>
+      <div class="container">
+        <section class="oculto-mobile-1">
+          <section class="filtro">
+            <details open>
+                <summary>Categorias</summary>
+                <ul>
+                    <li>Vestidos</li>
+                    <li>Calças</li>
+                    <li>Saias</li>
+                    <li>Blusas</li>
+                    <li>Acessórios</li>
+                    <li>Calçados</li>
+                </ul>
+            </details>
+           <br>
+           <br>
+            <details open>
+                <summary>Valor</summary>
+                <div class="faixa-valor">
+                    <label for="min">Min</label>
+                    <input type="range" id="min" min="0" max="500" value="10">
+                    <label for="max">Max</label>
+                    <input type="range" id="max" min="0" max="500" value="300">
+                </div>
+                <div class="valores">
+                    <input type="text" placeholder="10">
+                    <input type="text" placeholder="300">
+                </div>
+            </details>
+            <br>
+            <br>
+            <details open>
+                <summary>Data</summary>
+                <div class="data">
+                    <input type="text" placeholder="xx / xx / xxxx">
+                    <button>APLICAR</button>
+                </div>
+            </details>
+        </section>
+        </section>
         <main class="main">
         <section class="order-section">
           <div class="order-date">15 de Agosto</div>
