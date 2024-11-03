@@ -141,3 +141,70 @@ function errorInput(input, message){
   formItem.className = "form-content error"
  
 }
+
+//                   validaçaõ do formulario e do botão
+function validarLogin() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if (!username) {
+      alert("Por favor, insira seu email ou nome de usuário.");
+      return false;
+  }
+
+  if (!password || password.length < 8) {
+      alert("A senha deve ter pelo menos 8 caracteres.");
+      return false;
+  }
+
+  alert("Login realizado com sucesso!");
+ 
+  window.location.href = "/carrinho";
+  return true;
+}
+
+
+function validarCadastro() {
+  const username = document.getElementById('new-username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('new-password').value;
+  const phone = document.getElementById('phone').value;
+  const cpf = document.getElementById('cpf').value;
+  const address = document.getElementById('address').value;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+      alert("Por favor, insira um email válido.");
+      return false;
+  }
+
+ 
+  if (password.length < 8) {
+      alert("A senha deve ter pelo menos 8 caracteres.");
+      return false;
+  }
+
+ 
+  const phoneRegex = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/;
+  if (!phoneRegex.test(phone)) {
+      alert("Por favor, insira um número de telefone válido no formato (XX) XXXXX-XXXX.");
+      return false;
+  }
+
+ 
+  const cpfRegex = /^\d{11}$/;
+  if (!cpfRegex.test(cpf)) {
+      alert("Por favor, insira um CPF válido com 11 dígitos, sem pontos ou traços.");
+      return false;
+  }
+
+  if (!address) {
+      alert("Por favor, insira um endereço.");
+      return false;
+  }
+
+  alert("Cadastro realizado com sucesso!");
+ 
+  window.location.href = "pages/finalizandopagamento";
+  return true;
+}
