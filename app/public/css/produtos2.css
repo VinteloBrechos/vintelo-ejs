@@ -1,3 +1,6 @@
+
+
+
 /*                                                   oculto para mobile                                                */
 .produtos-ocultos{
     padding: 50px;
@@ -270,5 +273,67 @@
       display: none;
     }
   }
+
+    /* A partir de 768px, exibe 4 colunas */
+    @media (max-width: 768px) {
+      .oculto-mobile {
+          display: none;
+        }
+      }
+    /* A partir de 768px, exibe 4 colunas */
+    @media (min-width: 992px) {
+      .oculto-mobile {
+        display: block;
+      }
+    }
+
+  /*                                                      Rodapé                                                      */
+.footer {
+  background-color: #7D2838;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.p-footer{
+  color: #ffffffe7;
+  font-size: 20px;
+}
+.footer .footer-image {
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.footer .social-media {
+  margin-bottom: 20px;
+}
+
+.footer .social-media p {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-link img {
+  height: 90px;
+  transition: transform 0.3s;
+}
+
+.footer .social-link img:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  font-size: 15px;
+  margin-top: 20px;
+  color: #ffffffe7;
+}
   
   

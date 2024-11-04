@@ -140,8 +140,8 @@ main {
   }
   
   .product-image {
-    width: 300px;
-    height: 350px;
+    width: 250px;
+    height: 300px;
     border-radius: 8px;
     margin-right: 15px;
   }
@@ -340,7 +340,6 @@ button {
   flex-grow: 1; /* Ocupa o restante da largura disponível */
   padding: 20px;
   background-color: #ffffff;
-  border: 1px solid #ddd;
   font-size: 16px;
 }
 
@@ -357,7 +356,7 @@ button {
   font-size: 20px;
 }
 .footer .footer-image {
-  height: 150px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -379,7 +378,7 @@ button {
 }
 
 .footer .social-link img {
-  height: 90px;
+  height: 50px;
   transition: transform 0.3s;
 }
 

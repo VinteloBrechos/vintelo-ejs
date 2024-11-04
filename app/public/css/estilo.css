@@ -8,21 +8,24 @@ body {
 
 
 
-/*                                            banner em gif                                                       */
+/* Banner em GIF - full width */
 .discount-banner {
   background-color: #92444d;
   color: white;
-  font-size: 30px;
-  padding: 1% 35%;
-  border-radius: 0px;
-  display: inline-block;
+  font-size: 25px;
+  padding: 20px 0;
+  width: 100vw;
+  text-align: center;
+  border-radius: 0;
   animation: fadeIn 2s ease-in-out infinite alternate;
-  text-align: center; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-
+/* Corrigindo o peso da fonte */
 .highlight {
-  font-weight: prata;
+  font-weight: bold;
 }
 
 /* Animação */
@@ -408,9 +411,9 @@ nav.grid-2 p:hover {
 
 /*                                                       botão para as categorias                                     */ 
 .garimpe{
- width: auto;
+ width: 50%;
  height: auto;
- padding: 10px 30px;
+ padding: 20px 30px;
 }
 .carousel-container {
   overflow-x: auto;

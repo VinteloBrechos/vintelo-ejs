@@ -63,6 +63,9 @@ nav a {
     height: auto;
 }
 
+.maria{
+     width: 40px;
+}
 
 main {
     display: flex;

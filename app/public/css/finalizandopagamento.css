@@ -15,16 +15,19 @@ header {
   background-color: #fff;
 }
 
+
 header .grid {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  padding: 20px;
 }
 
 header img {
   height: 50px;
 }
+
 
 .top-bar {
   background-color: #7D2838;

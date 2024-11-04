@@ -205,6 +205,6 @@ function validarCadastro() {
 
   alert("Cadastro realizado com sucesso!");
  
-  window.location.href = "pages/finalizandopagamento";
+  window.location.href = "/finalizandopagamento";
   return true;
 }
