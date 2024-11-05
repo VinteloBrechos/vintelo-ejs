@@ -411,7 +411,7 @@ nav.grid-2 p:hover {
 
 /*                                                       botão para as categorias                                     */ 
 .garimpe{
- width: 50%;
+ width: auto;
  height: auto;
  padding: 20px 30px;
 }
@@ -750,6 +750,7 @@ h3 {
 .img-cashback{
   display: block;
   margin: 0;
+  width: 90%;
 }
 /* Estilo padrão: ocultar o banner */
  @media  (max-width: 768px)  {
