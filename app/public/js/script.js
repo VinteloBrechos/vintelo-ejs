@@ -164,7 +164,8 @@ function validarLogin() {
 }
 
 
-function validarCadastro() {
+function validarCadastro()
+ {
   const username = document.getElementById('new-username').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('new-password').value;
@@ -206,7 +207,7 @@ function validarCadastro() {
   alert("Cadastro realizado com sucesso!");
  
   function thanks() {
-    // preventDefault()
+    preventDefault()
   window.location.href = "/finalizandopagamento";
   return true;
   }

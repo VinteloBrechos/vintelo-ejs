@@ -24,6 +24,7 @@
     align-items: center;
     padding: 20px;
     background-color: #fff;
+    padding: 50px;
 }
 
 .main-header h1 {
@@ -68,7 +69,10 @@ nav a {
   header {
     background-color: #fff;
     padding: 40px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .header1 {
+    background-color: #fff;
   }
   
   header .grid {
@@ -126,7 +130,7 @@ nav a {
   }
   
   .footer .social-link img {
-    height: 90px;
+    height: 60px;
     transition: transform 0.3s;
   }
   
@@ -185,6 +189,23 @@ nav a {
   @media (min-width: 992px) {
     .oculto-desktop {
         display: none;
+    }
+  }
+   
+  @media (min-width: 992px) {
+    .estatistica{
+      width: 50%;
+      height: auto;
+      padding: 90px;
+      position: center;
+      transform: translate( 50%, 0%);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .titulo{
+      font-size: 30px;
+      padding: 40px 20px;
     }
   }
    

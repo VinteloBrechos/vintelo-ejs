@@ -308,12 +308,22 @@ button {
   }
 }
 
-@media (max-width: 992px ) {
+@media (min-width: 992px ) {
   .oculto-desktop-1 {
     display: none;
   }
   .oculto-mobile-1 {
     display: block;
+  }
+}
+
+
+@media (min-width: 992px ) {
+  .product-image {
+    width: 150px;
+    height: 200px;
+    border-radius: 8px;
+    margin-right: 15px;
   }
 }
 

@@ -214,4 +214,16 @@ router.get('/menu', function(req, res){
 router.get('/minhascomprasdesktop', function(req, res){
     res.render('pages/minhascomprasdesktop');
 })
+
+router.get('/menuvendedor', function(req, res){
+    res.render('pages/menuvendedor');
+})
+
+router.get('/adicionardesktop', function(req, res){
+    res.render('pages/adicionardesktop');
+})
+
+router.get('/pedidosdesktop', function(req, res){
+    res.render('pages/pedidosdesktop');
+})
 module.exports = router;
