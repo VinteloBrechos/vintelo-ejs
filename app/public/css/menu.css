@@ -9,6 +9,7 @@ body {
     color: #333;
 }
 
+/*                                                 cabeçalho  do  menu                                               */
 .top-bar {
     background-color: #8c2b44;
     text-align: center;
@@ -51,10 +52,11 @@ nav a {
     display: flex;
     list-style: none;
     margin-left: 20px;
+    gap: 5px;
 }
 
 .img-tamanho{
-    width: 50px;
+    width: 40px;
     height: auto;
 }
 

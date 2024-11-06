@@ -46,7 +46,7 @@ header img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 50px;
   background-color: #fff;
 }
 
@@ -77,10 +77,11 @@ nav a {
   display: flex;
   list-style: none;
   margin-left: 20px;
+  gap: 5px;
 }
 
 .img-tamanho{
-  width: 50px;
+  width: 40px;
   height: auto;
 }
 
@@ -157,6 +158,7 @@ nav a {
 @media (min-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(4, 1fr);
+    padding: 0px 80px;
   }
 }
 

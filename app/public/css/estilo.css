@@ -37,7 +37,90 @@ body {
     opacity: 1;
   }
 }
+/*                                              cabeçalho para desktop                                                 */
+/*                                                 cabeçalho  do  menu                                               */
+@media (max-width: 768px) {
+  .main-header  {
+   display: none;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0px 50px;
+   background-color: #fff;
+  }
+}
 
+@media (min-width: 992px) {
+  .main-header{
+   display: block;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0px 50px;
+   background-color: #fff;
+  }
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  background-color: #fff;
+}
+
+.main-header h1 {
+  color: #8b1a1a;
+  font-size: 30px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 20px;
+}
+
+.search-profile {
+  display: flex;
+  align-items: center;
+}
+
+.search-profile form input {
+  padding: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
+  gap: 5px;
+}
+
+.img-tamanho{
+  width: 60px;
+  height: auto;
+}
+
+.img-tamanho2{
+  width: 60px;
+  height: auto;
+}
+
+.img-logo{
+  width: 150px;
+  height: auto;
+}
+
+.maria{
+   width: 70px;
+}
+
+.maria-2{
+  width: 60px;
+}
 /*                                              MENU HAMBURGUER GERAL                                                  */
 .menu-hamburger {
 
@@ -219,10 +302,6 @@ input:checked ~ .menu-hamburguer-elements {
 }
 
 /*                                                   Cabeçalho                                                          */
-
-
-
-
 h2 {
   color: #333;
   font-size: 20px;
@@ -1036,5 +1115,30 @@ h1 {
 
   .footer .social-links {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .oculto-desktop {
+   display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .oculto-desktop {
+   display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .oculto-mobile  {
+   display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .oculto-mobile {
+   display: block;
   }
 }
