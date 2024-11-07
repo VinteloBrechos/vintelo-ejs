@@ -12,6 +12,66 @@ body {
     line-height: 1.6;
 }
 
+/*                                                 cabeçalho  do  menu                                               */
+.top-bar {
+  background-color: #8c2b44;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.main-header h1 {
+  color: #8c2b44;
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.search-profile {
+  display: flex;
+  align-items: center;
+}
+
+.search-profile form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
+  gap: 5px;
+}
+
+.img-tamanho{
+  width: 40px;
+  height: auto;
+}
+
+.img-logo{
+  width: 100px;
+  height: auto;
+}
+
+.maria{
+   width: 40px;
+}
+
 /*                                               Cabeçalho                                                              */
 header {
     background-color: #fff;
@@ -126,5 +186,56 @@ height: 100%;
       display: none;
     }
   }
+
+    /*                                              responsivivdade                                                       */
+
+    .oculto-mobile{
+      margin: 0;
+    }
+    
+  
+    .oculto-desktop{
+      margin: 0;
+    }
+  
+  
+    @media (min-width: 768px) {
+      .container {
+        max-width: 600px;
+      }
+    
+      .confirmation-section .illustration img {
+        width: 150px;
+      }
+    
+      .view-orders-button, .continue-shopping-button {
+        font-size: 18px;
+        padding: 18px;
+      }
+    }
+    
+    @media (max-width: 768px){
+      .oculto-mobile {
+        display: none
+      }
+    }
+  
+    @media (min-width: 992px){
+      .oculto-mobile {
+        display: block
+      }
+    }
+  
+    @media (max-width: 768px){
+      .oculto-desktop {
+        display: block
+      }
+    }
+  
+    @media (min-width: 992px){
+      .oculto-desktop {
+        display: none
+      }
+    }
   
   

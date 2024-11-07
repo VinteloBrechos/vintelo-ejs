@@ -37,33 +37,7 @@ body {
     opacity: 1;
   }
 }
-/*                                              cabeçalho para desktop                                                 */
-/*                                                 cabeçalho  do  menu                                               */
-@media (max-width: 768px) {
-  .main-header  {
-   display: none;
-   justify-content: space-between;
-   align-items: center;
-   padding: 0px 50px;
-   background-color: #fff;
-  }
-}
-
-/* Ocultar o cabeçalho em telas menores que 768px */
-@media (max-width: 768px) {
-  .oculto-mobile {
-      display: none;
-  }
-}
-
-/* Exibir o cabeçalho em telas de 992px ou maiores */
-@media (min-width: 992px) {
-  .oculto-mobile {
-      display: block;
-  }
-}
-
-
+/* Estilos para o cabeçalho desktop */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -72,9 +46,8 @@ body {
   background-color: #fff;
 }
 
-.main-header h1 {
-  color: #8b1a1a;
-  font-size: 30px;
+.img-logo {
+  width: 150px;
 }
 
 nav a {
@@ -102,28 +75,23 @@ nav a {
   gap: 5px;
 }
 
-.img-tamanho{
-  width: 60px;
-  height: auto;
-}
-
-.img-tamanho2{
-  width: 60px;
-  height: auto;
-}
-
-.img-logo{
-  width: 150px;
-  height: auto;
-}
-
-.maria{
-   width: 65px;
-}
-
-.maria-2{
+.img-tamanho, .img-tamanho2 {
   width: 60px;
 }
+
+.maria {
+  width: 65px;
+}
+
+/* Responsividade */
+
+/* Ocultar o cabeçalho em dispositivos móveis (telas menores que 992px) */
+@media (max-width: 992px) {
+  .oculto-mobile {
+      display: none;
+  }
+}
+
 /*                                              MENU HAMBURGUER GERAL                                                  */
 .menu-hamburger {
 
@@ -932,7 +900,7 @@ h3 {
 .profile-list {
   display: inline-flex;
   align-items: center; /* opcional, centraliza o conteúdo verticalmente */
-  gap: 40px; /* ajusta o espaço entre os itens */
+  gap: 20px; /* ajusta o espaço entre os itens */
   padding: 50px 245px;
 }
 
