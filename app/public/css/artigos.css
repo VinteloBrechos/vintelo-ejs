@@ -15,9 +15,69 @@ h2 {
 }
 
 p {
-  color: #666;
+  color: #ffffff;
   font-size: 16px;
   text-align: center;
+}
+
+/*                                                 cabeçalho  do  menu                                               */
+.top-bar {
+  background-color: #8c2b44;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: #fff;
+}
+
+.main-header h1 {
+  color: #8c2b44;
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.search-profile {
+  display: flex;
+  align-items: center;
+}
+
+.search-profile form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
+  gap: 5px;
+}
+
+.img-tamanho{
+  width: 40px;
+  height: auto;
+}
+
+.img-logo{
+  width: 100px;
+  height: auto;
+}
+
+.maria{
+   width: 40px;
 }
 
 header {
@@ -39,8 +99,8 @@ header img {
 nav.grid-2 {
   display: flex;
   justify-content:space-between;
-  gap: 100px;
-  padding: 10px 80px;
+  gap: 150px;
+  padding: 10px 180px;
   background-color: #fff;
 }
 
@@ -135,7 +195,7 @@ main {
 }
 
 .footer .footer-image {
-  height: 150px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -145,7 +205,7 @@ main {
 
 .footer .social-media p {
   padding: 2%;
-  font-size: 2.5rem;
+  font-size: 30px;
   margin-bottom: 10px;
 }
 
@@ -158,7 +218,7 @@ main {
 }
 
 .footer .social-link img {
-  height: 90px;
+  height: 60px;
   transition: transform 0.3s;
 }
 
@@ -168,8 +228,32 @@ main {
 
 .copyright {
   padding: 2%;
-  font-size: 2rem;
+  font-size: 20px;
   margin-top: 20px;
 }
 
+/*                                                  responsividade                                                      */
+@media (max-width: 768px){
+  .oculto-mobile {
+    display: none
+  }
+}
+
+@media (min-width: 992px){
+  .oculto-mobile {
+    display: block
+  }
+}
+
+@media (max-width: 768px){
+  .oculto-desktop {
+    display: block
+  }
+}
+
+@media (min-width: 992px){
+  .oculto-desktop {
+    display: none
+  }
+}
 

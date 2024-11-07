@@ -230,4 +230,8 @@ router.get('/pedidosdesktop', function(req, res){
 router.get('/finalizandopagamento', function(req, res){
     res.render('pages/finalizandopagamento');
 })
+
+router.get('/blogdesktop', function(req, res){
+    res.render('pages/blogdesktop');
+})
 module.exports = router;

@@ -592,7 +592,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   gap: 3rem;
-  padding: 20px 80px;
+  padding: 20px 100px;
   align-items: center;
   position: center;
 }
