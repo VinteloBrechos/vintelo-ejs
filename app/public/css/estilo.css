@@ -560,7 +560,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   gap: 3rem;
-  padding: 20px 100px;
+  padding: 20px 120px;
   align-items: center;
   position: center;
 }
@@ -901,7 +901,7 @@ h3 {
   display: inline-flex;
   align-items: center; /* opcional, centraliza o conteúdo verticalmente */
   gap: 20px; /* ajusta o espaço entre os itens */
-  padding: 50px 245px;
+  padding: 50px 250px;
 }
 
 }
