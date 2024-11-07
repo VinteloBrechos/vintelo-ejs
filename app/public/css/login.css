@@ -44,7 +44,7 @@ main h2 {
 }
 
 main p {
-  font-size: 200%;
+  font-size: 35px;
   color: #666;
 }
 
@@ -115,7 +115,7 @@ p {
   text-align: left;
 }
 .form-group label {
-  font-size: 18px;
+  font-size: 28px;
   color: #333;
   margin-bottom: 5px;
   display: block;

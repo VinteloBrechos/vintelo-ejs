@@ -1,55 +1,96 @@
 <!DOCTYPE html>
- <html>
-  <head>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
     <title>Crie seu Brechó</title>
     <link rel="stylesheet" href="css/continuarcadastro.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  </head>
-    <body>
-        <header>
-              <nav class="grid">
-                <a href="/login">
-                 <img src="imagens/seta.png" alt="Seta Voltar">
-                </a>
-                <img src="imagens/logo.png" alt="Logo">
-                <a href="/carrinho">
-                 <img src="imagens/carrinho.png" alt="Carrinho">
-                </a>
-              </nav>
-            </center>
-          </header>
-         <br>
-         <br>
-        <main class="container">
-           <h1>Complete seu cadastro</h1>
-       
-           <section class="profile-section">
-             <img src="imagens/maria.png" alt="Maria de Lourdes" class="profile-pic">
-             <span class="edit-icon"><img src="imagens/edit.png"> </span>
-             <p class="profile-name">Maria de Lourdes</p>
-           </section>
-       
-           <form class="form">
-             <label for="nome-completo">Nome completo</label>
-             <input type="text" id="nome-completo" value="Maria de Lourdes Felix Gonçalves" readonly>
- 
-             <br>
-             <label for="contato">Contato</label>
-             <input type="text" id="contato" value="(11) 95730-5748" readonly>
+</head>
+<body>
+    <header>
+        <nav class="grid">
+            <a href="/login">
+                <img src="imagens/seta.png" alt="Seta Voltar">
+            </a>
+            <img src="imagens/logo.png" alt="Logo">
+            <a href="/carrinho">
+                <img src="imagens/carrinho.png" alt="Carrinho">
+            </a>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h1>Complete seu cadastro</h1>
 
-             <br>
-             <label for="cpf">Adicionar CPF</label>
-             <input type="text" id="cpf" value="098765439/46" readonly>
+        <section class="profile-section">
+            <img src="imagens/maria.png" alt="Maria de Lourdes" class="profile-pic">
+            <span class="edit-icon"><img src="imagens/edit.png" alt="Editar"></span>
+            <p class="profile-name">Maria de Lourdes</p>
+        </section>
 
-             <br>
-             <label for="endereco">Adicionar endereço</label>
-             <input type="text" id="endereco" value="Av. Paulista - São Paulo" readonly>
-         </main>
-         <p class="pag">2/2</p>
-         <footer>
-          <button type="submit" class="submit-btn"> <a href="/finalizandopagamento" class="link-branco">Cadastrar-se</a></button>
-         </form>
-        </footer>
-       </body>
-       </html>
+        <form id="registerForm" class="form">
+            <label for="nome-completo">Nome completo</label>
+            <input type="text" id="nome-completo" name="nome-completo" placeholder="Maria de Lourdes Felix Gonçalves" required>
+
+            <label for="contato">Contato</label>
+            <input type="text" id="contato" name="contato" placeholder="(11) 95730-5748" required>
+
+            <label for="cpf">Adicionar CPF</label>
+            <input type="text" id="cpf" name="cpf" placeholder="12345678901" required>
+
+            <label for="endereco">Adicionar endereço</label>
+            <input type="text" id="endereco" name="endereco" placeholder="Av. Paulista - São Paulo" required>      
+        <p class="pag">2/2</p>
+    </main>
+
+    <footer>
+      <button type="submit" class="submit-btn">Cadastrar-se</button>
+  </footer>
+</form>
+    <script src="js/script.js"></script>
+    <script>
+        function validarCadastro() {
+            const nomeCompleto = document.getElementById('nome-completo').value.trim();
+            const contato = document.getElementById('contato').value.trim();
+            const cpf = document.getElementById('cpf').value.trim();
+            const endereco = document.getElementById('endereco').value.trim();
+
+            // Validação do nome completo (não pode estar vazio)
+            if (nomeCompleto.length < 3) {
+                alert("Por favor, insira um nome completo válido.");
+                return false;
+            }
+
+            // Validação do telefone no formato (XX) XXXXX-XXXX ou (XX) XXXX-XXXX
+            const phoneRegex = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/;
+            if (!phoneRegex.test(contato)) {
+                alert("Por favor, insira um número de telefone válido no formato (XX) XXXXX-XXXX.");
+                return false;
+            }
+
+            // Validação do CPF com 11 dígitos
+            const cpfRegex = /^\d{11}$/;
+            if (!cpfRegex.test(cpf)) {
+                alert("Por favor, insira um CPF válido com 11 dígitos, sem pontos ou traços.");
+                return false;
+            }
+
+            // Validação do endereço (não pode estar vazio)
+            if (endereco.length < 5) {
+                alert("Por favor, insira um endereço válido.");
+                return false;
+            }
+
+            alert("Cadastro realizado com sucesso!");
+            return true;
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validarCadastro()) {
+                window.location.href = "/finalizandopagamento";
+            }
+        });
+    </script>
+</body>
+</html>

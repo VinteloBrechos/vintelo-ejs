@@ -20,11 +20,17 @@
         </nav>
     </header>
     </section>
+    
     <main>
-        
         <section class="container">
             <aside class="image-section">
+                <br>
+                <br>
+                <br>
                 <img src="imagens/maniquim.png" alt="Mannequin" class="mannequin">
+                <br>
+                <br>
+                <br>
             </aside>
 
             <section class="form-section">
@@ -33,31 +39,93 @@
                 
                 <div class="profile-section">
                     <img src="imagens/maria.png" alt="Foto do Perfil" class="profile-img">
+                    <section class="oculto-desktop">
                     <button class="edit-icon">✎</button>
+                </section>
                 </div>
 
                 <br>
-                <form action="#" method="post">
+                <form id="registerForm" method="post">
                     <div class="form-group">
-                     <label for="username"><h1>Nome de usuário</h1></label>
-                      <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
-                    </div>
-                     <br>
-                    <div class="form-group">
-                     <label for="email"><h1>Endereço de email</h1></label>
-                      <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
+                        <label for="username"><h1>Nome de usuário</h1></label>
+                        <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
                     </div>
                     <br>
                     <div class="form-group">
-                     <label for="password"><h1>Senha</h1></label>
-                      <input type="password" id="password" name="password" placeholder="HJ@#9783kja" required>
+                        <label for="email"><h1>Endereço de email</h1></label>
+                        <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
                     </div>
-                    </form>
-                <br>
-                <h3>Onde deseja receber?</h3>
-              <button class="create-button" disabled><a href="/perfilvender" class="link-branco">Criar brechó</a></button>
-            </section>
-        </section>
-    </main>
+                    <br>
+                    <div class="form-group">
+                        <label for="password"><h1>Senha</h1></label>
+                        <input type="password" id="password" name="password" placeholder="digite aqui..." required>
+                    </div>
+                    <br>
+                     <div class="section">
+                        <h3>Onde deseja receber?</h3>
+                        <div class="item payment-option" onclick="selectPayment(this)">
+                          <img src="imagens/visa.png" alt="Visa" class="icon">
+                          <span>Adicionar Cartão</span>
+                          <img src="imagens/erro.png" alt="Erro" class="error-icon">
+                        </div>
+                        <div class="item payment-option" onclick="selectPayment(this)">
+                          <img src="imagens/pix.png" alt="PIX" class="icon">
+                          <span>PIX</span>
+                          <img src="imagens/check.png" alt="Check" class="check-icon">
+                        </div>
+                        <div class="item payment-option" onclick="selectPayment(this)">
+                          <img src="imagens/boleto.png" alt="Boleto" class="icon">
+                          <span>Boleto</span>
+                          <img src="imagens/check.png" alt="Check" class="check-icon">
+                        </div>
+                      </div>
+                      <section class="oculto-mobile">
+                      <button type="submit" class="create-button">Criar brechó</button>
+                      </section>
+            </main>
+            <section class="oculto-desktop">
+            <button type="submit" class="create-button">Criar brechó</button>
+        </form>
+    </section>
+</section>
+    
+    <script src="js/script.js"></script>
+    <script>
+        function validarCadastro() {
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validação do nome de usuário
+            if (username.length < 3) {
+                alert("O nome de usuário deve ter pelo menos 3 caracteres.");
+                return false;
+            }
+
+            // Validação do email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, insira um email válido.");
+                return false;
+            }
+
+            // Validação da senha (mínimo de 8 caracteres)
+            if (password.length < 8) {
+                alert("A senha deve ter pelo menos 8 caracteres.");
+                return false;
+            }
+
+            alert("Cadastro realizado com sucesso!");
+            return true;
+        }
+
+        // Adiciona o evento de validação ao enviar o formulário
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validarCadastro()) {
+                window.location.href = "/perfilvender";
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,95 +1,104 @@
 <!DOCTYPE html>
-<html>
-  <meta charset="UTF-8">
-  <head>
-    <title>login</title>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Vintélo</title>
     <link rel="stylesheet" href="css/login.css">
-  </head>
-  <body>
-
+</head>
+<body>
     <header>
-      <nav class="grid">
-        <a href="/index">
-          <img src="imagens/seta.png" alt="seta-voltar">
-        </a>
-        <img src="imagens/logo.png" alt="Logo">
-        <img src="imagens/foto-branca.png" alt="Descrição da Imagem" />
-      </nav>
+        <nav class="grid">
+            <a href="/index">
+                <img src="imagens/seta.png" alt="Seta Voltar">
+            </a>
+            <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
+            <img src="imagens/foto-branca.png" alt="Descrição da Imagem" />
+        </nav>
     </header>
-    
+    <br>
     <main>
-      <br>
-      <br>
-      <br>
-      <br>
-       <center><h2>Bem-Vindo</h2></center> 
-       <center><p>Por favor insira seus dados para continuar</p></center> 
-         <br>
-         <br>
-         <br>
-
+        <section class="welcome-section">
+            <h2>Bem-Vindo</h2>
+            <br>
+            <p>Por favor insira seus dados para continuar</p>
+        </section>
+        <br>
+        <br>
         <div class="social-login">
-            <a href="#" ><img src="imagens/face.jpg"></a>
-            <a href="#" ><img src="imagens/insta.jpg"></a>
-            <a href="#" ><img src="imagens/google.jpg"></a>
+            <a href="#"><img src="imagens/face.jpg" alt="Login com Facebook"></a>
+            <a href="#"><img src="imagens/insta.jpg" alt="Login com Instagram"></a>
+            <a href="#"><img src="imagens/google.jpg" alt="Login com Google"></a>
         </div>
          <br>
-         <br>
-         <br>
-          <p class="divider">ou acesse via email</p>
-          <br>
-          <br>
-          <br>
-          <br>
-        <form action="#" method="post">
-          <div class="form-group">
-           <label for="username"><h1>Nome de usuário</h1></label>
-            <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
-          </div>
-           <br>
-           <br>
-           <br>
-           <br>
-          <div class="form-group">
-           <label for="email"><h1>Endereço de email</h1></label>
-            <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
-          </div>
-          <br>
-          <br>
-          <div class="form-group">
-           <label for="password"><h1>Senha</h1></label>
-            <input type="password" id="password" name="password" placeholder="HJ@#9783kja" required>
-          </div>
-          <br>
-          <div class="checkbox-group">
-            <label>
-             <input type="checkbox" name="stay-connected" checked>
-                             Mantenha-me conectado
-            </label>
-             <br>
-            <label>
-              <input type="checkbox" name="notifications" checked>
-                             Receber notificações
-            </label>
-             <br>
-            <label>
-             <input type="checkbox" name="terms" required>
-                             Li e concordo com os <a href="#">Termos de Uso</a>
-            </label>
-          </div>
+        <p class="divider">ou acesse via email</p>
+        <br>
+        <form id="loginForm" action="#" method="post">
+            <div class="form-group">
+                <label for="username">Nome de usuário</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <label for="email">Endereço de email</label>
+                <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha..." required>
+            </div>
+            <br>
+            <br>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="stay-connected" checked> Mantenha-me conectado
+                </label>
                 <br>
+                <label>
+                    <input type="checkbox" name="notifications" checked> Receber notificações
+                </label>
                 <br>
-                <br>
-        </form>
-    </div>
-    </main>
-     <p class="pag">1/2</p>
-      <!-- Rodapé -->
-    <footer class="footer">
-      <button type="submit" class="submit-btn">
-        <a href="/continuarcadastro" class="link-branco">Continuar cadastro</a>
-      </button>      
-    </footer>
+                <label>
+                    <input type="checkbox" name="terms" required> Li e concordo com os <a href="#">Termos de Uso</a>
+                </label>
+            </div>
+            <br>
+            <br>
+        </main>
+        <footer class="footer">
+            <button type="submit" name="submit" id="submit" class="submit-btn">Continuar cadastro</button>
+        </footer>
+    </form>
 
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (validarLogin(email, password)) {
+                window.location.href = "/continuarcadastro";
+            }
+        });
+
+        function validarLogin(email, password) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, insira um email válido.");
+                return false;
+            }
+
+            if (password.length < 8) {
+                alert("A senha deve ter pelo menos 8 caracteres.");
+                return false;
+            }
+
+            alert("Login realizado com sucesso!");
+            return true;
+        }
+    </script>
 </body>
 </html>

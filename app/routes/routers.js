@@ -226,4 +226,8 @@ router.get('/adicionardesktop', function(req, res){
 router.get('/pedidosdesktop', function(req, res){
     res.render('pages/pedidosdesktop');
 })
+
+router.get('/finalizandopagamento', function(req, res){
+    res.render('pages/finalizandopagamento');
+})
 module.exports = router;

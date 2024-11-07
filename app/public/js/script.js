@@ -164,14 +164,55 @@ function validarLogin() {
 }
 
 
-function validarCadastro()
- {
+function validarLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+ 
+    if (!username) {
+        alert("Por favor, insira seu email ou nome de usuário.");
+        return false;
+    }
+ 
+    if (!password || password.length < 8) {
+        alert("A senha deve ter pelo menos 8 caracteres.");
+        return false;
+    }
+ 
+    alert("Login realizado com sucesso!");
+   
+    window.location.href = "/carrinho";
+    return true;
+}
+ 
+ 
+function validarLogin() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if (!username) {
+      alert("Por favor, insira seu email ou nome de usuário.");
+      return false;
+  }
+
+  if (!password || password.length < 8) {
+      alert("A senha deve ter pelo menos 8 caracteres.");
+      return false;
+  }
+
+  alert("Login realizado com sucesso!");
+ 
+  window.location.href = "/carrinho";
+  return true;
+}
+
+
+function validarCadastro() {
   const username = document.getElementById('new-username').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('new-password').value;
   const phone = document.getElementById('phone').value;
   const cpf = document.getElementById('cpf').value;
-  const address = document.getElementById('address').value;
+  const address = document.getElementById('address').value;  
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
@@ -204,11 +245,25 @@ function validarCadastro()
       return false;
   }
 
-  alert("Cadastro realizado com sucesso!");
- 
+  alert("Cadastro realizado com sucesso!");6
+
   function thanks() {
-    preventDefault()
-  window.location.href = "/finalizandopagamento";
-  return true;
+      preventDeafult()
   }
+ 
+ 
+  return true;
 }
+ 
+
+constform = document.getElementById('loginForm');
+  form.addEventListener ('click',
+      function(event) {
+          event.preventDefault();
+          if(validarCadastro()){
+              alert('Cadastro Realizado')
+              window.location.href = "/finalizandopagamento.ejs";                  
+              }
+      }
+
+  )
