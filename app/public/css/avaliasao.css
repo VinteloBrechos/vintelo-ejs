@@ -10,7 +10,7 @@ body {
     color: #333;
     line-height: 1.6;
 }
-/*                                           cabeçalho  do  menu  desktop                                              */
+/* Estilos do cabeçalho para o menu desktop */
 .top-bar {
     background-color: #8c2b44;
     text-align: center;
@@ -56,18 +56,18 @@ nav a {
     gap: 5px;
 }
 
-.img-tamanho{
+.img-tamanho {
     width: 40px;
     height: auto;
 }
 
-.img-logo{
+.img-logo {
     width: 100px;
     height: auto;
 }
 
-.maria{
-     width: 40px;
+.maria {
+    width: 40px;
 }
 
 header {
@@ -326,3 +326,18 @@ nav {
         color: #333;
     }
   }
+
+  /* Ocultar cabeçalhos em dispositivos específicos */
+@media (min-width: 992px) {
+    /* Oculta o cabeçalho para desktop */
+    .oculto-desktop {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Oculta o cabeçalho para mobile */
+    .oculto-mobile {
+        display: none;
+    }
+}
