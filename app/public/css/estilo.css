@@ -42,7 +42,6 @@ body {
 @media (max-width: 768px) {
   .main-header  {
    display: none;
-   display: flex;
    justify-content: space-between;
    align-items: center;
    padding: 0px 50px;
@@ -50,16 +49,20 @@ body {
   }
 }
 
-@media (min-width: 992px) {
-  .main-header{
-   display: block;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 0px 50px;
-   background-color: #fff;
+/* Ocultar o cabeçalho em telas menores que 768px */
+@media (max-width: 768px) {
+  .oculto-mobile {
+      display: none;
   }
 }
+
+/* Exibir o cabeçalho em telas de 992px ou maiores */
+@media (min-width: 992px) {
+  .oculto-mobile {
+      display: block;
+  }
+}
+
 
 .main-header {
   display: flex;
@@ -1118,27 +1121,21 @@ h1 {
   }
 }
 
+/* Oculta .oculto-desktop em telas pequenas (max-width: 768px) e exibe em telas grandes (min-width: 992px) */
 @media (max-width: 768px) {
   .oculto-desktop {
-   display: block;
+      display: block;
   }
-}
-
-@media (min-width: 992px) {
-  .oculto-desktop {
-   display: none;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .oculto-mobile  {
-   display: none;
-  }
-}
-
-@media (min-width: 992px) {
   .oculto-mobile {
-   display: block;
+      display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .oculto-desktop {
+      display: none;
+  }
+  .oculto-mobile {
+      display: block;
   }
 }
