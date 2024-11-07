@@ -156,7 +156,7 @@ nav a {
 .menu-hamburguer-elements li {
   list-style: none;
   font-size: 40px;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .menu-hamburguer-elements a {
@@ -666,47 +666,6 @@ h3 {
   }
 }
 
-
-/*                                                Seção de perfis                                                    */
-.titulo-brecho{
-    width: auto;
-    height: auto;
-    padding: 10px 30px;
-}
-.perfis {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  padding: 40px 0;
-  background-color: #fff;
-}
-
-.perfil-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.perfil-img {
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  margin-bottom: 10px;
-}
-
-.Nome {
-  font-size: 26px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.avaliacao {
-  font-size: 20px;
-  color: #999;
-  text-align: center;
-} 
 /*                                                         banner de anuncio                                                                  */
 .banner-exemplo{
   width: 80%;
@@ -735,7 +694,143 @@ h3 {
 }
 
 /*                                                    Estilos para o botão dos perfis                                                         */
+/*                                      Estilo básico da lista de perfis                                              */
 
+.profile-list, .profile-list-oculta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Layout mobile (até 768px) */
+@media (max-width: 768px) {
+  /* Ocultar a lista de perfis específica para desktop */
+  .profile-list-oculta {
+    display: none;
+  }
+
+  /* Exibir os itens em coluna no mobile */
+  .profile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Estilo dos itens individuais no mobile */
+  .profile-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .follow-button {
+    padding: 5px 15px;
+    font-size: 14px;
+    margin-left: auto; /* Alinhar o botão à direita */
+  }
+}
+
+/* Layout desktop (a partir de 992px) */
+@media (min-width: 992px) {
+  /* Exibir a lista de perfis com layout de 5 itens por linha */
+  .profile-list, .profile-list-oculta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px; /* Ajusta o espaço entre os perfis */
+    max-width: 1200px; /* Limita a largura máxima da lista para alinhamento centralizado */
+    margin: 0 auto;
+  }
+
+  /* Definir largura dos itens para ocupar 1/5 da linha */
+  .profile-item {
+    flex: 1 1 calc(20% - 20px); /* Calcula a largura para 5 itens por linha, com espaço entre eles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .profile-info {
+    margin-top: 10px;
+  }
+
+  .follow-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .follow-button {
+    background-color: #8a2b38;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 20px ;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-right: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .oculto-mobile{
+    display: none;
+  }
+}
+
+/* Estilo adicional para os textos e botões */
+.titulo-brecho {
+  width: auto;
+  height: auto;
+  padding: 10px 30px;
+  text-align: center;
+}
+
+.profile-item strong {
+  font-size: 20px;
+  color: #333;
+}
+
+.profile-item .rating, .profile-item .stars {
+  font-size: 14px;
+  color: #999;
+}
+
+.follow-button {
+  background-color: #5a2424;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.follow-button:hover {
+  background-color: #7b3333;
+}
 .profile-list {
   list-style: none;
   padding: 50px;
@@ -825,7 +920,23 @@ h3 {
   }
 } 
 
+/*                         perfis de brecho                   */
+@media (max-width: 768px) {
+  .profile-list-oculta{
+      display: none;
+  }
+}
 
+@media (min-width: 992px) {
+.profile-list-oculta,
+.profile-list {
+  display: inline-flex;
+  align-items: center; /* opcional, centraliza o conteúdo verticalmente */
+  gap: 40px; /* ajusta o espaço entre os itens */
+  padding: 50px 245px;
+}
+
+}
 /*                                                 Estilos para a seção de banner                                       */
 /*                                                       banner  de cadastro                                                                  */
 
@@ -1137,5 +1248,51 @@ h1 {
   }
   .oculto-mobile {
       display: block;
+  }
+}
+
+
+
+/*                             carrossel desktop                  */
+@media (min-width: 992px) {
+  /* Configura o container para exibir a imagem e o carrossel como elementos inline-flex */
+.category-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre a imagem e o carrossel */
+    padding: 50px;
+}
+
+/* Define o tamanho e o alinhamento da imagem */
+.category-nav .garimpe {
+    height: 100px; /* Ajuste conforme o tamanho desejado */
+    width: auto;
+}
+
+/* Estiliza o container do carrossel */
+.category-nav .carousel-container ul {
+    display: inline-flex;
+    gap: 10px; /* Espaçamento entre os itens do carrossel */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+  .category-nav ul li a {
+    text-decoration: none;
+    padding: 14px 22px;
+    background-color: transparent; 
+    border: 2px solid #5a2424; 
+    border-radius: 40px; 
+    color: #5a2424;
+    font-size: 20px; 
+    font-weight: 500; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block; 
+  }
+  
+  .category-nav ul li a:hover {
+    background-color: #5a2424; 
+    color: #ffffff; 
   }
 }

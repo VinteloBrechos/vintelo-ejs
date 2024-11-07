@@ -234,4 +234,12 @@ router.get('/finalizandopagamento', function(req, res){
 router.get('/blogdesktop', function(req, res){
     res.render('pages/blogdesktop');
 })
+
+router.get('/menufavoritos', function(req, res){
+    res.render('pages/menufavoritos');
+})
+
+router.get('/menucompras', function(req, res){
+    res.render('pages/menucompras');
+})
 module.exports = router;

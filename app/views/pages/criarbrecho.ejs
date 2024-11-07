@@ -56,10 +56,6 @@
                         <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
                     </div>
                     <br>
-                    <div class="form-group">
-                        <label for="password"><h1>Senha</h1></label>
-                        <input type="password" id="password" name="password" placeholder="digite aqui..." required>
-                    </div>
                     <br>
                      <div class="section">
                         <h3>Onde deseja receber?</h3>
@@ -94,7 +90,6 @@
         function validarCadastro() {
             const username = document.getElementById('username').value.trim();
             const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
 
             // Validação do nome de usuário
             if (username.length < 3) {
@@ -109,11 +104,6 @@
                 return false;
             }
 
-            // Validação da senha (mínimo de 8 caracteres)
-            if (password.length < 8) {
-                alert("A senha deve ter pelo menos 8 caracteres.");
-                return false;
-            }
 
             alert("Cadastro realizado com sucesso!");
             return true;
