@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #ffffff;
+}
+
+/*                                                  cabeçalho desktop                                                    */
+.top-bar {
+  background-color: #8c2b44;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 50px;
+  background-color: #fff;
+}
+
+.main-header h1 {
+  color: #8b1a1a;
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.search-profile {
+  display: flex;
+  align-items: center;
+}
+
+.search-profile form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
+  gap: 5px;
+}
+
+.img-tamanho2{
+  width: 45px;
+  height: auto;
+}
+
+.img-tamanho{
+  width: 40px;
+  height: auto;
+}
+
+.img-logo{
+  width: 100px;
+  height: auto;
+}
+
+.maria{
+   width: 40px;
+}
+
+
+/*                                                       estilo mobile                                                 */
+header1 {
+    background-color: #fff;
+  }
+
+  header {
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  header .grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header img {
+    height: 50px;
+  }
+
+.seta-volta{
+  height: 50px;
+}
+
+.carrinho{
+  height: 50px;
+}
+
+.descriçao{
+  text-align: left;
+  font-size: 20px;
+  color: #333;
+}
+.back-btn, .profile-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.profile-section {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.follow-btn, .reviews-btn {
+    padding: 10px 20px;
+    background-color: #6e0d26;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bio {
+    margin: 15px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/*                                          seção filtros desktop                                                        */
+/*                                           filtro visível para desktop                                               */
+.filtro {
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #969393;
+  font-size: 16px;
+  transform: translate( 1%, 15%);
+}
+
+details {
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+li {
+  padding: 5px 0;
+  color: #666;
+}
+
+.faixa-valor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.faixa-valor label {
+  font-size: 14px;
+  color: #666;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: 6px;
+  background: #ddd;
+  outline: none;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.valores {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.valores input {
+  width: 45%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  color: #bbb;
+  font-size: 16px;
+}
+
+.data {
+  margin-top: 10px;
+}
+
+.data input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #bbb;
+  font-size: 16px;
+  text-align: center;
+}
+
+.button-filtro {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #535353;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/*                                         posicionamento para desktop                                                   */
+.container {
+  display: inline-flex;
+  gap: 20px; /* Espaço entre filtro e main */
+  width: 100%; /* Ajusta a largura total */
+  align-items: flex-start; /* Alinha os itens ao topo */
+}
+
+/* Estilo da seção Filtro */
+.filtro {
+  width: 250px; /* Largura fixa para o filtro */
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  gap: 20px;
+}
+
+/* Estilo da seção Main */
+.products-section {
+  flex-grow: 1; /* Ocupa o restante da largura disponível */
+  padding: 20px;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+/*                                                seção produtos                                                       */
+
+.products-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .products-section{
+    grid-template-columns: repeat(3, 1fr);
+    padding: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-section{
+    grid-template-columns: repeat(4, 1fr);
+    padding: 80px;
+  }
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.more-btn {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.more-btn button {
+    padding: 10px 20px;
+    background-color: #6e0d26;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter-section {
+    background-color: #fcecec;
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter-section h3 {
+    margin-bottom: 15px;
+    color: #6e0d26;
+}
+
+.newsletter-section form {
+    margin: 10px 0;
+}
+
+.newsletter-section input[type="email"] {
+    padding: 10px;
+    margin-top: 10px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.newsletter-section button {
+    padding: 10px 20px;
+    background-color: #6e0d26;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/*                                                      Rodapé                                                      */
+.footer {
+    background-color: #7D2838;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer .footer-image {
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-media {
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-media p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer .social-link img {
+    height: 30px;
+    transition: transform 0.3s;
+  }
+  
+  .footer .social-link img:hover {
+    transform: scale(1.2);
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+  
+ /*                                                     responsividade                                                    */
+/* Visibilidade padrão */
+.oculto-desktop {
+  display: block;
+}
+
+.oculto-mobile {
+  display: none;
+}
+
+/* Responsividade: 
+   Mostra oculto-desktop e esconde oculto-mobile em telas maiores */
+@media (min-width: 768px) {
+  .oculto-desktop {
+    display: none;
+  }
+
+  .oculto-mobile {
+    display: block;
+  }
+}

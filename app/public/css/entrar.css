@@ -1,0 +1,215 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Prata, Montserrat;
+    background-color: #fff;
+  }
+  
+  /* Estilos gerais */
+  header {
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header img {
+    height: 100px;
+  }
+  
+  main{
+    padding: 20px;
+  }
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 44px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .logo {
+    max-width: 150px;
+  }
+  
+  h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .description {
+    font-size: 30px;
+    color: #7c7c7c;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .social-login {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    padding: 30px;
+  }
+  
+  .social-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 34px;
+    color: #fff;
+  }
+  
+  .facebook {
+    background-color: #6f1d1b;
+  }
+  
+  .twitter {
+    background-color: #b56363;
+  }
+  
+  .google {
+    background-color: #f7c5c6;
+  }
+  
+  .divider {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #7c7c7c;
+    position: relative;
+    font-size: 30px;
+    padding: 20px;
+  }
+  
+  .divider:before, .divider:after {
+    content: "";
+    width: 40%;
+    height: 1px;
+    background-color: #7c7c7c;
+    position: absolute;
+    top: 50%;
+  }
+  
+  .divider:before {
+    left: 0;
+  }
+  
+  .divider:after {
+    right: 0;
+  }
+/*                                                  formulário                                                         */
+  form {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 44px;
+    color: #7c7c7c;
+    padding: 10px;
+  }
+  
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 46px;
+    margin-bottom: 10px;
+  }
+  
+  .check-mark {
+    position: absolute;
+    right: 10px;
+    top: 42px;
+    color: green;
+    font-size: 16px;
+  }
+  
+  .password-strength {
+    position: absolute;
+    right: 10px;
+    top: 94px;
+    color: green;
+    font-size: 14px;
+  }
+  
+  .forgot-password {
+    color: red;
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  
+  .stay-connected {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  .toggle {
+    width: 50px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .toggle:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="checkbox"]:checked + .toggle {
+    background-color: green;
+  }
+  
+  input[type="checkbox"]:checked + .toggle:before {
+    transform: translateX(20px);
+  }
+  
+  .login-btn {
+    width: 100%;
+    padding: 25px;
+    background-color: #6f1d1b;
+    color: #fff;
+    font-size: 48px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+  

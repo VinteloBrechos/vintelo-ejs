@@ -1,0 +1,312 @@
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*                                              MENU HAMBURGUER GERAL                                                  */
+.menu-hamburger {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: flex-start;
+  overflow: auto;
+  z-index: 1;
+  color: white;
+}
+
+/*                                               ELEMENTOS DO MENU                                                     */
+.menu-hamburguer-elements {
+  width: 60%;
+  height: 100%;
+  background-color: rgba(255, 252, 252, 0.9);
+  position: fixed;
+  right: 100%; 
+  top: 0;
+  transition: right cubic-bezier(1, 0, 0, 1) .8s; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end; 
+  padding-top: 15vh; 
+  z-index: -1;
+}
+
+
+.menu-hamburguer-elements ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  width: 100%;
+}
+
+.menu-hamburguer-elements li {
+  list-style: none;
+  font-size: 1.4rem;
+  margin: 2rem 0;
+}
+
+.menu-hamburguer-elements a {
+  color: rgb(85, 27, 27);
+  text-decoration: none;
+}
+
+.menu-hamburguer-elements a:hover {
+  color: rgb(71, 22, 22);
+}
+
+/*                                               BOTÃO MENU HAMBURGER                                                  */
+.menu {
+  background-color: rgb(102, 31, 31);
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+}
+
+.hamburguer {
+  position: relative;
+  display: block;
+  background: #ffffff;
+  width: 18px;
+  height: 1.5px;
+  top: 18px;
+  left: 10px;
+  transition: 0.5s ease-in-out;
+}
+
+.hamburguer:before,
+.hamburguer:after {
+  background: #ffff;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
+
+.hamburguer:before {
+  top: -10px;
+}
+
+.hamburguer:after {
+  bottom: -10px;
+}
+
+/*                                                      OCULTAR CHECKBOX                                                */
+input {
+  display: none;
+}
+
+/*                                                ANIMAÇÃO HAMBURGER AO CLICAR                                          */
+input:checked ~ label .hamburguer {
+  transform: rotate(45deg);
+}
+
+input:checked ~ label .hamburguer:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+input:checked ~ label .hamburguer:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+/*                                         MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO                           */
+input:checked ~ .menu-hamburguer-elements {
+  right: 0; 
+}
+
+
+header h1 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 600;
+}
+
+header button {
+    background-color: #fff;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/*                                                 Estilos do carrinho                                                 */
+.cart {
+    padding: 1em;
+    background-color: #fff;
+    margin: 1em 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.cart-item img {
+    border-radius: 10px;
+    width: 80px;
+}
+
+.item-details {
+    flex-grow: 1;
+    margin-left: 1em;
+}
+
+.item-details h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.item-details .price {
+    color: #666;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+
+.qty-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.remove-btn {
+    background-color: #fff;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+/*                                                campo de digitar endereço                                            */
+nav.grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    grid-template-columns: 2fr 2fr;  /* Duas colunas */
+    gap: 10px;  /* Espaçamento entre colunas */
+  }
+  
+  nav.grid img {
+    max-width: 90px;
+    cursor: pointer;
+  }
+  
+
+/*                                            Estilos das informações de pedido                                         */ 
+
+.order-details {
+    padding: 1em;
+    background-color: #fff;
+    margin: 1em 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-details h3 {
+    margin: 0 0 0.5em 0;
+}
+
+.address-btn {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.payment-btn {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 32%;
+    text-align: center;
+}
+
+/*                                              Estilos do resumo do pedido                                             */
+.summary {
+    padding: 1em;
+    background-color: #fff;
+    margin: 1em 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em 0;
+}
+
+/*                                          Estilos dos produtos sugeridos                                            */
+.product-suggestions {
+    padding: 1em;
+    background-color: #fff;
+    margin: 1em 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product {
+    text-align: center;
+}
+
+.product img {
+    border-radius: 10px;
+    width: 150px;
+    height: 190px;
+}
+
+/*                                                  Estilos do footer                                                  */
+.footer {
+    background-color: #7D2838;
+    padding: 1em;
+    text-align: center;
+}
+
+.finalize-btn {
+    background-color: #7D2838;
+    color: #ffffff;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+

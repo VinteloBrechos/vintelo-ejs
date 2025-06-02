@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Prata, Montserrat;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+/* Estilos do cabeçalho para o menu desktop */
+.top-bar {
+    background-color: #8c2b44;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+}
+
+.main-header h1 {
+    color: #8c2b44;
+    font-size: 1.8rem;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+
+.search-profile {
+    display: flex;
+    align-items: center;
+}
+
+.search-profile form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-profile ul {
+    display: flex;
+    list-style: none;
+    margin-left: 20px;
+    gap: 5px;
+}
+
+.img-tamanho {
+    width: 40px;
+    height: auto;
+}
+
+.img-logo {
+    width: 100px;
+    height: auto;
+}
+
+.maria {
+    width: 40px;
+}
+
+header {
+    background-color: #fff;
+    padding: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.profile-button img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.titulo-header{
+    font-size: 50px;
+}
+
+.Seta-voltar{
+    width: 100px;
+    height: 100px;
+}
+/*                                                     header                                                           */
+.summary {
+    padding: 2.5rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dddddd00;
+}
+
+.stars {
+    color: orange;
+}
+
+.avaliaçao{
+    font-size: 30px;
+}
+/*                                               2 cabeçalho                                                          */
+.add-review {
+    background-color: #7D2838;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.editar{
+    width: 30px;
+    height: 30px;
+}
+
+
+/* Reviews Section */
+.avaliaçao{
+    width: 40%;
+    height: auto;
+}
+
+.reviews {
+    padding: 20px;
+}
+
+.review-item {
+    display: flex;
+    gap: 15px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    align-items: flex-start;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.274);
+}
+
+.profile-pic {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-content h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #999;
+    margin-left: 5px;
+}
+
+.rating {
+    font-size: 14px;
+    color: #666;
+}
+
+.review-text {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    background-color: #7D2838;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.p-footer {
+    color: #ffffffe7;
+    font-size: 30px;
+}
+
+.footer .footer-image {
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.footer .social-media {
+    margin-bottom: 20px;
+}
+
+.footer .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer .social-link img {
+    height: 80px;
+    transition: transform 0.3s;
+}
+
+.footer .social-link img:hover {
+    transform: scale(1.2);
+}
+
+.copyright {
+    font-size: 25px;
+    color: #ffffffe7;
+}
+
+/*                                                  responsividade                                                     */
+@media (max-width: 768px){
+    .oculto-mobile {
+      display: none
+    }
+  }
+
+  @media (min-width: 992px){
+    .oculto-mobile {
+      display: block
+    }
+  }
+
+  @media (max-width: 768px){
+    .oculto-desktop {
+      display: block
+    }
+  }
+
+  @media (min-width: 992px){
+    .oculto-desktop {
+      display: none
+    }
+  }
+
+  @media (min-width: 992px){
+
+    .add-review {
+        background-color: #7D2838;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    .avaliaçao{
+        width: 15%;
+        height: auto;
+    }
+
+    .editar{
+        width: 20px;
+        height: auto;
+    }
+  }
+
+  @media (max-width: 768px){
+    .review-item {
+        display: flex;
+        gap: 15px;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.274);
+    }
+    .profile-pic {
+        width: 100px;
+        height: auto;
+        border-radius: 50%;
+    }
+    
+    .review-content {
+        flex: 1;
+    }
+    
+    .review-content h2 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .review-date {
+        font-size: 12px;
+        color: #999;
+        margin-left: 5px;
+    }
+    
+    .rating {
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .review-text {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #333;
+    }
+  }
+
+  /* Ocultar cabeçalhos em dispositivos específicos */
+@media (min-width: 992px) {
+    /* Oculta o cabeçalho para desktop */
+    .oculto-desktop {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Oculta o cabeçalho para mobile */
+    .oculto-mobile {
+        display: none;
+    }
+}

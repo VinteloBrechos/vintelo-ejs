@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="css/carrinho.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/homecomprador">
+            <img src="imagens/seta.png" alt="Seta Voltar">
+        </a>
+        <h1>Carrinho</h1>
+        <nav class="menu-hamburger">
+ 
+            <input id="menu-hamburguer" type="checkbox" />
+            <label for="menu-hamburguer">
+              <div class="menu">
+              <span class="hamburguer"></span>
+              </div>
+            </label>
+            
+            <ul class="menu-hamburguer-elements show">
+            
+              <li>
+                <a href="#">informações do perfil</a>
+              </li>
+              <li>
+                <a href="#">senha</a>
+              </li>
+              <li>
+                <a href="#">carrinho</a>
+              </li>
+            
+              <li>
+                <a href="#">lista de desejos</a>
+              </li>
+            
+              <li>
+                <a href="#">configurações</a>
+              </li>
+            
+              <li>
+                <a href="#">lista de desejos</a>
+              </li>
+            </ul>
+          </nav>
+    </header>
+
+    <section class="cart">
+        <article class="cart-item">
+            <img src="imagens/carrinho1.png" alt="Vestido Branco Longo">
+            <div class="item-details">
+                <h2>Vestido Branco Longo</h2>
+                <p class="price">R$60,00</p>
+                <div class="quantity-control">
+                    <button class="qty-btn">-</button>
+                    <span>1</span>
+                    <button class="qty-btn">+</button>
+                </div>
+            </div>
+            <button class="remove-btn">🗑️</button>
+        </article>
+
+        <article class="cart-item">
+            <img src="imagens/carrinho2.png" alt="Vestido Med Roxo">
+            <div class="item-details">
+                <h2>Vestido Med Roxo</h2>
+                <p class="price">R$45,00</p>
+                <div class="quantity-control">
+                    <button class="qty-btn">-</button>
+                    <span>1</span>
+                    <button class="qty-btn">+</button>
+                </div>
+            </div>
+            <button class="remove-btn">🗑️</button>
+        </article>
+    </section>
+
+    <section class="order-details">
+        <h3>Endereço de entrega</h3>
+        <nav class="grid">
+            <img src="imagens/mapa.png">
+            <br>
+            <button class="address-btn"> Adicione o Endereço</button>
+        </nav>
+        <br>
+        <h3>Forma de pagamento</h3>
+        <div class="payment-methods">
+            <button class="payment-btn visa">
+                <img src="imagens/visa.png"> 
+            </button>
+            <button class="payment-btn pix"><img src="imagens/pix.png"></button>
+            <button class="payment-btn money"><img src="imagens/dinheiro.png"></button>
+        </div>
+    </section>
+
+    <section class="summary">
+        <h3>Informações do pedido</h3>
+        <p>Subtotal: <span>R$80,00</span></p>
+        <p>Frete: <span>R$10,00</span></p>
+        <p>Total: <span>R$90,00</span></p>
+    </section>
+
+    <section class="product-suggestions">
+        <h3>Adicione mais ao carrinho</h3>
+        <div class="product-list">
+            <article class="product">
+                <img src="imagens/conjunto.png" alt="Saia Branca">
+                <h4>Saia Branca</h4>
+                <p>R$25,00</p>
+            </article>
+
+            <article class="product">
+                <img src="imagens/saia preta.png" alt="Saia Preta">
+                <h4>Saia Preta</h4>
+                <p>R$30,00</p>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <button class="finalize-btn">Finalizar compra</button>
+    </footer>
+</body>
+</html>
