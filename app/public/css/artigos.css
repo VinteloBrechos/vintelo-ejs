@@ -16,7 +16,7 @@ h2 {
 
 p {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -32,7 +32,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
+  padding: 20px 100px;
   background-color: #fff;
 }
 
@@ -45,7 +45,7 @@ nav a {
   color: #333;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 1rem;
+  font-size: 20px;
 }
 
 .search-profile {
@@ -55,8 +55,9 @@ nav a {
 
 .search-profile form input {
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #8c2b44;
+  border-radius: 24px;
+  width: 100%;
 }
 
 .search-profile ul {
@@ -67,17 +68,17 @@ nav a {
 }
 
 .img-tamanho{
-  width: 40px;
+  width: 50px;
   height: auto;
 }
 
 .img-logo{
-  width: 100px;
+  width: 120px;
   height: auto;
 }
 
 .maria{
-   width: 40px;
+   width: 50px;
 }
 
 header {

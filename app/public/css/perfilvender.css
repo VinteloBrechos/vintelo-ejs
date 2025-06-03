@@ -192,7 +192,7 @@ nav a {
 /* Cartão de Produto */
 .product-card {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 25px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 5px;
   text-align: center;
@@ -210,7 +210,7 @@ nav a {
   font-size: 15px;
   font-weight: bold;
   color: #333;
-  margin: 10px 0;
+  margin: 10px 10px;
   text-align: left;
 }
 
@@ -219,6 +219,7 @@ nav a {
   color: #000000;
   margin-bottom: 10px;
   text-align: left;
+  padding: 0px 10px;
 }
 
 .favorite, .cart {

@@ -242,4 +242,8 @@ router.get('/menufavoritos', function(req, res){
 router.get('/menucompras', function(req, res){
     res.render('pages/menucompras');
 })
+
+// validação //
+
+
 module.exports = router;

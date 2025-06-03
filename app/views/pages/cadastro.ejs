@@ -13,7 +13,7 @@
                 <img src="imagens/seta.png" alt="Seta Voltar">
             </a>
             <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
-            <img src="imagens/foto-branca.png" class="img-branca">
+            <img src="imagens/quadrado.png" class="img-branca">
         </nav>
     </header>
 
@@ -93,55 +93,9 @@
             </div>
         </section>
     </main>
+     
 
-    <script src="js/script.js"></script>
-    <script>
-        function validarCadastro() {
-            const username = document.getElementById('new-username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('new-password').value;
-            const phone = document.getElementById('phone').value;
-            const cpf = document.getElementById('cpf').value;
-            const address = document.getElementById('address').value;
 
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("Por favor, insira um email válido.");
-                return false;
-            }
-
-            if (password.length < 8) {
-                alert("A senha deve ter pelo menos 8 caracteres.");
-                return false;
-            }
-
-            const phoneRegex = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/;
-            if (!phoneRegex.test(phone)) {
-                alert("Por favor, insira um número de telefone válido no formato (XX) XXXXX-XXXX.");
-                return false;
-            }
-
-            const cpfRegex = /^\d{11}$/;
-            if (!cpfRegex.test(cpf)) {
-                alert("Por favor, insira um CPF válido com 11 dígitos, sem pontos ou traços.");
-                return false;
-            }
-
-            if (!address) {
-                alert("Por favor, insira um endereço.");
-                return false;
-            }
-
-            alert("Cadastro realizado com sucesso!");
-            return true;
-        }
-
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            if (validarCadastro()) {
-                window.location.href = "/finalizandopagamento";
-            }
-        });
-    </script>
+    
 </body>
 </html>

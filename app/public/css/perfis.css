@@ -16,13 +16,14 @@ body {
   text-align: center;
   color: white;
   padding: 20px;
+  font-size: 25px;
 }
 
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 50px;
+  padding: 5px 100px;
   background-color: #fff;
 }
 
@@ -35,7 +36,7 @@ nav a {
   color: #333;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 1rem;
+  font-size: 20px;
 }
 
 .search-profile {
@@ -45,34 +46,36 @@ nav a {
 
 .search-profile form input {
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #6e0d26;
+  border-radius: 24px;
+  width: 120%;
 }
 
 .search-profile ul {
   display: flex;
   list-style: none;
-  margin-left: 20px;
+  margin-left: 80px;
   gap: 5px;
+
 }
 
 .img-tamanho2{
-  width: 45px;
+  width: 55px;
   height: auto;
 }
 
 .img-tamanho{
-  width: 40px;
+  width: 50px;
   height: auto;
 }
 
 .img-logo{
-  width: 100px;
+  width: 140px;
   height: auto;
 }
 
 .maria{
-   width: 40px;
+   width: 50px;
 }
 
 
@@ -132,7 +135,7 @@ header1 {
 .stats {
     display: flex;
     justify-content: space-evenly;
-    margin: 20px 0;
+    margin: 20px 10px;
 }
 
 .profile-actions {
@@ -178,6 +181,7 @@ summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 30px;
 }
 
 ul {
@@ -188,6 +192,8 @@ ul {
 li {
   padding: 5px 0;
   color: #666;
+  gap: 5px;
+  font-size: 20px;
 }
 
 .faixa-valor {
@@ -256,7 +262,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  background-color: #535353;
+  background-color: #6e0d26;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -276,9 +282,9 @@ input[type="range"]::-webkit-slider-thumb {
 /* Estilo da seção Filtro */
 .filtro {
   width: 250px; /* Largura fixa para o filtro */
-  padding: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
+  padding: 40px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
   font-size: 16px;
   gap: 20px;
 }

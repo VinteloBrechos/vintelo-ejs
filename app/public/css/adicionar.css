@@ -112,6 +112,7 @@ main {
     flex-direction: column;
     gap: 20px;
     margin-bottom: 20px;
+    padding: 50px;
 }
 
 .item-form input {

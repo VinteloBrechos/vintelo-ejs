@@ -16,13 +16,14 @@ body {
     text-align: center;
     color: white;
     padding: 20px;
+    font-size: 25px;
 }
 
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
+    padding: 20px 100px;
     background-color: #fff;
 }
 
@@ -35,7 +36,7 @@ nav a {
     color: #333;
     text-decoration: none;
     margin: 0 15px;
-    font-size: 1rem;
+    font-size: 25px;
 }
 
 .search-profile {
@@ -45,8 +46,9 @@ nav a {
 
 .search-profile form input {
     padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #8c2b44;
+    border-radius: 24px;
+    width: 100%;
 }
 
 .search-profile ul {
@@ -57,17 +59,22 @@ nav a {
 }
 
 .img-tamanho {
-    width: 40px;
+    width: 50px;
     height: auto;
 }
 
 .img-logo {
-    width: 100px;
+    width: 140px;
+    height: auto;
+}
+
+.img-avaliaçao {
+    width: 200px;
     height: auto;
 }
 
 .maria {
-    width: 40px;
+    width: 50px;
 }
 
 header {
@@ -341,3 +348,23 @@ nav {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    .oculto-desktop {
+        display: block;
+    }
+    .oculto-mobile {
+        display: none;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .oculto-desktop {
+        display: none;
+    }
+    .oculto-mobile {
+        display: block;
+    }
+  }
+  
+  
