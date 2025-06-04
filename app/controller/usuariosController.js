@@ -8,6 +8,7 @@ const https = require('https');
  
 const usuarioController = {
  
+
     regrasValidacaoFormLogin: [
         body("nome_usu")
             .isLength({ min: 8, max: 45 })
@@ -71,7 +72,7 @@ const usuarioController = {
                 dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
             })
         }
-    },
+    }, //ajustar//
  
  
     cadastrar: (req, res) => {
