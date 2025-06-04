@@ -59,6 +59,24 @@ nav a {
   margin-left: 20px;
 }
 
+.search-profile {
+  display: flex;
+  align-items: center;
+}
+
+.search-profile form input {
+  padding: 8px;
+  border: 1px solid #8c2b44;
+  border-radius: 24px;
+  width: 100%;
+}
+
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  margin-left: 20px;
+  gap: 5px;
+}
 
 .search-profile form input {
   padding: 8px;
@@ -241,19 +259,20 @@ a:focus, a:active {
   }
   
 /*                                         layout para desktop                                                         */
-/* Layout para Desktop */
+/*       Layout para Desktop       */
 .top-bar {
   background-color: #8c2b44;
   text-align: center;
   color: white;
-  padding: 20px;
+  padding: 10px;
+  font-size: 25px;
 }
 
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px 100px;
   background-color: #fff;
 }
 
@@ -261,7 +280,7 @@ nav a {
   color: #333;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 1rem;
+  font-size: 25px;
 }
 
 .search-profile {
@@ -283,15 +302,15 @@ nav a {
 }
 
 .img-tamanho {
-  width: 40px;
+  width: 50px;
 }
 
 .img-logo {
-  width: 100px;
+  width: 130px;
 }
 
 .maria {
-  width: 40px;
+  width: 50px;
 }
 
 /* Header */
