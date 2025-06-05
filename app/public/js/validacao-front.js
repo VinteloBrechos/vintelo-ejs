@@ -19,6 +19,7 @@ function validarCNPJ(cnpj) {
     cnpj == "99999999999999")
     return false;
 
+    
   // Valida DVs
   let tamanho = cnpj.length - 2;
   let numeros = cnpj.substring(0, tamanho);

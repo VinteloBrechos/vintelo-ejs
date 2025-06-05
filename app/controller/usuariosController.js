@@ -9,6 +9,7 @@ const https = require('https');
 const usuarioController = {
  
 
+    
     regrasValidacaoFormLogin: [
         body("nome_usu")
             .isLength({ min: 8, max: 45 })
