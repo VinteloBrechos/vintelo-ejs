@@ -34,25 +34,27 @@ header img {
   color: white;
   text-align: center;
   padding: 20px;
+  font-size: 20px;
 }
 
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 100px;
   background-color: #fff;
 }
 
 .img-logo {
-  width: 120px;
+  width: 140px;
+  height: auto;
 }
 
 nav a {
   color: #333;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 1rem;
+  font-size: 20px;
 }
 
 .search-profile {
@@ -69,8 +71,9 @@ nav a {
 
 .search-profile form input {
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #7D2838;
+  border-radius: 24px;
+  width: 100%;
 }
 
 .img-tamanho {

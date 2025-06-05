@@ -1,16 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const usuarioController = require('../controllers/usuarioController');
-
-router.get('/login', usuarioController.logar);
-router.post('/login', usuarioController.regrasValidacaoFormLogin, usuarioController.logar);
-
-router.get('/cadastro', (req, res) => res.render('pages/cadastro'));
-router.post('/cadastro', usuarioController.regrasValidacaoFormCad, usuarioController.cadastrar);
-
-router.get('/perfil', usuarioController.mostrarPerfil);
-router.post('/perfil', usuarioController.regrasValidacaoPerfil, usuarioController.gravarPerfil);
-
 
 router.get('/', function(req, res){
     res.render('pages/index');
