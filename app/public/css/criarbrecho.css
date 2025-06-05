@@ -78,8 +78,8 @@ p {
 }
 
 .profile-img {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
@@ -96,7 +96,7 @@ p {
     border-radius: 50%;
     cursor: pointer;
     padding: 5px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .form-group {
