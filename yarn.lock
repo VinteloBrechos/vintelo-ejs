@@ -709,6 +709,11 @@ side-channel@^1.0.6:
     side-channel-map "^1.0.1"
     side-channel-weakmap "^1.0.2"
 
+simple-notify@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/simple-notify/-/simple-notify-1.0.6.tgz"
+  integrity sha512-/nO2zwJvMls7MoViV8WpzJccI3LTOM4DfCc21gqtHJEzU1kKMHIBofj9AwjdVrosK+R2nJYJ8F/ImFLAdZpyAw==
+
 simple-update-notifier@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/simple-update-notifier/-/simple-update-notifier-2.0.0.tgz"
