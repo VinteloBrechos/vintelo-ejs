@@ -24,5 +24,4 @@ app.listen(port,() => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
 
-//lalalallalalal// // oioioioioio// //kethteste//
-
+//lalalallalalal// // oioioioioio// //kethteste// //laurinha//
