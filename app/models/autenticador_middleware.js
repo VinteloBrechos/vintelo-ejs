@@ -24,7 +24,8 @@ gravarUsuAutenticado = async (req, res, next) => {
     var autenticado = { autenticado: null, id: null, tipo: null};
     if(erros.isEmpty()) {
         var dadosForm = {
-            user_usuario: req.bod
+            user_usuario: req.body.nome_usu,
+            senha_usuario: req.body.senha_usu,
         }
     }
 }
