@@ -131,7 +131,36 @@
     display: inline-block;
     margin-top: 5px;
   }
-  /*                                                   produtos                                                         */
+  /*                                               produtos semelhantes                                                        */
+  .product-list {
+    display: flex;
+    gap: 16px;
+    padding: 10px;
+    overflow-x: auto;
+  }
+  
+  .product-suggestion {
+    text-align: center;
+    list-style: none;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.274);
+  }
+  
+  .product-suggestion img {
+    width: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .product-suggestion p {
+    font-size: 14px;
+    color: #888;
+    text-align: left;
+  }
   /*                                          Estilos para a seção de produtos                                           */
   h3 {
     font-size: 40px;
