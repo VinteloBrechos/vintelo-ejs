@@ -9,9 +9,15 @@
   "author": "Lavinia",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "readline-sync": "^1.4.10"
+    "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
+    "mysql2": "^3.14.3",
+    "readline-sync": "^1.4.10",
+    "simple-notify": "^1.0.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
