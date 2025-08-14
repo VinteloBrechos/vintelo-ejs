@@ -243,6 +243,10 @@ router.get('/menucompras', function(req, res){
     res.render('pages/menucompras');
 })
 
+router.get('/homepecasreformadas', function(req, res){
+    res.render('pages/homepecasreformadas');
+})
+
 // validação //
 
 
