@@ -69,7 +69,6 @@ router.get('/produto4', function(req, res){
 })
 
 router.post("/cadastro", (req, res) => {
-    const valores = req.body; // ou o que você pegou do form
     res.render("pages/cadastro", { 
         valores: valores,
         avisoErro: {}
