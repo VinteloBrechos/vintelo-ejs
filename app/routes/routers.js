@@ -5,7 +5,6 @@ const {
     verificarUsuAutenticado,
     limparSessao,
     gravarUsuAutenticado,
-    verificarUsuAutenticado,
 } = require("../models/autenticador_middleware");
 
 const usuarioModel = require("../controllers/UsuarioController");
