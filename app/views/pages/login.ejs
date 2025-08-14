@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Vintélo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+    <script src="../../public/script/script.js"></script>
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+    <% if(autenticado.autenticado !=null) {
+        if(login ==1) {%>
+        <script>
+            notify("Login efetuado com sucesso",
+            "Olá <%= autenticado.autenticado %>", "sucess", "center")
+        </script>
+        <% } %>
+    }
     <header>
         <nav class="grid">
             <a href="/index">

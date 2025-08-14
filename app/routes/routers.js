@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+router.get("/", verificarUsuAutenticado, function (req, res) {
+    res.render("pages/index", {
+        autenticado: req.session.autenticado,
+        login: req.session.logado,
+    })
+})
+
 router.get('/', function(req, res){
     res.render('pages/index');
 })
