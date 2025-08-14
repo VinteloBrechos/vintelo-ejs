@@ -1,12 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-router.get("/", verificarUsuAutenticado, function (req, res) {
-    res.render("pages/index", {
-        autenticado: req.session.autenticado,
-        login: req.session.logado,
-    })
-})
+const { 
+    verificarUsuAutenticado,
+    limparSessao,
+    gravarUsuAutenticado,
+    verificarUsuAutenticado,
+} = require("../models/autenticador_middleware");
+
+const usuarioModel = require("../controllers/UsuarioController");
+
+const uploadFile = require("../util/uploader");
+
+//router.get("/", verificarUsuAutenticado, function (req, res) {
+ //   res.render("pages/index", {
+   //     autenticado: req.session.autenticado,
+     //   login: req.session.logado,
+   // })
+//})
 
 router.get('/', function(req, res){
     res.render('pages/index');
