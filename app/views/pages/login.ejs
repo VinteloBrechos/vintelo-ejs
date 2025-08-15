@@ -9,14 +9,6 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <% if(autenticado.autenticado !=null) {
-        if(login ==1) {%>
-        <script>
-            notify("Login efetuado com sucesso",
-            "Olá <%= autenticado.autenticado %>", "sucess", "center")
-        </script>
-        <% } %>
-    }
     <header>
         <nav class="grid">
             <a href="/index">
@@ -28,6 +20,39 @@
     </header>
     <br>
     <main>
+         <% 
+            let avisoErro = {"nome_usu":"", "senha_usu":""}
+            let msgErro = ""
+                if(listaErros){
+                    listaErros.errors.forEach(function(itemErro){
+                        if(itemErro.path == "nome_usu"){
+                            avisoErro.nome_usu = "erro";
+                            msgErro += `* ${itemErro.msg} <br>`
+                        }
+                        if(itemErro.path == "senha_usu"){
+                            avisoErro.senha_usu = "erro";
+                            msgErro += `* ${itemErro.msg} <br>`
+                        }
+                    })
+                    if(msgErro != ""){
+                    %>
+                        <script>
+                            let msgErro ="<%= msgErro %>"
+                            notify("Erro(s) no preenchimento", 
+                                   "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                   "error", "center", 5000)                        
+                        </script>
+                    <%
+                    }
+                }
+                if (dadosNotificacao) { %>
+                    <script>
+                            notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                            if("<%= dadosNotificacao.tipo %>" == "success"){
+                                setTimeout(function(){window.location="/"}, 3000)
+                            }                        
+                    </script>
+                <% } %> 
         <section class="welcome-section">
             <h2>Bem-Vindo</h2>
             <br>
