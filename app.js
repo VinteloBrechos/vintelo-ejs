@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const env = require('dotenv').config();
 
+const app = express();
+
 var session = require('express-session');
 app.use(
   session({
@@ -11,8 +13,6 @@ app.use(
     saveUninitializede: false,
   }));
 
-
-const app = express();
 const port = 3000;
 
 app.use(express.static("./app/public"));
