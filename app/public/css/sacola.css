@@ -43,7 +43,7 @@ text-align: center;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 20px;
+padding: 20px 60px;
 background-color: #fff;
 }
 
@@ -101,32 +101,63 @@ padding: 0px 60px;
 font-size: 20px;
 }
 
-.list-info {
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
 .product-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.product {
-  background-color: white;
-  border-radius: 10px;
+  display: flex;
+  gap: 16px;
   padding: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
 }
 
-.product img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
+.product-suggestion {
+  text-align: center;
+  list-style: none;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.274);
 }
+
+.product-suggestion img {
+  width: auto;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.product-suggestion p {
+  font-size: 14px;
+  color: #888;
+  text-align: left;
+}
+
+
+.finalizar-compra {
+  width: 100%;
+  padding: 10px;
+  background-color: #8a1f41;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.adicionar-compra {
+width: 100%;
+padding: 5px 15px 5px;
+background-color: #8a1f41;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 14px;
+font-weight: bold;
+text-align: center;
+}
+
 
 p {
 text-align: left;
@@ -143,7 +174,18 @@ text-align: left;
   cursor: pointer;
   margin-bottom: 30px;
 }
+/*                                                    imagem principal                                       */
+ .mobile {
+  margin: 0 15px;
+  height: 140px;
+  width: auto;
+  }
 
+  .desktop {
+    margin: 0 15px;
+    height: 220px;
+    width: auto;
+    }
 
 /*                                                      Rodapé                                                      */
 .footer {

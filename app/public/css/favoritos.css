@@ -107,7 +107,7 @@ main{
 
 .list-info {
     margin-bottom: 15px;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .product-list {
@@ -119,16 +119,16 @@ main{
 
 .product {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .product img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 
