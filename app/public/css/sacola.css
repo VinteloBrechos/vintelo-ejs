@@ -66,8 +66,8 @@ align-items: center;
 
 .search-profile form input {
 padding: 8px;
-border: 1px solid #ccc;
-border-radius: 4px;
+border-radius: 30px;
+border: 1px solid #7D2838;
 }
 
 .search-profile ul {

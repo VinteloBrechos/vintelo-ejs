@@ -69,9 +69,13 @@ router.get('/produto4', function(req, res){
     res.render('pages/produto4');
 })
 
-router.get('/cadastro', function(req, res){
-    res.render('pages/cadastro');
-})
+router.post("/cadastro", (req, res) => {
+    const valores = req.body; // ou o que você pegou do form
+    res.render("pages/cadastro", { 
+        valores: valores,
+        avisoErro: {}
+    });
+});
 
 router.get('/carrinho', function(req, res){
     res.render('pages/carrinho');

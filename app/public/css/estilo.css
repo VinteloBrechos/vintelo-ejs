@@ -304,6 +304,11 @@ nav.grid {
 }
 
 nav.grid img {
+  height: auto;
+  cursor: pointer;
+}
+.img-sem-perfil
+{
   height: 130px;
   cursor: pointer;
 }
