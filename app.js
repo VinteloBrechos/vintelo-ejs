@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const env = require('dotenv').config();
-
+const port = process.env.PORT || 3306;
 const app = express();
 
 var session = require('express-session');
@@ -13,7 +13,7 @@ app.use(
   })
 );
 
-const port = process.env.PORT || 3000;
+
 
 app.use(express.static("./app/public"));
 app.set('view engine', 'ejs');
@@ -30,5 +30,3 @@ console.log("teste");
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
-
-//lavis
