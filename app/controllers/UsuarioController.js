@@ -32,6 +32,6 @@ const usuarioController = {
             }),
             body("email_usu")
                 .isEmail()
-                .withMessage()
+                .withMessage("o email está invalido")
          ]
 }
