@@ -11,5 +11,3 @@
         container.scrollLeft += itemWidth; // vai pro final se rolar pra trás
       }
     });
-
-    //lavis
