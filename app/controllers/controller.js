@@ -1,5 +1,5 @@
-const usuario = require("../models/tipoUsuarioModel");
-const { body, validationResult} = require("express-validator");
+const usuario = require("../models/usuarioModel");
+const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 const {removeImg} = require("../util/removeImg");
@@ -8,22 +8,20 @@ const https = require('https');
 
 const usuarioController = {
 
-    regrasValidacacaoFormLogin: [
+    regrasValidacaoFormLogin: [
         body("nome_usu")
-        .isLength({ min: 8, max: 45})
-        .withMessage("O nome de usuários/e-mail deve ter de 8 a 45 caracteres"),
+            .isLength({ min: 8, max: 45 })
+            .withMessage("O nome de usuário/e-mail deve ter de 8 a 45 caracteres"),
         body("senha_usu")
-        .isStrongPassword()
-        .withMessage("A senha deve ter o minimo 8 caracteres")
+            .isStrongPassword()
+            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
-     regrasValidacaoFormCad: [
+    regrasValidacaoFormCad: [
         body("nome_usu")
-            .isLength({ min: 3, max: 45 })
-            .withMessage("Nome deve ter de 3 a 45 caracteres!"),
+            .isLength({ min: 3, max: 45 }).withMessage("Nome deve ter de 3 a 45 caracteres!"),
         body("nomeusu_usu")
-            .isLength({ min: 8, max: 45 })
-            .withMessage("Nome de usuário deve ter de 8 a 45 caracteres!")
+            .isLength({ min: 8, max: 45 }).withMessage("Nome de usuário deve ter de 8 a 45 caracteres!")
             .custom(async value => {
                 const nomeUsu = await usuario.findCampoCustom({ 'user_usuario': value });
                 if (nomeUsu > 0) {
@@ -43,7 +41,8 @@ const usuarioController = {
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
-    regrasValidacaoCadastro: [
+
+    regrasValidacaoPerfil: [
         body("nome_usu")
             .isLength({ min: 3, max: 45 }).withMessage("Nome deve ter de 3 a 45 caracteres!"),
         body("nomeusu_usu")
@@ -144,4 +143,72 @@ const usuarioController = {
         }
     },
 
+    gravarPerfil: async (req, res) => {
+
+        const erros = validationResult(req);
+        const erroMulter = req.session.erroMulter;
+        if (!erros.isEmpty() || erroMulter != null ) {
+            lista =  !erros.isEmpty() ? erros : {formatter:null, errors:[]};
+            if(erroMulter != null ){
+                lista.errors.push(erroMulter);
+            } 
+            return res.render("pages/perfil", { listaErros: lista, dadosNotificacao: null, valores: req.body })
+        }
+        try {
+            var dadosForm = {
+                user_usuario: req.body.nomeusu_usu,
+                nome_usuario: req.body.nome_usu,
+                email_usuario: req.body.email_usu,
+                fone_usuario: req.body.fone_usu,
+                cep_usuario: req.body.cep.replace("-",""),
+                numero_usuario: req.body.numero,
+                complemento_usuario: req.body.complemento,
+                img_perfil_banco: req.session.autenticado.img_perfil_banco,
+                img_perfil_pasta: req.session.autenticado.img_perfil_pasta,
+            }; //img nã tem no banco
+            if (req.body.senha_usu != "") {
+                dadosForm.senha_usuario = bcrypt.hashSync(req.body.senha_usu, salt);
+            }
+            if (!req.file) {
+                console.log("Falha no carregamento");
+            } else {
+                
+                caminhoArquivo = "imagem/perfil/" + req.file.filename;
+                
+                if(dadosForm.img_perfil_pasta != caminhoArquivo ){
+                    removeImg(dadosForm.img_perfil_pasta);
+                }
+                dadosForm.img_perfil_pasta = caminhoArquivo;
+                dadosForm.img_perfil_banco = null;
+
+            } //dado q não tem no banco
+            let resultUpdate = await usuario.update(dadosForm, req.session.autenticado.id);
+            if (!resultUpdate.isEmpty) {
+                if (resultUpdate.changedRows == 1) {
+                    var result = await usuario.findId(req.session.autenticado.id);
+                    var autenticado = {
+                        autenticado: result[0].nome_usuario,
+                        id: result[0].id_usuario,
+                        tipo: result[0].id_tipo_usuario,
+                        img_perfil_banco: result[0].img_perfil_banco != null ? `data:image/jpeg;base64,${result[0].img_perfil_banco.toString('base64')}` : null,
+                        img_perfil_pasta: result[0].img_perfil_pasta
+                    }; //foto não existe no banco 
+                    req.session.autenticado = autenticado;
+                    var campos = {
+                        nome_usu: result[0].nome_usuario, email_usu: result[0].email_usuario,
+                        img_perfil_pasta: result[0].img_perfil_pasta, img_perfil_banco: result[0].img_perfil_banco,
+                        nomeusu_usu: result[0].user_usuario, fone_usu: result[0].fone_usuario, senha_usu: ""
+                    }
+                    res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Login atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
+                }else{
+                    res.render("pages/login", { listaErros: null, dadosNotificacao: { titulo: "Login atualizado com sucesso", mensagem: "Sem alterações", tipo: "success" }, valores: dadosForm });
+                }
+            }
+        } catch (e) {
+            console.log(e)
+            res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: { titulo: "Erro ao atualizar o perfil!", mensagem: "Verifique os valores digitados!", tipo: "error" }, valores: req.body })
+        }
+    }
 }
+
+module.exports = usuarioController
