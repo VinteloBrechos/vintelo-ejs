@@ -83,8 +83,9 @@
                             <label for="cpf">Adicionar CPF</label>
                             <input type="text" id="cpf" name="cpf" placeholder="*********/**" required>
 
-                            <label for="address">Adicionar endereço</label>
-                            <input type="text" id="address" name="address" placeholder="Adicione endereço" required>
+                            <label for="cep">Adicionar CEP</label>
+                            <input type="text" id="cep" name="cep" value="<% valores.cep %> " class="<% avisoErro.cep %>" 
+                            onblur="pesquisarcep(this.value);" onkeyup="mascaraCEP(event)">
 
                             <button type="submit" name="submit" id="submit" class="submit-btn">  Cadastrar</button>
                         </form>

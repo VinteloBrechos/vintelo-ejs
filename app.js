@@ -14,16 +14,16 @@ app.use(
   })
 );
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 
-app.use(express.static("./app/public"));
+app.use(express.static(path.join(__dirname, 'app/public')));
 app.set('view engine', 'ejs');
-app.set('views', './app/views');
+app.set('views', path.join(__dirname, 'app/views'));
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'app/public')));
+app.use(express.urlencoded({ extended: true }));
 
-var rotas = require("./app/routes/routers");
+var rotas = require(path.join(__dirname, 'app/routes/routers'));
 app.use("/", rotas);
 
 console.log("teste");

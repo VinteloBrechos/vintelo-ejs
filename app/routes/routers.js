@@ -1,15 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const { 
-    verificarUsuAutenticado,
-    limparSessao,
-    gravarUsuAutenticado,
-} = require("../models/autenticador_middleware");
-
-const usuarioModel = require("../controllers/UsuarioController");
-
-const uploadFile = require("../util/uploader");
+// Imports comentados para evitar erro de módulos não encontrados
+// const { verificarUsuAutenticado, limparSessao, gravarUsuAutenticado } = require("../models/autenticador_middleware");
+// const usuarioModel = require("../controllers/UsuarioController");
+// const uploadFile = require("../util/uploader");
 
 //router.get("/", verificarUsuAutenticado, function (req, res) {
  //   res.render("pages/index", {
@@ -68,9 +63,13 @@ router.get('/produto4', function(req, res){
     res.render('pages/produto4');
 })
 
+router.get('/cadastro', function(req, res){
+    res.render('pages/cadastro');
+});
+
 router.post("/cadastro", (req, res) => {
     res.render("pages/cadastro", { 
-        valores: valores,
+        valores: req.body,
         avisoErro: {}
     });
 });
