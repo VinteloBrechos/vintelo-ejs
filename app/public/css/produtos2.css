@@ -161,6 +161,19 @@
     color: #888;
     text-align: left;
   }
+
+  .adicionar-compra {
+  width: 100%;
+  padding: 5px 15px 5px;
+  background-color: #8a1f41;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
   /*                                          Estilos para a seção de produtos                                           */
   h3 {
     font-size: 40px;
