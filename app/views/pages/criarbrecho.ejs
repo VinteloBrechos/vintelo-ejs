@@ -17,9 +17,7 @@
                     <img src="imagens/seta.png" alt="Seta Voltar">
                 </a>
                 <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
-                <a href="/carrinho">
-                    <img src="imagens/carrinho.png" alt="carrinho" class="carrinho">
-                </a>
+                    <img src="imagens/foto-branca.png" alt="carrinho" class="carrinho">
             </nav>
         </header>
     </section>
@@ -59,74 +57,74 @@
                 </center>
                 <p>Insira os dados do seu brechó</p>
 
-                <div class="profile-section">
+                <section class="profile-section">
                     <img src="imagens/imagem sem cadastro.avif" alt="Foto do Perfil" class="profile-img">
                     <section class="oculto-desktop">
                         <button class="edit-icon">✎</button>
                     </section>
-                </div>
+                </section>
 
                 <br>
-                <form id="registerForm" method="post">
-                    <div class="form-group">
+                <form id="registerForm" action="/criarbrecho" method="post">
+                    <section class="form-group">
                         <label for="brecho">Nome do Brechó</label>
-                        <input type="text" id="brecho" name="brecho" placeholder="Digite o nome do brechó" >
-                    </div>
+                        <input type="text" id="brecho" name="brecho" placeholder="Digite o nome do brechó" required>
+                    </section>
 
-                    <div class="form-group">
+                    <section class="form-group">
                         <label for="email">Endereço de email</label>
-                        <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" >
-                    </div>
+                        <input type="email" id="email" name="email" placeholder="conta.sanders@exemplo.com" required>
+                    </section>
 
-                    <div class="form-group">
+                    <section class="form-group">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" >
-                    </div>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </section>
 
-                    <div class="form-group">
+                    <section class="form-group">
                         <label for="password">Senha</label>
-                        <input type="password" id="password" name="password" placeholder="Digite sua senha..." >
-                    </div>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha..." required minlength="8">
+                    </section>
 
-                    <div class="form-group">
+                    <section class="form-group">
                         <label for="senha">Confirmar Senha</label>
-                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha..." >
-                    </div>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha..." required minlength="8">
+                    </section>
 
-                    <div class="form-group">
+                    <section class="form-group">
                         <label for="phone">Contato</label>
-                        <input type="text" id="phone" name="phone" placeholder="(**) *****-****" >
-                    </div>
+                        <input type="tel" id="phone" name="phone" placeholder="(**) *****-****" required>
+                    </section>
 
-                    <div class="form-group">
+                    <section class="form-group">
                         <label for="cpf">Adicionar CPF</label>
-                        <input type="text" id="cpf" name="cpf" placeholder="*********/**" >
-                    </div>
+                        <input type="text" id="cpf" name="cpf" placeholder="*********/**" required pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}">
+                    </section>
 
-                    <div class="form-group">
+                    <section class="form-group">
                         <label for="address">Adicionar endereço</label>
-                        <input type="text" id="address" name="address" placeholder="Adicione endereço" >
-                    </div>
+                        <input type="text" id="address" name="address" placeholder="Adicione endereço" required>
+                    </section>
                     <br>
 
-                    <div class="section">
+                    <section class="section">
                         <h3>Onde deseja receber?</h3>
-                        <div class="item payment-option" onclick="selectPayment(this)">
+                        <section class="item payment-option" onclick="selectPayment(this)">
                             <img src="imagens/itau.png" alt="itau" class="icon">
                             <span>Itaú</span>
                             <img src="imagens/erro.png" alt="Erro" class="error-icon">
-                        </div>
-                        <div class="item payment-option" onclick="selectPayment(this)">
+                        </section>
+                        <section class="item payment-option" onclick="selectPayment(this)">
                             <img src="imagens/santander.png" alt="Santander" class="icon">
                             <span>Santander</span>
                             <img src="imagens/check.png" alt="Check" class="check-icon">
-                        </div>
-                        <div class="item payment-option" onclick="selectPayment(this)">
+                        </section>
+                        <section class="item payment-option" onclick="selectPayment(this)">
                             <img src="imagens/nubank.png" alt="Boleto" class="icon">
                             <span>Nubank</span>
                             <img src="imagens/check.png" alt="Check" class="check-icon">
-                        </div>
-                    </div>
+                        </section>
+                    </section>
 
                     <section class="oculto-desktop">
                         <button type="submit" class="create-button">Criar brechó</button>
@@ -141,7 +139,7 @@
 
     </main>
 
-    <script src="js/validacao-front.js"></script>
+    <script src="script/validacao-brecho.js"></script>
 
     <!-- <script src="js/script.js"></script> -->
    

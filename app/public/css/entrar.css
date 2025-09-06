@@ -43,7 +43,7 @@
   }
   
   h1 {
-    font-size: 45px;
+    font-size: 60px;
     margin-bottom: 10px;
     color: #333;
     text-align: center;
@@ -51,7 +51,7 @@
   }
   
   .description {
-    font-size: 30px;
+    font-size: 40px;
     color: #7c7c7c;
     text-align: center;
     margin-bottom: 20px;
@@ -60,79 +60,136 @@
   
   .social-login {
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
-    padding: 30px;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 30px;
+    padding: 20px;
   }
   
-  .social-btn {
+  .social-login img {
     width: 100px;
     height: 100px;
-    border-radius: 10px;
-    border: none;
+    border-radius: 15px;
     cursor: pointer;
-    font-size: 34px;
-    color: #fff;
+    transition: transform 0.3s ease;
   }
   
-  .facebook {
-    background-color: #6f1d1b;
+  .social-login img:hover {
+    transform: scale(1.1);
   }
   
-  .twitter {
-    background-color: #b56363;
-  }
-  
-  .google {
-    background-color: #f7c5c6;
-  }
-  
-  .divider {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #7c7c7c;
-    position: relative;
-    font-size: 30px;
-    padding: 20px;
-  }
-  
-  .divider:before, .divider:after {
-    content: "";
-    width: 40%;
-    height: 1px;
-    background-color: #7c7c7c;
-    position: absolute;
-    top: 50%;
-  }
-  
-  .divider:before {
-    left: 0;
-  }
-  
-  .divider:after {
-    right: 0;
-  }
+.divider {
+  font-size: 32px;
+  color: #888;
+  margin: 20px 0;
+  position: relative;
+  text-align: center;
+}
+.divider::before, .divider::after {
+  content: '';
+  width: 25%;
+  height: 1px;
+  background-color: #c2bfbf;
+  position: absolute;
+  top: 60%;
+}
+.divider::before {
+  left: 0;
+}
+.divider::after {
+  right: 0;
+}
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
 /*                                                  formulário                                                         */
-  form {
-    margin-bottom: 20px;
-    position: relative;
-  }
+.form-group label {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+}
+.form-group input {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 200%;
+  color: #333;
+}
+.password-strength {
+  font-size: 25px;
+  color: green;
+  text-align: right;
+  margin-top: 5px;
+}
+.checkbox-group {
+  margin: 30px 0;
+}
+
+.stay-connected {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
+  cursor: pointer;
+}
+
+.stay-connected input[type="checkbox"] {
+  display: none;
+}
+
+.toggle {
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle:before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .toggle {
+  background-color: #7D2838;
+}
+
+input[type="checkbox"]:checked + .toggle:before {
+  transform: translateX(24px);
+}
+
+
+
+
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 44px;
-    color: #7c7c7c;
-    padding: 10px;
-  }
-  
-  input[type="text"], input[type="password"] {
+  .form-group input {
     width: 100%;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 46px;
-    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 40px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #7D2838;
   }
   
   .check-mark {
@@ -157,13 +214,14 @@
     text-align: right;
     margin-bottom: 20px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 30px;
   }
   
   .stay-connected {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    font-size: 50px;
   }
   
   input[type="checkbox"] {
@@ -171,8 +229,8 @@
   }
   
   .toggle {
-    width: 50px;
-    height: 30px;
+    width: 70px;
+    height: 50px;
     background-color: #ccc;
     border-radius: 20px;
     position: relative;
@@ -185,8 +243,8 @@
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 16px;
-    height: 16px;
+    width: 26px;
+    height: 26px;
     background-color: #fff;
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -202,13 +260,17 @@
   
   .login-btn {
     width: 100%;
-    padding: 25px;
+    padding: 30px;
     background-color: #6f1d1b;
     color: #fff;
-    font-size: 48px;
+    font-size: 36px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #7D2838;
   }
   
 

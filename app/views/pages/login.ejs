@@ -20,92 +20,75 @@
     </header>
     <br>
     <main>
-         <% 
-            let avisoErro = {"nome_usu":"", "senha_usu":""}
-            let msgErro = ""
-                if(listaErros){
-                    listaErros.errors.forEach(function(itemErro){
-                        if(itemErro.path == "nome_usu"){
-                            avisoErro.nome_usu = "erro";
-                            msgErro += `* ${itemErro.msg} <br>`
-                        }
-                        if(itemErro.path == "senha_usu"){
-                            avisoErro.senha_usu = "erro";
-                            msgErro += `* ${itemErro.msg} <br>`
-                        }
-                    })
-                    if(msgErro != ""){
-                    %>
-                        <script>
-                            let msgErro ="<%= msgErro %>"
-                            notify("Erro(s) no preenchimento", 
-                                   "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                                   "error", "center", 5000)                        
-                        </script>
-                    <%
-                    }
-                }
-                if (dadosNotificacao) { %>
-                    <script>
-                            notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                            if("<%= dadosNotificacao.tipo %>" == "success"){
-                                setTimeout(function(){window.location="/"}, 3000)
-                            }                        
-                    </script>
-                <% } %> 
+ 
         <section class="welcome-section">
-            <h2>Bem-Vindo</h2>
+            <h2>cadastre-se</h2>
             <br>
-            <p>Por favor insira seus dados para continuar</p>
+            <p>“Acesse usando seu cadastro de outra plataforma”</p>
         </section>
         <br>
         <br>
-        <div class="social-login">
+        <section class="social-login">
             <a href="#"><img src="imagens/face.jpg" alt="Login com Facebook"></a>
             <a href="#"><img src="imagens/insta.jpg" alt="Login com Instagram"></a>
             <a href="#"><img src="imagens/google.jpg" alt="Login com Google"></a>
-        </div>
+        </section>
          <br>
         <p class="divider">ou acesse via email</p>
         <br>
         <form id="loginForm" action="#" method="post">
             <form id="registerForm" method="post">
-                <div class="form-group">
+                <section class="form-group">
                     <label for="nome_usu">Nome Completo</label>
-                    <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome" value="<%= valores.nome_usu %>" class="<%= avisoErro.nome_usu" %>>
-                </div>
+                    <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome" required>
+                </section>
                 
-                <div class="form-group">
+                <section class="form-group">
                     <label for="email_usu">Endereço de email</label>
                     <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" required>
-                </div>
+                </section>
              
-                <div class="form-group">
+                <section class="form-group">
                     <label for="senha_usu">Senha</label>
                     <input type="password" id="" name="senha_usu" placeholder="Digite sua senha..." required>
-                </div>
+                </section>
             
-                <div class="form-group">
+                <section class="form-group">
                     <label for="senha_usu">Confirmar Senha</label>
                     <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." required>
-                </div>
+                </section>
 
-                <div class="form-group">
+                <section class="form-group">
                 <label for="fone_usu">Contato</label>
                 <input type="text" id="fone_usu" name="fone_usu" placeholder="(**) *****-****" required>
-                </div>
+                </section>
 
-                <div class="form-group">
+                <section class="form-group">
                 <label for="cpf">Adicionar CPF</label>
                 <input type="text" id="cpf" name="cpf" placeholder="*********/**" required>
-                </div>
+                </section>
 
-                <div class="form-group">
+                <section class="form-group">
                 <label for="address">Adicionar endereço</label>
                 <input type="text" id="address" name="address" placeholder="Adicione endereço" required>
-                </div>
+                </section>
             <br>
             <br>
+    <label class="stay-connected">
+      <input type="checkbox" checked>
+      <span class="toggle"></span>
+     <p class="notificaçao"> Mantenha-me conectado </p>
+    </label>
+    <label class="stay-connected">
+      <input type="checkbox" checked>
+      <span class="toggle"></span>
+     <p class="notificaçao"> Receber notificações </p>
+    </label>
+    <label class="stay-connected">
+      <input type="checkbox" checked>
+      <span class="toggle"></span>
+     <p class="notificaçao"> Li e concordo com os Termos de Uso </p>
+    </label>
         </main>
         <footer class="footer">
             <button type="submit" name="submit" id="submit" class="submit-btn">Cadastrar</button>

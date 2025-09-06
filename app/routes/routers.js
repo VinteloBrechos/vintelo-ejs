@@ -23,7 +23,11 @@ router.get('/artigo', function(req, res){
 
 router.get('/login', function(req, res){
     res.render('pages/login');
-})
+});
+
+router.post('/login', function(req, res){
+    res.render('pages/login');
+});
 
 router.get('/vestidos', function(req, res){
     res.render('pages/vestidos');
@@ -64,12 +68,15 @@ router.get('/produto4', function(req, res){
 })
 
 router.get('/cadastro', function(req, res){
-    res.render('pages/cadastro');
+    res.render('pages/cadastro', {
+        valores: {},
+        avisoErro: {}
+    });
 });
 
 router.post("/cadastro", (req, res) => {
     res.render("pages/cadastro", { 
-        valores: req.body,
+        valores: req.body || {},
         avisoErro: {}
     });
 });
@@ -172,7 +179,27 @@ router.get('/perfilvender', function(req, res){
 
 router.get('/criarbrecho', function(req, res){
     res.render('pages/criarbrecho');
-})
+});
+
+router.post('/criarbrecho', function(req, res){
+    const { brecho, email, nome, password, senha, phone, cpf, address } = req.body;
+    
+    // Validação básica
+    if (!brecho || !email || !nome || !password || !senha || !phone || !cpf || !address) {
+        return res.render('pages/criarbrecho', {
+            erro: 'Todos os campos são obrigatórios'
+        });
+    }
+    
+    if (password !== senha) {
+        return res.render('pages/criarbrecho', {
+            erro: 'As senhas não coincidem'
+        });
+    }
+    
+    // Sucesso - redirecionar para perfil vendedor
+    res.redirect('/perfilvender');
+});
 
 router.get('/entrar', function(req, res){
     res.render('pages/entrar');
