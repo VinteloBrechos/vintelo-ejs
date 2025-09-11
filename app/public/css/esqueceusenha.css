@@ -48,7 +48,7 @@
   
   .divider:before, .divider:after {
     content: "";
-    width: 40%;
+    width: 30%;
     height: 1px;
     background-color: #7c7c7c;
     position: absolute;
@@ -80,7 +80,7 @@
     width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 46px;
     margin-bottom: 10px;
   }

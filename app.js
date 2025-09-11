@@ -14,7 +14,7 @@ app.use(
   })
 );
 
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 app.set('view engine', 'ejs');

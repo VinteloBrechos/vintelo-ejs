@@ -165,7 +165,7 @@ const usuarioController = {
                 complemento_usuario: req.body.complemento,
                 img_perfil_banco: req.session.autenticado.img_perfil_banco,
                 img_perfil_pasta: req.session.autenticado.img_perfil_pasta,
-            }; //img nã tem no banco
+            };
             if (req.body.senha_usu != "") {
                 dadosForm.senha_usuario = bcrypt.hashSync(req.body.senha_usu, salt);
             }
@@ -181,7 +181,7 @@ const usuarioController = {
                 dadosForm.img_perfil_pasta = caminhoArquivo;
                 dadosForm.img_perfil_banco = null;
 
-            } //dado q não tem no banco
+            } 
             let resultUpdate = await usuario.update(dadosForm, req.session.autenticado.id);
             if (!resultUpdate.isEmpty) {
                 if (resultUpdate.changedRows == 1) {
