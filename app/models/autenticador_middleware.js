@@ -44,11 +44,42 @@ gravarUsuAutenticado = async (req, res, next) => {
     req.session.autenticado = autenticado;
     req.session.logado = 0 
     next();
+
+    
+};
+verificarUsuAutorizado = (tipoPermitido, destinoFalha) => {
+  return (req, res, next) => {
+    if (
+      req.session.autenticado.autenticado != null &&
+      tipoPermitido.find(function (element) {
+        return element == req.session.autenticado.tipo;
+      }) != undefined
+    ) {
+      next();
+    } else {
+      res.render(destinoFalha, req.session.autenticado);
+    }
+  };
 };
 
+verificarUsuAutorizado = (tipoPermitido, destinoFalha) => {
+  return (req, res, next) => {
+    if (
+      req.session.autenticado.autenticado != null &&
+      tipoPermitido.find(function (element) {
+        return element == req.session.autenticado.tipo;
+      }) != undefined
+    ) {
+      next();
+    } else {
+      res.render(destinoFalha, req.session.autenticado);
+    }
+  };
+};
 
 module.exports = {
     verificarUsuAutenticado,
     limparSessao,
     gravarUsuAutenticado,
+    verificarUsuAutorizado,
 };

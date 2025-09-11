@@ -1,17 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
+
 // Imports comentados para evitar erro de módulos não encontrados
-// const { verificarUsuAutenticado, limparSessao, gravarUsuAutenticado } = require("../models/autenticador_middleware");
-// const usuarioModel = require("../controllers/UsuarioController");
+// const { verificarUsuAutenticado, limparSessao, gravarUsuAutenticado, verificarUsuAutorizado } = require("../models/autenticador_middleware");
+// const usuarioController = require("../controllers/usuarioController");
 // const uploadFile = require("../util/uploader");
 
-//router.get("/", verificarUsuAutenticado, function (req, res) {
- //   res.render("pages/index", {
-   //     autenticado: req.session.autenticado,
-     //   login: req.session.logado,
-   // })
-//})
+// Rotas comentadas temporariamente para evitar erro de módulos
+// router.get("/homecomprador", verificarUsuAutorizado([1, 2, 3], "pages/administrador"), async function (req, res) { usuarioController.mostrarPerfil(req, res); });
+// router.post("/homecomprador", uploadFile("imagem-perfil_usu"), usuarioController.regrasValidacaoPerfil, verificarUsuAutorizado([1, 2, 3], "pages/administrador"), async function (req, res) { usuarioController.gravarPerfil(req, res); });
+// router.get("/", verificarUsuAutenticado, function (req, res) { res.render("pages/index", { autenticado: req.session.autenticado, login: req.session.logado }); });
+// router.get("/sair", limparSessao, function (req, res) { res.redirect("/"); });
+
 
 router.get('/', function(req, res){
     res.render('pages/index');

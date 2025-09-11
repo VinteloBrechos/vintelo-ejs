@@ -1286,3 +1286,11 @@ h1 {
     color: #ffffff; 
   }
 }
+
+/* Alinhar LER AGORA dos artigos */
+ .texto-esquerda {
+      text-align: left;       /* Garante o alinhamento à esquerda */
+      margin-left: 20px;      /* Define a margem à esquerda */
+      font-size: 20px;
+
+ }

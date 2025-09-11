@@ -102,8 +102,28 @@
                     </section>
 
                     <section class="form-group">
-                        <label for="address">Adicionar endereço</label>
-                        <input type="text" id="address" name="address" placeholder="Adicione endereço" required>
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" oninput="mascaraCEP(this)" required>
+                    </section>
+
+                    <section class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida..." required>
+                    </section>
+
+                    <section class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                    </section>
+
+                    <section class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                    </section>
+
+                    <section class="form-group">
+                        <label for="uf">UF</label>
+                        <input type="text" id="uf" name="uf" placeholder="SP" maxlength="2" required>
                     </section>
                     <br>
 
@@ -139,6 +159,7 @@
 
     </main>
 
+    <script src="script/cep.js"></script>
     <script src="script/validacao-brecho.js"></script>
 
     <!-- <script src="js/script.js"></script> -->

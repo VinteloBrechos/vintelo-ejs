@@ -14,7 +14,7 @@ app.use(
   })
 );
 
-const port = 3000;
+const port = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 app.set('view engine', 'ejs');
@@ -30,4 +30,4 @@ console.log("teste");
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
-});
+}); 
