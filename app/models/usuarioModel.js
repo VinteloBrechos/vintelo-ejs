@@ -5,11 +5,10 @@ const usuarioModel = {
         try {
             const [resultados] = await pool.query(
                 "SELECT u.ID_USUARIO, u.NOME_USUARIO, u.USER_USUARIO, " +
-                "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, U.TIPO_USUARIO, " +  //DADO INEXISTENTE NA TABELA USUARIO
-                "u.STATUS_USUARIO, T.TIPO_USUARIO, T.DESCRICAO_USUARIO" + //DADO NECESSÁRIO QUE NÃO EXISTE NO BANCO DE DADOS
-                "FROM USUARIOS u, TIPO_USUARIO t where u.STATUS_USUARIO = 1 and " + //Dado necessário que, novamente, não existe no banco de dados
-                "u.TIPO_USUARIO = t.ID_TIPO_USUARIO" //Dado que eu não exise no banco  
-            )
+                "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, U.TIPO_USUARIO, " +
+                "u.STATUS_USUARIO, T.TIPO_USUARIO, T.DESCRICAO_USUARIO" +
+                "FROM USUARIOS u, TIPO_USUARIO t where u.STATUS_USUARIO = 1 and " + 
+                "u.TIPO_USUARIO = t.ID_TIPO_USUARIO"
             return resultados; //incompletos
         } catch (error) {
             console.log(error);
@@ -19,7 +18,7 @@ const usuarioModel = {
     findUserEmail: async (camposForm) => {
         try {
             const [resultados] = await pool.query (
-                "SELECT * FROM USUARIOS WHERE USER_USUARIO = ? or EMAIL_USUARIO =? ", //Dado que o back necessita e náo foi alterado
+                "SELECT * FROM USUARIOS WHERE USER_USUARIO = ? or EMAIL_USUARIO =? ", 
                 [camposForm.user_usuario, camposForm.user_usuario]
             )
             return resultados;

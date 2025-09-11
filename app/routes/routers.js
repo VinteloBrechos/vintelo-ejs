@@ -183,24 +183,30 @@ router.get('/criarbrecho', function(req, res){
 });
 
 router.post('/criarbrecho', function(req, res){
-    const { brecho, email, nome, password, senha, phone, cpf, address } = req.body;
+
+    console.log(req.body);
+
+
+})
+// router.post('/criarbrecho', function(req, res){
+//     const { brecho, email, nome, password, senha, phone, cpf, address } = req.body;
     
-    // Validação básica
-    if (!brecho || !email || !nome || !password || !senha || !phone || !cpf || !address) {
-        return res.render('pages/criarbrecho', {
-            erro: 'Todos os campos são obrigatórios'
-        });
-    }
+//     // Validação básica
+//     if (!brecho || !email || !nome || !password || !senha || !phone || !cpf || !address) {
+//         return res.render('pages/criarbrecho', {
+//             erro: 'Todos os campos são obrigatórios'
+//         });
+//     }
     
-    if (password !== senha) {
-        return res.render('pages/criarbrecho', {
-            erro: 'As senhas não coincidem'
-        });
-    }
+//     if (password !== senha) {
+//         return res.render('pages/criarbrecho', {
+//             erro: 'As senhas não coincidem'
+//         });
+//     }
     
-    // Sucesso - redirecionar para perfil vendedor
-    res.redirect('/perfilvender');
-});
+//     // Sucesso - redirecionar para perfil vendedor
+//     res.redirect('/perfilvender');
+// });
 
 router.get('/entrar', function(req, res){
     res.render('pages/entrar');

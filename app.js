@@ -14,7 +14,7 @@ app.use(
   })
 );
 
-const port = 3001;
+const port = 3306;
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 app.set('view engine', 'ejs');
