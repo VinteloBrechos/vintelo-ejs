@@ -36,42 +36,26 @@
          <br>
         <p class="divider">ou acesse via email</p>
         <br>
-        <form id="loginForm" action="#" method="post">
-            <form id="registerForm" method="post">
-                <section class="form-group">
-                    <label for="nome_usu">Nome Completo</label>
-                    <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome" required>
-                </section>
-                
-                <section class="form-group">
-                    <label for="email_usu">Endereço de email</label>
-                    <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" required>
-                </section>
-             
-                <section class="form-group">
-                    <label for="senha_usu">Senha</label>
-                    <input type="password" id="" name="senha_usu" placeholder="Digite sua senha..." required>
-                </section>
+        <form id="registerForm" action="/login" method="post">
+            <section class="form-group">
+                <label for="nome_usu">Nome Completo</label>
+                <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome" value="<%= typeof valores !== 'undefined' ? valores.nome_usu || '' : '' %>" required>
+            </section>
             
-                <section class="form-group">
-                    <label for="senha_usu">Confirmar Senha</label>
-                    <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." required>
-                </section>
-
-                <section class="form-group">
-                <label for="fone_usu">Contato</label>
-                <input type="text" id="fone_usu" name="fone_usu" placeholder="(**) *****-****" required>
-                </section>
-
-                <section class="form-group">
-                <label for="cpf">Adicionar CPF</label>
-                <input type="text" id="cpf" name="cpf" placeholder="*********/**" required>
-                </section>
-
-                <section class="form-group">
-                <label for="address">Adicionar endereço</label>
-                <input type="text" id="address" name="address" placeholder="Adicione endereço" required>
-                </section>
+            <section class="form-group">
+                <label for="nomeusu_usu">Nome de Usuário</label>
+                <input type="text" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário" value="<%= typeof valores !== 'undefined' ? valores.nomeusu_usu || '' : '' %>" required>
+            </section>
+            
+            <section class="form-group">
+                <label for="email_usu">Endereço de email</label>
+                <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" value="<%= typeof valores !== 'undefined' ? valores.email_usu || '' : '' %>" required>
+            </section>
+         
+            <section class="form-group">
+                <label for="senha_usu">Senha</label>
+                <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." required>
+            </section>
             <br>
             <br>
     <label class="stay-connected">
@@ -90,38 +74,48 @@
      <p class="notificaçao"> Li e concordo com os Termos de Uso </p>
     </label>
         </main>
-        <footer class="footer">
-            <button type="submit" name="submit" id="submit" class="submit-btn">Cadastrar</button>
-        </footer>
     </form>
+    <footer class="footer">
+        <button type="submit" form="registerForm" name="submit" id="submit" class="submit-btn">Cadastrar</button>
+    </footer>
 
-    <script src="js/script.js"></script>
+    <% if (typeof dadosNotificacao !== 'undefined' && dadosNotificacao) { %>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            if (validarLogin(email, password)) {
-                window.location.href = "/finalizandopagamento";
-            }
-        });
-
-        function validarLogin(email, password) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("Por favor, insira um email válido.");
-                return false;
-            }
-
-            if (password.length < 8) {
-                alert("A senha deve ter pelo menos 8 caracteres.");
-                return false;
-            }
-
-            alert("Login realizado com sucesso!");
-            return true;
-        }
+        new Notify({
+            status: '<%= dadosNotificacao.tipo %>',
+            title: '<%= dadosNotificacao.titulo %>',
+            text: '<%= dadosNotificacao.mensagem %>',
+            effect: 'fade',
+            speed: 300,
+            customClass: null,
+            customIcon: null,
+            showIcon: true,
+            showCloseButton: true,
+            autoclose: true,
+            autotimeout: 3000,
+            gap: 20,
+            distance: 20,
+            type: 1,
+            position: 'right top'
+        })
     </script>
+    <% } %>
+    
+    <% if (typeof listaErros !== 'undefined' && listaErros && listaErros.errors) { %>
+    <script>
+        <% listaErros.errors.forEach(function(erro) { %>
+        new Notify({
+            status: 'error',
+            title: 'Erro de validação',
+            text: '<%= erro.msg %>',
+            effect: 'fade',
+            speed: 300,
+            autoclose: true,
+            autotimeout: 4000,
+            position: 'right top'
+        })
+        <% }); %>
+    </script>
+    <% } %>
 </body>
 </html>

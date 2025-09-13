@@ -29,27 +29,25 @@ gravarUsuAutenticado = async (req, res, next) => {
         };
         var results = await usuario.findUserEmail(dadosForm);
         var total = Object.keys(results).length;
-        if(total ==1){
-            if (bcrypt.compareSync(dadosForm.senha_usuario, results[0].senha_usuario)) {
+        if(total == 1){
+            if (bcrypt.compareSync(dadosForm.senha_usuario, results[0].SENHA_USUARIO)) {
                 var autenticado = {
                     autenticado: results[0].NOME_USUARIO,
                     id: results[0].ID_USUARIO,
-                    tipo: results[0].TIPO_USUARIO, //COLOCAR NA TABELA USUARIO DO BANCO//
-                    img_perfil_banco: results[0].img_perfil_banco != null ? `data:image/jpeg;base64,${results[0].img_perfil_banco.toString('base64')}` : null,
-                    img_perfil_pasta: results[0].img_perfil_pasta,
+                    tipo: results[0].TIPO_USUARIO,
+                    IMAGEM_USUARIO: results[0].IMAGEM_USUARIO
                 };
             }
         }
     }
     req.session.autenticado = autenticado;
-    req.session.logado = 0 
+    req.session.logado = 0;
     next();
-
-    
 };
 verificarUsuAutorizado = (tipoPermitido, destinoFalha) => {
   return (req, res, next) => {
     if (
+      req.session.autenticado && 
       req.session.autenticado.autenticado != null &&
       tipoPermitido.find(function (element) {
         return element == req.session.autenticado.tipo;
@@ -57,22 +55,7 @@ verificarUsuAutorizado = (tipoPermitido, destinoFalha) => {
     ) {
       next();
     } else {
-      res.render(destinoFalha, req.session.autenticado);
-    }
-  };
-};
-
-verificarUsuAutorizado = (tipoPermitido, destinoFalha) => {
-  return (req, res, next) => {
-    if (
-      req.session.autenticado.autenticado != null &&
-      tipoPermitido.find(function (element) {
-        return element == req.session.autenticado.tipo;
-      }) != undefined
-    ) {
-      next();
-    } else {
-      res.render(destinoFalha, req.session.autenticado);
+      res.redirect("/entrar");
     }
   };
 };

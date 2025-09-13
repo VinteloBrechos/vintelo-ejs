@@ -14,7 +14,14 @@ app.use(
   })
 );
 
-const port = 3306;
+const PORT = process.env.PORT || 3000;
+
+// Debug das variáveis de ambiente
+console.log('Variáveis de ambiente:');
+console.log('HOST:', process.env.HOST);
+console.log('USER:', process.env.USER);
+console.log('DATABASE:', process.env.DATABASE);
+console.log('PORT DB:', process.env.PORT);
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 app.set('view engine', 'ejs');
@@ -28,6 +35,6 @@ app.use("/", rotas);
 
 console.log("teste");
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 }); 

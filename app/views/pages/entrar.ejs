@@ -3,6 +3,8 @@
   <meta charset="UTF-8">
   <head>
     <title>Vintélo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
     <link rel="stylesheet" href="css/entrar.css">
   </head>
   <body>
@@ -31,10 +33,10 @@
   
     <p class="divider">ou acesse via email</p>
     <br>
-    <form id="loginForm" action="#" method="post">
+    <form id="loginForm" action="/entrar" method="post">
         <section class="form-group">
             <label for="email_usu">Endereço de email</label>
-            <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" required>
+            <input type="email" id="email_usu" name="nome_usu" placeholder="conta.sanders@exemplo.com" required>
         </section>
      
         <section class="form-group">
@@ -42,6 +44,8 @@
             <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." required>
         </section>
         <a href="/esqueceusenha" class="forgot-password">Esqueceu sua senha?</a>
+        <br>
+        <a href="/login" class="forgot-password">Não tem conta? Cadastre-se</a>
         <br>
         <section class="checkbox-group">
             <label class="stay-connected">
@@ -62,6 +66,38 @@
         </section>
     </form>
   </main>
-   <button type="submit" class="login-btn">Entrar</button>
+   <button type="submit" form="loginForm" class="login-btn">Entrar</button>
+   
+   <% if (typeof dadosNotificacao !== 'undefined' && dadosNotificacao) { %>
+   <script>
+       new Notify({
+           status: '<%= dadosNotificacao.tipo %>',
+           title: '<%= dadosNotificacao.titulo %>',
+           text: '<%= dadosNotificacao.mensagem %>',
+           effect: 'fade',
+           speed: 300,
+           autoclose: true,
+           autotimeout: 3000,
+           position: 'right top'
+       })
+   </script>
+   <% } %>
+   
+   <% if (typeof listaErros !== 'undefined' && listaErros && listaErros.errors) { %>
+   <script>
+       <% listaErros.errors.forEach(function(erro) { %>
+       new Notify({
+           status: 'error',
+           title: 'Erro',
+           text: '<%= erro.msg %>',
+           effect: 'fade',
+           speed: 300,
+           autoclose: true,
+           autotimeout: 4000,
+           position: 'right top'
+       })
+       <% }); %>
+   </script>
+   <% } %>
  </body>
 </html>

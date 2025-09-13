@@ -90,56 +90,94 @@ main h2 {
 }
 
 .titulo {
-  font-size: 40px;
-  margin-bottom: 10px;
-  text-align: left;
-  padding: 20px 50px;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 20px;
+  color: #7D2838;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 .carousel-container {
   overflow-x: auto;
   white-space: nowrap;
-  padding: 50px;
+  padding: 20px 30px 40px;
+  margin-bottom: 40px;
 }
 
 .product-list {
-  display: inline-flex;  /* Coloca os itens em linha */
-  gap: 50px;
+  display: inline-flex;
+  gap: 25px;
+  padding: 10px;
 }
 
 .product {
-  background-color: white;
-  border-radius: 30px;
-  padding: 10px;
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
+  border-radius: 20px;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  min-width: 300px;  /* Largura mínima para que o item fique alinhado horizontalmente */
-  flex-shrink: 0;  /* Impede que os itens encolham */
+  box-shadow: 0 8px 25px rgba(125, 40, 56, 0.1);
+  min-width: 280px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(125, 40, 56, 0.05);
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(125, 40, 56, 0.15);
 }
 
 .product img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.product:hover img {
+  transform: scale(1.02);
 }
 
 .legenda {
-  margin-top: 10px;
-  font-size: 40px;
-  color: #555;
-  text-align: left;
+  margin-top: 12px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  font-weight: 400;
 }
 
 .legenda + .legenda {
-  font-size: 35px;
-  color: #000;
-  font-weight: bold;
+  font-size: 18px;
+  color: #7D2838;
+  font-weight: 600;
+  margin-top: 8px;
 }
 
-/* Adiciona rolagem suave */
+/* Adiciona rolagem suave e estiliza a barra de rolagem */
 .carousel-container {
   scroll-behavior: smooth;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: #7D2838;
+  border-radius: 10px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+  background: #5a1e2a;
 }
 
 /*                                                         filtros                                                     */

@@ -1,4 +1,5 @@
-var pool = require("../config/pool_conexoes");
+
+var pool = require("../config/pool_conexoes_local");
  
 const usuarioModel = {
     findAll: async () => {
@@ -6,9 +7,10 @@ const usuarioModel = {
             const [resultados] = await pool.query(
                 "SELECT u.ID_USUARIO, u.NOME_USUARIO, u.USER_USUARIO, " +
                 "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, U.TIPO_USUARIO, " +
-                "u.STATUS_USUARIO, T.TIPO_USUARIO, T.DESCRICAO_USUARIO" +
+                "u.STATUS_USUARIO, T.TIPO_USUARIO, T.DESCRICAO_USUARIO " +
                 "FROM USUARIOS u, TIPO_USUARIO t where u.STATUS_USUARIO = 1 and " + 
                 "u.TIPO_USUARIO = t.ID_TIPO_USUARIO"
+            );
             return resultados; //incompletos
         } catch (error) {
             console.log(error);
@@ -28,28 +30,28 @@ const usuarioModel = {
         }
     },
  
-    findCampoCustom: async (criterioWhere) => {
+    findCampoCustom: async (campo, valor) => {
         try {
             const [resultados] = await pool.query(
-                " SELECT count(*) totalReg FROM USUARIOS WHERE ?", //função para a consulta
-                [criterioWhere]
+                `SELECT count(*) as totalReg FROM USUARIOS WHERE ${campo} = ?`,
+                [valor]
             )
             return resultados[0].totalReg;
         } catch (error) {
             console.log (error);
-            return error;
+            return 0;
         }
     },
  
     findId: async (id) => {
         try {
             const [resultados] = await pool.query(
-                "SELECT u.ID_USUARIO, u.NOME_USUARIO, u.USER_USUARIO, " + // USER_USUARIO NÃO EXISTE NNO BANCO
-                "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, u.TIPO_USUARIO, " + // TIPO_USUARIO INEXISTENTE NO BANCO DE DADOS
-                "u.STATUS_USUARIO, u.NUMERO_USUARIO, u.CEP_USUARIO, u.IMAGEM_USUARIO," + // não exise no banco
-                " t.ID_TIPO_USUARIO, t.DESCRICAO_USUARIO" +
+                "SELECT u.ID_USUARIO, u.NOME_USUARIO, u.USER_USUARIO, " + 
+                "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, u.TIPO_USUARIO, " +
+                "u.STATUS_USUARIO, u.NUMERO_USUARIO, u.CEP_USUARIO, u.IMAGEM_USUARIO," + 
+                " t.ID_TIPO_USUARIO, t.DESCRICAO_USUARIO " +
                 "FROM USUARIOS u, TIPO_USUARIO t where u.STATUS_USUARIO = 1 and " +
-                "u.tipo_usuario = t.id_tipo_usuario and u.ID_USUARIO = ? ", [id]
+                "u.TIPO_USUARIO = t.ID_TIPO_USUARIO and u.ID_USUARIO = ? ", [id]
             )
             return resultados;
         } catch (error) {
@@ -61,7 +63,8 @@ const usuarioModel = {
     create: async (camposForm) => {
         try {
             const [resultados] = await pool.query(
-                "INSERT into USUARIOS set ?", [camposForm]
+                "INSERT INTO USUARIOS (NOME_USUARIO, USER_USUARIO, EMAIL_USUARIO, SENHA_USUARIO, TIPO_USUARIO, STATUS_USUARIO) VALUES (?, ?, ?, ?, ?, ?)",
+                [camposForm.nome_usuario, camposForm.user_usuario, camposForm.email_usuario, camposForm.senha_usuario, camposForm.tipo_usuario, camposForm.status_usuario]
             )
             return resultados;
         } catch (error) {
@@ -87,7 +90,7 @@ const usuarioModel = {
     delete: async (id) => {
         try {
             const [resultados] = await pool.query(
-                "UPDATE USUARIOS SET STATUS_USUARIO = 0 WHERE ID_USUARIO = ? ", // dado inexistente no banco de dados
+                "UPDATE USUARIOS SET STATUS_USUARIO = 0 WHERE ID_USUARIO = ? ", [id] 
             )
             return resultados;
         } catch (error) {

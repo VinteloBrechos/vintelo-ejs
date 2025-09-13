@@ -7,11 +7,14 @@ var router = express.Router();
  const usuarioController = require("../controllers/usuarioController");
  const uploadFile = require("../util/uploader");
 
-// Rotas comentadas temporariamente para evitar erro de módulos
- router.get("/homecomprador", verificarUsuAutorizado([1, 2, 3], "pages/administrador"), async function (req, res) { usuarioController.mostrarPerfil(req, res); });
- router.post("/homecomprador", uploadFile("imagem-perfil_usu"), usuarioController.regrasValidacaoPerfil, verificarUsuAutorizado([1, 2, 3], "pages/administrador"), async function (req, res) { usuarioController.gravarPerfil(req, res); });
- router.get("/", verificarUsuAutenticado, function (req, res) { res.render("pages/index", { autenticado: req.session.autenticado, login: req.session.logado }); });
- router.get("/sair", limparSessao, function (req, res) { res.redirect("/"); });
+// Rotas principais com autenticação
+router.get("/", verificarUsuAutenticado, function (req, res) { 
+    res.render("pages/index", { 
+        autenticado: req.session.autenticado, 
+        login: req.session.logado 
+    }); 
+});
+router.get("/sair", limparSessao, function (req, res) { res.redirect("/"); });
 
 
 router.get('/', function(req, res){
@@ -23,11 +26,15 @@ router.get('/artigo', function(req, res){
 })
 
 router.get('/login', function(req, res){
-    res.render('pages/login');
+    res.render('pages/login', {
+        listaErros: null,
+        dadosNotificacao: null,
+        valores: {}
+    });
 });
 
-router.post('/login', function(req, res){
-    res.render('pages/login');
+router.post('/login', usuarioController.regrasValidacaoFormCad, function(req, res){
+    usuarioController.cadastrar(req, res);
 });
 
 router.get('/vestidos', function(req, res){
@@ -98,13 +105,17 @@ router.get('/perfil3', function(req, res){
     res.render('pages/perfil3');
 })
 
-router.get('/homecomprador', function(req, res){
-    res.render('pages/homecomprador');
-})
+router.get('/homecomprador', verificarUsuAutorizado([1, 2, 3], "pages/entrar"), function(req, res){
+    res.render('pages/homecomprador', {
+        autenticado: req.session.autenticado
+    });
+});
 
-router.get('/homevendedor', function(req, res){
-    res.render('pages/homevendedor');
-})
+router.get('/homevendedor', verificarUsuAutorizado([2, 3], "pages/entrar"), function(req, res){
+    res.render('pages/homevendedor', {
+        autenticado: req.session.autenticado
+    });
+});
 
 router.get('/continuarcadastro', function(req, res){
     res.render('pages/continuarcadastro');
@@ -209,8 +220,15 @@ router.post('/criarbrecho', function(req, res){
 // });
 
 router.get('/entrar', function(req, res){
-    res.render('pages/entrar');
-})
+    res.render('pages/entrar', {
+        listaErros: null,
+        dadosNotificacao: null
+    });
+});
+
+router.post('/entrar', usuarioController.regrasValidacaoFormLogin, gravarUsuAutenticado, function(req, res){
+    usuarioController.logar(req, res);
+});
 
 router.get('/esqueceusenha', function(req, res){
     res.render('pages/esqueceusenha');
