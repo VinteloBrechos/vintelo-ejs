@@ -119,15 +119,24 @@ nav a {
 .search-profile {
   display: flex;
   align-items: center;
-  gap: 80px;
 }
 
-
+.search-profile form input {
+  padding: 10px;
+  border: 1px solid #7d2738;
+  border-radius: 10px;
+  width: 130%;
+}
 
 .search-profile ul {
   display: flex;
   list-style: none;
-  margin-left: 20px;
+  margin-left: 80px;
+  gap: 5px;
+}
+
+.img-logo {
+  width: 150px;
 }
 
 .img-tamanho{
