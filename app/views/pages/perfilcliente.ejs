@@ -40,7 +40,7 @@
     <section class="mobile-header">
         <header>
             <nav class="grid">
-                <a href="/home">
+                <a href="/homecomprador">
                     <img src="imagens/seta.png" alt="Voltar">
                 </a>
                 <img src="imagens/logo.png" alt="Vintélo">
@@ -62,7 +62,7 @@
                         <section class="profile-photo">
                             <img id="profile-img" src="imagens/imagem sem cadastro.avif" alt="Foto do perfil">
                             <button class="photo-edit-btn" onclick="editProfilePhoto()">
-                                <span>📷</span>
+                                <span>+</span>
                             </button>
                             <input type="file" id="profile-photo-input" accept="image/*" style="display: none;" onchange="handleProfilePhotoUpload(this)">
                         </section>
@@ -190,6 +190,53 @@
             <section id="orders" class="content-section" style="display: none;">
                 <section class="section-header">
                     <h2>Meus Pedidos</h2>
+                    <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
+                </section>
+                <p>Histórico de pedidos em desenvolvimento...</p>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="footer-content">
+            <section class="footer-logo">
+                <img src="imagens/logo.png" alt="Vintélo">
+            </section>
+            <section class="footer-links">
+                <section class="footer-column">
+                    <h3>Atendimento</h3>
+                    <a href="#">Central de Ajuda</a>
+                    <a href="#">Fale Conosco</a>
+                    <a href="#">Trocas e Devoluções</a>
+                </section>
+                <section class="footer-column">
+                    <h3>Sobre</h3>
+                    <a href="#">Quem Somos</a>
+                    <a href="#">Sustentabilidade</a>
+                    <a href="#">Trabalhe Conosco</a>
+                </section>
+                <section class="footer-column">
+                    <h3>Redes Sociais</h3>
+                    <section class="social-links">
+                        <a href="https://www.instagram.com/vintelobrechos" target="_blank">
+                            <img src="imagens/Instagram.png" alt="Instagram">
+                        </a>
+                        <a href="#" target="_blank">
+                            <img src="imagens/Facebook.png" alt="Facebook">
+                        </a>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <section class="footer-bottom">
+            <p>&copy; 2024 Vintélo. Todos os direitos reservados.</p>
+        </section>
+    </footer>
+
+    <script src="script/perfilcliente.js"></script>
+</body>
+</html>idos</h2>
                     <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
                 </section>
                 
@@ -362,9 +409,9 @@
         <section class="social-media">
             <p class="p-footer">Siga-nos nas redes sociais</p>
             <ul class="social-links">
-                <li><a href="#" class="social-link"><img src="imagens/instagram icon.png" alt="Instagram"></a></li>
-                <li><a href="#" class="social-link"><img src="imagens/facebook icon.png" alt="Facebook"></a></li>
-                <li><a href="#" class="social-link"><img src="imagens/twitter icon.png" alt="Twitter"></a></li>
+                <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link"><img src="imagens/Instagram.png" alt="Instagram"></a></li>
+                <li><a href="https://facebook.com" target="_blank" class="social-link"><img src="imagens/Facebook.png" alt="Facebook"></a></li>
+                <li><a href="#" class="social-link"><img src="imagens/TikTok.png" alt="TikTok"></a></li>
             </ul>
         </section>
         <p class="copyright">&copy; 2024 Vintélo. Todos os direitos reservados.</p>

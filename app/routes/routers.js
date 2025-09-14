@@ -294,6 +294,10 @@ router.get('/informacao', function(req, res){
     res.render('pages/informacao');
 })
 
+router.get('/perfilcliente', function(req, res){
+    res.render('pages/perfilcliente');
+})
+
 router.get('/adicionardesktop', function(req, res){
     res.render('pages/adicionardesktop');
 })
