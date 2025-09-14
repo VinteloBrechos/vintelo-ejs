@@ -2,74 +2,426 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Peça</title>
+    <title>Adicionar Peça - Vintélo</title>
     <link rel="stylesheet" href="css/adicionar.css">
 </head>
 <body>
-    
-    <section class="oculto-desktop">
-    <header>
-        <nav class="grid">
-          <a href="/homevendedor">
-            <img src="imagens/seta.png" alt="Seta Voltar">
-          </a>
-          <img src="imagens/logo.png" alt="Logo">
-          <a href="/carrinho">
-            <img src="imagens/carrinho.png" alt="Carrinho">
-          </a>
-        </nav>
-      </header>
-    <main>
-      <section class="galeria-produto">
-        <section class="imagem-principal">
-          <img src="imagens/add peça.png" alt="Imagem Principal do Produto">
+    <!-- Header Desktop -->
+    <section class="oculto-mobile">
+        <section class="top-bar">
+            <p>10% OFF na primeira compra</p>
         </section>
-    
-        <section class="miniaturas">
-          <img src="imagens/add peça 2.png" alt="Miniatura 1">
-          <section class="placeholder"></section>
-          <section class="placeholder"></section>
-        </section>
-      </section>
-            <br>
-            <center><p class="image-instructions">Clique para editar e arraste para ordenar</p></center> 
-            <br>
-        </section>
-
-        <form class="item-form">
-            <input type="text" placeholder="Nome da peça">
-            <input type="text" placeholder="Preço">
-            <section class="size-options">
-                <button class="size-button">PP</button>
-                <button class="size-button">P</button>
-                <button class="size-button">M</button>
-                <button class="size-button">G</button>
-                <button class="size-button">GG</button>
+        <header class="main-header">
+            <a href="/homevendedor">
+                <img src="imagens/logo.png" class="img-logo">
+            </a>
+            <nav>
+                <a href="#">Vestidos</a>
+                <a href="#">Saias</a>
+                <a href="#">Blusas</a>
+                <a href="#">Calças</a>
+                <a href="#">Outros</a>
+            </nav>
+            <section class="search-profile">
+                <form>
+                    <input type="text" placeholder="Buscar...">
+                </form>
+                <ul>
+                    <li><a href="#"><img src="imagens/icone saco.png" class="img-tamanho"></a></li>
+                    <li><a href="/menuvendedor"><img src="imagens/imagem sem cadastro.avif" class="maria"></a></li>
+                    <li><a href="#"><img src="imagens/icone coraçao.png" class="img-tamanho"></a></li>
+                </ul>
             </section>
-            <input type="text" placeholder="Cor">
-            <input type="text" placeholder="Estilo">
-            <input type="text" placeholder="Condições">
-            <input type="text" placeholder="Outros">
-        </form>
-        <br>
-        <button class="submit-button"><a href="/enviopedido" class="link-branco">Enviar para a curadoria</a> </button>
-      </section>
-        <br>
-      </main>
+        </header>
+    </section>
 
-        <!-- Rodapé -->
+    <!-- Header Mobile -->
+    <section class="oculto-desktop">
+        <header>
+            <nav class="grid">
+                <a href="/homevendedor">
+                    <img src="imagens/seta.png" alt="Seta Voltar">
+                </a>
+                <img src="imagens/logo.png" alt="Logo">
+                <a href="/carrinho">
+                    <img src="imagens/carrinho.png" alt="Carrinho">
+                </a>
+            </nav>
+        </header>
+    </section>
+
+    <main>
+        <!-- Versão Mobile -->
+        <section class="oculto-desktop">
+            <section class="mobile-container">
+                <h1>Adicionar Peça</h1>
+                
+                <!-- Upload de Fotos Mobile -->
+                <section class="photo-upload-mobile">
+                    <section class="main-photo">
+                        <img id="main-photo-mobile" src="imagens/add peça.png" alt="Foto principal">
+                        <button class="photo-btn" onclick="selectMainPhoto('mobile')">
+                            <span>📷</span>
+                        </button>
+                    </section>
+                    
+                    <section class="photo-thumbnails">
+                        <section class="thumbnail-slot" onclick="selectPhoto(0)">
+                            <img id="thumb-0" src="imagens/add peça 2.png" alt="Miniatura 1">
+                            <button class="add-photo-btn">+</button>
+                        </section>
+                        <section class="thumbnail-slot" onclick="selectPhoto(1)">
+                            <img id="thumb-1" style="display: none;">
+                            <button class="add-photo-btn">+</button>
+                        </section>
+                        <section class="thumbnail-slot" onclick="selectPhoto(2)">
+                            <img id="thumb-2" style="display: none;">
+                            <button class="add-photo-btn">+</button>
+                        </section>
+                    </section>
+                    <p class="photo-instructions">Clique para adicionar fotos da galeria</p>
+                </section>
+
+                <!-- Formulário Mobile -->
+                <form class="mobile-form">
+                    <section class="form-group">
+                        <label>Nome da peça</label>
+                        <input type="text" placeholder="Ex: Vestido longo floral">
+                    </section>
+                    
+                    <section class="form-group">
+                        <label>Categoria</label>
+                        <select>
+                            <option value="">Selecione a categoria</option>
+                            <option value="vestidos">Vestidos</option>
+                            <option value="saias">Saias</option>
+                            <option value="blusas">Blusas</option>
+                            <option value="calcas">Calças</option>
+                            <option value="acessorios">Acessórios</option>
+                        </select>
+                    </section>
+                    
+                    <section class="form-group">
+                        <label>Preço</label>
+                        <input type="text" placeholder="R$ 0,00" id="price-input">
+                    </section>
+                    
+                    <section class="form-group">
+                        <label>Tamanho</label>
+                        <section class="size-options">
+                            <button type="button" class="size-btn" data-size="PP">PP</button>
+                            <button type="button" class="size-btn" data-size="P">P</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="G">G</button>
+                            <button type="button" class="size-btn" data-size="GG">GG</button>
+                        </section>
+                    </section>
+                    
+                    <section class="form-group">
+                        <label>Cor</label>
+                        <input type="text" placeholder="Ex: Azul marinho">
+                    </section>
+                    
+                    <section class="form-group">
+                        <label>Estado da peça</label>
+                        <select>
+                            <option value="">Selecione o estado</option>
+                            <option value="novo">Novo com etiqueta</option>
+                            <option value="sem-uso">Sem uso</option>
+                            <option value="pouco-uso">Pouco uso</option>
+                            <option value="usado">Usado</option>
+                        </select>
+                    </section>
+                    
+                    <section class="form-group">
+                        <label>Descrição (opcional)</label>
+                        <textarea placeholder="Descreva detalhes sobre a peça, marca, tecido, etc..."></textarea>
+                    </section>
+                </form>
+                
+                <button class="submit-btn" onclick="submitForm()">
+                    Enviar para Curadoria
+                </button>
+            </section>
+        </section>
+
+        <!-- Versão Desktop -->
+        <section class="oculto-mobile">
+            <section class="desktop-container">
+                <h1>Adicionar Nova Peça</h1>
+                
+                <section class="desktop-content">
+                    <!-- Upload de Fotos Desktop -->
+                    <section class="photo-section">
+                        <section class="main-photo-desktop">
+                            <img id="main-photo-desktop" src="imagens/add foto.png" alt="Foto principal">
+                            <button class="photo-overlay" onclick="selectMainPhoto('desktop')">
+                                <span>📷</span>
+                                <p>Clique para adicionar foto</p>
+                            </button>
+                        </section>
+                        
+                        <section class="thumbnails-desktop">
+                            <section class="thumb-slot" onclick="selectPhoto(3)">
+                                <img id="thumb-3" src="imagens/add foto.png">
+                                <button class="add-thumb-btn">+</button>
+                            </section>
+                            <section class="thumb-slot" onclick="selectPhoto(4)">
+                                <img id="thumb-4" style="display: none;">
+                                <button class="add-thumb-btn">+</button>
+                            </section>
+                            <section class="thumb-slot" onclick="selectPhoto(5)">
+                                <img id="thumb-5" style="display: none;">
+                                <button class="add-thumb-btn">+</button>
+                            </section>
+                            <section class="thumb-slot" onclick="selectPhoto(6)">
+                                <img id="thumb-6" style="display: none;">
+                                <button class="add-thumb-btn">+</button>
+                            </section>
+                        </section>
+                        <p class="photo-help">Adicione até 4 fotos da sua peça</p>
+                    </section>
+
+                    <!-- Formulário Desktop -->
+                    <section class="form-section">
+                        <form class="desktop-form">
+                            <section class="form-row">
+                                <section class="form-group">
+                                    <label>Nome da peça</label>
+                                    <input type="text" placeholder="Ex: Vestido longo floral">
+                                </section>
+                                <section class="form-group">
+                                    <label>Preço</label>
+                                    <input type="text" placeholder="R$ 0,00" id="price-input-desktop">
+                                </section>
+                            </section>
+                            
+                            <section class="form-row">
+                                <section class="form-group">
+                                    <label>Categoria</label>
+                                    <select>
+                                        <option value="">Selecione a categoria</option>
+                                        <option value="vestidos">Vestidos</option>
+                                        <option value="saias">Saias</option>
+                                        <option value="blusas">Blusas</option>
+                                        <option value="calcas">Calças</option>
+                                        <option value="acessorios">Acessórios</option>
+                                    </select>
+                                </section>
+                                <section class="form-group">
+                                    <label>Cor</label>
+                                    <input type="text" placeholder="Ex: Azul marinho">
+                                </section>
+                            </section>
+                            
+                            <section class="form-group">
+                                <label>Tamanho</label>
+                                <section class="size-options-desktop">
+                                    <button type="button" class="size-btn" data-size="PP">PP</button>
+                                    <button type="button" class="size-btn" data-size="P">P</button>
+                                    <button type="button" class="size-btn" data-size="M">M</button>
+                                    <button type="button" class="size-btn" data-size="G">G</button>
+                                    <button type="button" class="size-btn" data-size="GG">GG</button>
+                                    <button type="button" class="size-btn" data-size="EG">EG</button>
+                                </section>
+                            </section>
+                            
+                            <section class="form-group">
+                                <label>Estado da peça</label>
+                                <select>
+                                    <option value="">Selecione o estado</option>
+                                    <option value="novo">Novo com etiqueta</option>
+                                    <option value="sem-uso">Sem uso</option>
+                                    <option value="pouco-uso">Pouco uso</option>
+                                    <option value="usado">Usado</option>
+                                </select>
+                            </section>
+                            
+                            <section class="form-group">
+                                <label>Descrição (opcional)</label>
+                                <textarea placeholder="Descreva detalhes sobre a peça, marca, tecido, etc..."></textarea>
+                            </section>
+                        </form>
+                        
+                        <section class="form-actions">
+                            <button class="save-draft-btn">Salvar Rascunho</button>
+                            <button class="submit-btn-desktop" onclick="submitForm()">
+                                Enviar para Curadoria
+                            </button>
+                        </section>
+                        
+                        <p class="submission-note">
+                            Sua peça será analisada em até 48 horas. Após aprovação, 
+                            ela estará disponível para venda na plataforma.
+                        </p>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <!-- Input oculto para upload de arquivos -->
+    <input type="file" id="photo-input" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)">
+
+    <!-- Footer -->
     <footer class="footer">
         <img src="imagens/logo2.jpeg" alt="Imagem do Rodapé" class="footer-image">
         <section class="social-media">
-          <p>Siga nossas redes sociais</p>
-          <br>
-          <ul class="social-links">
-            <li><a href="https://facebook.com" target="_blank" class="social-link"><img src="imagens/icone do face.jpeg" alt="Facebook"></a></li>
-            <li><a href="https://twitter.com" target="_blank" class="social-link"><img src="imagens/icone do twitter.jpeg" alt="Twitter"></a></li>
-            <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link"><img src="imagens/icone do insta.jpeg" alt="Instagram"></a></li>
-          </ul>
+            <p class="p-footer">Siga nossas redes sociais</p>
+            <ul class="social-links">
+                <li><a href="https://facebook.com" target="_blank" class="social-link"><img src="imagens/Facebook.png" alt="Facebook"></a></li>
+                <li><a href="https://twitter.com" target="_blank" class="social-link"><img src="imagens/Pinterest.png" alt="Pinterest"></a></li>
+                <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link"><img src="imagens/Instagram.png" alt="Instagram"></a></li>
+            </ul>
         </section>
-         <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
-      </footer>
+        <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let currentPhotoTarget = null;
+        let selectedSizes = [];
+
+        // Função para selecionar foto principal
+        function selectMainPhoto(version) {
+            currentPhotoTarget = version === 'mobile' ? 'main-photo-mobile' : 'main-photo-desktop';
+            document.getElementById('photo-input').click();
+        }
+
+        // Função para selecionar foto em miniatura
+        function selectPhoto(index) {
+            currentPhotoTarget = 'thumb-' + index;
+            document.getElementById('photo-input').click();
+        }
+
+        // Manipular upload de foto
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file && currentPhotoTarget) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(currentPhotoTarget);
+                    if (img) {
+                        img.src = e.target.result;
+                        img.style.display = 'block';
+                        
+                        // Esconder botão de adicionar se for miniatura
+                        if (currentPhotoTarget.includes('thumb-')) {
+                            const slot = img.closest('.thumbnail-slot, .thumb-slot');
+                            if (slot) {
+                                const addBtn = slot.querySelector('.add-photo-btn, .add-thumb-btn');
+                                if (addBtn) addBtn.style.display = 'none';
+                            }
+                        }
+                    }
+                };
+                reader.readAsDataURL(file);
+                showNotification('Foto adicionada com sucesso!');
+            }
+        }
+
+        // Seleção de tamanhos
+        document.addEventListener('DOMContentLoaded', function() {
+            const sizeButtons = document.querySelectorAll('.size-btn');
+            sizeButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const size = this.dataset.size;
+                    
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        selectedSizes = selectedSizes.filter(s => s !== size);
+                    } else {
+                        this.classList.add('selected');
+                        selectedSizes.push(size);
+                    }
+                });
+            });
+
+            // Formatação de preço
+            const priceInputs = document.querySelectorAll('#price-input, #price-input-desktop');
+            priceInputs.forEach(input => {
+                input.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value) {
+                        value = (parseInt(value) / 100).toFixed(2);
+                        e.target.value = 'R$ ' + value.replace('.', ',');
+                    }
+                });
+            });
+        });
+
+        // Submeter formulário
+        function submitForm() {
+            // Validações básicas
+            const nameInput = document.querySelector('input[placeholder*="Vestido"]');
+            const priceInput = document.querySelector('#price-input, #price-input-desktop');
+            
+            if (!nameInput.value.trim()) {
+                showNotification('Por favor, digite o nome da peça!', 'error');
+                return;
+            }
+            
+            if (!priceInput.value.trim()) {
+                showNotification('Por favor, digite o preço da peça!', 'error');
+                return;
+            }
+            
+            if (selectedSizes.length === 0) {
+                showNotification('Por favor, selecione pelo menos um tamanho!', 'error');
+                return;
+            }
+
+            // Simular envio
+            showNotification('Enviando para curadoria...', 'info');
+            
+            setTimeout(() => {
+                showNotification('Peça enviada com sucesso! Você receberá uma resposta em até 48 horas.', 'success');
+                setTimeout(() => {
+                    window.location.href = '/perfilvender';
+                }, 2000);
+            }, 1500);
+        }
+
+        // Sistema de notificações
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'error' ? '#dc3545' : type === 'info' ? '#17a2b8' : '#28a745'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // CSS para animação
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
