@@ -79,11 +79,6 @@ nav a {
   gap: 5px;
 }
 
-.search-profile form input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
 .img-tamanho {
   width: 50px;
@@ -224,7 +219,7 @@ a:focus, a:active {
   }
   
   .footer .footer-image {
-    height: 150px;
+    height: 100px;
     margin-bottom: 20px;
   }
   
@@ -233,7 +228,7 @@ a:focus, a:active {
   }
   
   .footer .social-media p {
-    font-size: 2rem;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
   
@@ -246,7 +241,7 @@ a:focus, a:active {
   }
   
   .footer .social-link img {
-    height: 80px;
+    height: 60px;
     transition: transform 0.3s;
   }
   
@@ -255,7 +250,7 @@ a:focus, a:active {
   }
   
   .copyright {
-    font-size: 2rem;
+    font-size: 1rem;
     margin-top: 20px;
   }
   
@@ -273,45 +268,52 @@ a:focus, a:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 100px;
+  padding: 15px 50px;
   background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+  display: flex;
+  gap: 30px;
 }
 
 nav a {
   color: #333;
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 25px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .search-profile {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
-.search-profile form input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.search-profile input {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  width: 200px;
 }
 
 .search-profile ul {
   display: flex;
   list-style: none;
-  margin-left: 20px;
-  gap: 5px;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
 }
 
-.img-tamanho {
-  width: 50px;
+.img-tamanho, .maria {
+  height: 30px;
+  width: 30px;
 }
 
 .img-logo {
-  width: 130px;
-}
-
-.maria {
-  width: 50px;
+  height: 60px;
 }
 
 /* Header */

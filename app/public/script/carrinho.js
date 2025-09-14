@@ -11,6 +11,7 @@ let cart = {
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     updateDisplay();
+    initCardFormatting();
 });
 
 // Atualizar quantidade
@@ -125,35 +126,150 @@ function applyCoupon() {
     }
 }
 
-// Selecionar endereço
-function selectAddress() {
-    const addressCard = document.querySelector('.address-card');
-    if (addressCard) {
-        addressCard.innerHTML = `
-            <img src="imagens/mapa.png" alt="Endereço">
-            <div class="address-info">
-                <p><strong>Rua das Flores, 123</strong></p>
-                <p>Vila Madalena - São Paulo, SP</p>
-            </div>
-        `;
-        showMessage('Endereço selecionado!');
+// Obter localização atual
+function getCurrentLocation() {
+    const statusIcon = document.getElementById('location-status');
+    const currentAddressDiv = document.getElementById('current-address');
+    const addressText = document.getElementById('address-text');
+    
+    // Marcar como selecionado
+    document.querySelectorAll('.address-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    document.querySelector('.current-location').classList.add('selected');
+    
+    if (navigator.geolocation) {
+        statusIcon.textContent = '⏳';
+        showMessage('Detectando localização...');
+        
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                // Simular conversão de coordenadas para endereço
+                setTimeout(() => {
+                    statusIcon.textContent = '✓';
+                    addressText.textContent = 'Rua Augusta, 1234 - Consolação, São Paulo - SP';
+                    currentAddressDiv.style.display = 'block';
+                    showMessage('Localização detectada com sucesso! 📍');
+                }, 1500);
+            },
+            function(error) {
+                statusIcon.textContent = '⚠️';
+                showMessage('Não foi possível detectar a localização', 'error');
+                console.log('Erro de geolocalização:', error);
+            }
+        );
+    } else {
+        statusIcon.textContent = '⚠️';
+        showMessage('Geolocalização não suportada', 'error');
     }
+}
+
+// Adicionar endereço manual
+function addManualAddress() {
+    document.querySelectorAll('.address-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    document.querySelector('.manual-address').classList.add('selected');
+    
+    const currentAddressDiv = document.getElementById('current-address');
+    const addressText = document.getElementById('address-text');
+    
+    // Simular adição de endereço manual
+    addressText.textContent = 'Rua das Flores, 123 - Vila Madalena, São Paulo - SP';
+    currentAddressDiv.style.display = 'block';
+    showMessage('Endereço adicionado manualmente!');
+}
+
+// Alterar endereço
+function changeAddress() {
+    const currentAddressDiv = document.getElementById('current-address');
+    currentAddressDiv.style.display = 'none';
+    
+    document.querySelectorAll('.address-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    showMessage('Selecione um novo endereço');
 }
 
 // Selecionar pagamento
 function selectPayment(method) {
+    // Remover seleção anterior
     document.querySelectorAll('.payment-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
     
+    // Ocultar todos os detalhes
+    document.querySelectorAll('.payment-details').forEach(detail => {
+        detail.style.display = 'none';
+    });
+    
+    // Selecionar botão atual
     event.target.closest('.payment-btn').classList.add('selected');
-    showMessage('Método de pagamento selecionado!');
+    
+    // Mostrar detalhes correspondentes
+    const detailsId = method + '-details';
+    const detailsElement = document.getElementById(detailsId);
+    if (detailsElement) {
+        detailsElement.style.display = 'block';
+    }
+    
+    // Mensagens personalizadas
+    const messages = {
+        'pix': 'PIX selecionado! Pagamento instantâneo 📱',
+        'card': 'Cartão selecionado! Preencha os dados 💳',
+        'boleto': 'Boleto selecionado! Prazo de 3 dias 🏦'
+    };
+    
+    showMessage(messages[method] || 'Método de pagamento selecionado!');
+}
+
+// Formatar número do cartão
+function formatCardNumber(input) {
+    let value = input.value.replace(/\D/g, '');
+    value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+    input.value = value;
+}
+
+// Formatar data de expiração
+function formatExpiry(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length >= 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    }
+    input.value = value;
+}
+
+// Validar CVV
+function formatCVV(input) {
+    input.value = input.value.replace(/\D/g, '');
+}
+
+// Inicializar formatação de cartão
+function initCardFormatting() {
+    const cardNumber = document.getElementById('card-number');
+    const cardExpiry = document.getElementById('card-expiry');
+    const cardCVV = document.getElementById('card-cvv');
+    
+    if (cardNumber) {
+        cardNumber.addEventListener('input', () => formatCardNumber(cardNumber));
+    }
+    
+    if (cardExpiry) {
+        cardExpiry.addEventListener('input', () => formatExpiry(cardExpiry));
+    }
+    
+    if (cardCVV) {
+        cardCVV.addEventListener('input', () => formatCVV(cardCVV));
+    }
 }
 
 // Adicionar sugestão
 function addSuggestion() {
     showMessage('Produto adicionado ao carrinho!');
 }
+
+
 
 // Finalizar compra
 function proceedToCheckout() {
