@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
-    <header>
+    <!-- Header Desktop -->
+    <header class="desktop-only">
         <section class="top-bar">
             <p>10% OFF na primeira compra</p>
         </section>
         <section class="main-header">
-            <a href="/homecomprador">
+            <a href="/homevendedor">
             <img src="imagens/logo.png" class="img-logo">
             </a>
             <nav>
@@ -35,6 +36,19 @@
         </section>
     </header>
     
+    <!-- Header Mobile -->
+    <header class="mobile-only mobile-header">
+        <nav class="grid">
+            <a href="/homevendedor">
+                <img src="imagens/seta.png" alt="Voltar">
+            </a>
+            <img src="imagens/logo.png" alt="Vintélo">
+            <a href="/menuvendedor">
+                <img src="imagens/imagem sem cadastro.avif" alt="Menu">
+            </a>
+        </nav>
+    </header>
+    
     <main>
         <aside class="user-sidebar">
             <section class="user-info">
@@ -43,7 +57,7 @@
                 <p>laviviana@exemplo.com</p>
             </section>
             <nav class="user-menu">
-                <a href="#">Informação da conta</a>
+                <a href="/informacao">Informação da conta</a>
                 <a href="/sacola1">Sacola</a>
                 <a href="/minhascomprasdesktop">Minhas compras</a>
                 <a href="#">Meus cartões</a>
@@ -75,5 +89,19 @@
             </section>
         </section>
     </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="imagens/logo.png" alt="Vintélo" class="footer-image">
+        <section class="social-media">
+            <p class="p-footer">Siga-nos nas redes sociais</p>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link"><img src="imagens/Instagram.png" alt="Instagram"></a></li>
+                <li><a href="https://facebook.com" target="_blank" class="social-link"><img src="imagens/Facebook.png" alt="Facebook"></a></li>
+                <li><a href="#" class="social-link"><img src="imagens/TikTok.png" alt="TikTok"></a></li>
+            </ul>
+        </section>
+        <p class="copyright">&copy; 2024 Vintélo. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>

@@ -290,6 +290,10 @@ router.get('/menuvendedor', function(req, res){
     res.render('pages/menuvendedor');
 })
 
+router.get('/informacao', function(req, res){
+    res.render('pages/informacao');
+})
+
 router.get('/adicionardesktop', function(req, res){
     res.render('pages/adicionardesktop');
 })
