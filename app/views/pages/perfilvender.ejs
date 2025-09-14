@@ -30,7 +30,7 @@
                     </form>
                     <ul>
                         <li><a href="#" ></a><img src="imagens/icone saco.png" class="img-tamanho"> </li>
-                        <li><a href="/menuvendedor" ><img src="imagens/imagem sem cadastro.avif" class="img-tamanho"></a></li>
+                        <li><a href="/menuvendedor" ><img src="<%= brecho && brecho.imagem ? brecho.imagem : 'imagens/imagem sem cadastro.avif' %>" class="img-tamanho"></a></li>
                         <li><a href="#" ><img src="imagens/icone coraçao.png" class="img-tamanho"> </a></li>
                     </ul>
                 </section>
@@ -55,20 +55,20 @@
     <main>
         <section class="header-container">
             <section class="profile-section">
-                <img src="imagens/imagem sem cadastro.avif" alt="Loja da Esther" class="profile-img">
+                <img src="<%= brecho && brecho.imagem ? brecho.imagem : 'imagens/imagem sem cadastro.avif' %>" alt="<%= brecho ? brecho.nome : 'Loja' %>" class="profile-img">
                 <section class="profile-info">
-                    <h1>Laviviana</h1>
-                    <span class="rating">4.8 ★★★★★</span>
+                    <h1><%= brecho ? brecho.nome : 'Nome do Brechó' %></h1>
+                    <span class="rating"><%= brecho && brecho.avaliacao ? brecho.avaliacao : '0.0' %> ★★★★★</span>
                 </section>
-                <button class="edit-button">✎ Editar</button>
+                <a href="/informacao" class="edit-button">✎ Editar</a>
             </section>
         </section>
         
         <section class="store-section">
             <section class="store-info">
-                <span>40 à venda</span>
-                <span>220 vendidos</span>
-                <span>870 seguidores</span>
+                <span><%= brecho && brecho.itens_venda ? brecho.itens_venda : '0' %> à venda</span>
+                <span><%= brecho && brecho.vendidos ? brecho.vendidos : '0' %> vendidos</span>
+                <span><%= brecho && brecho.seguidores ? brecho.seguidores : '0' %> seguidores</span>
             </section>
             <section class="product-grid">
                 <!-- Adicione os produtos conforme o layout -->
@@ -80,9 +80,7 @@
                 <!-- Adicionar Item -->
                 <section class="add-item">
                       <a href="/adicionar"><img src="imagens/add.png" alt="Adicionar Item" class="img-add"></a> 
-                      <a href="/adicionardesktop">
                         <p class="titulo-add">Adicionar Item à loja</p>
-                      </a>
             </section>
                 <!-- Produto 1 -->
                 <article class="product-card">

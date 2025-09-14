@@ -687,10 +687,8 @@ input[type="range"]::-webkit-slider-thumb {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    background: #7D2838;
-    color: white;
+    background: transparent;
     border: none;
-    border-radius: 50%;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -702,7 +700,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .product-card .cart:hover {
-    background: #a64d61;
     transform: scale(1.1);
 }
 

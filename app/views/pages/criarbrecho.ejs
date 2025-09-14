@@ -76,9 +76,10 @@
                 <p>Insira os dados do seu brechó</p>
 
                 <section class="profile-section">
-                    <img src="imagens/imagem sem cadastro.avif" alt="Foto do Perfil" class="profile-img">
+                    <img id="profile-img" src="imagens/imagem sem cadastro.avif" alt="Foto do Perfil" class="profile-img">
                     <section class="oculto-desktop">
-                        <button class="edit-icon">✎</button>
+                        <button class="edit-icon" onclick="document.getElementById('profile-photo-input').click()">✎</button>
+                        <input type="file" id="profile-photo-input" accept="image/*" style="display: none;" onchange="handleProfilePhotoUpload(this)">
                     </section>
                 </section>
 
@@ -175,6 +176,20 @@
     <!-- <script src="script/validacao-brecho.js"></script> -->
 
     <!-- <script src="js/script.js"></script> -->
+    
+    <script>
+        function handleProfilePhotoUpload(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    document.getElementById('profile-img').src = e.target.result;
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
    
 </body>
 

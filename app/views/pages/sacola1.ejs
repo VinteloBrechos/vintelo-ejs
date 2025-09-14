@@ -59,53 +59,160 @@
         <center><img src="imagens/caminhao compras.png" class="img-responsiva"></center>
         <!-- Informações de lista -->
         <section class="list-info">
-            <p class="favorite"> Favorite uma peça</p>
+            <p class="favorite-text"> Favorite uma peça</p>
         </section>
-    <main class="product-list">
+        
+
+        
+        <!-- Layout com Sidebar (Desktop) -->
+        <section class="content-layout oculto-mobile">
+            <aside class="sidebar-filters">
+                <section class="filter-group">
+                    <h3>Categoria</h3>
+                    <label><input type="checkbox"> Vestidos</label>
+                    <label><input type="checkbox"> Saias</label>
+                    <label><input type="checkbox"> Blusas</label>
+                    <label><input type="checkbox"> Calças</label>
+                    <label><input type="checkbox"> Outros</label>
+                </section>
+                
+                <section class="filter-group">
+                    <h3>Preço</h3>
+                    <label><input type="checkbox"> Até R$ 30</label>
+                    <label><input type="checkbox"> R$ 30 - R$ 60</label>
+                    <label><input type="checkbox"> R$ 60 - R$ 100</label>
+                    <label><input type="checkbox"> Acima de R$ 100</label>
+                </section>
+                
+                <section class="filter-group">
+                    <h3>Tamanho</h3>
+                    <label><input type="checkbox"> PP</label>
+                    <label><input type="checkbox"> P</label>
+                    <label><input type="checkbox"> M</label>
+                    <label><input type="checkbox"> G</label>
+                    <label><input type="checkbox"> GG</label>
+                </section>
+                
+                <section class="filter-group">
+                    <h3>Cor</h3>
+                    <label><input type="checkbox"> Preto</label>
+                    <label><input type="checkbox"> Branco</label>
+                    <label><input type="checkbox"> Rosa</label>
+                    <label><input type="checkbox"> Marrom</label>
+                    <label><input type="checkbox"> Outros</label>
+                </section>
+            </aside>
+            
+            <main class="product-list">
         <article class="product">
             <img src="imagens/conjunto.png" alt="Saia Branca">
+            <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
             <p>Saia Branca</p>
             <p>R$25,00</p>
         </article>
 
         <article class="product">
             <img src="imagens/saia preta brilhante.png" alt="Saia Preta">
+            <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
             <p>Saia Preta Com Brilho</p>
             <p>R$30,00</p>
         </article>
 
         <article class="product">
             <img src="imagens/saia marrom.png" alt="Saia Marrom">
+            <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
             <p>Saia De Veludo Marrom</p>
             <p>R$25,00</p>
         </article>
 
         <article class="product">
             <img src="imagens/calça reta.png" alt="Calça Jeans">
+            <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
             <p>Calça Reta Jeans Clara</p>
             <p>R$49,99</p>
         </article>
 
         <article class="product">
             <img src="imagens/saia preta brilhante.png" alt="Conjunto Preto">
+            <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
             <p>Conjunto saia preta c/ brilho + Top preto</p>
             <p>R$57,00</p>
         </article>
 
         <article class="product">
             <img src="imagens/vestido pink.png" alt="Vestido Rosa">
+            <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
             <p>Vestido rosa longo</p>
             <p>R$15,00</p>
         </article>
-    </main>
-
-    <!-- Botão de Ver Mais -->
-    <nav class="load-more">
-        <button>Ver mais</button>
-    </nav>
+        
+        <!-- Botão de Ver Mais Mobile -->
+        <nav class="load-more">
+            <button>Ver mais</button>
+        </nav>
+        </main>
 
    </main>
+
+            </main>
+        </section>
+        
+        <!-- Layout Mobile -->
+        <section class="oculto-desktop">
+            <main class="product-list">
+                <article class="product">
+                    <img src="imagens/conjunto.png" alt="Saia Branca">
+                    <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
+                    <p>Saia Branca</p>
+                    <p>R$25,00</p>
+                </article>
+
+                <article class="product">
+                    <img src="imagens/saia preta brilhante.png" alt="Saia Preta">
+                    <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
+                    <p>Saia Preta Com Brilho</p>
+                    <p>R$30,00</p>
+                </article>
+
+                <article class="product">
+                    <img src="imagens/saia marrom.png" alt="Saia Marrom">
+                    <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
+                    <p>Saia De Veludo Marrom</p>
+                    <p>R$25,00</p>
+                </article>
+
+                <article class="product">
+                    <img src="imagens/calça reta.png" alt="Calça Jeans">
+                    <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
+                    <p>Calça Reta Jeans Clara</p>
+                    <p>R$49,99</p>
+                </article>
+
+                <article class="product">
+                    <img src="imagens/saia preta brilhante.png" alt="Conjunto Preto">
+                    <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
+                    <p>Conjunto saia preta c/ brilho + Top preto</p>
+                    <p>R$57,00</p>
+                </article>
+
+                <article class="product">
+                    <img src="imagens/vestido pink.png" alt="Vestido Rosa">
+                    <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
+                    <p>Vestido rosa longo</p>
+                    <p>R$15,00</p>
+                </article>
+                
+                <!-- Botão de Ver Mais Mobile -->
+                <nav class="load-more">
+                    <button>Ver mais</button>
+                </nav>
+            </main>
+        </section>
+   </main>
+   
    <!--                                                    Rodapé                                                      -->
+
+   
    <footer class="footer">
     <img src="imagens/logo2.jpeg" alt="Imagem do Rodapé" class="footer-image">
     <section class="social-media">
