@@ -12,12 +12,17 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styles */
-.oculto-mobile {
+/* Utilitários de Responsividade */
+.mobile-only {
     display: block;
 }
 
-.oculto-desktop {
+.desktop-only {
+    display: none;
+}
+
+/* Header Desktop */
+.desktop-header {
     display: none;
 }
 
@@ -82,54 +87,70 @@ body {
     width: 30px;
 }
 
-/* Mobile Header */
+/* Header Mobile */
+.mobile-header {
+    display: block;
+}
+
 .grid {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px 20px;
     background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .grid img {
-    height: 40px;
+    height: 35px;
 }
 
 /* Container Principal */
-.mobile-container, .desktop-container {
+.container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 15px;
 }
 
-.mobile-container h1, .desktop-container h1 {
+.container h1 {
     text-align: center;
     color: #7D2838;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    font-weight: 300;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
-/* Upload de Fotos - Mobile */
-.photo-upload-mobile {
-    margin-bottom: 40px;
+/* Layout Responsivo */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Seção de Fotos */
+.photo-section {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .main-photo {
     position: relative;
     width: 100%;
-    max-width: 300px;
-    margin: 0 auto 20px;
-    border-radius: 15px;
+    margin: 0 auto 15px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #7D2838, #a64d61);
 }
 
 .main-photo img {
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
     display: block;
+    background: linear-gradient(135deg, #7D2838, #a64d61);
 }
 
 .photo-btn {
@@ -139,11 +160,11 @@ body {
     background: #7D2838;
     color: white;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,20 +178,21 @@ body {
 
 .photo-thumbnails {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
     margin-bottom: 15px;
 }
 
 .thumbnail-slot {
     position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
     overflow: hidden;
     border: 2px dashed #ddd;
     cursor: pointer;
     transition: all 0.3s ease;
+    background: linear-gradient(135deg, #7D2838, #a64d61);
 }
 
 .thumbnail-slot:hover {
@@ -181,6 +203,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: linear-gradient(135deg, #7D2838, #a64d61);
 }
 
 .add-photo-btn {
@@ -191,11 +214,11 @@ body {
     background: #7D2838;
     color: white;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .photo-instructions {
@@ -204,163 +227,39 @@ body {
     font-size: 14px;
 }
 
-/* Layout Mobile - Vertical */
-.mobile-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.mobile-container .photo-upload-mobile {
-    order: 1;
-}
-
-.mobile-container .mobile-form {
-    order: 2;
-}
-
-.mobile-container .submit-btn {
-    order: 3;
-}
-
-/* Upload de Fotos - Desktop */
-.desktop-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.photo-section {
+/* Seção do Formulário */
+.form-section {
     background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.main-photo-desktop {
-    position: relative;
-    width: 100%;
-    height: 400px;
+    padding: 20px;
     border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border: 2px dashed #ddd;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.main-photo-desktop:hover {
-    border-color: #7D2838;
-}
-
-.main-photo-desktop img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.photo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(125, 40, 56, 0.8);
-    color: white;
-    border: none;
+.form-row {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.main-photo-desktop:hover .photo-overlay {
-    opacity: 1;
-}
-
-.photo-overlay span {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.thumbnails-desktop {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.thumb-slot {
-    position: relative;
-    aspect-ratio: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px dashed #ddd;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.thumb-slot:hover {
-    border-color: #7D2838;
-}
-
-.thumb-slot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.add-thumb-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #7D2838;
-    color: white;
-    border: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.photo-help {
-    text-align: center;
-    color: #666;
-    font-size: 14px;
-}
-
-/* Formulários */
-.mobile-form, .form-section {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label {
-    display: block;
     margin-bottom: 8px;
     font-weight: 600;
     color: #333;
+    font-size: 16px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
     padding: 12px 15px;
     border: 2px solid #e1e1e1;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
     font-family: inherit;
@@ -375,31 +274,27 @@ body {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 100px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    min-height: 80px;
 }
 
 /* Seleção de Tamanhos */
-.size-options, .size-options-desktop {
+.size-options {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
+    margin-top: 8px;
 }
 
 .size-btn {
     background: white;
     border: 2px solid #e1e1e1;
-    padding: 10px 15px;
-    border-radius: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
-    min-width: 50px;
+    min-width: 45px;
+    font-size: 14px;
 }
 
 .size-btn:hover {
@@ -413,8 +308,8 @@ body {
     color: white;
 }
 
-/* Botões de Ação */
-.submit-btn, .submit-btn-desktop {
+/* Botão Submit */
+.submit-btn {
     width: 100%;
     background: linear-gradient(135deg, #7D2838, #a64d61);
     color: white;
@@ -427,73 +322,36 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: 20px;
 }
 
-.submit-btn:hover, .submit-btn-desktop:hover {
+.submit-btn:hover {
     background: linear-gradient(135deg, #5a1e2a, #7D2838);
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(125, 40, 56, 0.3);
-}
-
-.form-actions {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.save-draft-btn {
-    flex: 1;
-    background: white;
-    color: #7D2838;
-    border: 2px solid #7D2838;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.save-draft-btn:hover {
-    background: #7D2838;
-    color: white;
-}
-
-.submit-btn-desktop {
-    flex: 2;
-}
-
-.submission-note {
-    text-align: center;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.5;
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 4px solid #7D2838;
 }
 
 /* Footer */
 .footer {
     background-color: #7D2838;
     color: #fff;
-    padding: 40px 0;
+    padding: 40px 20px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .footer-image {
-    height: 100px;
+    height: 80px;
     margin-bottom: 20px;
+    filter: brightness(0) invert(1);
 }
 
 .social-media {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .p-footer {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 15px;
 }
 
@@ -502,10 +360,12 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .social-link img {
-    height: 40px;
+    height: 35px;
     transition: transform 0.3s;
 }
 
@@ -516,105 +376,108 @@ body {
 .copyright {
     font-size: 0.9rem;
     opacity: 0.8;
+    margin-top: 20px;
 }
 
-/* Layout Mobile - Blocos verticais */
-.mobile-container {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Layout Desktop - Blocos horizontais mantido */
-.desktop-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .oculto-mobile {
+/* Responsividade Desktop */
+@media (min-width: 768px) {
+    .mobile-only {
         display: none;
     }
     
-    .oculto-desktop {
+    .desktop-only {
         display: block;
     }
     
-    .desktop-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .main-header {
-        padding: 15px 20px;
-    }
-    
-    .main-header nav {
+    .mobile-header {
         display: none;
     }
     
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .mobile-container, .desktop-container {
-        padding: 20px 15px;
-    }
-}ontainer {
-        padding: 20px 15px;
-    }
-    
-    /* Forçar layout vertical no mobile */
-    .mobile-container {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .photo-upload-mobile {
-        width: 100%;
-        margin-bottom: 30px;
-    }
-    
-    .mobile-form {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-@media (min-width: 992px) {
-    .oculto-mobile {
+    .desktop-header {
         display: block;
     }
     
-    .oculto-desktop {
-        display: none;
+    .container {
+        padding: 40px 20px;
     }
     
-    /* Forçar layout horizontal no desktop */
-    .desktop-content {
+    .container h1 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        font-weight: 300;
+    }
+    
+    .content-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 60px;
         align-items: start;
     }
-}ontainer {
-        padding: 20px 15px;
-    }
-}
-
-@media (min-width: 992px) {
-    .oculto-mobile {
-        display: block;
+    
+    .photo-section {
+        padding: 30px;
+        border-radius: 20px;
     }
     
-    .oculto-desktop {
-        display: none;
+    .main-photo {
+        height: 400px;
+        margin-bottom: 20px;
+    }
+    
+    .main-photo img {
+        height: 100%;
+    }
+    
+    .photo-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .photo-thumbnails {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .thumbnail-slot {
+        width: auto;
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 10px;
+    }
+    
+    .add-photo-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+    
+    .form-section {
+        padding: 30px;
+        border-radius: 20px;
+    }
+    
+    .form-row {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .form-group {
+        flex: 1;
+    }
+    
+    .size-options {
+        gap: 10px;
+    }
+    
+    .size-btn {
+        padding: 10px 15px;
+        min-width: 50px;
+        font-size: 16px;
     }
 }
 
@@ -624,7 +487,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.mobile-container, .desktop-container {
+.container {
     animation: fadeIn 0.6s ease;
 }
 
