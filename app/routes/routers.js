@@ -318,6 +318,10 @@ router.get('/homepecasreformadas', function(req, res){
     res.render('pages/homepecasreformadas');
 })
 
+router.get('/planos', function(req, res){
+    res.render('pages/planos');
+})
+
 // validação //
 
 

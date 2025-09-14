@@ -71,6 +71,7 @@ nav a {
   width: 100%;
 }
 
+
 .search-profile ul {
   display: flex;
   list-style: none;
@@ -397,7 +398,7 @@ nav a {
 
 
 /*                                             responsividade                                                           */
-@media (max-width: 768px){
+@media (max-width: 769px){
   .oculto-mobile {
     display: none
   }
