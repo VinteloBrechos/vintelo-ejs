@@ -326,6 +326,10 @@ router.get('/planos', function(req, res){
     res.render('pages/planos');
 })
 
+router.get('/perfilcliente', function(req, res){
+    res.render('pages/perfilcliente');
+});
+
 // validação //
 
 

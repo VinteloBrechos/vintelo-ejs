@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Vintélo</title>
+    <link rel="stylesheet" href="css/perfilcliente.css">
+</head>
+<body>
+    <!-- Header Desktop -->
+    <section class="desktop-header">
+        <section class="top-bar">
+            <p>10% OFF na primeira compra</p>
+        </section>
+        <header class="main-header">
+            <a href="/home">
+                <img src="imagens/logo.png" class="img-logo" alt="Vintélo">
+            </a>
+            <nav>
+                <a href="#">Vestidos</a>
+                <a href="#">Saias</a>
+                <a href="#">Blusas</a>
+                <a href="#">Calças</a>
+                <a href="#">Outros</a>
+            </nav>
+            <section class="search-profile">
+                <form>
+                    <input type="text" placeholder="Buscar...">
+                </form>
+                <ul>
+                    <li><a href="#"><img src="imagens/icone saco.png" class="img-tamanho" alt="Sacola"></a></li>
+                    <li><a href="/perfilcliente"><img src="imagens/imagem sem cadastro.avif" class="maria" alt="Perfil"></a></li>
+                    <li><a href="#"><img src="imagens/icone coraçao.png" class="img-tamanho" alt="Favoritos"></a></li>
+                </ul>
+            </section>
+        </header>
+    </section>
+
+    <!-- Header Mobile -->
+    <section class="mobile-header">
+        <header>
+            <nav class="grid">
+                <a href="/home">
+                    <img src="imagens/seta.png" alt="Voltar">
+                </a>
+                <img src="imagens/logo.png" alt="Vintélo">
+                <a href="/carrinho">
+                    <img src="imagens/carrinho.png" alt="Carrinho">
+                </a>
+            </nav>
+        </header>
+    </section>
+
+    <main>
+        <section class="container">
+            <h1>Meu Perfil</h1>
+            
+            <section class="content-wrapper">
+                <!-- Informações do Perfil -->
+                <section class="profile-section">
+                    <section class="profile-header">
+                        <section class="profile-photo">
+                            <img id="profile-img" src="imagens/imagem sem cadastro.avif" alt="Foto do perfil">
+                            <button class="photo-edit-btn" onclick="editProfilePhoto()">
+                                <span>📷</span>
+                            </button>
+                            <input type="file" id="profile-photo-input" accept="image/*" style="display: none;" onchange="handleProfilePhotoUpload(this)">
+                        </section>
+                        <section class="profile-info">
+                            <h2 id="profile-name">Maria Silva</h2>
+                            <p id="profile-email">maria.silva@email.com</p>
+                            <p class="member-since">Membro desde Janeiro 2024</p>
+                        </section>
+                    </section>
+
+                    <section class="profile-stats">
+                        <section class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Compras</span>
+                        </section>
+                        <section class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Favoritos</span>
+                        </section>
+                        <section class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Avaliações</span>
+                        </section>
+                    </section>
+                </section>
+
+                <!-- Menu de Opções -->
+                <section class="menu-section">
+                    <section class="menu-grid">
+                        <a href="#" class="menu-item" onclick="showSection('personal-info')">
+                            <section class="menu-icon">👤</section>
+                            <section class="menu-content">
+                                <h3>Informações Pessoais</h3>
+                                <p>Editar dados pessoais</p>
+                            </section>
+                        </a>
+
+                        <a href="#" class="menu-item" onclick="showSection('orders')">
+                            <section class="menu-icon">📦</section>
+                            <section class="menu-content">
+                                <h3>Meus Pedidos</h3>
+                                <p>Histórico de compras</p>
+                            </section>
+                        </a>
+
+                        <a href="#" class="menu-item" onclick="showSection('favorites')">
+                            <section class="menu-icon">❤️</section>
+                            <section class="menu-content">
+                                <h3>Favoritos</h3>
+                                <p>Itens salvos</p>
+                            </section>
+                        </a>
+
+                        <a href="#" class="menu-item" onclick="showSection('addresses')">
+                            <section class="menu-icon">📍</section>
+                            <section class="menu-content">
+                                <h3>Endereços</h3>
+                                <p>Gerenciar endereços</p>
+                            </section>
+                        </a>
+
+                        <a href="#" class="menu-item" onclick="showSection('payment')">
+                            <section class="menu-icon">💳</section>
+                            <section class="menu-content">
+                                <h3>Pagamento</h3>
+                                <p>Cartões e métodos</p>
+                            </section>
+                        </a>
+
+                        <a href="#" class="menu-item" onclick="showSection('notifications')">
+                            <section class="menu-icon">🔔</section>
+                            <section class="menu-content">
+                                <h3>Notificações</h3>
+                                <p>Preferências</p>
+                            </section>
+                        </a>
+                    </section>
+                </section>
+            </section>
+
+            <!-- Seções de Conteúdo -->
+            <section id="personal-info" class="content-section" style="display: none;">
+                <section class="section-header">
+                    <h2>Informações Pessoais</h2>
+                    <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
+                </section>
+                
+                <form class="profile-form" onsubmit="updatePersonalInfo(event)">
+                    <section class="form-row">
+                        <section class="form-group">
+                            <label for="first-name">Nome</label>
+                            <input type="text" id="first-name" name="firstName" value="Maria" required>
+                        </section>
+                        <section class="form-group">
+                            <label for="last-name">Sobrenome</label>
+                            <input type="text" id="last-name" name="lastName" value="Silva" required>
+                        </section>
+                    </section>
+                    
+                    <section class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" value="maria.silva@email.com" required>
+                    </section>
+                    
+                    <section class="form-row">
+                        <section class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" value="(11) 99999-9999" required>
+                        </section>
+                        <section class="form-group">
+                            <label for="birth-date">Data de Nascimento</label>
+                            <input type="date" id="birth-date" name="birthDate" value="1990-01-01">
+                        </section>
+                    </section>
+                    
+                    <section class="form-group">
+                        <label for="bio">Sobre mim</label>
+                        <textarea id="bio" name="bio" placeholder="Conte um pouco sobre você...">Apaixonada por moda sustentável e peças únicas!</textarea>
+                    </section>
+                    
+                    <button type="submit" class="save-btn">Salvar Alterações</button>
+                </form>
+            </section>
+
+            <section id="orders" class="content-section" style="display: none;">
+                <section class="section-header">
+                    <h2>Meus Pedidos</h2>
+                    <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
+                </section>
+                
+                <section class="orders-list">
+                    <section class="order-item">
+                        <section class="order-info">
+                            <h3>Pedido #12345</h3>
+                            <p class="order-date">15 de Janeiro, 2024</p>
+                            <p class="order-status delivered">Entregue</p>
+                        </section>
+                        <section class="order-details">
+                            <p class="order-total">R$ 89,90</p>
+                            <button class="view-order-btn" onclick="viewOrder('12345')">Ver Detalhes</button>
+                        </section>
+                    </section>
+
+                    <section class="order-item">
+                        <section class="order-info">
+                            <h3>Pedido #12344</h3>
+                            <p class="order-date">10 de Janeiro, 2024</p>
+                            <p class="order-status shipped">Em Trânsito</p>
+                        </section>
+                        <section class="order-details">
+                            <p class="order-total">R$ 156,50</p>
+                            <button class="view-order-btn" onclick="viewOrder('12344')">Ver Detalhes</button>
+                        </section>
+                    </section>
+
+                    <section class="order-item">
+                        <section class="order-info">
+                            <h3>Pedido #12343</h3>
+                            <p class="order-date">5 de Janeiro, 2024</p>
+                            <p class="order-status processing">Processando</p>
+                        </section>
+                        <section class="order-details">
+                            <p class="order-total">R$ 234,00</p>
+                            <button class="view-order-btn" onclick="viewOrder('12343')">Ver Detalhes</button>
+                        </section>
+                    </section>
+                </section>
+            </section>
+
+            <section id="favorites" class="content-section" style="display: none;">
+                <section class="section-header">
+                    <h2>Meus Favoritos</h2>
+                    <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
+                </section>
+                
+                <section class="favorites-grid">
+                    <section class="favorite-item">
+                        <section class="favorite-image">
+                            <img src="imagens/vestido1.jpg" alt="Vestido Floral">
+                            <button class="remove-favorite" onclick="removeFavorite(1)">❤️</button>
+                        </section>
+                        <section class="favorite-info">
+                            <h3>Vestido Floral Vintage</h3>
+                            <p class="favorite-price">R$ 89,90</p>
+                            <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </section>
+                    </section>
+
+                    <section class="favorite-item">
+                        <section class="favorite-image">
+                            <img src="imagens/blusa1.jpg" alt="Blusa Vintage">
+                            <button class="remove-favorite" onclick="removeFavorite(2)">❤️</button>
+                        </section>
+                        <section class="favorite-info">
+                            <h3>Blusa Vintage Anos 80</h3>
+                            <p class="favorite-price">R$ 65,00</p>
+                            <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                        </section>
+                    </section>
+                </section>
+            </section>
+
+            <section id="addresses" class="content-section" style="display: none;">
+                <section class="section-header">
+                    <h2>Meus Endereços</h2>
+                    <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
+                </section>
+                
+                <section class="addresses-list">
+                    <section class="address-item">
+                        <section class="address-info">
+                            <h3>Casa</h3>
+                            <p>Rua das Flores, 123</p>
+                            <p>Vila Madalena - São Paulo, SP</p>
+                            <p>CEP: 05435-000</p>
+                        </section>
+                        <section class="address-actions">
+                            <button class="edit-address-btn" onclick="editAddress(1)">Editar</button>
+                            <button class="delete-address-btn" onclick="deleteAddress(1)">Excluir</button>
+                        </section>
+                    </section>
+
+                    <button class="add-address-btn" onclick="addNewAddress()">+ Adicionar Novo Endereço</button>
+                </section>
+            </section>
+
+            <section id="payment" class="content-section" style="display: none;">
+                <section class="section-header">
+                    <h2>Métodos de Pagamento</h2>
+                    <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
+                </section>
+                
+                <section class="payment-methods">
+                    <section class="payment-item">
+                        <section class="payment-info">
+                            <h3>Cartão de Crédito</h3>
+                            <p>**** **** **** 1234</p>
+                            <p>Visa - Vence em 12/2025</p>
+                        </section>
+                        <section class="payment-actions">
+                            <button class="edit-payment-btn" onclick="editPayment(1)">Editar</button>
+                            <button class="delete-payment-btn" onclick="deletePayment(1)">Remover</button>
+                        </section>
+                    </section>
+
+                    <button class="add-payment-btn" onclick="addNewPayment()">+ Adicionar Cartão</button>
+                </section>
+            </section>
+
+            <section id="notifications" class="content-section" style="display: none;">
+                <section class="section-header">
+                    <h2>Notificações</h2>
+                    <button class="back-btn" onclick="hideAllSections()">← Voltar</button>
+                </section>
+                
+                <section class="notifications-settings">
+                    <section class="notification-item">
+                        <section class="notification-info">
+                            <h3>Ofertas e Promoções</h3>
+                            <p>Receba notificações sobre descontos especiais</p>
+                        </section>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </section>
+
+                    <section class="notification-item">
+                        <section class="notification-info">
+                            <h3>Status do Pedido</h3>
+                            <p>Atualizações sobre seus pedidos</p>
+                        </section>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </section>
+
+                    <section class="notification-item">
+                        <section class="notification-info">
+                            <h3>Novos Produtos</h3>
+                            <p>Seja a primeira a saber sobre novidades</p>
+                        </section>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="imagens/logo.png" alt="Vintélo" class="footer-image">
+        <section class="social-media">
+            <p class="p-footer">Siga-nos nas redes sociais</p>
+            <ul class="social-links">
+                <li><a href="#" class="social-link"><img src="imagens/instagram icon.png" alt="Instagram"></a></li>
+                <li><a href="#" class="social-link"><img src="imagens/facebook icon.png" alt="Facebook"></a></li>
+                <li><a href="#" class="social-link"><img src="imagens/twitter icon.png" alt="Twitter"></a></li>
+            </ul>
+        </section>
+        <p class="copyright">&copy; 2024 Vintélo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script/perfilcliente.js"></script>
+</body>
+</html>
