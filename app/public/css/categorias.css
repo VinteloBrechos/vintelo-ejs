@@ -120,6 +120,12 @@ main h2 {
   }
 }
 
+@media (max-width: 767px) {
+  .filters-sidebar {
+    display: none !important;
+  }
+}
+
 .filters-sidebar h3 {
   color: #7D2838;
   font-size: 18px;
