@@ -243,9 +243,17 @@ body {
 }
 
 .menu-icon {
-    font-size: 1.5rem;
     width: 40px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 .menu-content h3 {
@@ -359,35 +367,65 @@ body {
 .orders-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
-.order-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
+.order-date-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: #7D2838;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #7D2838;
+}
+
+.order-card {
     background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 4px solid #7D2838;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
 }
 
-.order-info h3 {
-    font-size: 1rem;
-    margin-bottom: 5px;
+.order-content {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
 }
 
-.order-date {
-    font-size: 12px;
-    color: #666;
+.product-image {
+    width: 90px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+    border-color: #7D2838;
+}
+
+.order-info {
+    flex: 1;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
 }
 
 .order-status {
     font-size: 12px;
-    padding: 3px 8px;
+    padding: 4px 8px;
     border-radius: 12px;
     font-weight: 600;
     text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .order-status.delivered {
@@ -405,14 +443,26 @@ body {
     color: #856404;
 }
 
-.order-total {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #7D2838;
-    margin-bottom: 5px;
+.delivery-info {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
 }
 
-.view-order-btn {
+.order-total {
+    font-size: 18px;
+    font-weight: 700;
+    color: #7D2838;
+    margin-bottom: 10px;
+}
+
+.order-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.track-btn, .details-btn {
     background: #7D2838;
     color: white;
     border: none;
@@ -420,6 +470,86 @@ body {
     border-radius: 5px;
     font-size: 12px;
     cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.track-btn:hover, .details-btn:hover {
+    background: #5a1e2a;
+}
+
+.order-details, .tracking-details {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.order-details h4 {
+    color: #7D2838;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.detail-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: #333;
+    font-weight: 600;
+}
+
+.tracking-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.tracking-step.completed {
+    background: #d4edda;
+}
+
+.tracking-step.active {
+    background: #d1ecf1;
+}
+
+.step-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid #7D2838;
+}
+
+.step-info {
+    flex: 1;
+}
+
+.step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.step-time {
+    font-size: 12px;
+    color: #666;
 }
 
 /* Grid de Favoritos */
@@ -439,10 +569,17 @@ body {
 
 .favorite-image {
     position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
+    width: 70px;
+    height: 90px;
+    border-radius: 12px;
     overflow: hidden;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.3s ease;
+}
+
+.favorite-image:hover {
+    transform: scale(1.05);
+    border-color: #7D2838;
 }
 
 .favorite-image img {
@@ -553,6 +690,110 @@ body {
     font-size: 14px;
     cursor: pointer;
     margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.add-address-btn:hover {
+    background: linear-gradient(135deg, #5a1e2a, #7D2838);
+    transform: translateY(-2px);
+}
+
+/* Modal de Endereço */
+.address-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.address-modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-header h3 {
+    color: #7D2838;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background-color: #f0f0f0;
+    color: #7D2838;
+}
+
+.address-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.address-form .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.address-form .form-row .form-group {
+    flex: 1;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.cancel-btn {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #e9ecef;
+    color: #333;
 }
 
 /* Métodos de Pagamento */

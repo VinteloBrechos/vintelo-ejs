@@ -292,7 +292,38 @@ function setupNotificationToggles() {
     });
 }
 
-// Visualizar pedido
+// Toggle detalhes do pedido
+function toggleOrderDetails(button) {
+    const orderCard = button.closest('.order-card');
+    const orderDetails = orderCard.querySelector('.order-details');
+    
+    if (orderDetails.style.display === 'none' || !orderDetails.style.display) {
+        orderDetails.style.display = 'block';
+        button.textContent = 'Ocultar Detalhes';
+    } else {
+        orderDetails.style.display = 'none';
+        button.textContent = 'Ver Detalhes';
+    }
+}
+
+// Toggle rastreamento do pedido
+function toggleTracking(button) {
+    const orderCard = button.closest('.order-card');
+    const trackingDetails = orderCard.querySelector('.tracking-details');
+    
+    if (trackingDetails) {
+        if (trackingDetails.style.display === 'none' || !trackingDetails.style.display) {
+            trackingDetails.style.display = 'block';
+            button.textContent = 'Ocultar Rastreamento';
+        } else {
+            trackingDetails.style.display = 'none';
+            const buttonText = button.textContent.includes('Ver') ? 'Ver Rastreamento' : 'Rastrear Pedido';
+            button.textContent = buttonText;
+        }
+    }
+}
+
+// Visualizar pedido (função mantida para compatibilidade)
 function viewOrder(orderId) {
     showNotification(`Carregando detalhes do pedido #${orderId}...`, 'info');
     
@@ -322,8 +353,46 @@ function removeFavorite(itemId) {
 
 // Editar endereço
 function editAddress(addressId) {
-    showNotification(`Editando endereço #${addressId}...`, 'info');
-    // Implementar modal de edição
+    const addressItem = document.querySelector(`[data-address-id="${addressId}"]`);
+    if (!addressItem) return;
+    
+    // Extrair dados do endereço
+    const addressInfo = addressItem.querySelector('.address-info');
+    const name = addressInfo.querySelector('h3').textContent;
+    const addressLines = addressInfo.querySelectorAll('p');
+    
+    // Preencher formulário com dados existentes
+    document.getElementById('modal-title').textContent = 'Editar Endereço';
+    document.getElementById('address-name').value = name;
+    
+    // Extrair CEP
+    const cepText = addressLines[2].textContent;
+    const cep = cepText.replace('CEP: ', '');
+    document.getElementById('address-cep').value = cep;
+    
+    // Extrair endereço
+    const fullAddress = addressLines[0].textContent;
+    const addressParts = fullAddress.split(', ');
+    document.getElementById('address-street').value = addressParts[0] || '';
+    document.getElementById('address-number').value = addressParts[1] || '';
+    
+    // Extrair bairro, cidade e estado
+    const locationText = addressLines[1].textContent;
+    const locationParts = locationText.split(' - ');
+    document.getElementById('address-neighborhood').value = locationParts[0] || '';
+    
+    if (locationParts[1]) {
+        const cityState = locationParts[1].split(', ');
+        document.getElementById('address-city').value = cityState[0] || '';
+        document.getElementById('address-state').value = cityState[1] || '';
+    }
+    
+    // Marcar formulário como edição
+    const form = document.querySelector('.address-form');
+    form.setAttribute('data-edit-id', addressId);
+    
+    // Abrir modal
+    document.getElementById('address-modal').style.display = 'block';
 }
 
 // Excluir endereço
@@ -341,9 +410,168 @@ function deleteAddress(addressId) {
 
 // Adicionar novo endereço
 function addNewAddress() {
-    showNotification('Abrindo formulário de novo endereço...', 'info');
-    // Implementar modal de novo endereço
+    document.getElementById('modal-title').textContent = 'Adicionar Novo Endereço';
+    document.getElementById('address-modal').style.display = 'block';
+    clearAddressForm();
 }
+
+// Fechar modal de endereço
+function closeAddressModal() {
+    document.getElementById('address-modal').style.display = 'none';
+    clearAddressForm();
+}
+
+// Limpar formulário de endereço
+function clearAddressForm() {
+    const form = document.querySelector('.address-form');
+    form.reset();
+    form.removeAttribute('data-edit-id');
+}
+
+// Salvar endereço
+function saveAddress(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const addressData = {
+        name: formData.get('addressName'),
+        cep: formData.get('cep'),
+        street: formData.get('street'),
+        number: formData.get('number'),
+        neighborhood: formData.get('neighborhood'),
+        city: formData.get('city'),
+        state: formData.get('state'),
+        complement: formData.get('complement')
+    };
+    
+    // Validar CEP
+    if (!isValidCEP(addressData.cep)) {
+        showNotification('CEP inválido. Use o formato 00000-000', 'error');
+        return;
+    }
+    
+    const editId = event.target.getAttribute('data-edit-id');
+    
+    if (editId) {
+        // Editar endereço existente
+        updateAddressInList(editId, addressData);
+        showNotification('Endereço atualizado com sucesso!', 'success');
+    } else {
+        // Adicionar novo endereço
+        addAddressToList(addressData);
+        showNotification('Endereço adicionado com sucesso!', 'success');
+    }
+    
+    closeAddressModal();
+}
+
+// Adicionar endereço à lista
+function addAddressToList(addressData) {
+    const addressesList = document.querySelector('.addresses-list');
+    const addButton = addressesList.querySelector('.add-address-btn');
+    
+    const addressItem = createAddressElement(addressData, Date.now());
+    addressesList.insertBefore(addressItem, addButton);
+}
+
+// Criar elemento de endereço
+function createAddressElement(addressData, id) {
+    const addressItem = document.createElement('section');
+    addressItem.className = 'address-item';
+    addressItem.setAttribute('data-address-id', id);
+    
+    const complement = addressData.complement ? `, ${addressData.complement}` : '';
+    
+    addressItem.innerHTML = `
+        <section class="address-info">
+            <h3>${addressData.name}</h3>
+            <p>${addressData.street}, ${addressData.number}${complement}</p>
+            <p>${addressData.neighborhood} - ${addressData.city}, ${addressData.state}</p>
+            <p>CEP: ${addressData.cep}</p>
+        </section>
+        <section class="address-actions">
+            <button class="edit-address-btn" onclick="editAddress(${id})">Editar</button>
+            <button class="delete-address-btn" onclick="deleteAddress(${id})">Excluir</button>
+        </section>
+    `;
+    
+    return addressItem;
+}
+
+// Atualizar endereço na lista
+function updateAddressInList(id, addressData) {
+    const addressItem = document.querySelector(`[data-address-id="${id}"]`);
+    if (addressItem) {
+        const newElement = createAddressElement(addressData, id);
+        addressItem.parentNode.replaceChild(newElement, addressItem);
+    }
+}
+
+// Buscar CEP
+function searchCEP() {
+    const cep = document.getElementById('address-cep').value.replace(/\D/g, '');
+    
+    if (cep.length === 8) {
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(response => response.json())
+            .then(data => {
+                if (!data.erro) {
+                    document.getElementById('address-street').value = data.logradouro || '';
+                    document.getElementById('address-neighborhood').value = data.bairro || '';
+                    document.getElementById('address-city').value = data.localidade || '';
+                    document.getElementById('address-state').value = data.uf || '';
+                    
+                    // Focar no campo número
+                    document.getElementById('address-number').focus();
+                } else {
+                    showNotification('CEP não encontrado', 'error');
+                }
+            })
+            .catch(() => {
+                showNotification('Erro ao buscar CEP', 'error');
+            });
+    }
+}
+
+// Validar CEP
+function isValidCEP(cep) {
+    const cepRegex = /^\d{5}-?\d{3}$/;
+    return cepRegex.test(cep);
+}
+
+// Formatar CEP
+function formatCEP(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length > 5) {
+        value = value.replace(/(\d{5})(\d{3})/, '$1-$2');
+    }
+    input.value = value;
+    
+    // Buscar CEP automaticamente quando completo
+    if (value.length === 9) {
+        searchCEP();
+    }
+}
+
+// Adicionar listener para formatação de CEP
+document.addEventListener('DOMContentLoaded', function() {
+    const cepInput = document.getElementById('address-cep');
+    if (cepInput) {
+        cepInput.addEventListener('input', function() {
+            formatCEP(this);
+        });
+    }
+    
+    // Fechar modal ao clicar fora
+    const modal = document.getElementById('address-modal');
+    if (modal) {
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeAddressModal();
+            }
+        });
+    }
+});
 
 // Editar método de pagamento
 function editPayment(paymentId) {
