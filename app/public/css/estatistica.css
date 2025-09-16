@@ -16,6 +16,7 @@
     text-align: center;
     color: white;
     padding: 20px;
+    font-size: 20px;
 }
 
 .main-header {
@@ -57,12 +58,12 @@ nav a {
 }
 
 .img-tamanho{
-    width: 50px;
+    width: 60px;
     height: auto;
 }
 
 .img-logo{
-    width: 100px;
+    width: 120px;
     height: auto;
 }
   /*                                                Header - Mobile First                                                */

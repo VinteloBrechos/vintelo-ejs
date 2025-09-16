@@ -14,8 +14,8 @@ body {
     background-color: #8c2b44;
     text-align: center;
     color: white;
-    padding: 10px;
-    font-size: 25px;
+    padding: 13px;
+    font-size: 23px;
 }
 
 .main-header {
@@ -58,17 +58,17 @@ nav a {
 }
 
 .img-tamanho{
-    width: 50px;
+    width: 40px;
     height: auto;
 }
 
 .img-logo{
-    width: 140px;
+    width: 120px;
     height: auto;
 }
 
 .maria{
-     width: 50px;
+     width: 40px;
 }
 
 main {
@@ -79,6 +79,7 @@ main {
     width: 250px;
     padding: 20px;
     background-color: #f7f7f7;
+    border-radius: 20px;
 }
 
 .user-sidebar img {

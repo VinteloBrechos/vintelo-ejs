@@ -1,18 +1,15 @@
-// Variáveis globais
 let selectedPhotos = [];
 let selectedSize = '';
 
-// Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     initializeForm();
 });
 
-// Inicializar formulário
 function initializeForm() {
-    // Sincronizar campos mobile/desktop
+    
     syncFormFields();
     
-    // Adicionar listeners para validação em tempo real
+   
     addValidationListeners();
 }
 

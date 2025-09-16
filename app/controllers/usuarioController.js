@@ -4,8 +4,7 @@ const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 const {removeImg} = require("../util/removeImg");
 const { verificarUsuAutorizado } = require("../models/autenticador_middleware");
-const csrfProtection = require("../middleware/csrfProtection");
-const sanitizer = require("../util/sanitizer");
+
 const https = require('https');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
@@ -61,7 +60,6 @@ const usuarioController = {
             return res.render("pages/entrar", { listaErros: erros, dadosNotificacao: null })
         }
         if (req.session.autenticado.autenticado != null) {
-            // Redirecionar baseado no tipo de usuário
             if (req.session.autenticado.tipo === 1) {
                 res.redirect("/homecomprador");
             } else if (req.session.autenticado.tipo === 2) {
@@ -80,18 +78,18 @@ const usuarioController = {
 
     cadastrar: async (req, res) => {
         const erros = validationResult(req);
-        const sanitizedValues = sanitizer.sanitizeFormData({
+        // Removido o sanitizer: usando req.body diretamente para valores
+        const sanitizedValues = {
             nome_usu: req.body.nome_usu || '',
             nomeusu_usu: req.body.nomeusu_usu || '',
             email_usu: req.body.email_usu || ''
-        });
+        };
         
         if (!erros.isEmpty()) {
             return res.render("pages/login", { listaErros: erros, dadosNotificacao: null, valores: sanitizedValues })
         }
         
         try {
-            // Verificar se email já existe
             const emailExiste = await usuario.findCampoCustom('EMAIL_USUARIO', req.body.email_usu);
             if (emailExiste > 0) {
                 return res.render("pages/login", {
@@ -144,9 +142,13 @@ const usuarioController = {
         } catch (e) {
             console.log(e);
             res.render("pages/login", {
-                listaErros: null, dadosNotificacao: {
-                    titulo: "Erro ao cadastrar!", mensagem: "Tente novamente mais tarde.", tipo: "error"
-                }, valores: sanitizedValues
+                listaErros: null, 
+                dadosNotificacao: {
+                    titulo: "Erro ao cadastrar!", 
+                    mensagem: "Tente novamente mais tarde.", 
+                    tipo: "error"
+                }, 
+                valores: sanitizedValues
             })
         }
     },
@@ -201,7 +203,8 @@ const usuarioController = {
             lista.errors.push(erroMulter);
         }
         if (!erros.isEmpty() || erroMulter != null) {
-            const sanitizedFormData = sanitizer.sanitizeFormData(req.body);
+            // Removido o sanitizer: usando req.body diretamente
+            const sanitizedFormData = req.body;
             return res.render("pages/perfil", { listaErros: lista, dadosNotificacao: null, valores: sanitizedFormData })
         }
         try {
@@ -243,12 +246,14 @@ const usuarioController = {
                 }
                 res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
             } else {
-                const sanitizedFormData = sanitizer.sanitizeFormData(req.body);
+                // Removido o sanitizer: usando req.body diretamente
+                const sanitizedFormData = req.body;
                 res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil atualizado", mensagem: "Sem alterações", tipo: "info" }, valores: sanitizedFormData });
             }
         } catch (e) {
             console.log(e)
-            const sanitizedFormData = sanitizer.sanitizeFormData(req.body);
+            // Removido o sanitizer: usando req.body diretamente
+            const sanitizedFormData = req.body;
             res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Erro ao atualizar o perfil!", mensagem: "Verifique os valores digitados!", tipo: "error" }, valores: sanitizedFormData })
         }
     }

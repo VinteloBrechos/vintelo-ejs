@@ -11,7 +11,7 @@ const usuarioModel = {
                 "FROM USUARIOS u, TIPO_USUARIO t where u.STATUS_USUARIO = 1 and " + 
                 "u.TIPO_USUARIO = t.ID_TIPO_USUARIO"
             );
-            return resultados; //incompletos
+            return resultados;
         } catch (error) {
             console.log(error);
             return error;

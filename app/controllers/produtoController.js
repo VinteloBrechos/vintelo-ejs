@@ -1,7 +1,6 @@
 const produto = require("../models/produtoModel");
 const { body, validationResult } = require("express-validator");
 const { verificarUsuAutorizado } = require("../models/autenticador_middleware");
-const csrfProtection = require("../middleware/csrfProtection");
 const sanitizer = require("../util/sanitizer");
 const { removeImg } = require("../util/removeImg");
 
@@ -41,7 +40,6 @@ const produtoController = {
         });
     },
 
-    // Adicionar novo produto
     adicionarProduto: async (req, res) => {
         const erros = validationResult(req);
         const erroMulter = req.session.erroMulter;

@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-
-// Imports comentados para evitar erro de módulos não encontrados
- const { verificarUsuAutenticado, limparSessao, gravarUsuAutenticado, verificarUsuAutorizado } = require("../models/autenticador_middleware");
+ const { verificarUsuAutenticado,
+     limparSessao,
+      gravarUsuAutenticado,
+       verificarUsuAutorizado 
+    } = require("../models/autenticador_middleware");
  const usuarioController = require("../controllers/usuarioController");
  const uploadFile = require("../util/uploader");
 
-// Rotas principais com autenticação
 router.get("/", verificarUsuAutenticado, function (req, res) { 
     res.render("pages/index", { 
         autenticado: req.session.autenticado, 
