@@ -247,6 +247,9 @@ router.post('/criarbrecho', function(req, res){
     // Sucesso - redirecionar para perfil vendedor
     res.redirect('/perfilvender');
 })
+
+router.post('/favoritar/brecho/:idBrecho', verificarUsuAutenticado, usuarioController.favoritarBrecho);
+
 // router.post('/criarbrecho', function(req, res){
 //     const { brecho, email, nome, password, senha, phone, cpf, address } = req.body;
     

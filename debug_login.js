@@ -21,7 +21,6 @@ async function debugLogin() {
             });
         }
         
-        // 2. Testar findUserEmail
         console.log("\n2. Testando findUserEmail...");
         const dadosForm = {
             user_usuario: "teste@teste.com"
@@ -37,7 +36,6 @@ async function debugLogin() {
                 email: results[0].EMAIL_USUARIO
             });
             
-            // 3. Testar comparação de senha
             console.log("\n3. Testando senha...");
             const senhaCorreta = bcrypt.compareSync("123456", results[0].SENHA_USUARIO);
             console.log("Senha '123456' está correta:", senhaCorreta);

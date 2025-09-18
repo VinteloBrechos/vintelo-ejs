@@ -1,4 +1,5 @@
-const db = require("../config/pool_conexoes");
+const moment = require("moment")
+var pool = require("../config/pool_conexoes");
 
 const produtoModel = {
 

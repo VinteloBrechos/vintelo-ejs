@@ -304,7 +304,7 @@ nav.grid {
 }
 
 nav.grid img {
-  height: 120px;
+  height: 140px;
   width: auto;
   cursor: pointer;
 }
@@ -558,7 +558,7 @@ h3 {
 }
 
 .ver{
-  font-size: 40px;
+  font-size: 30px;
   color: #464344;
 }
 
@@ -836,7 +836,7 @@ h3 {
   display: flex;
   align-items: center;
   background-color: white;
-  padding: 10px 15px;
+  padding: 10px 35px;
   margin-bottom: 10px;
   border-radius: 30px;
   box-shadow: 0 45px 40px rgba(0, 0, 0, 0.1);
@@ -865,6 +865,7 @@ h3 {
 }
 
 .rating small {
+  font-size: 25px;
   color: #888;
 }
 
@@ -1302,4 +1303,3 @@ h1 {
 
  }
 
- 
