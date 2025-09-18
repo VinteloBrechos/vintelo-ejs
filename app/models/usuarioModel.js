@@ -1,5 +1,5 @@
 
-var pool = require("../config/pool_conexoes_local");
+var pool = require("../config/pool_conexoes");
  
 const usuarioModel = {
     findAll: async () => {

@@ -38,7 +38,6 @@ const usuarioController = {
 
 
     regrasValidacaoPerfil: [
-        csrfProtection.validateToken,
         body("nome_usu")
             .isLength({ min: 3, max: 45 }).withMessage("Nome deve ter de 3 a 45 caracteres!"),
         body("nomeusu_usu")

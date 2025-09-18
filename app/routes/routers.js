@@ -6,7 +6,9 @@ var router = express.Router();
       gravarUsuAutenticado,
        verificarUsuAutorizado 
     } = require("../models/autenticador_middleware");
+
  const usuarioController = require("../controllers/usuarioController");
+
  const uploadFile = require("../util/uploader");
 
 router.get("/", verificarUsuAutenticado, function (req, res) { 

@@ -20,6 +20,7 @@ const PORT = process.env.APP_PORT || 3000;
 console.log('Variáveis de ambiente:');
 console.log('HOST:', process.env.HOST);
 console.log('USER:', process.env.USER);
+console.log('USER:', process.env.DB_USER);
 console.log('DATABASE:', process.env.DATABASE);
 console.log('PORT DB:', process.env.PORT);
 
