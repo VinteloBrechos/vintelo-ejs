@@ -308,6 +308,13 @@ nav.grid img {
   width: auto;
   cursor: pointer;
 }
+
+nav.grid img perfil {
+  height: 120px;
+  width: auto;
+  cursor: pointer;
+}
+
 .img-sem-perfil
 {
   height: 130px;
@@ -1294,3 +1301,5 @@ h1 {
       font-size: 20px;
 
  }
+
+ 

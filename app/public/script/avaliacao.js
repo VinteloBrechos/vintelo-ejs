@@ -1,6 +1,5 @@
 let selectedRating = 0;
 
-// Funcionalidade de avaliação por estrelas
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.star').forEach(star => {
         star.addEventListener('click', function() {
@@ -20,13 +19,11 @@ function updateStars() {
     });
 }
 
-// Toggle do formulário de avaliação
 function toggleReviewForm() {
     const form = document.getElementById('reviewForm');
     form.style.display = form.style.display === 'none' ? 'block' : 'none';
 }
 
-// Submissão de nova avaliação
 function submitReview(event) {
     event.preventDefault();
     
@@ -41,15 +38,12 @@ function submitReview(event) {
         alert('Por favor, escreva um comentário!');
         return;
     }
-    
-    // Criar nova avaliação
+
     const newReview = createReviewElement('Você', 'Agora', selectedRating, reviewText);
-    
-    // Adicionar no topo da lista
+
     const reviewsList = document.getElementById('reviewsList');
     reviewsList.insertBefore(newReview, reviewsList.firstChild);
-    
-    // Limpar formulário
+
     document.getElementById('reviewText').value = '';
     selectedRating = 0;
     updateStars();

@@ -1,4 +1,3 @@
-// Dados dos gráficos
 const chartData = {
     vendas: [
         { categoria: 'Vestidos', valor: 32, receita: 'R$ 4.980' },
@@ -9,14 +8,12 @@ const chartData = {
     ]
 };
 
-// Interatividade dos gráficos
 document.addEventListener('DOMContentLoaded', function() {
     const bars = document.querySelectorAll('.bar');
     const pieChart = document.querySelector('.pie-chart');
     const legendItems = document.querySelectorAll('.legend-item');
     const statsCards = document.querySelectorAll('.stats-card');
 
-    // Tooltip para as barras
     bars.forEach((bar, index) => {
         const data = chartData.vendas[index];
         
@@ -28,14 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
             hideTooltip();
         });
 
-        // Click para destacar
         bar.addEventListener('click', function() {
             bars.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
         });
     });
 
-    // Interatividade da legenda
     legendItems.forEach((item, index) => {
         item.addEventListener('click', function() {
             legendItems.forEach(l => l.classList.remove('active'));
@@ -44,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animação dos cards estatísticos
     statsCards.forEach((card) => {
         card.addEventListener('click', function() {
             const valueElement = this.querySelector('.stats-value');
@@ -52,9 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Criar tooltip
     function showTooltip(element, content) {
-        hideTooltip(); // Remove tooltip anterior
+        hideTooltip();
         const tooltip = document.createElement('div');
         tooltip.className = 'chart-tooltip';
         tooltip.innerHTML = content;
@@ -86,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Animar gráfico de pizza
     function animatePieChart() {
         if (pieChart) {
             pieChart.style.transform = 'scale(1.1) rotate(5deg)';
@@ -96,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Animar valores
     function animateValue(element) {
         const originalText = element.textContent;
         const isPercentage = originalText.includes('%');
@@ -124,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
             element.textContent = displayValue;
         }, 16);
 
-        // Restaurar valor original após animação
         setTimeout(() => {
             element.textContent = originalText;
         }, duration + 500);

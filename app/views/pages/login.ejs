@@ -33,7 +33,7 @@
         <br>
         <section class="social-login">
             <a href="#"><img src="imagens/icone facebook.png" alt="Login com Facebook"></a>
-            <a href="#"><img src="imagens/icone apple(2).png" alt="Login com Instagram"></a>
+            <a href="#"><img src="imagens/icone apple.png" alt="Login com Instagram"></a>
             <a href="#"><img src="imagens/icone google.png" alt="Login com Google"></a>
         </section>
          <br>
@@ -81,44 +81,6 @@
     <footer class="footer">
         <button type="submit" form="registerForm" name="submit" id="submit" class="submit-btn">Cadastrar</button>
     </footer>
-
-    <% if (typeof dadosNotificacao !== 'undefined' && dadosNotificacao) { %>
-    <script>
-        new Notify({
-            status: '<%= dadosNotificacao.tipo %>',
-            title: '<%= dadosNotificacao.titulo %>',
-            text: '<%= dadosNotificacao.mensagem %>',
-            effect: 'fade',
-            speed: 300,
-            customClass: null,
-            customIcon: null,
-            showIcon: true,
-            showCloseButton: true,
-            autoclose: true,
-            autotimeout: 3000,
-            gap: 20,
-            distance: 20,
-            type: 1,
-            position: 'right top'
-        })
-    </script>
-    <% } %>
-    
-    <% if (typeof listaErros !== 'undefined' && listaErros && listaErros.errors) { %>
-    <script>
-        <% listaErros.errors.forEach(function(erro) { %>
-        new Notify({
-            status: 'error',
-            title: 'Erro de validação',
-            text: '<%= erro.msg %>',
-            effect: 'fade',
-            speed: 300,
-            autoclose: true,
-            autotimeout: 4000,
-            position: 'right top'
-        })
-        <% }); %>
-    </script>
-    <% } %>
+    <script src="js/login.js"></script> 
 </body>
 </html>

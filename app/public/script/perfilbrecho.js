@@ -1,5 +1,4 @@
- // Filtro por categoria
- document.querySelectorAll('.category-btn').forEach(btn => {
+document.querySelectorAll('.category-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
@@ -7,7 +6,6 @@
     });
 });
 
-// Filtro por tamanho
 document.querySelectorAll('.size-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         this.classList.toggle('active');

@@ -1,5 +1,3 @@
-// Funcionalidades da página Minhas Compras
-
 function toggleTracking(button) {
     const orderCard = button.closest('.order-card');
     const trackingDetails = orderCard.querySelector('.tracking-details');
@@ -8,7 +6,6 @@ function toggleTracking(button) {
         trackingDetails.style.display = 'block';
         button.textContent = 'Ocultar Rastreamento';
         
-        // Animação suave
         trackingDetails.style.opacity = '0';
         trackingDetails.style.transform = 'translateY(-10px)';
         
@@ -32,7 +29,6 @@ function toggleOrderDetails(button) {
         orderDetails.style.display = 'block';
         button.textContent = 'Ocultar Detalhes';
         
-        // Animação suave
         orderDetails.style.opacity = '0';
         orderDetails.style.transform = 'translateY(-10px)';
         
@@ -48,7 +44,6 @@ function toggleOrderDetails(button) {
     }
 }
 
-// Adicionar efeitos hover nos cards (apenas desktop)
 function addHoverEffects() {
     if (window.innerWidth >= 992) {
         const cards = document.querySelectorAll('.order-card');
@@ -67,17 +62,13 @@ function addHoverEffects() {
     }
 }
 
-// Inicializar quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
     addHoverEffects();
-    
-    // Reaplica efeitos quando redimensiona a tela
+
     window.addEventListener('resize', addHoverEffects);
-    
-    // Inicia simulação de rastreamento em tempo real
+
     simulateRealTimeTracking();
-    
-    // Adiciona indicador de carregamento nos botões
+
     const buttons = document.querySelectorAll('.track-btn, .details-btn');
     buttons.forEach(button => {
         button.addEventListener('click', function() {
@@ -89,30 +80,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Função para simular rastreamento em tempo real
 function simulateRealTimeTracking() {
     const trackingSteps = document.querySelectorAll('.tracking-step');
     
     trackingSteps.forEach((step, index) => {
         if (step.classList.contains('active')) {
-            // Simula progresso do step ativo
             setTimeout(() => {
                 step.classList.remove('active');
                 step.classList.add('completed');
                 
-                // Ativa próximo step se existir
                 const nextStep = step.nextElementSibling;
                 if (nextStep && nextStep.classList.contains('tracking-step')) {
                     nextStep.classList.add('active');
                 }
-            }, 5000); // Simula mudança após 5 segundos
+            }, 5000);
         }
     });
 }
 
-// Função para buscar detalhes do pedido (simulação)
 function fetchOrderDetails(orderNumber) {
-    // Simulação de busca de dados
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve({

@@ -29,10 +29,10 @@
     <p class="description">Acesse usando seu cadastro de outra plataforma</p>
   
     <section class="social-login">
-      <a href="#"><img src="imagens/face.jpg" alt="Facebook"></a>
-      <a href="#"><img src="imagens/insta.jpg" alt="Instagram"></a>
-      <a href="#"><img src="imagens/google.jpg" alt="Google"></a>
-    </section>
+      <a href="#"><img src="imagens/icone facebook.png" alt="Login com Facebook"></a>
+      <a href="#"><img src="imagens/icone apple.png" alt="Login com Instagram"></a>
+      <a href="#"><img src="imagens/icone google.png" alt="Login com Google"></a>
+  </section>
   
     <p class="divider">ou acesse via email</p>
     <br>
@@ -70,37 +70,7 @@
     </form>
   </main>
    <button type="submit" form="loginForm" class="login-btn">Entrar</button>
-   
-   <% if (typeof dadosNotificacao !== 'undefined' && dadosNotificacao) { %>
-   <script>
-       new Notify({
-           status: '<%= dadosNotificacao.tipo %>',
-           title: '<%= dadosNotificacao.titulo %>',
-           text: '<%= dadosNotificacao.mensagem %>',
-           effect: 'fade',
-           speed: 300,
-           autoclose: true,
-           autotimeout: 3000,
-           position: 'right top'
-       })
-   </script>
-   <% } %>
-   
-   <% if (typeof listaErros !== 'undefined' && listaErros && listaErros.errors) { %>
-   <script>
-       <% listaErros.errors.forEach(function(erro) { %>
-       new Notify({
-           status: 'error',
-           title: 'Erro',
-           text: '<%= erro.msg %>',
-           effect: 'fade',
-           speed: 300,
-           autoclose: true,
-           autotimeout: 4000,
-           position: 'right top'
-       })
-       <% }); %>
-   </script>
-   <% } %>
+  <script src="js/entrar.js"></script> 
+
  </body>
 </html>

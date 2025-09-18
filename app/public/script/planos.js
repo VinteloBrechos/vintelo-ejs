@@ -1,30 +1,24 @@
-// Interatividade para os botões dos planos
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.plano button');
     
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Obter o nome do plano
+
             const planoCard = this.closest('.plano');
             const planoNome = planoCard.querySelector('h2').textContent;
             const planoPreco = planoCard.querySelector('.preco strong').textContent;
-            
-            // Animação de clique
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
-            
-            // Criar modal de confirmação
+
             showPlanModal(planoNome, planoPreco);
         });
     });
 });
 
 function showPlanModal(planName, price) {
-    // Criar overlay
     const overlay = document.createElement('div');
     overlay.className = 'modal-overlay';
     overlay.style.cssText = `
@@ -41,8 +35,7 @@ function showPlanModal(planName, price) {
         opacity: 0;
         transition: opacity 0.3s ease;
     `;
-    
-    // Criar modal
+
     const modal = document.createElement('div');
     modal.className = 'plan-modal';
     modal.style.cssText = `
@@ -105,24 +98,20 @@ function showPlanModal(planName, price) {
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
     
-    // Animação de entrada
     setTimeout(() => {
         overlay.style.opacity = '1';
         modal.style.transform = 'scale(1)';
     }, 10);
-    
-    // Event listeners para os botões
+
     const confirmBtn = modal.querySelector('#confirmPlan');
     const cancelBtn = modal.querySelector('#cancelPlan');
     
     confirmBtn.addEventListener('click', () => {
-        // Animação de loading
         confirmBtn.innerHTML = '<span style="display: inline-block; animation: spin 1s linear infinite;">⟳</span> Processando...';
         confirmBtn.style.pointerEvents = 'none';
         
         setTimeout(() => {
             closeModal(overlay);
-            // Aqui você redirecionaria para a página de checkout
             showSuccessMessage(planName);
         }, 2000);
     });
@@ -130,15 +119,13 @@ function showPlanModal(planName, price) {
     cancelBtn.addEventListener('click', () => {
         closeModal(overlay);
     });
-    
-    // Fechar ao clicar fora
+
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) {
             closeModal(overlay);
         }
     });
-    
-    // Adicionar animação de spin
+
     const style = document.createElement('style');
     style.textContent = `
         @keyframes spin {
@@ -160,7 +147,6 @@ function closeModal(overlay) {
 }
 
 function showSuccessMessage(planName) {
-    // Criar notificação de sucesso
     const notification = document.createElement('div');
     notification.style.cssText = `
         position: fixed;
@@ -178,23 +164,21 @@ function showSuccessMessage(planName) {
     `;
     
     notification.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <section style="display: flex; align-items: center; gap: 0.5rem;">
             <span style="font-size: 1.2rem;">✓</span>
-            <div>
+            <section>
                 <strong>Sucesso!</strong><br>
                 <small>Plano ${planName} será ativado em breve.</small>
-            </div>
-        </div>
+            </section>
+        </section>
     `;
     
     document.body.appendChild(notification);
-    
-    // Animação de entrada
+
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 10);
-    
-    // Remover após 4 segundos
+
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {

@@ -13,7 +13,6 @@ function initializeForm() {
     addValidationListeners();
 }
 
-// Sincronizar campos entre mobile e desktop
 function syncFormFields() {
     const priceInput = document.getElementById('item-price');
     const priceMobileInput = document.getElementById('item-price-mobile');
@@ -39,7 +38,6 @@ function syncFormFields() {
     }
 }
 
-// Adicionar listeners de validação
 function addValidationListeners() {
     const form = document.querySelector('.item-form');
     const inputs = form.querySelectorAll('input, select, textarea');
@@ -50,15 +48,12 @@ function addValidationListeners() {
     });
 }
 
-// Validar campo individual
 function validateField(event) {
     const field = event.target;
     const value = field.value.trim();
-    
-    // Remover erro anterior
+
     clearFieldError(event);
-    
-    // Validações específicas
+
     if (field.hasAttribute('required') && !value) {
         showFieldError(field, 'Este campo é obrigatório');
         return false;
@@ -77,7 +72,6 @@ function validateField(event) {
     return true;
 }
 
-// Limpar erro do campo
 function clearFieldError(event) {
     const field = event.target;
     const errorElement = field.parentNode.querySelector('.field-error');
@@ -87,7 +81,6 @@ function clearFieldError(event) {
     field.classList.remove('error');
 }
 
-// Mostrar erro do campo
 function showFieldError(field, message) {
     field.classList.add('error');
     
@@ -101,7 +94,6 @@ function showFieldError(field, message) {
     field.parentNode.appendChild(errorElement);
 }
 
-// Validações auxiliares
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -125,7 +117,6 @@ function formatPrice(input) {
     value = value.replace('.', ',');
     input.value = 'R$ ' + value;
     
-    // Sincronizar com o outro campo
     const otherInput = input.id.includes('mobile') ? 
         document.getElementById('item-price') : 
         document.getElementById('item-price-mobile');
@@ -135,30 +126,25 @@ function formatPrice(input) {
     }
 }
 
-// Seleção de foto principal
 function selectMainPhoto() {
     const input = document.getElementById('main-photo-input');
     input.click();
 }
 
-// Seleção de foto thumbnail
 function selectPhoto(index) {
     const input = document.getElementById(`thumb-input-${index}`);
     input.click();
 }
 
-// Manipular upload de foto
 function handlePhotoUpload(input, targetId) {
     const file = input.files[0];
     if (!file) return;
     
-    // Validar tipo de arquivo
     if (!file.type.startsWith('image/')) {
         showNotification('Por favor, selecione apenas arquivos de imagem.', 'error');
         return;
     }
     
-    // Validar tamanho (5MB max)
     if (file.size > 5 * 1024 * 1024) {
         showNotification('A imagem deve ter no máximo 5MB.', 'error');
         return;
@@ -170,7 +156,6 @@ function handlePhotoUpload(input, targetId) {
         img.src = e.target.result;
         img.style.display = 'block';
         
-        // Adicionar à lista de fotos selecionadas
         selectedPhotos[targetId] = file;
         
         showNotification('Foto adicionada com sucesso!', 'success');
@@ -179,73 +164,59 @@ function handlePhotoUpload(input, targetId) {
     reader.readAsDataURL(file);
 }
 
-// Seleção de tamanho
 function selectSize(button) {
-    // Remover seleção anterior
     document.querySelectorAll('.size-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
     
-    // Adicionar seleção atual
     button.classList.add('selected');
     selectedSize = button.dataset.size;
     
-    // Atualizar campo hidden
     const hiddenInput = document.getElementById('selected-size');
     if (hiddenInput) {
         hiddenInput.value = selectedSize;
     }
 }
 
-// Submissão do formulário
 function submitForm(event) {
     event.preventDefault();
     
     const form = event.target;
     const formData = new FormData(form);
     
-    // Validar formulário
     if (!validateForm(form)) {
         showNotification('Por favor, corrija os erros no formulário.', 'error');
         return;
     }
     
-    // Validar tamanho selecionado
     if (!selectedSize) {
         showNotification('Por favor, selecione um tamanho.', 'error');
         return;
     }
     
-    // Adicionar fotos ao FormData
     Object.keys(selectedPhotos).forEach(key => {
         if (selectedPhotos[key]) {
             formData.append('photos[]', selectedPhotos[key]);
         }
     });
-    
-    // Mostrar loading
+
     const submitBtn = form.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
     submitBtn.classList.add('loading');
     
-    // Simular envio (substituir por requisição real)
     setTimeout(() => {
-        // Resetar botão
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         submitBtn.classList.remove('loading');
         
-        // Mostrar sucesso
         showNotification('Peça enviada para curadoria com sucesso!', 'success');
         
-        // Resetar formulário
         resetForm(form);
     }, 2000);
 }
 
-// Validar formulário completo
 function validateForm(form) {
     const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
     let isValid = true;
@@ -260,13 +231,11 @@ function validateForm(form) {
     return isValid;
 }
 
-// Resetar formulário
 function resetForm(form) {
     form.reset();
     selectedPhotos = [];
     selectedSize = '';
     
-    // Resetar imagens
     document.querySelectorAll('[id^="thumb-"]').forEach(img => {
         if (img.id !== 'thumb-0') {
             img.style.display = 'none';
@@ -274,16 +243,13 @@ function resetForm(form) {
         }
     });
     
-    // Resetar foto principal
     const mainPhoto = document.getElementById('main-photo');
     mainPhoto.src = 'imagens/add peça.png';
-    
-    // Remover seleções de tamanho
+
     document.querySelectorAll('.size-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
     
-    // Limpar erros
     document.querySelectorAll('.field-error').forEach(error => {
         error.remove();
     });
@@ -293,20 +259,16 @@ function resetForm(form) {
     });
 }
 
-// Sistema de notificações
 function showNotification(message, type = 'info') {
-    // Remover notificação anterior
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
         existingNotification.remove();
     }
     
-    // Criar nova notificação
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
     
-    // Estilos da notificação
     Object.assign(notification.style, {
         position: 'fixed',
         top: '20px',
@@ -322,7 +284,6 @@ function showNotification(message, type = 'info') {
         transition: 'transform 0.3s ease'
     });
     
-    // Cores por tipo
     const colors = {
         success: '#27ae60',
         error: '#e74c3c',
@@ -332,15 +293,12 @@ function showNotification(message, type = 'info') {
     
     notification.style.backgroundColor = colors[type] || colors.info;
     
-    // Adicionar ao DOM
     document.body.appendChild(notification);
-    
-    // Animar entrada
+
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
     
-    // Remover após 4 segundos
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
@@ -351,7 +309,6 @@ function showNotification(message, type = 'info') {
     }, 4000);
 }
 
-// Adicionar estilos de erro ao CSS dinamicamente
 const errorStyles = `
     .form-group input.error,
     .form-group select.error,

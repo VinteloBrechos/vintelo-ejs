@@ -1,26 +1,16 @@
-// Variáveis globais
 let currentSection = null;
 
-// Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     initializeProfile();
 });
 
-// Inicializar perfil
 function initializeProfile() {
-    // Carregar dados do perfil
     loadProfileData();
-    
-    // Adicionar listeners para formulários
     addFormListeners();
-    
-    // Configurar toggles de notificação
     setupNotificationToggles();
 }
 
-// Carregar dados do perfil
 function loadProfileData() {
-    // Simular carregamento de dados do servidor
     const profileData = {
         name: 'Maria Silva',
         email: 'maria.silva@email.com',
@@ -32,75 +22,51 @@ function loadProfileData() {
             reviews: 3
         }
     };
-    
-    // Atualizar interface com os dados
     updateProfileDisplay(profileData);
 }
-
-// Atualizar exibição do perfil
 function updateProfileDisplay(data) {
     document.getElementById('profile-name').textContent = data.name;
     document.getElementById('profile-email').textContent = data.email;
-    
-    // Atualizar estatísticas
+
     const stats = document.querySelectorAll('.stat-number');
     stats[0].textContent = data.stats.orders;
     stats[1].textContent = data.stats.favorites;
     stats[2].textContent = data.stats.reviews;
 }
 
-// Adicionar listeners para formulários
 function addFormListeners() {
-    // Validação em tempo real
     const inputs = document.querySelectorAll('input, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', validateField);
         input.addEventListener('input', clearFieldError);
     });
-    
-    // Formatação de telefone
+
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', formatPhone);
     }
 }
 
-// Mostrar seção específica
 function showSection(sectionId) {
-    // Esconder menu principal
     document.querySelector('.content-wrapper').style.display = 'none';
-    
-    // Mostrar seção solicitada
     const section = document.getElementById(sectionId);
     if (section) {
         section.style.display = 'block';
         currentSection = sectionId;
-        
-        // Scroll para o topo
         window.scrollTo(0, 0);
-        
-        // Carregar dados específicos da seção
         loadSectionData(sectionId);
     }
 }
-
-// Esconder todas as seções e voltar ao menu
 function hideAllSections() {
-    // Esconder todas as seções de conteúdo
     const sections = document.querySelectorAll('.content-section');
     sections.forEach(section => {
         section.style.display = 'none';
     });
-    
-    // Mostrar menu principal
     document.querySelector('.content-wrapper').style.display = 'flex';
     currentSection = null;
-    
-    // Scroll para o topo
     window.scrollTo(0, 0);
 }
 
-// Carregar dados específicos da seção
 function loadSectionData(sectionId) {
     switch(sectionId) {
         case 'orders':
@@ -118,48 +84,35 @@ function loadSectionData(sectionId) {
     }
 }
 
-// Carregar dados de pedidos
 function loadOrdersData() {
-    // Simular carregamento de pedidos
     showNotification('Pedidos carregados com sucesso!', 'success');
 }
 
-// Carregar dados de favoritos
 function loadFavoritesData() {
-    // Simular carregamento de favoritos
     showNotification('Favoritos carregados!', 'info');
 }
-
-// Carregar dados de endereços
 function loadAddressesData() {
-    // Simular carregamento de endereços
     console.log('Carregando endereços...');
 }
 
-// Carregar dados de pagamento
 function loadPaymentData() {
-    // Simular carregamento de métodos de pagamento
+
     console.log('Carregando métodos de pagamento...');
 }
 
-// Editar foto do perfil
 function editProfilePhoto() {
     const input = document.getElementById('profile-photo-input');
     input.click();
 }
-
-// Manipular upload da foto do perfil
 function handleProfilePhotoUpload(input) {
     const file = input.files[0];
     if (!file) return;
-    
-    // Validar tipo de arquivo
+
     if (!file.type.startsWith('image/')) {
         showNotification('Por favor, selecione apenas arquivos de imagem.', 'error');
         return;
     }
-    
-    // Validar tamanho (2MB max)
+
     if (file.size > 2 * 1024 * 1024) {
         showNotification('A imagem deve ter no máximo 2MB.', 'error');
         return;
@@ -176,21 +129,16 @@ function handleProfilePhotoUpload(input) {
     reader.readAsDataURL(file);
 }
 
-// Atualizar informações pessoais
 function updatePersonalInfo(event) {
     event.preventDefault();
     
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    
-    // Validar dados
+
     if (!validatePersonalInfo(data)) {
         return;
     }
-    
-    // Simular envio para servidor
     setTimeout(() => {
-        // Atualizar nome no cabeçalho do perfil
         document.getElementById('profile-name').textContent = `${data.firstName} ${data.lastName}`;
         document.getElementById('profile-email').textContent = data.email;
         
@@ -198,7 +146,6 @@ function updatePersonalInfo(event) {
     }, 1000);
 }
 
-// Validar informações pessoais
 function validatePersonalInfo(data) {
     if (!data.firstName || !data.lastName) {
         showNotification('Nome e sobrenome são obrigatórios.', 'error');
@@ -213,15 +160,12 @@ function validatePersonalInfo(data) {
     return true;
 }
 
-// Validar campo individual
 function validateField(event) {
     const field = event.target;
     const value = field.value.trim();
-    
-    // Remover erro anterior
+
     clearFieldError(event);
-    
-    // Validações específicas
+
     if (field.hasAttribute('required') && !value) {
         showFieldError(field, 'Este campo é obrigatório');
         return false;
@@ -235,7 +179,6 @@ function validateField(event) {
     return true;
 }
 
-// Limpar erro do campo
 function clearFieldError(event) {
     const field = event.target;
     const errorElement = field.parentNode.querySelector('.field-error');
@@ -245,7 +188,6 @@ function clearFieldError(event) {
     field.classList.remove('error');
 }
 
-// Mostrar erro do campo
 function showFieldError(field, message) {
     field.classList.add('error');
     
@@ -259,13 +201,11 @@ function showFieldError(field, message) {
     field.parentNode.appendChild(errorElement);
 }
 
-// Validar e-mail
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// Formatar telefone
 function formatPhone(event) {
     let value = event.target.value.replace(/\D/g, '');
     
@@ -278,8 +218,6 @@ function formatPhone(event) {
     
     event.target.value = value;
 }
-
-// Configurar toggles de notificação
 function setupNotificationToggles() {
     const toggles = document.querySelectorAll('.toggle-switch input');
     toggles.forEach(toggle => {
@@ -292,7 +230,6 @@ function setupNotificationToggles() {
     });
 }
 
-// Toggle detalhes do pedido
 function toggleOrderDetails(button) {
     const orderCard = button.closest('.order-card');
     const orderDetails = orderCard.querySelector('.order-details');
@@ -306,7 +243,6 @@ function toggleOrderDetails(button) {
     }
 }
 
-// Toggle rastreamento do pedido
 function toggleTracking(button) {
     const orderCard = button.closest('.order-card');
     const trackingDetails = orderCard.querySelector('.tracking-details');
@@ -323,17 +259,14 @@ function toggleTracking(button) {
     }
 }
 
-// Visualizar pedido (função mantida para compatibilidade)
 function viewOrder(orderId) {
     showNotification(`Carregando detalhes do pedido #${orderId}...`, 'info');
-    
-    // Simular carregamento de detalhes
+
     setTimeout(() => {
         showNotification(`Detalhes do pedido #${orderId} carregados!`, 'success');
     }, 1500);
 }
 
-// Remover favorito
 function removeFavorite(itemId) {
     if (confirm('Deseja remover este item dos favoritos?')) {
         const favoriteItem = event.target.closest('.favorite-item');
@@ -342,8 +275,6 @@ function removeFavorite(itemId) {
         setTimeout(() => {
             favoriteItem.remove();
             showNotification('Item removido dos favoritos.', 'success');
-            
-            // Atualizar contador
             const statNumber = document.querySelectorAll('.stat-number')[1];
             const currentCount = parseInt(statNumber.textContent);
             statNumber.textContent = currentCount - 1;
@@ -351,32 +282,26 @@ function removeFavorite(itemId) {
     }
 }
 
-// Editar endereço
 function editAddress(addressId) {
     const addressItem = document.querySelector(`[data-address-id="${addressId}"]`);
     if (!addressItem) return;
-    
-    // Extrair dados do endereço
+
     const addressInfo = addressItem.querySelector('.address-info');
     const name = addressInfo.querySelector('h3').textContent;
     const addressLines = addressInfo.querySelectorAll('p');
-    
-    // Preencher formulário com dados existentes
+
     document.getElementById('modal-title').textContent = 'Editar Endereço';
     document.getElementById('address-name').value = name;
-    
-    // Extrair CEP
+
     const cepText = addressLines[2].textContent;
     const cep = cepText.replace('CEP: ', '');
     document.getElementById('address-cep').value = cep;
-    
-    // Extrair endereço
+
     const fullAddress = addressLines[0].textContent;
     const addressParts = fullAddress.split(', ');
     document.getElementById('address-street').value = addressParts[0] || '';
     document.getElementById('address-number').value = addressParts[1] || '';
-    
-    // Extrair bairro, cidade e estado
+
     const locationText = addressLines[1].textContent;
     const locationParts = locationText.split(' - ');
     document.getElementById('address-neighborhood').value = locationParts[0] || '';
@@ -386,16 +311,13 @@ function editAddress(addressId) {
         document.getElementById('address-city').value = cityState[0] || '';
         document.getElementById('address-state').value = cityState[1] || '';
     }
-    
-    // Marcar formulário como edição
+
     const form = document.querySelector('.address-form');
     form.setAttribute('data-edit-id', addressId);
-    
-    // Abrir modal
+
     document.getElementById('address-modal').style.display = 'block';
 }
 
-// Excluir endereço
 function deleteAddress(addressId) {
     if (confirm('Deseja excluir este endereço?')) {
         const addressItem = event.target.closest('.address-item');
@@ -408,27 +330,23 @@ function deleteAddress(addressId) {
     }
 }
 
-// Adicionar novo endereço
 function addNewAddress() {
     document.getElementById('modal-title').textContent = 'Adicionar Novo Endereço';
     document.getElementById('address-modal').style.display = 'block';
     clearAddressForm();
 }
 
-// Fechar modal de endereço
 function closeAddressModal() {
     document.getElementById('address-modal').style.display = 'none';
     clearAddressForm();
 }
 
-// Limpar formulário de endereço
 function clearAddressForm() {
     const form = document.querySelector('.address-form');
     form.reset();
     form.removeAttribute('data-edit-id');
 }
 
-// Salvar endereço
 function saveAddress(event) {
     event.preventDefault();
     
@@ -444,7 +362,6 @@ function saveAddress(event) {
         complement: formData.get('complement')
     };
     
-    // Validar CEP
     if (!isValidCEP(addressData.cep)) {
         showNotification('CEP inválido. Use o formato 00000-000', 'error');
         return;
@@ -453,11 +370,9 @@ function saveAddress(event) {
     const editId = event.target.getAttribute('data-edit-id');
     
     if (editId) {
-        // Editar endereço existente
         updateAddressInList(editId, addressData);
         showNotification('Endereço atualizado com sucesso!', 'success');
     } else {
-        // Adicionar novo endereço
         addAddressToList(addressData);
         showNotification('Endereço adicionado com sucesso!', 'success');
     }
@@ -465,7 +380,6 @@ function saveAddress(event) {
     closeAddressModal();
 }
 
-// Adicionar endereço à lista
 function addAddressToList(addressData) {
     const addressesList = document.querySelector('.addresses-list');
     const addButton = addressesList.querySelector('.add-address-btn');
@@ -474,7 +388,6 @@ function addAddressToList(addressData) {
     addressesList.insertBefore(addressItem, addButton);
 }
 
-// Criar elemento de endereço
 function createAddressElement(addressData, id) {
     const addressItem = document.createElement('section');
     addressItem.className = 'address-item';
@@ -498,7 +411,6 @@ function createAddressElement(addressData, id) {
     return addressItem;
 }
 
-// Atualizar endereço na lista
 function updateAddressInList(id, addressData) {
     const addressItem = document.querySelector(`[data-address-id="${id}"]`);
     if (addressItem) {
@@ -507,7 +419,6 @@ function updateAddressInList(id, addressData) {
     }
 }
 
-// Buscar CEP
 function searchCEP() {
     const cep = document.getElementById('address-cep').value.replace(/\D/g, '');
     
@@ -520,8 +431,6 @@ function searchCEP() {
                     document.getElementById('address-neighborhood').value = data.bairro || '';
                     document.getElementById('address-city').value = data.localidade || '';
                     document.getElementById('address-state').value = data.uf || '';
-                    
-                    // Focar no campo número
                     document.getElementById('address-number').focus();
                 } else {
                     showNotification('CEP não encontrado', 'error');
@@ -533,13 +442,11 @@ function searchCEP() {
     }
 }
 
-// Validar CEP
 function isValidCEP(cep) {
     const cepRegex = /^\d{5}-?\d{3}$/;
     return cepRegex.test(cep);
 }
 
-// Formatar CEP
 function formatCEP(input) {
     let value = input.value.replace(/\D/g, '');
     if (value.length > 5) {
@@ -547,13 +454,11 @@ function formatCEP(input) {
     }
     input.value = value;
     
-    // Buscar CEP automaticamente quando completo
     if (value.length === 9) {
         searchCEP();
     }
 }
 
-// Adicionar listener para formatação de CEP
 document.addEventListener('DOMContentLoaded', function() {
     const cepInput = document.getElementById('address-cep');
     if (cepInput) {
@@ -561,8 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formatCEP(this);
         });
     }
-    
-    // Fechar modal ao clicar fora
+
     const modal = document.getElementById('address-modal');
     if (modal) {
         modal.addEventListener('click', function(event) {
@@ -573,13 +477,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Editar método de pagamento
 function editPayment(paymentId) {
     showNotification(`Editando método de pagamento #${paymentId}...`, 'info');
-    // Implementar modal de edição
 }
 
-// Excluir método de pagamento
 function deletePayment(paymentId) {
     if (confirm('Deseja remover este método de pagamento?')) {
         const paymentItem = event.target.closest('.payment-item');
@@ -592,26 +493,20 @@ function deletePayment(paymentId) {
     }
 }
 
-// Adicionar novo método de pagamento
 function addNewPayment() {
     showNotification('Abrindo formulário de novo cartão...', 'info');
-    // Implementar modal de novo cartão
 }
 
-// Sistema de notificações
 function showNotification(message, type = 'info') {
-    // Remover notificação anterior
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
         existingNotification.remove();
     }
-    
-    // Criar nova notificação
+
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    
-    // Estilos da notificação
+
     Object.assign(notification.style, {
         position: 'fixed',
         top: '20px',
@@ -626,8 +521,7 @@ function showNotification(message, type = 'info') {
         transform: 'translateX(100%)',
         transition: 'transform 0.3s ease'
     });
-    
-    // Cores por tipo
+
     const colors = {
         success: '#27ae60',
         error: '#e74c3c',
@@ -636,16 +530,13 @@ function showNotification(message, type = 'info') {
     };
     
     notification.style.backgroundColor = colors[type] || colors.info;
-    
-    // Adicionar ao DOM
+
     document.body.appendChild(notification);
-    
-    // Animar entrada
+
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
     
-    // Remover após 4 segundos
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
@@ -656,7 +547,6 @@ function showNotification(message, type = 'info') {
     }, 4000);
 }
 
-// Adicionar estilos de erro ao CSS dinamicamente
 const errorStyles = `
     .form-group input.error,
     .form-group textarea.error {
@@ -670,14 +560,12 @@ const errorStyles = `
     }
 `;
 
-// Adicionar estilos ao head
 const styleSheet = document.createElement('style');
 styleSheet.textContent = errorStyles;
 document.head.appendChild(styleSheet);
 
-// Navegação por teclado
 document.addEventListener('keydown', function(event) {
-    // ESC para voltar ao menu principal
+
     if (event.key === 'Escape' && currentSection) {
         hideAllSections();
     }
