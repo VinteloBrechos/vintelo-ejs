@@ -248,7 +248,7 @@ router.post('/criarbrecho', function(req, res){
     res.redirect('/perfilvender');
 })
 
-router.post('/favoritar/brecho/:idBrecho', verificarUsuAutenticado, usuarioController.favoritarBrecho);
+// router.post('/favoritar/brecho/:idBrecho', verificarUsuAutenticado, usuarioController.favoritarBrecho);
 
 // router.post('/criarbrecho', function(req, res){
 //     const { brecho, email, nome, password, senha, phone, cpf, address } = req.body;
@@ -382,7 +382,8 @@ router.get('/planos', function(req, res){
 })
 
 router.get('/perfilcliente', function(req, res){
-    // Garantir que sempre há dados do usuário
+   
+    
     const userData = {
         nome: (req.session && req.session.autenticado && req.session.autenticado.nome) ? req.session.autenticado.nome : 'Maria Silva',
         email: (req.session && req.session.autenticado && req.session.autenticado.email) ? req.session.autenticado.email : 'maria.silva@email.com',
@@ -400,7 +401,7 @@ router.get('/perfilcliente', function(req, res){
     });
 });
 
-// validação //
+
 
 
 module.exports = router;
