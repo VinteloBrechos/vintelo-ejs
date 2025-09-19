@@ -1,13 +1,11 @@
 const produto = require("../models/produtoModel");
 const { body, validationResult } = require("express-validator");
 const { verificarUsuAutorizado } = require("../models/autenticador_middleware");
-const sanitizer = require("../util/sanitizer");
 const { removeImg } = require("../util/removeImg");
 
 const produtoController = {
 
     regrasValidacaoProduto: [
-        csrfProtection.validateToken,
         body("nome_produto")
             .isLength({ min: 3, max: 100 }).withMessage("Nome deve ter de 3 a 100 caracteres!"),
         body("descricao_produto")
@@ -31,7 +29,6 @@ const produtoController = {
             categoria_produto: "",
             tamanho_produto: "",
             condicao_produto: "",
-            csrfToken: csrfProtection.generateToken(req)
         };
         res.render("pages/adicionar", { 
             listaErros: null, 
@@ -43,7 +40,6 @@ const produtoController = {
     adicionarProduto: async (req, res) => {
         const erros = validationResult(req);
         const erroMulter = req.session.erroMulter;
-        const sanitizedValues = sanitizer.sanitizeFormData(req.body);
 
         let lista = !erros.isEmpty() ? erros : { formatter: null, errors: [] };
         if (erroMulter != null) {
@@ -55,7 +51,6 @@ const produtoController = {
             return res.render("pages/adicionar", { 
                 listaErros: lista, 
                 dadosNotificacao: null, 
-                valores: sanitizedValues 
             });
         }
 
@@ -96,7 +91,6 @@ const produtoController = {
                     mensagem: "Tente novamente mais tarde.",
                     tipo: "error"
                 },
-                valores: sanitizedValues
             });
         }
     },
@@ -298,7 +292,7 @@ const produtoController = {
                     mensagem: "Tente novamente mais tarde.",
                     tipo: "error"
                 },
-                valores: sanitizedValues
+            
             });
         }
     },

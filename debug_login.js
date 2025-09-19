@@ -6,7 +6,7 @@ async function debugLogin() {
     try {
         console.log("=== DEBUG LOGIN ===");
         
-        // 1. Verificar usuários no banco
+
         const [users] = await pool.query("SELECT * FROM USUARIOS");
         console.log("1. Usuários no banco:", users.length);
         

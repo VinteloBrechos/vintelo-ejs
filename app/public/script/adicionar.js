@@ -323,7 +323,6 @@ const errorStyles = `
     }
 `;
 
-// Adicionar estilos ao head
 const styleSheet = document.createElement('style');
 styleSheet.textContent = errorStyles;
 document.head.appendChild(styleSheet);

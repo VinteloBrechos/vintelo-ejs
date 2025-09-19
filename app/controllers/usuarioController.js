@@ -77,7 +77,7 @@ const usuarioController = {
 
     cadastrar: async (req, res) => {
         const erros = validationResult(req);
-        // Removido o sanitizer: usando req.body diretamente para valores
+        
         const sanitizedValues = {
             nome_usu: req.body.nome_usu || '',
             nomeusu_usu: req.body.nomeusu_usu || '',
@@ -202,7 +202,7 @@ const usuarioController = {
             lista.errors.push(erroMulter);
         }
         if (!erros.isEmpty() || erroMulter != null) {
-            // Removido o sanitizer: usando req.body diretamente
+
             const sanitizedFormData = req.body;
             return res.render("pages/perfil", { listaErros: lista, dadosNotificacao: null, valores: sanitizedFormData })
         }
@@ -244,18 +244,17 @@ const usuarioController = {
                     nomeusu_usu: result[0].USER_USUARIO, celular_usu: result[0].CELULAR_USUARIO, senha_usu: ""
                 }
                 res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
-            } else {
-                // Removido o sanitizer: usando req.body diretamente
+            } 
                 const sanitizedFormData = req.body;
                 res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil atualizado", mensagem: "Sem alterações", tipo: "info" }, valores: sanitizedFormData });
             }
         } catch (e) {
             console.log(e)
-            // Removido o sanitizer: usando req.body diretamente
+            
             const sanitizedFormData = req.body;
             res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Erro ao atualizar o perfil!", mensagem: "Verifique os valores digitados!", tipo: "error" }, valores: sanitizedFormData })
         }
     }
-}
+
 
 module.exports = usuarioController
