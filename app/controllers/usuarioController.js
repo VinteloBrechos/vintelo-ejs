@@ -5,8 +5,6 @@ var salt = bcrypt.genSaltSync(12);
 const {removeImg} = require("../util/removeImg");
 const { verificarUsuAutorizado } = require("../models/autenticador_middleware");
 
-const https = require('https');
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const usuarioController = {
 
@@ -244,10 +242,10 @@ const usuarioController = {
                     nomeusu_usu: result[0].USER_USUARIO, celular_usu: result[0].CELULAR_USUARIO, senha_usu: ""
                 }
                 res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
-            } 
-                const sanitizedFormData = req.body;
-                res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil atualizado", mensagem: "Sem alterações", tipo: "info" }, valores: sanitizedFormData });
-            }
+                } else {
+                    const sanitizedFormData = req.body;
+                    res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil atualizado", mensagem: "Sem alterações", tipo: "info" }, valores: sanitizedFormData });
+                }
         } catch (e) {
             console.log(e)
             
@@ -255,6 +253,6 @@ const usuarioController = {
             res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Erro ao atualizar o perfil!", mensagem: "Verifique os valores digitados!", tipo: "error" }, valores: sanitizedFormData })
         }
     }
+};
 
-
-module.exports = usuarioController
+module.exports = usuarioController;
