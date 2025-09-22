@@ -10,25 +10,25 @@
 <body>
     <!-- Header Desktop -->
     <header class="desktop-header">
-        <div class="top-bar">
-            <p>10% OFF na primeira compra | Frete grátis acima de R$ 150</p>
-        </div>
+        <section class="top-bar">
+            <p>10% OFF na primeira compra</p>
+        </section>
         <nav class="main-nav">
-            <a href="/"><img src="imagens/logo.png" alt="Vintélo" class="logo"></a>
+            <a href="/index"><img src="imagens/logo.png" alt="Vintélo" class="logo"></a>
             <ul class="nav-links">
-                <li><a href="/">Início</a></li>
+                <li><a href="/index">Início</a></li>
                 <li><a href="/blog">Blog</a></li>
-                <li><a href="#">Vestidos</a></li>
-                <li><a href="#">Blusas</a></li>
-                <li><a href="#">Calças</a></li>
-                <li><a href="#">Acessórios</a></li>
+                <li><a href="/categorias">Vestidos</a></li>
+                <li><a href="/categorias">Blusas</a></li>
+                <li><a href="/categorias">Calças</a></li>
+                <li><a href="/categorias">Acessórios</a></li>
             </ul>
-            <div class="user-actions">
+            <section class="user-actions">
                 <input type="text" placeholder="Buscar..." class="search-box">
-                <img src="imagens/add brecho.png" alt="Adicionar">
-                <img src="imagens/maria.png" alt="Perfil">
+                <img src="imagens/icone saco.png" alt="Sacola">
+                <a href="/cadastro"><img src="imagens/icone sem cadastro.png" alt="Perfil"></a>
                 <img src="imagens/icone coraçao.png" alt="Favoritos">
-            </div>
+            </section>
         </nav>
     </header>
 
@@ -39,21 +39,21 @@
     </header>
 
     <!-- Layout Desktop -->
-    <div class="desktop-layout">
+    <section class="desktop-layout">
         <!-- Conteúdo Principal -->
         <main class="main-article">
             <header class="article-header">
                 <h1 class="article-title">BOSS Milão: A Revolução Techtopia no Verão 2024</h1>
-                <div class="article-meta">
+                <section class="article-meta">
                     <span class="meta-item">Por Vintélo Fashion</span>
                     <span class="meta-item">22 de Setembro, 2023</span>
                     <span class="meta-item">5 min de leitura</span>
-                </div>
+                </section>
             </header>
 
             <img src="imagens/boss milão.png" alt="Desfile Boss Milão 2024" class="featured-image high-quality-image">
 
-            <div class="article-content">
+            <section class="article-content">
                 <p class="article-intro">
                     A moda é uma linguagem que vai além das palavras. É sobre expressar quem somos através 
                     do que vestimos, criando uma ponte entre o tradicional e o futurista.
@@ -66,25 +66,25 @@
                     em tons sóbrios como cinza, marrom e azul-marinho.
                 </p>
 
-                <div class="products-grid">
-                    <div class="product-card">
+                <section class="products-grid">
+                    <section class="product-card">
                         <img src="imagens/modelo milão 1.png" alt="Look BOSS" class="product-image high-quality-image">
                         <p class="product-description">
                             O diretor criativo da BOSS, Marco Falcioni, apresentou uma visão única onde a tecnologia 
                             não substitui a humanidade, mas a complementa. Os looks apresentaram cortes precisos, 
                             tecidos técnicos de alta performance.
                         </p>
-                    </div>
+                    </section>
                     
-                    <div class="product-card">
+                    <section class="product-card">
                         <img src="imagens/modelo milão 1.png" alt="Acessórios BOSS" class="product-image high-quality-image">
                         <p class="product-description">
                             Clássico como era esperado, mas o destaque ficou para os acessórios de cabelo, com coques 
                             presos com canetas e grampos definindo penteados futuristas. Essa abordagem inovadora 
                             demonstra como pequenos detalhes podem transformar um visual.
                         </p>
-                    </div>
-                </div>
+                    </section>
+                </section>
 
                 <p class="article-text">
                     A sustentabilidade também foi um ponto central da coleção, com 60% das peças produzidas 
@@ -94,21 +94,34 @@
                 </p>
 
                 <a href="#" class="cta-button">Explorar Coleção BOSS</a>
-            </div>
+                
+                <section class="article-stats">
+                    <p><strong>Compartilhamentos:</strong> 1.2k</p>
+                </section>
+                
+                <section class="article-references">
+                    <h4>Referências:</h4>
+                    <ul>
+                        <li>Vogue Italia - Desfile BOSS Milão 2024</li>
+                        <li>Fashion Week Milano - Relatório Oficial</li>
+                        <li>BOSS Press Release - Coleção Techtopia</li>
+                    </ul>
+                </section>
+            </section>
         </main>
         
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="sidebar-card">
+            <section class="sidebar-card">
                 <h3 class="sidebar-title">Artigos Relacionados</h3>
-                <div class="related-articles">
+                <section class="related-articles">
                     <a href="/gucciartigo" class="related-link">Gucci: Nova Era com Sabato De Sarno</a>
                     <a href="/sweer" class="related-link">Sweet Colors: Tendência Primavera 2024</a>
                     <a href="/tensustentavel" class="related-link">A Revolução da Moda Sustentável</a>
-                </div>
-            </div>
+                </section>
+            </section>
             
-            <div class="sidebar-card">
+            <section class="sidebar-card">
                 <h3 class="sidebar-title">Tendências BOSS</h3>
                 <ul class="tips-list">
                     <li>Alfaiataria técnica e moderna</li>
@@ -117,18 +130,18 @@
                     <li>Sustentabilidade em foco</li>
                     <li>Cortes precisos e estruturados</li>
                 </ul>
-            </div>
+            </section>
             
-            <div class="sidebar-card">
+            <section class="sidebar-card">
                 <h3 class="sidebar-title">Newsletter</h3>
                 <p>Receba as últimas tendências de moda</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Seu e-mail" class="newsletter-input">
                     <button type="submit" class="newsletter-btn">Inscrever</button>
                 </form>
-            </div>
+            </section>
         </aside>
-    </div>
+    </section>
     
     <!-- Container Mobile -->
     <main class="article-container">
@@ -139,7 +152,7 @@
 
         <img src="imagens/boss milão.png" alt="Desfile Boss Milão 2024" class="featured-image high-quality-image">
 
-        <div class="article-content">
+        <section class="article-content">
             <p class="article-text">
                 Uma distopia na qual seres humanos se unem às máquinas. Esta não é uma premonição, nem um 
                 misto do que já ocorre, mas a sensação transmitida pelo desfile da Boss, que aconteceu em Milão 
@@ -147,15 +160,15 @@
                 em tons sóbrios como cinza, marrom e azul-marinho.
             </p>
 
-            <div class="products-grid">
-                <div class="product-card">
+            <section class="products-grid">
+                <section class="product-card">
                     <img src="imagens/modelo milão 1.png" alt="Look BOSS" class="product-image high-quality-image">
                     <p class="product-description">
                         O diretor criativo da BOSS apresentou uma visão única onde a tecnologia não substitui 
                         a humanidade, mas a complementa.
                     </p>
-                </div>
-            </div>
+                </section>
+            </section>
 
             <p class="article-text">
                 A sustentabilidade também foi um ponto central da coleção, com 60% das peças produzidas 
@@ -163,13 +176,26 @@
             </p>
 
             <a href="#" class="cta-button">Explorar Coleção BOSS</a>
-        </div>
+            
+            <section class="article-stats">
+                <p><strong>Compartilhamentos:</strong> 1.2k</p>
+            </section>
+            
+            <section class="article-references">
+                <h4>Referências:</h4>
+                <ul>
+                    <li>Vogue Italia - Desfile BOSS Milão 2024</li>
+                    <li>Fashion Week Milano - Relatório Oficial</li>
+                    <li>BOSS Press Release - Coleção Techtopia</li>
+                </ul>
+            </section>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <img src="imagens/logo_vintélo_clara 1.png" alt="Vintélo" class="footer-image">
-        <div class="social-media">
+        <section class="social-media">
             <p>Siga nossas redes sociais</p>
             <ul class="social-links">
                 <li><a href="https://facebook.com" target="_blank" class="social-link">
@@ -179,7 +205,7 @@
                 <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link">
                     <img src="imagens/Instagram.png" alt="Instagram"></a></li>
             </ul>
-        </div>
+        </section>
         <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
     </footer>
 </body>
