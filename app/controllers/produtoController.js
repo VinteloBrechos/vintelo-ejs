@@ -1,8 +1,13 @@
-const produto = require("../models/produtoModel");
+const { hqModel } = require("../models/hqModel");
+const { favoritoModel } = require("../models/favoritoModel");
 const { body, validationResult } = require("express-validator");
-const { verificarUsuAutorizado } = require("../models/autenticador_middleware");
+const bcrypt = require("bcryptjs");
+var salt = bcrypt.genSaltSync(12);
 const { removeImg } = require("../util/removeImg");
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const https = require('https');
 
+const { carrinho } = require("../util/carrinho");
 const produtoController = {
 
     regrasValidacaoProduto: [
