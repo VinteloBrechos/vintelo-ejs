@@ -1523,17 +1523,21 @@ h1 {
 .garimpe-text {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 30px;
   letter-spacing: 4px;
   color: #5a2424; 
+  margin-left: 40px; /* margem da esquerda para afastar da borda */
+  display: inline-block;
 }
 
 .vintelo-text {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-  font-size: 60px;
+  font-size: 90px;
   color: #5a2424; 
   line-height: 1.2;
+   margin-left: 130px; /* alinhado para começar abaixo do "m" */
+  display: inline-block;
 }
 
 
