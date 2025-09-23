@@ -1,20 +1,15 @@
-// Função para carregar conteúdo dinamicamente
 function showSection(section) {
     const productGrid = document.querySelector('.product-grid');
     const gridTitle = document.querySelector('.grid-produtos h3');
     
     if (!productGrid || !gridTitle) return;
     
-    // Para seção brechós, usar brechos-grid
     if (section === 'brechos') {
-        // Mudar classe do container
         productGrid.className = 'brechos-grid';
     } else {
-        // Voltar para product-grid para outras seções
         productGrid.className = 'product-grid';
     }
     
-    // Atualizar título baseado na seção
     const titles = {
         novidades: 'Novidades',
         descontos: 'Descontos',
@@ -25,7 +20,6 @@ function showSection(section) {
     
     gridTitle.textContent = titles[section] || section.charAt(0).toUpperCase() + section.slice(1);
     
-    // Conteúdo específico para cada seção
     const content = {
         novidades: `
             <article class="product-card">
@@ -210,7 +204,6 @@ function showSection(section) {
                 </section>
                 <a href="/perfil2"><button class="follow-button">Seguir</button></a>
             </li>
-
             <li class="profile-item">
                 <img src="imagens/brecho1.png" alt="Vintage Style" class="profile-image">
                 <section class="profile-info">
@@ -324,21 +317,18 @@ function showSection(section) {
         `
     };
     
-    // Atualizar conteúdo com animação
     productGrid.style.opacity = '0.5';
     
     setTimeout(() => {
         productGrid.innerHTML = content[section] || content.novidades;
         productGrid.style.opacity = '1';
         
-        // Scroll suave para a seção de produtos
         productGrid.scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start' 
         });
     }, 200);
     
-    // Atualizar links ativos no carrossel
     const categoryLinks = document.querySelectorAll('.category-nav ul li a');
     categoryLinks.forEach(link => {
         link.classList.remove('active');

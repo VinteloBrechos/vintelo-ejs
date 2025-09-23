@@ -529,6 +529,8 @@ nav.grid-2 p:hover {
 /* Transição suave para mudança de conteúdo */
 .product-grid, .brechos-grid {
   transition: opacity 0.3s ease;
+  padding: 0px 50px;
+  gap: 10px;
 }
 
 /* Estilo para preços antigos em descontos */
@@ -606,7 +608,7 @@ h3 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
   }
   
   .brechos-grid .profile-item {
@@ -677,7 +679,7 @@ h3 {
   .brechos-grid {
     display: inline-flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     padding: 50px 250px;
     list-style: none;
     margin: 0;
@@ -1042,6 +1044,8 @@ h3 {
     margin-bottom: 10px;
     border-radius: 30px;
     box-shadow: 0 45px 40px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    margin: 10px;
   }
 
   .profile-image {
