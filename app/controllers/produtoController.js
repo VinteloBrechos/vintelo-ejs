@@ -20,11 +20,11 @@ const produtoController = {
         body("categoria_produto")
             .notEmpty().withMessage("Selecione uma categoria!"),
         body("condicao_produto")
-        .notEmpty().withMessage("Selecione a condição do produto")
+        .notEmpty().withMessage("Selecione a condição do produto"),
         body("tamanho_produto")
             .notEmpty().withMessage("Selecione um tamanho!"),
         body("cor_produto")
-            .notEmpty().withMessage("selecione uma cor")
+            .notEmpty().withMessage("selecione uma cor"),
         body("condicao_produto")
             .isIn(['novo', 'seminovo', 'usado']).withMessage("Condição inválida!"),
         verificarUsuAutorizado([2], "pages/restrito"),

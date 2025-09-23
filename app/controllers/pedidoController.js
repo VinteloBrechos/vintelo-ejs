@@ -29,7 +29,7 @@ const pedidoController = {
             const itemsPromises = carrinho.map(element => {
                 const camposJsonItemPedido = {
                     pedido_id_pedido: create.insertId,
-                    hq_id_hq: element.codproduto,
+                    produto_id_produto: element.codproduto,
                     quantidade: element.qtde
                 };
                 return pedidoModel.createItemPedido(camposJsonItemPedido);

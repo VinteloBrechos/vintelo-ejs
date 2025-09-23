@@ -190,7 +190,6 @@ router.get('/avaliasao', function(req, res){
 })
 
 router.get('/perfilvender', function(req, res){
-    // Dados do brechó podem vir da sessão ou banco de dados
     const brechoData = {
         nome: req.session.brecho_nome || 'Nome do Brechó',
         imagem: req.session.brecho_imagem || null,
@@ -212,14 +211,11 @@ router.get('/criarbrecho', function(req, res){
 router.post('/criarbrecho', function(req, res){
     const { brecho, email, nome, password, senha, phone, cep, endereco, bairro, cidade, uf } = req.body;
     
-    // Inicializar sessão se não existir
     if (!req.session) {
         req.session = {};
     }
     
     console.log(req.body);
-    
-    // Validação básica
     if (!brecho || !email || !nome || !password || !senha || !phone || !cep || !endereco || !bairro || !cidade || !uf) {
         return res.render('pages/criarbrecho', {
             erro: 'Todos os campos são obrigatórios',
@@ -233,8 +229,7 @@ router.post('/criarbrecho', function(req, res){
             valores: req.body
         });
     }
-    
-    // Salvar dados do brechó na sessão
+
     req.session.brecho_nome = brecho;
     req.session.brecho_email = email;
     req.session.brecho_proprietario = nome;
@@ -245,31 +240,9 @@ router.post('/criarbrecho', function(req, res){
     req.session.brecho_vendidos = '0';
     req.session.brecho_seguidores = '0';
     
-    // Sucesso - redirecionar para perfil vendedor
     res.redirect('/perfilvender');
 })
 
-// router.post('/favoritar/brecho/:idBrecho', verificarUsuAutenticado, usuarioController.favoritarBrecho);
-
-// router.post('/criarbrecho', function(req, res){
-//     const { brecho, email, nome, password, senha, phone, cpf, address } = req.body;
-    
-//     // Validação básica
-//     if (!brecho || !email || !nome || !password || !senha || !phone || !cpf || !address) {
-//         return res.render('pages/criarbrecho', {
-//             erro: 'Todos os campos são obrigatórios'
-//         });
-//     }
-    
-//     if (password !== senha) {
-//         return res.render('pages/criarbrecho', {
-//             erro: 'As senhas não coincidem'
-//         });
-//     }
-    
-//     // Sucesso - redirecionar para perfil vendedor
-//     res.redirect('/perfilvender');
-// });
 
 router.get('/entrar', function(req, res){
     res.render('pages/entrar', {
