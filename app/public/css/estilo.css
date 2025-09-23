@@ -520,9 +520,23 @@ nav.grid-2 p:hover {
   display: inline-block; 
 }
 
-.category-nav ul li a:hover {
+.category-nav ul li a:hover,
+.category-nav ul li a.active {
   background-color: #5a2424; 
   color: #ffffff; 
+}
+
+/* Transição suave para mudança de conteúdo */
+.product-grid, .brechos-grid {
+  transition: opacity 0.3s ease;
+}
+
+/* Estilo para preços antigos em descontos */
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9em;
+  margin-left: 10px;
 }
 
 /*                                          seção de produtos com desconto                                             */
@@ -581,6 +595,151 @@ h3 {
   padding: 20px 120px;
   align-items: center;
   position: center;
+}
+
+/* Mobile layout for brechos-grid */
+@media (max-width: 768px) {
+  .brechos-grid {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .brechos-grid .profile-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .brechos-grid .profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .brechos-grid .profile-info {
+    flex-grow: 1;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brechos-grid .profile-info strong {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .brechos-grid .profile-info .rating {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 2px;
+  }
+
+  .brechos-grid .profile-info .stars {
+    font-size: 14px;
+    color: #ffc107;
+  }
+
+  .brechos-grid .follow-button {
+    background-color: #8a2b38;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+  }
+
+  .brechos-grid .follow-button:hover {
+    background-color: #7a2631;
+  }
+}
+
+/* Desktop layout for brechos-grid */
+@media (min-width: 992px) {
+  .brechos-grid {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 50px 250px;
+    list-style: none;
+    margin: 0;
+  }
+  
+  .brechos-grid .profile-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px 35px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    box-shadow: 0 45px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .brechos-grid .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .brechos-grid .profile-info {
+    flex-grow: 1;
+  }
+
+  .brechos-grid .profile-info strong {
+    font-size: 40px;
+    display: block;
+    color: #333;
+  }
+
+  .brechos-grid .profile-info .rating {
+    font-size: 25px;
+    color: #555;
+  }
+
+  .brechos-grid .profile-info .stars {
+    font-size: 25px;
+    color: #ffc107;
+  }
+
+  .brechos-grid .follow-button {
+    background-color: #8a2b38;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    align-items: center;
+    position: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(9%, 0%);
+  }
+
+  .brechos-grid .follow-button:hover {
+    background-color: #7a2631;
+  }
 }
 
 .product-card {
@@ -703,37 +862,78 @@ h3 {
     display: none;
   }
 
-  /* Exibir os itens em coluna no mobile */
+  /* Exibir os itens em coluna no mobile com layout melhorado */
   .profile-list {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
   
-  /* Estilo dos itens individuais no mobile */
+  /* Estilo dos itens individuais no mobile - layout completo */
   .profile-item {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 10px;
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .profile-image {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
   }
 
   .profile-info {
+    flex-grow: 1;
+    margin-left: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .follow-button {
-    padding: 5px 15px;
+  .profile-info strong {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .profile-info .rating {
     font-size: 14px;
-    margin-left: auto; /* Alinhar o botão à direita */
+    color: #555;
+    margin-bottom: 2px;
+  }
+
+  .profile-info .stars {
+    font-size: 14px;
+    color: #ffc107;
+  }
+
+  .follow-button {
+    background-color: #8a2b38;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+  }
+
+  .follow-button:hover {
+    background-color: #7a2631;
   }
 }
 
@@ -825,96 +1025,105 @@ h3 {
 .follow-button:hover {
   background-color: #7b3333;
 }
-.profile-list {
-  list-style: none;
-  padding: 50px;
-  margin: 0;
-  width: auto;
-}
+/* Estilos base para desktop - aplicados quando não há media query específica */
+@media (min-width: 769px) {
+  .profile-list {
+    list-style: none;
+    padding: 50px;
+    margin: 0;
+    width: auto;
+  }
 
-.profile-item {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  padding: 10px 35px;
-  margin-bottom: 10px;
-  border-radius: 30px;
-  box-shadow: 0 45px 40px rgba(0, 0, 0, 0.1);
-}
+  .profile-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px 35px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    box-shadow: 0 45px 40px rgba(0, 0, 0, 0.1);
+  }
 
-.profile-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 
-.profile-info {
-  flex-grow: 1;
-}
+  .profile-info {
+    flex-grow: 1;
+  }
 
-.profile-info strong {
-  font-size: 40px;
-  display: block;
-  color: #333;
-}
+  .profile-info strong {
+    font-size: 40px;
+    display: block;
+    color: #333;
+  }
 
-.rating {
-  font-size: 25px;
-  color: #555;
-}
+  .rating {
+    font-size: 25px;
+    color: #555;
+  }
 
-.rating small {
-  font-size: 25px;
-  color: #888;
-}
+  .rating small {
+    font-size: 25px;
+    color: #888;
+  }
 
-.stars {
-  font-size: 25px;
-  color: #ffc107;
-}
+  .stars {
+    font-size: 25px;
+    color: #ffc107;
+  }
 
-.follow-button {
-  background-color: #8a2b38;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 30px ;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-  align-items: center;
-  position:inherit; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate( 9%, 0%);
-}
+  .follow-button {
+    background-color: #8a2b38;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 30px ;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    align-items: center;
+    position:inherit; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate( 9%, 0%);
+  }
 
-.follow-button:hover {
-  background-color: #7a2631;
+  .follow-button:hover {
+    background-color: #7a2631;
+  }
 }
 
 /*                                                     Responsividade                                                   */
 @media (max-width: 480px) {
   .profile-item {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 15px;
+      padding: 12px 15px;
   }
 
   .profile-image {
-      margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
   }
 
-  .profile-info {
-      width: 100%;
+  .profile-info strong {
+      font-size: 16px;
+  }
+
+  .profile-info .rating {
+      font-size: 12px;
+  }
+
+  .profile-info .stars {
+      font-size: 12px;
   }
 
   .follow-button {
-      width: 100%;
-      padding: 10px 0;
-      margin-top: 10px;
+      padding: 6px 12px;
+      font-size: 12px;
   }
 } 
 
@@ -1302,4 +1511,6 @@ h1 {
       font-size: 20px;
 
  }
+
+
 
