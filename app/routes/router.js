@@ -10,16 +10,92 @@ const {
 
 const { usuarioController } = require("../controllers/usuarioController");
 const { carrinhoController } = require("../controllers/carrinhoController");
-const { produtoController } = require("../controllers/produtoController");
+const { hqController } = require("../controllers/produtoController");
 
-const uploadFile = require("../util/uploader");
+const uploadFile = require("../util/uploader")
 
 const { MercadoPagoConfig, Preference } = require('mercadopago');
 const { pedidoController } = require("../controllers/pedidoController");
+const produtoController = require("../controllers/produtoController");
 
 const client = new MercadoPagoConfig({
   accessToken: process.env.accessToken
 });
+
+router.get("/carrinho", function (req, res) {
+  carrinhoController.addItem(req, res);
+});
+
+router.get("/removeItem", function (req, res) {
+  carrinhoController.removeItem(req, res);
+});
+
+router.get("/excluirItem", function (req, res) {
+  carrinhoController.excluirItem(req, res);
+});
+
+router.get("/listar-carrinho", function (req, res) {
+  carrinhoController.listarcarrinho(req, res);
+});
+
+router.get(
+  "/perfil",
+  verificarUsuAutorizado([1, 2, 3], "pages/home"),
+  async function (req, res) {
+    usuarioController.mostrarPerfil(req, res);
+  }
+);
+
+router.post(
+  "/perfil1",
+  uploadFile("imagem-perfil_usu"),
+  usuarioController.regrasValidacaoPerfil,
+  verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
+  async function (req, res) {
+    usuarioController.gravarPerfil(req, res);
+  }
+);
+
+router.get("/", verificarUsuAutenticado, function (req, res) {
+  produtoController.listar(req, res);
+});
+
+router.get("/favoritar", verificarUsuAutenticado, function (req, res) {
+    produtoController.favoritar(req, res);
+});
+
+router.get("/sair", limparSessao, function (req, res) {
+  res.redirect("/");
+});
+
+router.get("/login", function (req, res) {
+  res.render("pages/login", { listaErros: null, dadosNotificacao: null });
+});
+
+router.post(
+  "/login",
+  usuarioController.regrasValidacaoFormLogin,
+  gravarUsuAutenticado,
+  function (req, res) {
+    usuarioController.logar(req, res);
+  }
+);
+
+router.get("/cadastro", function (req, res) {
+  res.render("pages/cadastro", {
+    listaErros: null,
+    dadosNotificacao: null,
+    valores: { nome_usu: "", nomeusu_usu: "", email_usu: "", senha_usu: "" },
+  });
+});
+
+router.post(
+  "/cadastro",
+  usuarioController.regrasValidacaoFormCad,
+  async function (req, res) {
+    usuarioController.cadastrar(req, res);
+  }
+);
 
 router.get('/', function(req, res){
     res.render('pages/index');
@@ -30,16 +106,8 @@ router.get('/artigo', function(req, res){
 })
 
 router.get('/login', function(req, res){
-    res.render('pages/login', {
-        listaErros: null,
-        dadosNotificacao: null,
-        valores: {}
-    });
-});
-
-router.post('/login', usuarioController.regrasValidacaoFormCad, function(req, res){
-    usuarioController.cadastrar(req, res);
-});
+    res.render('pages/login');
+})
 
 router.get('/vestidos', function(req, res){
     res.render('pages/vestidos');
@@ -79,16 +147,10 @@ router.get('/produto4', function(req, res){
     res.render('pages/produto4');
 })
 
-router.get('/cadastro', function(req, res){
-    res.render('pages/cadastro', {
-        valores: {},
-        avisoErro: {}
-    });
-});
-
 router.post("/cadastro", (req, res) => {
+    const valores = req.body; // ou o que você pegou do form
     res.render("pages/cadastro", { 
-        valores: req.body || {},
+        valores: valores,
         avisoErro: {}
     });
 });
@@ -109,17 +171,13 @@ router.get('/perfil3', function(req, res){
     res.render('pages/perfil3');
 })
 
-router.get('/homecomprador', verificarUsuAutorizado([1, 2, 3], "pages/entrar"), function(req, res){
-    res.render('pages/homecomprador', {
-        autenticado: req.session.autenticado
-    });
-});
+router.get('/homecomprador', function(req, res){
+    res.render('pages/homecomprador');
+})
 
-router.get('/homevendedor', verificarUsuAutorizado([2, 3], "pages/entrar"), function(req, res){
-    res.render('pages/homevendedor', {
-        autenticado: req.session.autenticado
-    });
-});
+router.get('/homevendedor', function(req, res){
+    res.render('pages/homevendedor');
+})
 
 router.get('/continuarcadastro', function(req, res){
     res.render('pages/continuarcadastro');
@@ -190,70 +248,16 @@ router.get('/avaliasao', function(req, res){
 })
 
 router.get('/perfilvender', function(req, res){
-    const brechoData = {
-        nome: req.session.brecho_nome || 'Nome do Brechó',
-        imagem: req.session.brecho_imagem || null,
-        avaliacao: req.session.brecho_avaliacao || '0.0',
-        itens_venda: req.session.brecho_itens_venda || '0',
-        vendidos: req.session.brecho_vendidos || '0',
-        seguidores: req.session.brecho_seguidores || '0'
-    };
-    
-    res.render('pages/perfilvender', {
-        brecho: brechoData
-    });
+    res.render('pages/perfilvender');
 })
 
 router.get('/criarbrecho', function(req, res){
     res.render('pages/criarbrecho');
-});
-
-router.post('/criarbrecho', function(req, res){
-    const { brecho, email, nome, password, senha, phone, cep, endereco, bairro, cidade, uf } = req.body;
-    
-    if (!req.session) {
-        req.session = {};
-    }
-    
-    console.log(req.body);
-    if (!brecho || !email || !nome || !password || !senha || !phone || !cep || !endereco || !bairro || !cidade || !uf) {
-        return res.render('pages/criarbrecho', {
-            erro: 'Todos os campos são obrigatórios',
-            valores: req.body
-        });
-    }
-    
-    if (password !== senha) {
-        return res.render('pages/criarbrecho', {
-            erro: 'As senhas não coincidem',
-            valores: req.body
-        });
-    }
-
-    req.session.brecho_nome = brecho;
-    req.session.brecho_email = email;
-    req.session.brecho_proprietario = nome;
-    req.session.brecho_telefone = phone;
-    req.session.brecho_endereco = `${endereco}, ${bairro}, ${cidade} - ${uf}, ${cep}`;
-    req.session.brecho_avaliacao = '5.0';
-    req.session.brecho_itens_venda = '0';
-    req.session.brecho_vendidos = '0';
-    req.session.brecho_seguidores = '0';
-    
-    res.redirect('/perfilvender');
 })
 
-
 router.get('/entrar', function(req, res){
-    res.render('pages/entrar', {
-        listaErros: null,
-        dadosNotificacao: null
-    });
-});
-
-router.post('/entrar', usuarioController.regrasValidacaoFormLogin, gravarUsuAutenticado, function(req, res){
-    usuarioController.logar(req, res);
-});
+    res.render('pages/entrar');
+})
 
 router.get('/esqueceusenha', function(req, res){
     res.render('pages/esqueceusenha');
@@ -315,14 +319,6 @@ router.get('/menuvendedor', function(req, res){
     res.render('pages/menuvendedor');
 })
 
-router.get('/informacao', function(req, res){
-    res.render('pages/informacao');
-})
-
-router.get('/perfilcliente', function(req, res){
-    res.render('pages/perfilcliente');
-})
-
 router.get('/adicionardesktop', function(req, res){
     res.render('pages/adicionardesktop');
 })
@@ -351,31 +347,7 @@ router.get('/homepecasreformadas', function(req, res){
     res.render('pages/homepecasreformadas');
 })
 
-router.get('/planos', function(req, res){
-    res.render('pages/planos');
-})
-
-router.get('/perfilcliente', function(req, res){
-   
-    
-    const userData = {
-        nome: (req.session && req.session.autenticado && req.session.autenticado.nome) ? req.session.autenticado.nome : 'Maria Silva',
-        email: (req.session && req.session.autenticado && req.session.autenticado.email) ? req.session.autenticado.email : 'maria.silva@email.com',
-        telefone: (req.session && req.session.autenticado && req.session.autenticado.telefone) ? req.session.autenticado.telefone : '(11) 99999-9999',
-        imagem: (req.session && req.session.autenticado && req.session.autenticado.imagem) ? req.session.autenticado.imagem : null,
-        data_cadastro: (req.session && req.session.autenticado && req.session.autenticado.data_cadastro) ? req.session.autenticado.data_cadastro : 'Janeiro 2024',
-        compras: (req.session && req.session.autenticado && req.session.autenticado.compras) ? req.session.autenticado.compras : 12,
-        favoritos: (req.session && req.session.autenticado && req.session.autenticado.favoritos) ? req.session.autenticado.favoritos : 5,
-        avaliacoes: (req.session && req.session.autenticado && req.session.autenticado.avaliacoes) ? req.session.autenticado.avaliacoes : 3
-    };
-    
-    res.render('pages/perfilcliente', {
-        usuario: userData,
-        autenticado: req.session ? req.session.autenticado : null
-    });
-});
-
-
+// validação //
 
 
 module.exports = router;

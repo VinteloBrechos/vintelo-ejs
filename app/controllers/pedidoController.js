@@ -18,18 +18,18 @@ const pedidoController = {
 
             const camposJsonPedido = {
                 data: moment().format("YYYY-MM-DD HH:mm:ss"),
-                usuario_id_usuario: usuarioId,
-                status_pedido: 1,
-                status_pagamento: req.query.status || null,
-                id_pagamento: req.query.payment_id || null
+                USUARIO_ID_USUARIOo: usuarioId,
+                STATUS_PEDIDO: 1,
+                STATUS_PAGAMENTO: req.query.status || null,
+                ID_PAGAMENTO: req.query.payment_id || null
             };
 
             const create = await pedidoModel.createPedido(camposJsonPedido);
 
             const itemsPromises = carrinho.map(element => {
                 const camposJsonItemPedido = {
-                    pedido_id_pedido: create.insertId,
-                    produto_id_produto: element.codproduto,
+                    PEDIDO_ID_PEDIDO: create.insertId,
+                    PRODUTO_ID_PRODUTO: element.codproduto,
                     quantidade: element.qtde
                 };
                 return pedidoModel.createItemPedido(camposJsonItemPedido);
