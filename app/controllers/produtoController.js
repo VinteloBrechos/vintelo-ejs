@@ -1,4 +1,4 @@
-const { hqModel } = require("../models/hqModel");
+const { hqModel } = require("../models/produtoModel");
 const { favoritoModel } = require("../models/favoritoModel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -19,8 +19,12 @@ const produtoController = {
             .isFloat({ min: 0.01 }).withMessage("Preço deve ser maior que zero!"),
         body("categoria_produto")
             .notEmpty().withMessage("Selecione uma categoria!"),
+        body("condicao_produto")
+        .notEmpty().withMessage("Selecione a condição do produto")
         body("tamanho_produto")
             .notEmpty().withMessage("Selecione um tamanho!"),
+        body("cor_produto")
+            .notEmpty().withMessage("selecione uma cor")
         body("condicao_produto")
             .isIn(['novo', 'seminovo', 'usado']).withMessage("Condição inválida!"),
         verificarUsuAutorizado([2], "pages/restrito"),
@@ -34,6 +38,7 @@ const produtoController = {
             categoria_produto: "",
             tamanho_produto: "",
             condicao_produto: "",
+            cor_produto: "",
         };
         res.render("pages/adicionar", { 
             listaErros: null, 

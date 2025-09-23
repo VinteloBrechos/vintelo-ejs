@@ -573,10 +573,13 @@ h3 {
   text-align: end;
 }
 
+
 .ver{
   font-size: 30px;
   color: #464344;
+  text-decoration: none;
 }
+
 
 .img-sacola{
   width: 10px;
@@ -1515,6 +1518,23 @@ h1 {
       font-size: 20px;
 
  }
+
+/* fonte da home GARIMPE NA VINTELO */
+.garimpe-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: #5a2424; 
+}
+
+.vintelo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 60px;
+  color: #5a2424; 
+  line-height: 1.2;
+}
 
 
 

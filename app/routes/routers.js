@@ -1,24 +1,25 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
- const { verificarUsuAutenticado,
-     limparSessao,
-      gravarUsuAutenticado,
-       verificarUsuAutorizado 
-    } = require("../models/autenticador_middleware");
+const {
+  verificarUsuAutenticado,
+  limparSessao,
+  gravarUsuAutenticado,
+  verificarUsuAutorizado,
+} = require("../models/autenticador_middleware");
 
- const usuarioController = require("../controllers/usuarioController");
+const { usuarioController } = require("../controllers/usuarioController");
+const { carrinhoController } = require("../controllers/carrinhoController");
+const { produtoController } = require("../controllers/produtoController");
 
- const uploadFile = require("../util/uploader");
+const uploadFile = require("../util/uploader");
 
-router.get("/", verificarUsuAutenticado, function (req, res) { 
-    res.render("pages/index", { 
-        autenticado: req.session.autenticado, 
-        login: req.session.logado 
-    }); 
+const { MercadoPagoConfig, Preference } = require('mercadopago');
+const { pedidoController } = require("../controllers/pedidoController");
+
+const client = new MercadoPagoConfig({
+  accessToken: process.env.accessToken
 });
-router.get("/sair", limparSessao, function (req, res) { res.redirect("/"); });
-
 
 router.get('/', function(req, res){
     res.render('pages/index');

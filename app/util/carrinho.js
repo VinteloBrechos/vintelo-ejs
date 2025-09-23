@@ -1,4 +1,4 @@
-const { hqModel } = require("../models/hqModel");
+const { hqModel } = require("../models/produtoModel");
 
 const carrinho = {
     itensCarrinho: [],
@@ -67,7 +67,7 @@ const carrinho = {
 
             if (indice === -1) {
                 const hq = await hqModel.findID(codItem);
-                if (hq && hq.length > 0) {
+                if (hq && produto.length > 0) {
                     const valor = (preco !== undefined && preco !== null && preco !== "")
                         ? parseFloat(preco)
                         : parseFloat(hq[0].preco_hq);
@@ -75,8 +75,8 @@ const carrinho = {
                         codproduto: codItem,
                         qtde: quantidade,
                         preco: isNaN(valor) ? 0 : valor,
-                        produto: hq[0].NOME_PRODUTO,
-                        imagem: hq[0].IMAGEM_PRODUTO
+                        produto: produto[0].NOME_PRODUTO,
+                        imagem: produto[0].IMAGEM_PRODUTO,
                     });
                 }
             } else {

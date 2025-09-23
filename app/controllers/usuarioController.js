@@ -83,18 +83,18 @@ const usuarioController = {
             email_usuario: req.body.email_usu,
         };
         if (!erros.isEmpty()) {
-            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+            return res.render("pages/home", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
         try {
             let create = usuario.create(dadosForm);
-            res.render("pages/cadastro", {
+            res.render("pages/home", {
                 listaErros: null, dadosNotificacao: {
                     titulo: "Cadastro realizado!", mensagem: "Novo usuário criado com sucesso!", tipo: "success"
                 }, valores: req.body
             })
         } catch (e) {
             console.log(e);
-            res.render("pages/cadastro", {
+            res.render("pages/home", {
                 listaErros: erros, dadosNotificacao: {
                     titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
                 }, valores: req.body
@@ -200,14 +200,14 @@ const usuarioController = {
                         img_perfil_pasta: result[0].img_perfil_pasta, img_perfil_banco: result[0].img_perfil_banco,
                         nomeusu_usu: result[0].user_usuario, fone_usu: result[0].fone_usuario, senha_usu: ""
                     }
-                    res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
+                    res.render("pages/home", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
                 }else{
-                    res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Sem alterações", tipo: "success" }, valores: dadosForm });
+                    res.render("pages/home", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Sem alterações", tipo: "success" }, valores: dadosForm });
                 }
             }
         } catch (e) {
             console.log(e)
-            res.render("pages/perfil", { listaErros: erros, dadosNotificacao: { titulo: "Erro ao atualizar o perfil!", mensagem: "Verifique os valores digitados!", tipo: "error" }, valores: req.body })
+            res.render("pages/home", { listaErros: erros, dadosNotificacao: { titulo: "Erro ao atualizar o perfil!", mensagem: "Verifique os valores digitados!", tipo: "error" }, valores: req.body })
         }
     }
 }
