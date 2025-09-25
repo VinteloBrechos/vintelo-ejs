@@ -7,10 +7,10 @@ const carrinhoController = {
             const { id, preco } = req.query;
             carrinho.addItem(id, 1, preco);
             carrinho.atualizarCarrinho(req);
-
-            const referer = req.get('Referer') || "/";
+ referer = req.get('Referer') || "/";
             const caminho = referer.split("/")[3] ? "/" + referer.split("/")[3] : "/";
-            res.redirect(caminho);
+            res.re
+            constdirect(caminho);
         } catch (e) {
             console.error(e);
             res.render("pages/index", {
@@ -71,14 +71,14 @@ const carrinhoController = {
     listarcarrinho: (req, res) => {
         try {
             carrinho.atualizarCarrinho(req);
-            res.render("pages/listar-carrinho", {
+            res.render("pages/carrinho", {
                 autenticado: req.session.autenticado,
                 carrinho: req.session.carrinho,
                 listaErros: null,
             });
         } catch (e) {
             console.error(e);
-            res.render("pages/listar-carrinho", {
+            res.render("pages/index", {
                 autenticado: req.session.autenticado,
                 carrinho: null,
                 listaErros: [e.message],

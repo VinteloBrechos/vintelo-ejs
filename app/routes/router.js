@@ -5,25 +5,22 @@ const {
   verificarUsuAutenticado,
   limparSessao,
   gravarUsuAutenticado,
-  verificarUsuAutorizado,
 } = require("../models/autenticador_middleware");
 
 const { usuarioController } = require("../controllers/usuarioController");
 const { carrinhoController } = require("../controllers/carrinhoController");
-const { hqController } = require("../controllers/hqController");
+const { produtoController } = require("../controllers/hqController");
 
 const uploadFile = require("../util/uploader")("./app/public/imagem/perfil/");
-// const uploadFile = require("../util/uploader")();
 
-// SDK do Mercado Pago
 const { MercadoPagoConfig, Preference } = require('mercadopago');
 const { pedidoController } = require("../controllers/pedidoController");
-// Adicione as credenciais
+
 const client = new MercadoPagoConfig({
   accessToken: process.env.accessToken
 });
 
-router.get("/addItem", function (req, res) {
+/*router.get("/adicionar", function (req, res) {
   carrinhoController.addItem(req, res);
 });
 
@@ -37,17 +34,17 @@ router.get("/excluirItem", function (req, res) {
 
 router.get("/listar-carrinho", function (req, res) {
   carrinhoController.listarcarrinho(req, res);
-});
+});*/
 
-router.get(
+/*router.get(
   "/perfil",
   verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
   async function (req, res) {
     usuarioController.mostrarPerfil(req, res);
   }
-);
+);*/
 
-router.post(
+/*router.post(
   "/perfil",
   uploadFile("imagem-perfil_usu"),
   usuarioController.regrasValidacaoPerfil,
@@ -55,23 +52,33 @@ router.post(
   async function (req, res) {
     usuarioController.gravarPerfil(req, res);
   }
-);
+);*/
 
 router.get("/", verificarUsuAutenticado, function (req, res) {
-  hqController.listar(req, res);
+  produtoController.listar(req, res);
 });
 
 router.get("/favoritar", verificarUsuAutenticado, function (req, res) {
-  hqController.favoritar(req, res);
+  produtoController.favoritar(req, res);
 });
 
 router.get("/sair", limparSessao, function (req, res) {
   res.redirect("/");
 });
 
-router.get("/login", function (req, res) {
-  res.render("pages/login", { listaErros: null, dadosNotificacao: null });
+router.post("/login", function (req, res) {
+  const { nomeusu_usu, senha_usu } = req.body;
+
+  if (nomeusu_usu === "nomeusu_usu" && senha_usu === "senha_usu") {
+    res.redirect("/homecomprador");
+  } else {
+    res.render("pages/homecomprador", {
+      listaErros: "Credenciais inválidas",
+      dadosNotificacao: null
+    });
+  }
 });
+
 
 router.post(
   "/login",
@@ -98,14 +105,14 @@ router.post(
   }
 );
 
-router.get(
+/*router.get(
   "/adm",
   verificarUsuAutenticado,
   verificarUsuAutorizado([2, 3], "pages/restrito"),
   function (req, res) {
     res.render("pages/adm", req.session.autenticado);
   }
-);
+);*/
 
 /*router.post("/create-preference", function (req, res) {
   const preference = new Preference(client);
@@ -130,23 +137,6 @@ router.get(
 router.get("/feedback", function (req, res) {
   pedidoController.gravarPedido(req, res);
 });
-router.get('/vestidos', function(req, res){
-    res.render('pages/vestidos');
-})
-
-router.get('/saias', function(req, res){
-    res.render('pages/saias');
-})
-
-
-router.get('/blusas', function(req, res){
-    res.render('pages/blusas');
-})
-
-
-router.get('/acessorios', function(req, res){
-    res.render('pages/acessorios');
-})
 
 router.get('/index', function(req, res){
     res.render('pages/index');
@@ -198,7 +188,7 @@ router.get('/perfil3', function(req, res){
     res.render('pages/perfil3');
 })
 
-router.get('/homecomprador', verificarUsuAutorizado([1, 2, 3], "pages/entrar"), function(req, res){
+/*router.get('/homecomprador', verificarUsuAutorizado([1, 2, 3], "pages/entrar"), function(req, res){
     res.render('pages/homecomprador', {
         autenticado: req.session.autenticado
     });
@@ -208,11 +198,8 @@ router.get('/homevendedor', verificarUsuAutorizado([2, 3], "pages/entrar"), func
     res.render('pages/homevendedor', {
         autenticado: req.session.autenticado
     });
-});
+});*/
 
-router.get('/continuarcadastro', function(req, res){
-    res.render('pages/continuarcadastro');
-})
 
 router.get('/adicionar', function(req, res){
     res.render('pages/adicionar');
@@ -242,10 +229,6 @@ router.get('/sweer', function(req, res){
     res.render('pages/sweer');
 })
 
-router.get('/sacola', function(req, res){
-    res.render('pages/sacola');
-})
-
 router.get('/pedidoconf', function(req, res){
     res.render('pages/pedidoconf');
 })
@@ -256,14 +239,6 @@ router.get('/finalizandocompra1', function(req, res){
 
 router.get('/finalizandocompra2', function(req, res){
     res.render('pages/finalizandocompra2');
-})
-
-router.get('/finalizandocompra3', function(req, res){
-    res.render('pages/finalizandocompra3');
-})
-
-router.get('/finalizandocompra4', function(req, res){
-    res.render('pages/finalizandocompra4');
 })
 
 router.get('/favoritos', function(req, res){
@@ -378,28 +353,8 @@ router.get('/categorias', function(req, res){
     res.render('pages/categorias');
 })
 
-router.get('/homedescontos', function(req, res){
-    res.render('pages/homedescontos');
-})
-
-router.get('/homebrecho', function(req, res){
-    res.render('pages/homebrecho');
-})
-
-router.get('/homenovidades', function(req, res){
-    res.render('pages/homenovidades');
-})
-
 router.get('/minhascompras', function(req, res){
     res.render('pages/minhascompras');
-})
-
-router.get('/brecho', function(req, res){
-    res.render('pages/brecho');
-})
-
-router.get('/homeplusize', function(req, res){
-    res.render('pages/homeplusize');
 })
 
 router.get('/finalizandopagamento', function(req, res){
@@ -434,32 +389,12 @@ router.get('/perfilcliente', function(req, res){
     res.render('pages/perfilcliente');
 })
 
-router.get('/adicionardesktop', function(req, res){
-    res.render('pages/adicionardesktop');
-})
-
-router.get('/pedidosdesktop', function(req, res){
-    res.render('pages/pedidosdesktop');
-})
-
-router.get('/finalizandopagamento', function(req, res){
-    res.render('pages/finalizandopagamento');
-})
-
-router.get('/blogdesktop', function(req, res){
-    res.render('pages/blogdesktop');
-})
-
 router.get('/menufavoritos', function(req, res){
     res.render('pages/menufavoritos');
 })
 
 router.get('/menucompras', function(req, res){
     res.render('pages/menucompras');
-})
-
-router.get('/homepecasreformadas', function(req, res){
-    res.render('pages/homepecasreformadas');
 })
 
 router.get('/planos', function(req, res){

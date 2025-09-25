@@ -13,12 +13,12 @@ const hqController = {
 
     listar: async (req, res) => {
         req.session.autenticado.login = req.query.login;
-        results = await hqModel.findAll(req.session.autenticado.id);
+        results = await produtoModel.findAll(req.session.autenticado.id);
         carrinho.atualizarCarrinho(req);
         res.render("pages/index", {
             autenticado: req.session.autenticado,
             login: req.session.logado,
-            listaHq: results,
+            listaProdutos: results,
             carrinho: req.session.carrinho
         });
     },
@@ -35,7 +35,7 @@ const hqController = {
                 });
         } else {
             await favoritoModel.favoritar({
-                idHq: req.query.id,
+                idProduto: req.query.id,
                 situacao: req.query.sit,
                 idUsuario: req.session.autenticado.id
             });
@@ -46,6 +46,6 @@ const hqController = {
 }
 
 
-module.exports = { hqController }
+module.exports = { produtoController }
 
 
