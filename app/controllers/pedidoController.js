@@ -1,3 +1,4 @@
+
 const {pedidoModel } = require("../models/pedidoModel");
 const moment = require("moment");
 
@@ -5,43 +6,27 @@ const pedidoController = {
 
     gravarPedido: async (req, res) => {
         try {
-          
-            const usuarioId = req.session && req.session.autenticado && req.session.autenticado.id;
-            const carrinho = Array.isArray(req.session && req.session.carrinho) ? req.session.carrinho : [];
-
-            if (!usuarioId) {
-                return res.redirect("/login");
-            }
-            if (!carrinho.length) {
-                return res.redirect("/");
-            }
-
+            const carrinho = req.session.carrinho;
             const camposJsonPedido = {
                 data: moment().format("YYYY-MM-DD HH:mm:ss"),
-                USUARIO_ID_USUARIOo: usuarioId,
+                USUARIO_ID_USUARIO: req.session.autenticado.id,
                 STATUS_PEDIDO: 1,
-                STATUS_PAGAMENTO: req.query.status || null,
-                ID_PAGAMENTO: req.query.payment_id || null
-            };
-
-            const create = await pedidoModel.createPedido(camposJsonPedido);
-
-            const itemsPromises = carrinho.map(element => {
-                const camposJsonItemPedido = {
+                STATUS_PAGAMENTO: req.query.status,
+                ID_PAGAMENTO: req.query.payment_id
+            }
+            var create = await pedidoModel.createPedido(camposJsonPedido);
+            carrinho.forEach(async element => {
+                camposJsonItemPedido = {
                     PEDIDO_ID_PEDIDO: create.insertId,
                     PRODUTO_ID_PRODUTO: element.codproduto,
                     quantidade: element.qtde
-                };
-                return pedidoModel.createItemPedido(camposJsonItemPedido);
+                }
+                await pedidoModel.createItemPedido(camposJsonItemPedido);
             });
-            await Promise.all(itemsPromises);
-
-            
             req.session.carrinho = [];
-            return res.redirect("/");
+            res.redirect("/");
         } catch (e) {
-            console.error(e);
-            return res.status(500).send("Erro ao gravar pedido");
+            console.log(e);
         }
     }
     

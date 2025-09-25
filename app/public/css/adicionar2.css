@@ -1,12 +1,4 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Arial", sans-serif;
-  }
-  
-  /* Cores */
+
   :root {
     --vinho: #6d1a35;
     --bege: #f9f4f2;
@@ -25,8 +17,7 @@
   .topo h1 {
     font-size: 1.2rem;
   }
-  
-  /* Upload */
+
   .upload {
     padding: 1rem;
     text-align: center;

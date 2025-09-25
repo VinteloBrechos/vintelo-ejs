@@ -1520,15 +1520,15 @@ h1 {
  }
 
 /* fonte da home GARIMPE NA VINTELO */
+
 .garimpe-text {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 30px;
   letter-spacing: 4px;
   color: #7d2838; 
-  margin-left: 90px; /* margem da esquerda */
+  margin-left: 90px;
   display: inline-block;
-  .texto-desktop
 }
 
 .vintelo-text {
@@ -1537,9 +1537,30 @@ h1 {
   font-size: 90px;
   color: #7d2838; 
   line-height: 1.2;
-   margin-left: 150px; /* alinhado para começar abaixo do "m" */
+  margin-left: 150px;
   display: inline-block;
 }
+
+
+.category-nav-desktop {
+  display: none;
+}
+
+.category-nav-mobile {
+  display: block;
+}
+
+
+@media (min-width: 768px) {
+  .category-nav-desktop {
+    display: block;
+  }
+  .category-nav-mobile {
+    display: none;
+  }
+}
+
+
 
 
 
