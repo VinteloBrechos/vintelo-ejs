@@ -31,7 +31,7 @@ app.set('views', path.join(__dirname, 'app/views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-var rotas = require(path.join(__dirname, 'app/routes/routers'));
+var rotas = require(path.join(__dirname, 'app/routes/router'));
 app.use("/", rotas);
 
 console.log("teste");

@@ -1526,8 +1526,9 @@ h1 {
   font-size: 30px;
   letter-spacing: 4px;
   color: #7d2838; 
-  margin-left: 40px; /* margem da esquerda para afastar da borda */
+  margin-left: 90px; /* margem da esquerda */
   display: inline-block;
+  .texto-desktop
 }
 
 .vintelo-text {
@@ -1536,7 +1537,7 @@ h1 {
   font-size: 90px;
   color: #7d2838; 
   line-height: 1.2;
-   margin-left: 130px; /* alinhado para começar abaixo do "m" */
+   margin-left: 150px; /* alinhado para começar abaixo do "m" */
   display: inline-block;
 }
 

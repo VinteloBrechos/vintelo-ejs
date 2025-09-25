@@ -11,7 +11,40 @@
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
     
 </head>
-<body>
+<body> 
+   <% 
+            let avisoErro = {"nome_usu":"", "senha_usu":""}
+            let msgErro = ""
+                if(listaErros){
+                    listaErros.errors.forEach(function(itemErro){
+                        if(itemErro.path == "nome_usu"){
+                            avisoErro.nome_usu = "erro";
+                            msgErro += `* ${itemErro.msg} <br>`
+                        }
+                        if(itemErro.path == "senha_usu"){
+                            avisoErro.senha_usu = "erro";
+                            msgErro += `* ${itemErro.msg} <br>`
+                        }
+                    })
+                    if(msgErro != ""){
+                    %>
+                        <script>
+                            let msgErro ="<%= msgErro %>"
+                            notify("Erro(s) no preenchimento", 
+                                   "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                   "error", "center", 5000)                        
+                        </script>
+                    <%
+                    }
+                }
+                if (dadosNotificacao) { %>
+                    <script>
+                            notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                            if("<%= dadosNotificacao.tipo %>" == "success"){
+                                setTimeout(function(){window.location="/"}, 3000)
+                            }                        
+                    </script>
+                <% } %>            
     <header>
         <nav class="grid">
             <a href="/index">
@@ -42,22 +75,22 @@
         <form id="registerForm" action="/login" method="post">
             <section class="form-group">
                 <label for="nome_usu">Nome Completo</label>
-                <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome" value="<%= typeof valores !== 'undefined' ? valores.nome_usu || '' : '' %>" required>
+                <input type="nome_usu" id="nome_usu" name="nome_usu" placeholder="Digite seu nome"  value="<%= valores.nome_usu %>" class="<%= avisoErro.nome_usu %>">
             </section>
             
             <section class="form-group">
                 <label for="nomeusu_usu">Nome de Usuário</label>
-                <input type="text" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário" value="<%= typeof valores !== 'undefined' ? valores.nomeusu_usu || '' : '' %>" required>
+                <input type="nomeusu_usu" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário"  value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>">
             </section>
             
             <section class="form-group">
                 <label for="email_usu">Endereço de email</label>
-                <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" value="<%= typeof valores !== 'undefined' ? valores.email_usu || '' : '' %>" required>
+                <input type="email_usu" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com"  value="<%= valores.email_usu %>" class="<%= avisoErro.email %>">
             </section>
          
             <section class="form-group">
                 <label for="senha_usu">Senha</label>
-                <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." required>
+                <input type="senha_usu" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..."  value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>">
             </section>
             <br>
             <br>
@@ -80,7 +113,6 @@
     </form>
     <footer class="footer">
         <button type="submit" form="registerForm" name="submit" id="submit" class="submit-btn">Cadastrar</button>
-    </footer>
-    <script src="js/login.js"></script> 
+    </footer> 
 </body>
 </html>
