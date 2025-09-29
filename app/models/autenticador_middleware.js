@@ -24,8 +24,8 @@ gravarUsuAutenticado = async (req, res, next) => {
     var autenticado = { autenticado: null, id: null, tipo: null};
     if(erros.isEmpty()) {
         var dadosForm = {
-            user_usuario: req.body.nome_usu,
-            senha_usuario: req.body.senha_usu,
+            USER_USUARIO: req.body.nome_usu,
+            SENHA_USUARIO: req.body.senha_usu,
         };
         var results = await usuario.findUserEmail(dadosForm);
         var total = Object.keys(results).length;

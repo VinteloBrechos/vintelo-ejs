@@ -3,64 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Vintélo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
-    <script src="../../public/script/script.js"></script>
     <link rel="stylesheet" href="css/login.css">
-
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
-    
 </head>
-<body> 
-   <% 
-            let avisoErro = {"nome_usu":"", "senha_usu":""}
-            let msgErro = ""
-                if(listaErros){
-                    listaErros.errors.forEach(function(itemErro){
-                        if(itemErro.path == "nome_usu"){
-                            avisoErro.nome_usu = "erro";
-                            msgErro += `* ${itemErro.msg} <br>`
-                        }
-                        if(itemErro.path == "senha_usu"){
-                            avisoErro.senha_usu = "erro";
-                            msgErro += `* ${itemErro.msg} <br>`
-                        }
-                    })
-                    if(msgErro != ""){
-                    %>
-                        <script>
-                            let msgErro ="<%= msgErro %>"
-                            notify("Erro(s) no preenchimento", 
-                                   "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                                   "error", "center", 5000)                        
-                        </script>
-                    <%
-                    }
-                }
-                if (dadosNotificacao) { %>
-                    <script>
-                            notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                            if("<%= dadosNotificacao.tipo %>" == "success"){
-                                setTimeout(function(){window.location="/"}, 3000)
-                            }                        
-                    </script>
-                <% } %>            
+<body>
     <header>
         <nav class="grid">
             <a href="/index">
                 <img src="imagens/seta.png" alt="Seta Voltar">
             </a>
             <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
-            <img src="imagens/foto-branca.png" alt="Descrição da Imagem" />
+            <img src="imagens/foto-branca.png" alt="Descrição da Imagem">
         </nav>
     </header>
     <br>
     <main>
- 
         <section class="welcome-section">
             <h2>cadastre-se</h2>
             <br>
-            <p>“Acesse usando seu cadastro de outra plataforma”</p>
+            <p>"Acesse usando seu cadastro de outra plataforma"</p>
         </section>
         <br>
         <br>
@@ -69,50 +30,50 @@
             <a href="#"><img src="imagens/icone apple.png" alt="Login com Instagram"></a>
             <a href="#"><img src="imagens/icone google.png" alt="Login com Google"></a>
         </section>
-         <br>
+        <br>
         <p class="divider">ou acesse via email</p>
         <br>
         <form id="registerForm" action="/login" method="post">
             <section class="form-group">
                 <label for="nome_usu">Nome Completo</label>
-                <input type="nome_usu" id="nome_usu" name="nome_usu" placeholder="Digite seu nome"  value="<%= valores.nome_usu %>" class="<%= avisoErro.nome_usu %>">
+                <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome">
             </section>
             
             <section class="form-group">
                 <label for="nomeusu_usu">Nome de Usuário</label>
-                <input type="nomeusu_usu" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário"  value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>">
+                <input type="text" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário">
             </section>
             
             <section class="form-group">
                 <label for="email_usu">Endereço de email</label>
-                <input type="email_usu" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com"  value="<%= valores.email_usu %>" class="<%= avisoErro.email %>">
+                <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com">
             </section>
          
             <section class="form-group">
                 <label for="senha_usu">Senha</label>
-                <input type="senha_usu" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..."  value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>">
+                <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha...">
             </section>
             <br>
             <br>
-    <label class="stay-connected">
-      <input type="checkbox" checked>
-      <span class="toggle"></span>
-     <p class="notificaçao"> Mantenha-me conectado </p>
-    </label>
-    <label class="stay-connected">
-      <input type="checkbox" checked>
-      <span class="toggle"></span>
-     <p class="notificaçao"> Receber notificações </p>
-    </label>
-    <label class="stay-connected">
-      <input type="checkbox" checked>
-      <span class="toggle"></span>
-     <p class="notificaçao"> Li e concordo com os Termos de Uso </p>
-    </label>
-        </main>
-    </form>
+            <label class="stay-connected">
+                <input type="checkbox" checked>
+                <span class="toggle"></span>
+                <p class="notificaçao"> Mantenha-me conectado </p>
+            </label>
+            <label class="stay-connected">
+                <input type="checkbox" checked>
+                <span class="toggle"></span>
+                <p class="notificaçao"> Receber notificações </p>
+            </label>
+            <label class="stay-connected">
+                <input type="checkbox" checked>
+                <span class="toggle"></span>
+                <p class="notificaçao"> Li e concordo com os Termos de Uso </p>
+            </label>
+        </form>
+    </main>
     <footer class="footer">
         <button type="submit" form="registerForm" name="submit" id="submit" class="submit-btn">Cadastrar</button>
-    </footer> 
+    </footer>
 </body>
 </html>

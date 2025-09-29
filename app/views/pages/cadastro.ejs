@@ -3,56 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vintélo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
-    <script src="../../public/script/script.js"></script>
+    <title>Cadastro - Vintélo</title>
     <link rel="stylesheet" href="css/cadastro.css">
-
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
-    
 </head>
 <body>
-     <% 
-    let msgErro = "";
-    let avisoErro = {"nome_usu":"", "senha_usu":"",nomeusu_usu:"", senha_usu:""};
-    if(listaErros){
-        listaErros.errors.forEach(function(itemErro){
-            if(itemErro.path == "nome_usu"){
-                avisoErro.nome_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "senha_usu"){
-                avisoErro.senha_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "nomeusu_usu"){
-                avisoErro.nomeusu_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "email_usu"){
-                avisoErro.email_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-        })        
-        if(msgErro != ""){
-        %>
-        <script>
-                let msgErro ="<%= msgErro %>"
-                notify("Erro(s) no preenchimento","Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"),
-                 "error", "center", 5000)                        
-            </script>
-        <%
-        }
-    }
-    if (dadosNotificacao) { %>
-        <script>
-                notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                if("<%= dadosNotificacao.tipo %>" == "success"){
-                    setTimeout(function(){window.location="/sair"}, 3000)
-                }                        
-        </script>
-    <% } %>
     <header>
         <nav class="grid">
             <a href="/index">
@@ -62,6 +17,7 @@
             <img src="imagens/quadrado.png" class="img-branca">
         </nav>
     </header>
+    
     <main class="login-container">
         <aside class="image-section">
             <section class="seta">
@@ -82,10 +38,11 @@
                 <p>Ja tem uma conta? <a href="/entrar"> Entrar</a></p>
             </section>
         </aside>
+        
         <section class="form-section">
             <section class="form-container">
-                    <h2>Acesso fácil</h2>
-                    <p>Conecte-se usando seu cadastro de outra plataforma</p>
+                <h2>Acesso fácil</h2>
+                <p>Conecte-se usando seu cadastro de outra plataforma</p>
 
                 <section class="social-login">
                     <a href="#"><img src="imagens/face.jpg"></a>
@@ -94,43 +51,46 @@
                 </section>
 
                 <p class="divider">ou acesse via email</p>
+                
                 <section class="login-register">
                     <section class="login">
                         <h3>Entrar</h3>
-                        <form id="loginForm" action="#" method="post" >
-                            <label for="nomeusu_usu">Email ou nome de usuário</label>
-                            <input type="nomeusu_usu" id="nomeusu_usu" name="nome_usu" placeholder="Digite aqui..."  value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>">
+                        <form id="loginForm" action="/entrar" method="post">
+                            <label for="nome_usu">Email ou nome de usuário</label>
+                            <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite aqui...">
 
-                            <label for="senha_usu">Senha</label>
-                            <input type="senha_usu" id="senha_usu" name="senha_usu" placeholder="Digite aqui..."  value="<%= valores.senha_usu %>" class="<%= avisoErro.senha_usu %>">
+                            <label for="senha_usu_login">Senha</label>
+                            <input type="password" id="senha_usu_login" name="senha_usu" placeholder="Digite aqui...">
 
-                            <button class="submit-btn">Entrar</button>
+                            <button type="submit" class="submit-btn">Entrar</button>
                         </form>
                     </section>
 
                     <section class="register">
                         <h3>Cadastrar</h3>
-                        <form id="registerForm" action="#" method="post">
+                        <form id="registerForm" action="/cadastro" method="post">
+                            <label for="nome_usu_reg">Nome completo</label>
+                            <input type="text" id="nome_usu_reg" name="nome_usu" placeholder="Digite seu nome completo" required>
+
                             <label for="nomeusu_usu">Nome de usuário</label>
-                            <input type="nomeusu_usu" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome"  value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>">
+                            <input type="text" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário" required>
 
                             <label for="email_usu">Endereço de email</label>
-                            <input type="email_usu" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com"  value="<%= valores.email_usu %>" class="<%= avisoErro.email_usu %>">
+                            <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" required>
 
-                            <label for="senha_usu">Senha</label>
-                            <input type="senha_usu" id="senha_usu" name="senha_usu" placeholder="Digite aqui..."  value="<%= valores.senha_usu %>" class="<%= avisoErro.senha_usu %>">
+                            <label for="senha_usu_reg">Senha</label>
+                            <input type="password" id="senha_usu_reg" name="senha_usu" placeholder="Digite sua senha" required>
 
                             <label for="fone_usu">Contato</label>
-                            <input type="fone_usu" id="fone_usu" name="fone_usu" placeholder="(**) *****-****"  value="<%= valores.fone_usu %>" class="<%= avisoErro.fone_usu %>">
+                            <input type="tel" id="fone_usu" name="fone_usu" placeholder="(**) *****-****">
 
-                           <label for="cpf">Adicionar CPF</label>
-                         <input type="text" id="cpf" name="cpf" placeholder="*********/**" required>
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="***.***.***-**">
 
-                            <label for="cep">Adicionar CEP</label>
-                            <input type="text" id="cep" name="cep"  value="<%= valores.cep %>" class="<%= avisoErro.cep %>">" 
-                            onblur="pesquisarcep(this.value);" onkeyup="mascaraCEP(event)">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" placeholder="*****-***">
 
-                            <button type="submit" name="submit" id="submit" class="submit-btn">  Cadastrar</button>
+                            <button type="submit" class="submit-btn">Cadastrar</button>
                         </form>
                     </section>
                 </section>
