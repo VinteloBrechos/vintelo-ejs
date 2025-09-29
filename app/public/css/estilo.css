@@ -680,29 +680,33 @@ h3 {
 /* Desktop layout for brechos-grid */
 @media (min-width: 992px) {
   .brechos-grid {
-    display: inline-flex;
-    align-items: center;
-    gap: 40px;
-    padding: 50px 250px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 40px 120px;
     list-style: none;
     margin: 0;
+    justify-items: center;
   }
   
   .brechos-grid .profile-item {
     display: flex;
     align-items: center;
     background-color: white;
-    padding: 10px 35px;
-    margin-bottom: 10px;
-    border-radius: 30px;
-    box-shadow: 0 45px 40px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    gap: 15px;
   }
 
   .brechos-grid .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
   }
 
   .brechos-grid .profile-info {
@@ -710,18 +714,20 @@ h3 {
   }
 
   .brechos-grid .profile-info strong {
-    font-size: 40px;
+    font-size: 24px;
     display: block;
     color: #333;
+    margin-bottom: 5px;
   }
 
   .brechos-grid .profile-info .rating {
-    font-size: 25px;
+    font-size: 16px;
     color: #555;
+    margin-bottom: 3px;
   }
 
   .brechos-grid .profile-info .stars {
-    font-size: 25px;
+    font-size: 16px;
     color: #ffc107;
   }
 
@@ -729,17 +735,13 @@ h3 {
     background-color: #8a2b38;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 30px;
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-size: 16px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
-    align-items: center;
-    position: inherit;
-    top: 50%;
-    left: 50%;
-    transform: translate(9%, 0%);
+    flex-shrink: 0;
   }
 
   .brechos-grid .follow-button:hover {
@@ -1469,43 +1471,55 @@ h1 {
 
 /*                             carrossel desktop                  */
 @media (min-width: 992px) {
-  /* Configura o container para exibir a imagem e o carrossel como elementos inline-flex */
-.category-nav {
-    display: inline-flex;
+  /* Configura o container para exibir o texto e o carrossel lado a lado */
+  .category-nav-desktop {
+    display: flex;
     align-items: center;
-    gap: 20px; /* Espaçamento entre a imagem e o carrossel */
-    padding: 50px;
-}
+    justify-content: space-between;
+    gap: 40px;
+    padding: 50px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
-/* Define o tamanho e o alinhamento da imagem */
-.category-nav .garimpe {
-    height: 100px; /* Ajuste conforme o tamanho desejado */
-    width: auto;
-}
+  /* Container do texto "Garimpe na Vintélo" */
+  .garimpe-vintelo-container {
+    flex-shrink: 0;
+    text-align: left;
+  }
 
-/* Estiliza o container do carrossel */
-.category-nav .carousel-container ul {
-    display: inline-flex;
-    gap: 10px; /* Espaçamento entre os itens do carrossel */
+  /* Estiliza o container do carrossel */
+  .category-nav-desktop .carousel-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .category-nav-desktop .carousel-container ul {
+    display: flex;
+    gap: 15px;
     list-style: none;
     padding: 0;
     margin: 0;
-}
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-  .category-nav ul li a {
+  .category-nav-desktop ul li a {
     text-decoration: none;
     padding: 14px 22px;
     background-color: transparent; 
     border: 2px solid #5a2424; 
     border-radius: 40px; 
     color: #5a2424;
-    font-size: 20px; 
+    font-size: 18px; 
     font-weight: 500; 
     transition: background-color 0.3s ease, color 0.3s ease;
-    display: inline-block; 
+    display: inline-block;
+    white-space: nowrap;
   }
   
-  .category-nav ul li a:hover {
+  .category-nav-desktop ul li a:hover {
     background-color: #5a2424; 
     color: #ffffff; 
   }
@@ -1538,6 +1552,57 @@ h1 {
   color: #7d2838; 
   line-height: 1.2;
   margin-left: 150px;
+  display: inline-block;
+}
+
+/* Estilos para os títulos das seções */
+.titulo-brecho-section, .titulo-artigo-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.titulo-brecho-section {
+  text-align: left;
+  padding: 20px 0 20px 90px;
+}
+
+.titulo-brecho-section .garimpe-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: #7d2838;
+  margin-left: 0;
+  display: inline-block;
+}
+
+.titulo-brecho-section .vintelo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 60px;
+  color: #7d2838;
+  line-height: 1.2;
+  margin-left: 60px;
+  display: inline-block;
+}
+
+.titulo-artigo-section .garimpe-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: #7d2838;
+  margin-left: 0;
+  display: inline-block;
+}
+
+.titulo-artigo-section .vintelo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 60px;
+  color: #7d2838;
+  line-height: 1.2;
+  margin-left: 0;
   display: inline-block;
 }
 

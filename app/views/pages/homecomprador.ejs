@@ -150,16 +150,29 @@
       </nav>
              <br>
              <!--                                      Carrossel das categorias                                              -->
-            <nav class="category-nav">
-              <img src="imagens/garimpevintelo.png" class="garimpe">
+            <!-- Mobile -->
+            <nav class="category-nav category-nav-mobile">
               <br>
+              <span class="garimpe-text">Garimpe na</span><br>
+              <span class="vintelo-text">Vintélo</span>
+              <br>
+            </nav>
+
+            <!-- Desktop -->
+            <nav class="category-nav category-nav-desktop">
+              <section class="garimpe-vintelo-container">
+                <span class="garimpe-text">Garimpe na</span><br>
+                <span class="vintelo-text">Vintélo</span>
+              </section>
+
               <section class="carousel-container">
                   <ul>
-                      <li><a href="/homenovidades">Novidades</a></li>
-                      <li><a href="/homedescontos">Descontos</a></li>
-                      <li><a href="/homebrechos">Brechós</a></li>
+                      <li><a href="#" onclick="showSection('novidades')">Novidades</a></li>
+                      <li><a href="#" onclick="showSection('descontos')">Descontos</a></li>
+                      <li><a href="#" onclick="showSection('brechos')">Brechós</a></li>
                       <li><a href="/categorias">Categorias</a></li>
-                      <li><a href="/homeplusize">Plusize</a></li>
+                      <li><a href="#" onclick="showSection('plussize')">Plusize</a></li>
+                      <li><a href="#" onclick="showSection('reformadas')">Peças Reformadas</a></li>
                   </ul>
               </section>
             </nav>
@@ -171,34 +184,38 @@
                <section class="product-grid">
                 <article class="product-card">
                     <a href="/produto2"><img src="imagens/vestido branco.png" alt="Vestido branco com decote"></a>
-                    <h2>Vestido branco com decote</h2>
+                    <h2>Vestido branco</h2>
                     <p class="price">R$49,99</p>
+                    <p class="Descrição">ou em 2x de R$25,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
                     <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
         
                 <article class="product-card">
                     <a href="/produto3"><img src="imagens/vestido roxo.png" alt="Vestido roxo de manga com decote"></a>
-                    <h2>Vestido roxo de manga com decote</h2>
+                    <h2>Vestido roxo</h2>
                     <p class="price">R$39,99</p>
+                    <p class="Descrição">ou em 2x de R$20,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                    <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                    <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
         
                 <article class="product-card">
                     <a href="/produto4"><img src="imagens/conjunto de blusa rosa.png" alt="Conjunto rosa de lã"></a>
-                    <h2>Conjunto rosa de lã</h2>
+                    <h2>Conjunto rosa</h2>
                     <p class="price">R$29,99</p>
+                    <p class="Descrição">ou em 2x de R$15,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                    <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                    <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
         
                 <article class="product-card">
                     <a href="/produto1"><img src="imagens/regata branca.png" alt="Regata branca"></a>
                     <h2>Regata branca</h2>
                     <p class="price">R$19,99</p>
+                    <p class="Descrição">ou em 2x de R$10,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                    <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                    <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
             </section>
       
@@ -209,32 +226,36 @@
                   <img src="imagens/cropped flor.png" alt="cropped flor">
                   <h2>Cropeed Floral</h2>
                   <p class="price">R$49,99</p>
+                  <p class="Descrição">ou em 2x de R$25,00</p>
                   <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
                   <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
               </article>
       
               <article class="product-card">
                   <img src="imagens/vestido branco2.png" alt="vestido branco2">
-                  <h2>Vestido Branco com decote</h2>
+                  <h2>Vestido Branco</h2>
                   <p class="price">R$39,99</p>
+                  <p class="Descrição">ou em 2x de R$20,00</p>
                   <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                  <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                  <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
               </article>
       
               <article class="product-card">
                   <img src="imagens/conjunto de blusa rosa.png" alt="Conjunto rosa de lã">
-                  <h2>Conjunto rosa de lã</h2>
+                  <h2>Conjunto rosa</h2>
                   <p class="price">R$29,99</p>
+                  <p class="Descrição">ou em 2x de R$15,00</p>
                   <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                  <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                  <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
               </article>
       
               <article class="product-card">
                   <a href="/produto1"><img src="imagens/vestido roxo2.png" alt="vestido roxo2"></a>
-                  <h2>Vestido Roxo Com Torção</h2>
+                  <h2>Vestido Roxo</h2>
                   <p class="price">R$19,99</p>
+                  <p class="Descrição">ou em 2x de R$10,00</p>
                   <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                  <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                  <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
               </article>
           </section>
          </sectionc>
@@ -247,7 +268,10 @@
                <br>
                <br>
                <!--                                        Perfil dos Brechós                                              -->
-               <img src="imagens/encontre brechos.png" class="titulo-brecho">
+               <section class="titulo-brecho-section">
+                 <span class="garimpe-text">Encontre</span><br>
+                 <span class="vintelo-text">Brechós</span>
+               </section>
                <br>
                <br>
                <center>
@@ -344,35 +368,37 @@
                       <article class="product-card">
                           <img src="imagens/oculos.png" alt="Óculos de sol">
                           <h2>Óculos de sol</h2>
-                          <br>
                           <p class="price">R$12,00</p>
+                          <p class="Descrição">À vista</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
                           <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
               
                       <article class="product-card">
                           <img src="imagens/colar.png" alt="Conjunto 3 colares de prata">
-                          <h2>Conjunto 3 cores de prata</h2>
-                          <p class="price">R$29,99 <br>ou em 2x R$15,00</p>
+                          <h2>Conjunto 3 colares de prata</h2>
+                          <p class="price">R$29,99</p>
+                          <p class="Descrição">ou em 2x de R$15,00</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                          <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                          <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
               
                       <article class="product-card">
                           <img src="imagens/bolsa.png" alt="Bolsa preta com alça dourada">
                           <h2>Bolsa preta com alça dourada</h2>
-                          <p class="price">R$20,00 <br>ou em 2x R$10,00</p>
+                          <p class="price">R$20,00</p>
+                          <p class="Descrição">ou em 2x de R$10,00</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                          <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                          <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
               
                       <article class="product-card">
                           <img src="imagens/aneis.png" alt="Anel de prata">
                           <h2>Anel de prata</h2>
-                          <br>
                           <p class="price">R$15,00</p>
+                          <p class="Descrição">À vista</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                          <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                          <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
                     </section>
       
@@ -380,7 +406,8 @@
                       <article class="product-card">
                           <img src="imagens/pulseira.png" alt="Bracelete">
                           <h2>Bracelete</h2>
-                          <p class="price">R$19,99 <br>ou em 2x R$10,00</p>
+                          <p class="price">R$19,99</p>
+                          <p class="Descrição">ou em 2x de R$10,00</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
                           <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
@@ -388,30 +415,36 @@
                       <article class="product-card">
                           <img src="imagens/relogios.png" alt="Relógio Rose Gold">
                           <h2>Relógio Rose Gold</h2>
-                          <p class="price">R$29,99 <br>ou em 2x R$15,00</p>
+                          <p class="price">R$29,99</p>
+                          <p class="Descrição">ou em 2x de R$15,00</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                          <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                          <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
               
                       <article class="product-card">
                           <img src="imagens/bolsa brilhante.png" alt="Salto preto com prata">
                           <h2>Bolsa Brilhante</h2>
-                          <p class="price">R$29,99 <br>ou em 2x R$15,00</p>
+                          <p class="price">R$29,99</p>
+                          <p class="Descrição">ou em 2x de R$15,00</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                          <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                          <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
               
                       <article class="product-card">
                           <img src="imagens/BraceleteDuplo.png" alt="Bracelete Duplo">
                           <h2>Bracelete Duplo</h2>
-                          <p class="price">R$28,90 <br>ou em 2x R$14,45</p>
+                          <p class="price">R$28,90</p>
+                          <p class="Descrição">ou em 2x de R$14,45</p>
                           <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                          <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                          <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                       </article>
                   </section>
                 </section>
                   <!--                                        Seção de artigos                                               -->
-                  <img src="imagens/tendencias vintelo.png" class="titulo-artigos">
+                  <section class="titulo-artigo-section">
+                    <span class="garimpe-text">Tendências</span><br>
+                    <span class="vintelo-text">Vintélo</span>
+                  </section>
                   <section class="artigos">
                     <br>
                     <a href="/blog"><img src="imagens/boss milão.png" class="img-Boss"></a>
@@ -438,6 +471,7 @@
              <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
           </footer>
         
+        <script src="script/dinamicahome.js"></script>
         </body>
       </html>
         

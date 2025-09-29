@@ -328,4 +328,12 @@ router.get('/continuarcadastro', function(req, res){
     res.render('pages/continuarcadastro');
 })
 
+router.get('/home-adm', function(req, res){
+    res.render('pages/home-adm');
+})
+
+router.get('/adm', function(req, res){
+    res.render('pages/home-adm');
+})
+
 module.exports = router;

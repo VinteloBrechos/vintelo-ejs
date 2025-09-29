@@ -4,10 +4,12 @@ function showSection(section) {
     
     if (!productGrid || !gridTitle) return;
     
+    // Reset class first
+    productGrid.className = 'product-grid';
+    
+    // Only change to brechos-grid for brechos section
     if (section === 'brechos') {
         productGrid.className = 'brechos-grid';
-    } else {
-        productGrid.className = 'product-grid';
     }
     
     const titles = {

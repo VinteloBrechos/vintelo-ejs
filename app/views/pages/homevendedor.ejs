@@ -163,16 +163,29 @@
           </section>
              <br>
              <!--                                      Carrossel das categorias                                              -->
-            <nav class="category-nav">
-              <img src="imagens/garimpevintelo.png" class="garimpe">
+            <!-- Mobile -->
+            <nav class="category-nav category-nav-mobile">
               <br>
+              <span class="garimpe-text">Garimpe na</span><br>
+              <span class="vintelo-text">Vintélo</span>
+              <br>
+            </nav>
+
+            <!-- Desktop -->
+            <nav class="category-nav category-nav-desktop">
+              <section class="garimpe-vintelo-container">
+                <span class="garimpe-text">Garimpe na</span><br>
+                <span class="vintelo-text">Vintélo</span>
+              </section>
+
               <section class="carousel-container">
                   <ul>
-                      <li><a href="/homenovidades">Novidades</a></li>
-                      <li><a href="/homedescontos">Descontos</a></li>
-                      <li><a href="/homebrechos">Brechós</a></li>
+                      <li><a href="#" onclick="showSection('novidades')">Novidades</a></li>
+                      <li><a href="#" onclick="showSection('descontos')">Descontos</a></li>
+                      <li><a href="#" onclick="showSection('brechos')">Brechós</a></li>
                       <li><a href="/categorias">Categorias</a></li>
-                      <li><a href="/homeplusize">Plusize</a></li>
+                      <li><a href="#" onclick="showSection('plussize')">Plusize</a></li>
+                      <li><a href="#" onclick="showSection('reformadas')">Peças Reformadas</a></li>
                   </ul>
               </section>
             </nav>
@@ -184,34 +197,38 @@
                <section class="product-grid">
                 <article class="product-card">
                     <a href="/produto2"><img src="imagens/vestido branco.png" alt="Vestido branco com decote"></a>
-                    <h2>Vestido branco com decote</h2>
+                    <h2>Vestido branco</h2>
                     <p class="price">R$49,99</p>
+                    <p class="Descrição">ou em 2x de R$25,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
                     <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
         
                 <article class="product-card">
                     <a href="/produto3"><img src="imagens/vestido roxo.png" alt="Vestido roxo de manga com decote"></a>
-                    <h2>Vestido roxo de manga com decote</h2>
+                    <h2>Vestido roxo</h2>
                     <p class="price">R$39,99</p>
+                    <p class="Descrição">ou em 2x de R$20,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                    <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                    <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
         
                 <article class="product-card">
                     <a href="/produto4"><img src="imagens/conjunto de blusa rosa.png" alt="Conjunto rosa de lã"></a>
-                    <h2>Conjunto rosa de lã</h2>
+                    <h2>Conjunto rosa</h2>
                     <p class="price">R$29,99</p>
+                    <p class="Descrição">ou em 2x de R$15,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                    <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                    <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
         
                 <article class="product-card">
                     <a href="/produto1"><img src="imagens/regata branca.png" alt="Regata branca"></a>
                     <h2>Regata branca</h2>
                     <p class="price">R$19,99</p>
+                    <p class="Descrição">ou em 2x de R$10,00</p>
                     <button class="favorite"><img src="imagens/coraçao de fav2.png"></button>
-                    <button class="cart"><img src="imagens/sacola.png"class="img-sacola"></button>
+                    <button class="cart"><img src="imagens/sacola.png" class="img-sacola"></button>
                 </article>
             </section>
       
@@ -260,7 +277,10 @@
                <br>
                <br>
                <!--                                        Perfil dos Brechós                                              -->
-               <img src="imagens/encontre brechos.png" class="titulo-brecho">
+               <section class="titulo-brecho-section">
+                 <span class="garimpe-text">Encontre</span><br>
+                 <span class="vintelo-text">Brechós</span>
+               </section>
                <br>
                <br>
                <ul class="profile-list">
@@ -413,7 +433,10 @@
                   </section>
                 </section>
                   <!--                                        Seção de artigos                                               -->
-                  <img src="imagens/tendencias vintelo.png" class="titulo-artigos">
+                  <section class="titulo-artigo-section">
+                    <span class="garimpe-text">Tendências</span><br>
+                    <span class="vintelo-text">Vintélo</span>
+                  </section>
                   <section class="artigos">
                     <br>
                     <a href="/blog"><img src="imagens/boss milão.png" class="img-Boss"></a>
@@ -439,6 +462,8 @@
             </section>
              <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
           </footer>
+        
+        <script src="script/dinamicahome.js"></script>
         </body>
       </html>
         

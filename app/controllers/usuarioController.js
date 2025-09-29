@@ -75,7 +75,7 @@ const usuarioController = {
     logar: (req, res) => {
         const erros = validationResult(req);
         if (!erros.isEmpty()) {
-            return res.render("pages/index", { listaErros: erros, dadosNotificacao: null })
+            return res.render("pages/perfilcliente", { listaErros: erros, dadosNotificacao: null })
         }
         if (req.session.autenticado.autenticado != null) {
             res.redirect("/");
@@ -97,11 +97,11 @@ const usuarioController = {
             EMAIL_USUARIO: req.body.email_usu,
         };
         if (!erros.isEmpty()) {
-            return res.render("pages/index", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+            return res.render("pages/homecomprador", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
         try {
             let create = usuario.create(dadosForm);
-            res.render("pages/cadastro", {
+            res.render("pages/homecomprador", {
                 listaErros: null, dadosNotificacao: {
                     titulo: "Cadastro realizado!", mensagem: "Novo usuário criado com sucesso!", tipo: "success"
                 }, valores: req.body
@@ -213,9 +213,9 @@ const usuarioController = {
                         img_perfil_pasta: result[0].IMG_PERFIL_PASTA, IMG_PERFIL_BANCO: result[0].IMG_PERFIL_BANCO,
                         nomeusu_usu: result[0].USER_USUARIO, fone_usu: result[0].CELULAR_USUARIO, senha_usu: ""
                     }
-                    res.render("pages/index", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
+                    res.render("pages/homecomprador", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
                 }else{
-                    res.render("pages/index", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Sem alterações", tipo: "success" }, valores: dadosForm });
+                    res.render("pages/homecomprador", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Sem alterações", tipo: "success" }, valores: dadosForm });
                 }
             }
         } catch (e) {

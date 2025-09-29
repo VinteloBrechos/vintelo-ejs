@@ -1,323 +1,156 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vintélo</title>
-    <link rel="stylesheet" href="css/carrinho.css">
-
-    <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
-    
+    <title>Home</title>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+    <script src="js/comprar-carrinho.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
+
 <body>
-    <!-- Header Mobile -->
-    <header class="mobile-header">
-        <a href="/homecomprador" class="back-btn">
-            <img src="imagens/seta.png" alt="Voltar">
-        </a>
-        <h1>Carrinho</h1>
-        <img src="imagens/icone saco.png" alt="Carrinho" class="cart-icon">
+    <header>
+        <div>
+            <% if(autenticado.autenticado){ if(autenticado.login){%>
+                <script>
+                    notify("Login efetuado com sucesso", "Olá <%= autenticado %>", "success", "center")                        
+                </script>
+                <% } let arquivo={"imagem":"imagem/img-perfil.png"} ; if(autenticado.img_perfil_pasta !=null){
+                    arquivo.imagem=autenticado.img_perfil_pasta; }else if(autenticado.img_perfil_banco !=null){
+                    arquivo.imagem=autenticado.img_perfil_banco; } %>
+                    <span>Olá <%= autenticado.autenticado %>!</span><br>
+                    <span><a href="/perfil"><img class="icone-perfil" src="<%= arquivo.imagem %>" </a></span>
+                    <p><a href="/sair">sair</a></p>
+
+                    <% }else{ %>
+                        <span>Olá visitante!</span>
+                        <p><a href="/login">Login</a></p>
+                        <p><a href="/cadastro">Cadastro</a></p>
+                        <% } %>
+        </div>
     </header>
 
-    <!-- Header Desktop -->
-    <section class="desktop-header">
-        <section class="top-bar">
-            <p>10% OFF na primeira compra</p>
-        </section>
-        <header class="main-header">
-            <a href="/homecomprador">
-                <img src="imagens/logo.png" class="img-logo" alt="Vintélo">
-            </a>
-            <nav>
-                <a href="/categorias">Vestidos</a>
-                <a href="/categorias">Saias</a>
-                <a href="/categorias">Blusas</a>
-                <a href="/categorias">Calças</a>
-                <a href="/categorias">Outros</a>
-            </nav>
-            <section class="search-profile">
-                <form>
-                    <input type="text" placeholder="Buscar...">
-                </form>
-                <ul>
-                    <li><a href="/carrinho"><img src="imagens/icone saco.png" class="img-tamanho" alt="Sacola"></a></li>
-                    <li><a href="/perfilcliente"><img src="imagens/imagem sem cadastro.avif" class="maria" alt="Perfil"></a></li>
-                    <li><a href="#"><img src="imagens/icone coraçao.png" class="img-tamanho" alt="Favoritos"></a></li>
-                </ul>
-            </section>
-        </header>
-    </section>
+    <main class="carrinho">
+        <h1>Carrinho de Compras</h1>
+        <section class="shopping-cart dark">
+            <% if(carrinho){ %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Codigo Item</th>
+                            <th>Produto</th>
+                            <th>Imagem</th>
+                            <th>Quantidade</th>
+                            <th>Valor unitário</th>
+                            <th>excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% 
+                        var total=0; 
+                        carrinho.forEach(function(item){ 
+                            total += (item.qtde * item.preco); 
+                        %>
+                            <tr>
+                                <td>  <%= item.codproduto %> </td>
+                                <td>  <%= item.produto %>    </td>
+                                <td>  <img class="thumb-cart" src="<%= item.imagem %>" alt=""> </td>
+                                <td>
+                                    <a href="/addItem?id=<%= item.codproduto %>&preco=<%= item.preco %>">
+                                        <img class="icon-cart" src="imagem/add.png" alt=""></a>
+                                    <span class="qtde-cart"><%= item.qtde %></span>
+                                    <a href="/removeItem?id=<%= item.codproduto %>&qtde=1">
+                                        <img class="icon-cart" src="imagem/remov.png" alt=""></a>
+                                </td>
+                                <td> R$ <%= item.preco.toFixed(2) %> </td>
+                                <td>
+                                    <a href="/excluirItem?id=<%= item.codproduto %>">
+                                        <img src="imagem/excluir.png" alt="">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Sub total</td>
+                                <td colspan="4">R$ <%= (item.qtde * item.preco).toFixed(2); %> </td>
+                            </tr>
 
-    <main>
-        <!-- Lista de Itens do Carrinho -->
-        <section class="cart-items">
-            <h2>Seus Itens (<span id="items-count">2</span>)</h2>
-            
-            <section class="cart-item" data-id="1" data-price="60.00">
-                <section class="item-image">
-                    <img src="imagens/carrinho1.png" alt="Vestido Branco Longo">
-                </section>
-                <section class="item-details">
-                    <h3>Vestido Branco Longo</h3>
-                    <p class="item-info">Tamanho: M • Laviviana Brechó</p>
-                    <section class="item-controls">
-                        <section class="quantity-control">
-                            <button class="qty-btn" onclick="updateQuantity(1, -1)">-</button>
-                            <span class="qty-display">1</span>
-                            <button class="qty-btn" onclick="updateQuantity(1, 1)">+</button>
-                        </section>
-                        <button class="remove-btn" onclick="removeItem(1)">🗑️</button>
-                    </section>
-                </section>
-                <section class="item-price">
-                    <span class="price">R$ 60,00</span>
-                </section>
-            </section>
-
-            <section class="cart-item" data-id="2" data-price="45.00">
-                <section class="item-image">
-                    <img src="imagens/carrinho2.png" alt="Vestido Med Roxo">
-                </section>
-                <section class="item-details">
-                    <h3>Vestido Med Roxo</h3>
-                    <p class="item-info">Tamanho: P • Karine Brechó</p>
-                    <section class="item-controls">
-                        <section class="quantity-control">
-                            <button class="qty-btn" onclick="updateQuantity(2, -1)">-</button>
-                            <span class="qty-display">1</span>
-                            <button class="qty-btn" onclick="updateQuantity(2, 1)">+</button>
-                        </section>
-                        <button class="remove-btn" onclick="removeItem(2)">🗑️</button>
-                    </section>
-                </section>
-                <section class="item-price">
-                    <span class="price">R$ 45,00</span>
-                </section>
-            </section>
-
-            <!-- Estado Vazio -->
-            <section class="empty-cart" id="empty-cart" style="display: none;">
-                <img src="imagens/sacola vazia.png" alt="Carrinho vazio">
-                <h3>Seu carrinho está vazio</h3>
-                <p>Adicione produtos incríveis!</p>
-                <a href="/homecomprador" class="continue-btn">Continuar Comprando</a>
-            </section>
+                        <% 
+                        });
+                        %>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">Total</td>
+                            <td colspan="2">R$ <%= total.toFixed(2) %>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            <%
+            }
+            %>
+                <% if(autenticado.autenticado){%>
+                    <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Comprar</button>
+                <% }else {%>
+                        <p class="btn btn-warning btn-lg btn-block">Para comprar faça <a href="/login">Login</a></p>
+                <% }%>
         </section>
 
-        <!-- Resumo do Pedido -->
-        <section class="order-summary">
-            <h3>Resumo</h3>
-            <section class="summary-line">
-                <span>Subtotal</span>
-                <span>R$ <span id="subtotal">105,00</span></span>
-            </section>
-            <section class="summary-line">
-                <span>Frete</span>
-                <span id="shipping">Grátis</span>
-            </section>
-            <section class="summary-line total">
-                <span>Total</span>
-                <span>R$ <span id="total">105,00</span></span>
-            </section>
-            
-            <section class="coupon-section">
-                <input type="text" id="coupon-input" placeholder="Cupom de desconto">
-                <button onclick="applyCoupon()">Aplicar</button>
-            </section>
-            
-            <button class="checkout-btn" onclick="proceedToCheckout()">Finalizar Compra</button>
+
+        <section class="payment-form dark">
+            <div class="container_payment">
+                <div class="block-heading"> <h2>Checkout</h2> </div>
+                <div class="form-payment">
+                    <div class="products">
+                        <h2 class="title">Resumo do pedido</h2>
+                        <% 
+                        var total = 0; 
+                        carrinho.forEach(function(item){ 
+                            total +=(item.qtde * item.preco); 
+                        %>
+                            <div class="item">
+                                <span class="price hidden" id="summary-price">R$ <%= item.preco.toFixed(2) %> </span>
+                                <span class="price" id="subtot-price">R$ <%= (item.qtde * item.preco).toFixed(2) %> </span>
+                                <p class="item-name"> <%= item.produto %> 
+                                    (<span id="summary-quantity"> <%= item.qtde %>
+                                    </span>x R$ <%= item.preco.toFixed(2) %>) 
+                                </p>
+                            </div>
+                        <% }); %>
+                        <div class="total">
+                            <span class="price" id="summary-total">Total R$ <%= total.toFixed(2) %> </span>
+                        </div>
+                    </div>
+
+                    <div class="payment-details">
+                        <div class="form-group col-sm-12">
+                            <br>
+                            <div id="button-checkout"></div>
+                            <br>
+                            <a id="go-back">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 10 10"
+                                    class="chevron-left">
+                                    <path fill="#009EE3" fill-rule="nonzero" id="chevron_left"
+                                        d="M7.05 1.4L6.2.552 1.756 4.997l4.449 4.448.849-.848-3.6-3.6z"></path>
+                                </svg>
+                                Voltar ao carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Endereço -->
-        <section class="address-section">
-            <h3>Endereço de Entrega</h3>
-            <section class="address-options">
-                <section class="address-card current-location" onclick="getCurrentLocation()">
-                    <section class="location-icon">📍</section>
-                    <section class="address-info">
-                        <p class="address-title">Usar localização atual</p>
-                        <small class="address-subtitle">Detectar automaticamente</small>
-                    </section>
-                    <section class="location-status" id="location-status">📡</section>
-                </section>
-                <section class="address-card manual-address" onclick="addManualAddress()">
-                    <img src="imagens/mapa.png" alt="Endereço">
-                    <section class="address-info">
-                        <p class="address-title">Adicionar endereço</p>
-                        <small class="address-subtitle">Inserir manualmente</small>
-                    </section>
-                </section>
-            </section>
-            <section class="current-address" id="current-address" style="display: none;">
-                <section class="address-display">
-                    <section class="address-icon">🏠</section>
-                    <section class="address-details">
-                        <p class="address-text" id="address-text">Carregando...</p>
-                        <small class="address-distance">Entrega em até 2 dias úteis</small>
-                    </section>
-                    <button class="change-address" onclick="changeAddress()">Alterar</button>
-                </section>
-            </section>
-        </section>
-
-        <!-- Pagamento -->
-        <section class="payment-section">
-            <h3>Forma de Pagamento</h3>
-            <section class="payment-methods">
-                <button class="payment-btn" onclick="selectPayment('pix')" data-method="pix">
-                    <img src="imagens/pix.png" alt="PIX">
-                    <span>PIX</span>
-                    <small>Aprovação imediata</small>
-                </button>
-                <button class="payment-btn" onclick="selectPayment('card')" data-method="card">
-                    <img src="imagens/visa.png" alt="Cartão">
-                    <span>Cartão</span>
-                    <small>Até 12x sem juros</small>
-                </button>
-                <button class="payment-btn" onclick="selectPayment('boleto')" data-method="boleto">
-                    <img src="imagens/boleto.png" alt="Boleto">
-                    <span>Boleto</span>
-                    <small>Vence em 3 dias</small>
-                </button>
-            </section>
-            
-            <!-- Detalhes do PIX -->
-            <section class="payment-details pix-details" id="pix-details" style="display: none;">
-                <section class="pix-info">
-                    <section class="pix-icon">📱</section>
-                    <h4>Pagamento via PIX</h4>
-                    <p>Transferência instantânea e segura</p>
-                    <section class="pix-benefits">
-                        <span class="benefit">✓ Aprovação imediata</span>
-                        <span class="benefit">✓ Sem taxas</span>
-                        <span class="benefit">✓ Disponível 24h</span>
-                    </section>
-                </section>
-            </section>
-            
-            <!-- Detalhes do Cartão -->
-            <section class="payment-details card-details" id="card-details" style="display: none;">
-                <section class="card-form">
-                    <h4>Dados do Cartão</h4>
-                    <section class="form-row">
-                        <input type="text" placeholder="Número do cartão" maxlength="19" id="card-number">
-                        <section class="card-icons">
-                            <img src="imagens/visa.png" alt="Visa">
-                        </section>
-                    </section>
-                    <section class="form-row-split">
-                        <input type="text" placeholder="MM/AA" maxlength="5" id="card-expiry">
-                        <input type="text" placeholder="CVV" maxlength="3" id="card-cvv">
-                    </section>
-                    <input type="text" placeholder="Nome no cartão" id="card-name">
-                    <section class="installments">
-                        <label>Parcelas:</label>
-                        <select id="installments-select">
-                            <option value="1">1x de R$ 105,00 (sem juros)</option>
-                            <option value="2">2x de R$ 52,50 (sem juros)</option>
-                            <option value="3">3x de R$ 35,00 (sem juros)</option>
-                            <option value="6">6x de R$ 17,50 (sem juros)</option>
-                            <option value="12">12x de R$ 8,75 (sem juros)</option>
-                        </select>
-                    </section>
-                </section>
-            </section>
-            
-            <!-- Detalhes do Boleto -->
-            <section class="payment-details boleto-details" id="boleto-details" style="display: none;">
-                <section class="boleto-info">
-                    <section class="boleto-icon">🏦</section>
-                    <h4>Pagamento via Boleto</h4>
-                    <p>Pague em qualquer banco, lotérica ou app</p>
-                    <section class="boleto-warning">
-                        <span class="warning-icon">⚠️</span>
-                        <span>Prazo de pagamento: 3 dias úteis</span>
-                    </section>
-                    <section class="boleto-benefits">
-                        <span class="benefit">✓ Sem necessidade de conta bancária</span>
-                        <span class="benefit">✓ Pague em qualquer lugar</span>
-                    </section>
-                </section>
-            </section>
-        </section>
-
-        <!-- Sugestões -->
-        <section class="suggestions">
-            <h3>Você pode gostar</h3>
-            <section class="carousel-container">
-                <section class="carousel-wrapper">
-                    <section class="carousel-track">
-                        <section class="suggestion-item">
-                            <img src="imagens/vestido branco.png" alt="Vestido Branco">
-                            <h4>Vestido Branco</h4>
-                            <p>R$ 55,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                        <section class="suggestion-item">
-                            <img src="imagens/saia preta.png" alt="Saia Preta">
-                            <h4>Saia Preta</h4>
-                            <p>R$ 30,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                        <section class="suggestion-item">
-                            <img src="imagens/vestido rosa.png" alt="Vestido Rosa">
-                            <h4>Vestido Rosa</h4>
-                            <p>R$ 48,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                        <section class="suggestion-item">
-                            <img src="imagens/cropped rosa.png" alt="Cropped Rosa">
-                            <h4>Cropped Rosa</h4>
-                            <p>R$ 25,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                        <section class="suggestion-item">
-                            <img src="imagens/conjunto.png" alt="Conjunto Bege">
-                            <h4>Conjunto Bege</h4>
-                            <p>R$ 65,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                        <section class="suggestion-item">
-                            <img src="imagens/vestido roxo.png" alt="Vestido Roxo">
-                            <h4>Vestido Roxo</h4>
-                            <p>R$ 42,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                        <section class="suggestion-item">
-                            <img src="imagens/regata branca.png" alt="Regata Branca">
-                            <h4>Regata Branca</h4>
-                            <p>R$ 22,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                        <section class="suggestion-item">
-                            <img src="imagens/saia longa bege.png" alt="Saia Longa Bege">
-                            <h4>Saia Longa Bege</h4>
-                            <p>R$ 38,00</p>
-                            <button onclick="addSuggestion()">Adicionar</button>
-                        </section>
-                    </section>
-                </section>
-            </section>
-        </section>
     </main>
+    <footer>
 
-        <!--                                                    Rodapé                                                      -->
-        <footer class="footer">
-            <img src="imagens/logo2.jpeg" alt="Imagem do Rodapé" class="footer-image">
-            <section class="social-media">
-              <p class="p-footer">Siga nossas redes sociais</p>
-              <ul class="social-links">
-                <li><a href="https://facebook.com" target="_blank" class="social-link"><img src="imagens/Facebook.png"
-                      alt="Facebook"></a></li>
-                <li><a href="https://twitter.com" target="_blank" class="social-link"><img src="imagens/Pinterest.png"
-                      alt="Pinterest"></a></li>
-                <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link"><img
-                      src="imagens/Instagram.png" alt="Instagram"></a></li>
-              </ul>
-            </section>
-            <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
-          </footer>
-
-    <script src="script/carrinho.js"></script>
+    </footer>
 </body>
-</html>
