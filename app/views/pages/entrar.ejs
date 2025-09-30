@@ -12,46 +12,7 @@
     
   </head>
   <body>
-       <% 
-    let msgErro = "";
-    let avisoErro = {"nome_usu":"", "senha_usu":"",nomeusu_usu:"", senha_usu:""};
-    if(listaErros){
-        listaErros.errors.forEach(function(itemErro){
-            if(itemErro.path == "nome_usu"){
-                avisoErro.nome_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "senha_usu"){
-                avisoErro.senha_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "nomeusu_usu"){
-                avisoErro.nomeusu_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "email_usu"){
-                avisoErro.email_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-        })        
-        if(msgErro != ""){
-        %>
-        <script>
-                let msgErro ="<%= msgErro %>"
-                notify("Erro(s) no preenchimento","Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"),
-                 "error", "center", 5000)                        
-            </script>
-        <%
-        }
-    }
-    if (dadosNotificacao) { %>
-        <script>
-                notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                if("<%= dadosNotificacao.tipo %>" == "success"){
-                    setTimeout(function(){window.location="/sair"}, 3000)
-                }                        
-        </script>
-    <% } %>
+
     <header>
       <nav class="grid">
         <a href="/cadastro">

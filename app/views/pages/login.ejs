@@ -36,22 +36,22 @@
         <form id="registerForm" action="/login" method="post">
             <section class="form-group">
                 <label for="nome_usu">Nome Completo</label>
-                <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome">
+                <input type="nome_usu" id="nome_usu" name="nome_usu" placeholder="Digite seu nome">
             </section>
             
             <section class="form-group">
                 <label for="nomeusu_usu">Nome de Usuário</label>
-                <input type="text" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário">
+                <input type="nomeusu_usu" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite seu nome de usuário">
             </section>
             
             <section class="form-group">
                 <label for="email_usu">Endereço de email</label>
-                <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com">
+                <input type="email_usu" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" value="<%= valores.email_usu %>" class="<%= avisoErro.email_usu %>">
             </section>
          
             <section class="form-group">
                 <label for="senha_usu">Senha</label>
-                <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha...">
+                <input type="senha_usu" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." value="<%= valores.senha_usu %>" class="<%= avisoErro.senha_usu %>">
             </section>
             <br>
             <br>

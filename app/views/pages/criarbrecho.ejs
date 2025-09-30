@@ -15,46 +15,7 @@
 </head>
 
 <body>
-    <% 
-    let msgErro = "";
-    let avisoErro = {"nome_usu":"", "senha_usu":"",nomeusu_usu:"", senha_usu:""};
-    if(listaErros){
-        listaErros.errors.forEach(function(itemErro){
-            if(itemErro.path == "nome_usu"){
-                avisoErro.nome_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "senha_usu"){
-                avisoErro.senha_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "nomeusu_usu"){
-                avisoErro.nomeusu_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "email_usu"){
-                avisoErro.email_usu = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-        })        
-        if(msgErro != ""){
-        %>
-        <script>
-                let msgErro ="<%= msgErro %>"
-                notify("Erro(s) no preenchimento","Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"),
-                 "error", "center", 5000)                        
-            </script>
-        <%
-        }
-    }
-    if (dadosNotificacao) { %>
-        <script>
-                notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                if("<%= dadosNotificacao.tipo %>" == "success"){
-                    setTimeout(function(){window.location="/sair"}, 3000)
-                }                        
-        </script>
-    <% } %>
+
     <section class="oculto-desktop">
         <header>
             <nav class="grid">
@@ -132,37 +93,37 @@
                 <form id="registerForm" action="/criarbrecho" method="post"  enctype="multipart/form-data">
                     <section class="form-group">
                         <label for="nomeusu_usu">Nome do Brechó</label>
-                        <input type="nomeusu_usu" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite o nome do brechó" value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>>
+                        <input type="text" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite o nome do brechó">
                     </section>
 
                     <section class="form-group">
                         <label for="email_usu">Endereço de email</label>
-                        <input type="email_usu" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com" value="<%= valores.email_usu %>" class="<%= avisoErro.email_usu %>>
+                        <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com">
                     </section>
 
                     <section class="form-group">
                         <label for="nome_usu">Nome Completo</label>
-                        <input type="nome_usu" id="nome_usu" name="nome_usu" placeholder="Digite seu nome" value="<%= valores.nome_usu %>" class="<%= avisoErro.nome_usu %>>
+                        <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome">
                     </section>
 
                     <section class="form-group">
                         <label for="senha_usu">Senha</label>
-                        <input type="senha_usu" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." value="<%= valores.senha_usu %>" class="<%= avisoErro.senha_usu %>>
+                        <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha...">
                     </section>
 
                     <section class="form-group">
-                        <label for="senha_usu">Confirmar Senha</label>
-                        <input type="senha_usu" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..." value="<%= valores.senha_usu %>" class="<%= avisoErro.senha_usu %>>
+                        <label for="confirmar_senha">Confirmar Senha</label>
+                        <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Digite sua senha...">
                     </section>
 
                     <section class="form-group">
                         <label for="fone_usu">Contato</label>
-                        <input type="fone_usu" id="fone_usu" name="fone_usu" placeholder="(**) *****-****" value="<%= valores.fone_usu %>" class="<%= avisoErro.fone_usu %>>
+                        <input type="tel" id="fone_usu" name="fone_usu" placeholder="(**) *****-****">
                     </section>
 
                     <section class="form-group">
                         <label for="cep">CEP</label>
-                        <input type="cep" id="cep" name="cep" placeholder="00000-000" maxlength="9" oninput="mascaraCEP(this)" required>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required>
                     </section>
 
                     <section class="form-group">
