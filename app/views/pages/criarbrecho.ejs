@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vintélo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+    <script src="../../public/script/script.js"></script>
     <link rel="stylesheet" href="css/criarbrecho.css">
 
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
@@ -12,6 +15,46 @@
 </head>
 
 <body>
+    <% 
+    let msgErro = "";
+    let avisoErro = {"nome_usu":"", "senha_usu":"",nomeusu_usu:"", senha_usu:""};
+    if(listaErros){
+        listaErros.errors.forEach(function(itemErro){
+            if(itemErro.path == "nome_usu"){
+                avisoErro.nome_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "senha_usu"){
+                avisoErro.senha_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "nomeusu_usu"){
+                avisoErro.nomeusu_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "email_usu"){
+                avisoErro.email_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+        })        
+        if(msgErro != ""){
+        %>
+        <script>
+                let msgErro ="<%= msgErro %>"
+                notify("Erro(s) no preenchimento","Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"),
+                 "error", "center", 5000)                        
+            </script>
+        <%
+        }
+    }
+    if (dadosNotificacao) { %>
+        <script>
+                notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                if("<%= dadosNotificacao.tipo %>" == "success"){
+                    setTimeout(function(){window.location="/sair"}, 3000)
+                }                        
+        </script>
+    <% } %>
     <section class="oculto-desktop">
         <header>
             <nav class="grid">
@@ -175,9 +218,7 @@
     </main>
 
     <script src="script/cep.js"></script>
-    <!-- <script src="script/validacao-brecho.js"></script> -->
-
-    <!-- <script src="js/script.js"></script> -->
+   
     
     <script>
         function handleProfilePhotoUpload(input) {
