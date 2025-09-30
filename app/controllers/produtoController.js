@@ -19,7 +19,7 @@ const hqController = {
             autenticado: req.session.autenticado,
             login: req.session.logado,
             listaProdutos: results,
-            carrinho: req.session.carrinho
+            carrinho: req.session.carrinho,
         });
     },
 
