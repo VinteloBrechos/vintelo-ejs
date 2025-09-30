@@ -329,11 +329,11 @@ router.get('/continuarcadastro', function(req, res){
 })
 
 router.get('/home-adm', function(req, res){
-    res.render('pages/home-adm');
+    res.render('pages/homeadm');
 })
 
 router.get('/adm', function(req, res){
-    res.render('pages/home-adm');
+    res.render('pages/homeadm');
 })
 
 module.exports = router;
