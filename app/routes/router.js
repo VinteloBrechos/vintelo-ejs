@@ -271,7 +271,6 @@ router.post('/criarbrecho', async function(req, res){
     
     console.log('Dados do brechó recebidos:', req.body);
     
-    // Validação básica
     if (!nomeusu_usu || !email_usu || !nome_usu || !senha_usu || !fone_usu) {
         return res.render('pages/criarbrecho', {
             erro: 'Todos os campos obrigatórios devem ser preenchidos',
@@ -279,7 +278,6 @@ router.post('/criarbrecho', async function(req, res){
         });
     }
     
-    // Verificar se senhas coincidem
     if (senha_usu !== confirmar_senha) {
         return res.render('pages/criarbrecho', {
             erro: 'As senhas não coincidem',
