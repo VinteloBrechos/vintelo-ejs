@@ -1,4 +1,5 @@
 const usuario = require("../models/usuarioModel");
+const tipoUsuario = require("../models/tipoUsuarioModel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
@@ -88,28 +89,43 @@ const usuarioController = {
     },
 
 
-    cadastrar: (req, res) => {
+    cadastrar: async (req, res) => {
         const erros = validationResult(req);
+        
+        const tipoCliente = await tipoUsuario.findByTipo('cliente');
+        
         var dadosForm = {
             USER_USUARIO: req.body.nomeusu_usu,
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
             NOME_USUARIO: req.body.nome_usu,
             EMAIL_USUARIO: req.body.email_usu,
+            CELULAR_USUARIO: req.body.fone_usu || null,
+            CEP_USUARIO: req.body.cep ? req.body.cep.replace("-", "") : null,
+            NUMERO_USUARIO: req.body.numero || null,
+            TIPO_USUARIO: tipoCliente.length > 0 ? tipoCliente[0].ID_TIPO_USUARIO : 2,
+            STATUS_USUARIO: 1
         };
+        
         if (!erros.isEmpty()) {
-            return res.render("pages/homecomprador", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
+        
         try {
-            let create = usuario.create(dadosForm);
-            res.render("pages/homecomprador", {
-                listaErros: null, dadosNotificacao: {
-                    titulo: "Cadastro realizado!", mensagem: "Novo usuário criado com sucesso!", tipo: "success"
-                }, valores: req.body
-            })
+            let create = await usuario.create(dadosForm);
+            if (create && create.insertId) {
+                req.session.autenticado = {
+                    autenticado: dadosForm.NOME_USUARIO,
+                    id: create.insertId,
+                    tipo: dadosForm.TIPO_USUARIO,
+                    nome: dadosForm.NOME_USUARIO,
+                    email: dadosForm.EMAIL_USUARIO
+                };
+                res.redirect('/perfilvender');
+            }
         } catch (e) {
             console.log(e);
             res.render("pages/cadastro", {
-                listaErros: erros, dadosNotificacao: {
+                listaErros: null, dadosNotificacao: {
                     titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
                 }, valores: req.body
             })
@@ -134,14 +150,18 @@ const usuarioController = {
             }
 
             let campos = {
-                nome_usu: results[0].NOME_USUARIO, EMAIL_USUARIO: results[0].EMAIL_USUARIO,
-                cep:  CEP_USUARIO, 
+                nome_usu: results[0].NOME_USUARIO, 
+                EMAIL_USUARIO: results[0].EMAIL_USUARIO,
+                cep: cep, 
                 numero: results[0].NUMERO_USUARIO,
-                complemento: results[0].COMPLEMENTO_USUARIO, logradouro: viaCep.logradouro,
-                bairro: viaCep.bairro, localidade: viaCep.localidade, uf: viaCep.uf,
-                img_perfil_pasta: results[0].img_perfil_pasta,
-                img_perfil_banco: results[0].img_perfil_banco != null ? `data:image/jpeg;base64,${results[0].img_perfil_banco.toString('base64')}` : null,
-                nomeusu_usu: results[0].USER_USUARIO, fone_usu: results[0].CELULAR_USUARIO, senha_usu: ""
+                logradouro: viaCep.logradouro,
+                bairro: viaCep.bairro, 
+                localidade: viaCep.localidade, 
+                uf: viaCep.uf,
+                img_perfil_pasta: results[0].IMAGEM_USUARIO,
+                nomeusu_usu: results[0].USER_USUARIO, 
+                fone_usu: results[0].CELULAR_USUARIO, 
+                senha_usu: ""
             }
 
             res.render("pages/perfilvender", { listaErros: null, dadosNotificacao: null, valores: campos })
@@ -173,12 +193,11 @@ const usuarioController = {
                 USER_USUARIO: req.body.nomeusu_usu,
                 NOME_USUARIO: req.body.nome_usu,
                 EMAIL_USUARIO: req.body.email_usu,
-                CELULAR_USUARIO_U: req.body.fone_usu,
+                CELULAR_USUARIO: req.body.fone_usu,
                 CEP_USUARIO: req.body.cep.replace("-",""),
                 NUMERO_USUARIO: req.body.numero,
                 COMPLEMENTO_USUARIO: req.body.complemento,
-                IMG_PERFIL_BANCO: req.session.autenticado.img_perfil_banco,
-                IMG_PERFIL_PASTA: req.session.autenticado.img_perfil_pasta,
+                IMAGEM_USUARIO: req.session.autenticado.imagem_usuario || null,
             };
             if (req.body.senha_usu != "") {
                 dadosForm.SENHA_USUARIO = bcrypt.hashSync(req.body.senha_usu, salt);
@@ -189,11 +208,10 @@ const usuarioController = {
                
                 caminhoArquivo = "imagem/perfil/" + req.file.filename;
               
-                if(dadosForm.IMG_PERFIL_PASTA != caminhoArquivo ){
-                    removeImg(dadosForm.IMG_PERFIL_PASTA);
+                if(dadosForm.IMAGEM_USUARIO != caminhoArquivo ){
+                    removeImg(dadosForm.IMAGEM_USUARIO);
                 }
-                dadosForm.img_perfil_pasta = caminhoArquivo;
-                dadosForm.img_perfil_banco = null;
+                dadosForm.IMAGEM_USUARIO = caminhoArquivo;
 
             }
             let resultUpdate = await usuario.update(dadosForm, req.session.autenticado.id);
@@ -203,15 +221,17 @@ const usuarioController = {
                     var autenticado = {
                         autenticado: result[0].NOME_USUARIO,
                         id: result[0].ID_USUARIO,
-                        tipo: result[0].ID_TIPO_USUARIO,
-                        img_perfil_banco: result[0].IMG_PERFIL_BANCO != null ? `data:image/jpeg;base64,${result[0].img_perfil_banco.toString('base64')}` : null,
-                        img_perfil_pasta: result[0].IMG_PERFIL_PASTA
+                        tipo: result[0].TIPO_USUARIO,
+                        imagem_usuario: result[0].IMAGEM_USUARIO
                     };
                     req.session.autenticado = autenticado;
                     var campos = {
-                        nome_usu: result[0].NOME_USUARIO, EMAIL_USUARIO: result[0].EMAIL_USUARIO,
-                        img_perfil_pasta: result[0].IMG_PERFIL_PASTA, IMG_PERFIL_BANCO: result[0].IMG_PERFIL_BANCO,
-                        nomeusu_usu: result[0].USER_USUARIO, fone_usu: result[0].CELULAR_USUARIO, senha_usu: ""
+                        nome_usu: result[0].NOME_USUARIO, 
+                        EMAIL_USUARIO: result[0].EMAIL_USUARIO,
+                        imagem_usuario: result[0].IMAGEM_USUARIO,
+                        nomeusu_usu: result[0].USER_USUARIO, 
+                        fone_usu: result[0].CELULAR_USUARIO, 
+                        senha_usu: ""
                     }
                     res.render("pages/homecomprador", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
                 }else{

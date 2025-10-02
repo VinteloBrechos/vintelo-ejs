@@ -4,11 +4,7 @@ var pool = require("../config/pool_conexoes");
 const produtoModel = {
     findAll: async (id = null) => {
         try {
-            const [resultados] = await pool.query("SELECT h.ID_PRODUTO, h.NOME_PRODUTO, h.DESCRICAO_PRODUTO, h.IMAGEM_PRODUTO, " +
-                " h.PRECO_PRODUTO, h.STATUS_PRODUTOS, IF(f.PRODUTO_ID_PRODUTO > 0, 'favorito', 'favoritar') as favorito  " +
-                " FROM PRODUTOS h " +
-                " left join favorito f " +
-                " on ((h.ID_PRODUTO = f.PRODUTO_ID_PRODUTO and f.USUARIO_ID_USUARIO = ?) and f.STATUS_USUARIO =1)", [id]);
+            const [resultados] = await pool.query("SELECT h.ID_PROD, h.NOME_PROD, h.PRECO_PRODUTO, h.STATUS_PRODUTO, IF(f.ID_PROD > 0, 'favorito', 'favoritar') as FAVORITOS FROM PRODUTOS h  left join FAVORITOS f on ((h.ID_PROD = f.PRODUTOS_ID_PRODUTO and f.ID_USUARIO = NULL) )", [id]);
                 return resultados;
         } catch (error) {
             console.log(error);
@@ -18,7 +14,7 @@ const produtoModel = {
 
     findID: async (id) => {
         try {
-            const [resultados] = await pool.query("SELECT * FROM PRODUTOS where ID_PRODUTO = ? ", [id]);
+            const [resultados] = await pool.query("SELECT * FROM PRODUTOS where ID_PROD = ? ", [id]);
             return resultados;
         } catch (error) {
             console.log(error);
@@ -62,7 +58,7 @@ const produtoModel = {
 
     update: async (camposJson, id) => {
         try {
-            const [resultados] = await pool.query("UPDATE PRODUTOS SET ? WHERE ID_PRODUTOS = ?", [camposJson, id])
+            const [resultados] = await pool.query("UPDATE PRODUTOS SET ? WHERE ID_PROD = ?", [camposJson, id])
             return resultados;
         } catch (error) {
             console.log(error);
@@ -73,7 +69,7 @@ const produtoModel = {
 
     delete: async (id) => {
         try {
-            const [resultados] = await pool.query("UPDATE PRODUTOS SET STATUS_PRODUTOS = 0 WHERE ID_PRODUTO = ?", [id]);
+            const [resultados] = await pool.query("UPDATE PRODUTOS SET STATUS_PRODUTOS = 0 WHERE ID_PROD = ?", [id]);
             return resultados;
         } catch (error) {
             console.log(error);

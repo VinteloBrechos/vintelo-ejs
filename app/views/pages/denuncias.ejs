@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denúncias - Vintélo Admin</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/denuncias.css">
+    <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header Mobile -->
+    <section class="oculto-desktop">
+        <header>
+            <nav class="grid">
+                <a href="/homeadm">
+                    <img src="imagens/seta.png" alt="Voltar">
+                </a>
+                <img src="imagens/logo.png" alt="Logo">
+                <img src="imagens/quadrado.png" class="img-branca">
+            </nav>
+        </header>
+    </section>
+
+    <!-- Header Desktop -->
+    <section class="oculto-mobile">
+        <section class="discount-banner">
+            <span class="highlight">Painel Administrativo - Denúncias</span>
+        </section>
+        <header class="main-header">
+            <a href="/homeadm">
+                <img src="imagens/logo.png" class="img-logo">
+            </a>
+            <nav>
+                <a href="/homeadm">Voltar</a>
+            </nav>
+        </header>
+    </section>
+
+    <main class="admin-container">
+        <section class="admin-header">
+            <h1>Gerenciar Denúncias</h1>
+            <p>Visualize e gerencie denúncias de usuários e perfis</p>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filters-section">
+            <select class="filter-select">
+                <option value="todas">Todas as denúncias</option>
+                <option value="pendentes">Pendentes</option>
+                <option value="analisadas">Analisadas</option>
+                <option value="resolvidas">Resolvidas</option>
+            </select>
+            <select class="filter-select">
+                <option value="todos">Todos os tipos</option>
+                <option value="perfil">Perfil inadequado</option>
+                <option value="produto">Produto irregular</option>
+                <option value="comportamento">Comportamento</option>
+            </select>
+        </section>
+
+        <!-- Lista de Denúncias -->
+        <section class="denuncias-list">
+            <!-- Denúncia 1 -->
+            <article class="denuncia-card">
+                <section class="denuncia-header">
+                    <span class="status-badge pendente">Pendente</span>
+                    <span class="data">15/12/2024</span>
+                </section>
+                
+                <section class="denuncia-content">
+                    <section class="perfil-denunciado">
+                        <img src="imagens/brecho1.png" alt="Perfil" class="perfil-img">
+                        <section class="perfil-info">
+                            <h3>@mayte_brechó</h3>
+                            <p>Mayte Silva</p>
+                            <span class="tipo-usuario">Vendedor</span>
+                        </section>
+                    </section>
+                    
+                    <section class="denuncia-detalhes">
+                        <h4>Tipo: Perfil inadequado</h4>
+                        <p class="motivo">Usuário está vendendo produtos falsificados e usando imagens de outros perfis.</p>
+                        <p class="denunciante">Denunciado por: @maria_cliente</p>
+                    </section>
+                </section>
+                
+                <section class="denuncia-actions">
+                    <button class="btn-analisar" onclick="analisarDenuncia(1)">Analisar</button>
+                    <button class="btn-resolver" onclick="resolverDenuncia(1)">Resolver</button>
+                    <button class="btn-rejeitar" onclick="rejeitarDenuncia(1)">Rejeitar</button>
+                </section>
+            </article>
+
+            <!-- Denúncia 2 -->
+            <article class="denuncia-card">
+                <section class="denuncia-header">
+                    <span class="status-badge analisada">Em análise</span>
+                    <span class="data">14/12/2024</span>
+                </section>
+                
+                <section class="denuncia-content">
+                    <section class="perfil-denunciado">
+                        <img src="imagens/brecho2.png" alt="Perfil" class="perfil-img">
+                        <section class="perfil-info">
+                            <h3>@karine_vintage</h3>
+                            <p>Karine Santos</p>
+                            <span class="tipo-usuario">Vendedor</span>
+                        </section>
+                    </section>
+                    
+                    <section class="denuncia-detalhes">
+                        <h4>Tipo: Comportamento inadequado</h4>
+                        <p class="motivo">Vendedor está sendo agressivo com clientes nos comentários e não entrega produtos.</p>
+                        <p class="denunciante">Denunciado por: @ana_compras</p>
+                    </section>
+                </section>
+                
+                <section class="denuncia-actions">
+                    <button class="btn-analisar" onclick="analisarDenuncia(2)">Analisar</button>
+                    <button class="btn-resolver" onclick="resolverDenuncia(2)">Resolver</button>
+                    <button class="btn-rejeitar" onclick="rejeitarDenuncia(2)">Rejeitar</button>
+                </section>
+            </article>
+
+            <!-- Denúncia 3 -->
+            <article class="denuncia-card">
+                <section class="denuncia-header">
+                    <span class="status-badge resolvida">Resolvida</span>
+                    <span class="data">12/12/2024</span>
+                </section>
+                
+                <section class="denuncia-content">
+                    <section class="perfil-denunciado">
+                        <img src="imagens/icone sem cadastro.png" alt="Perfil" class="perfil-img">
+                        <section class="perfil-info">
+                            <h3>@joao_cliente</h3>
+                            <p>João Oliveira</p>
+                            <span class="tipo-usuario">Comprador</span>
+                        </section>
+                    </section>
+                    
+                    <section class="denuncia-detalhes">
+                        <h4>Tipo: Comportamento inadequado</h4>
+                        <p class="motivo">Cliente fazendo comentários ofensivos em produtos de vendedores.</p>
+                        <p class="denunciante">Denunciado por: @loja_vintage</p>
+                        <p class="resolucao"><strong>Resolução:</strong> Usuário advertido e comentários removidos.</p>
+                    </section>
+                </section>
+                
+                <section class="denuncia-actions">
+                    <span class="status-text">Caso resolvido</span>
+                </section>
+            </article>
+
+            <!-- Denúncia 4 -->
+            <article class="denuncia-card">
+                <section class="denuncia-header">
+                    <span class="status-badge pendente">Pendente</span>
+                    <span class="data">13/12/2024</span>
+                </section>
+                
+                <section class="denuncia-content">
+                    <section class="perfil-denunciado">
+                        <img src="imagens/brecho1.png" alt="Perfil" class="perfil-img">
+                        <section class="perfil-info">
+                            <h3>@vintage_store</h3>
+                            <p>Loja Vintage</p>
+                            <span class="tipo-usuario">Vendedor</span>
+                        </section>
+                    </section>
+                    
+                    <section class="denuncia-detalhes">
+                        <h4>Tipo: Produto irregular</h4>
+                        <p class="motivo">Vendendo produtos com preços abusivos e descrições enganosas.</p>
+                        <p class="denunciante">Denunciado por: @cliente_insatisfeito</p>
+                    </section>
+                </section>
+                
+                <section class="denuncia-actions">
+                    <button class="btn-analisar" onclick="analisarDenuncia(4)">Analisar</button>
+                    <button class="btn-resolver" onclick="resolverDenuncia(4)">Resolver</button>
+                    <button class="btn-rejeitar" onclick="rejeitarDenuncia(4)">Rejeitar</button>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        function analisarDenuncia(id) {
+            alert(`Iniciando análise da denúncia ${id}`);
+        }
+
+        function resolverDenuncia(id) {
+            const resolucao = prompt('Digite a resolução da denúncia:');
+            if (resolucao) {
+                alert(`Denúncia ${id} resolvida: ${resolucao}`);
+            }
+        }
+
+        function rejeitarDenuncia(id) {
+            if (confirm(`Tem certeza que deseja rejeitar a denúncia ${id}?`)) {
+                alert(`Denúncia ${id} rejeitada`);
+            }
+        }
+    </script>
+
+    <footer class="footer">
+        <img src="imagens/logo2.jpeg" alt="Imagem do Rodapé" class="footer-image">
+        <section class="social-media">
+            <p class="p-footer">Painel Administrativo</p>
+        </section>
+        <p class="copyright">©2024 Vintélo Admin. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

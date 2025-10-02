@@ -39,7 +39,7 @@ var pool = require("../config/pool_conexoes");
         createItemPedido: async (camposJson) => {
             try {
                 const [resultados] = await pool.query(
-                    "insert into ITEM_PEDIDO set ?",
+                    "insert into PEDIDOS SET? ",
                     [camposJson]
                 )
                 return resultados;

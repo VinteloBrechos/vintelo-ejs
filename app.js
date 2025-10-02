@@ -14,7 +14,7 @@ app.use(
   })
 );
 
-const PORT = process.env.APP_PORT || 3000;
+// const PORT = process.env.APP_PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 app.set('view engine', 'ejs');
@@ -28,6 +28,6 @@ app.use("/", rotas);
 
 console.log("teste");
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${APP_PORT}`);
+app.listen(process.env.APP_PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${process.env.APP_PORT}`);
 }); 

@@ -72,27 +72,28 @@
             <aside class="sidebar-menu">
               <ul>
                 <li>
-                  <a href="/iformacao.ejs"><img src="imagens/icone informaçao.png" class ="Informação da conta"></a>
-                  Informação da conta
+                  <a href="/vistoriapedidos"><img src="imagens/caminhao.png" class="vistoria-pedidos"></a>
+                  Vistoria de Pedidos
                 </li>
                 <li>
-                  <a href="/favoritos"><img src="imagens/coraçao de fav.png" class ="Favoritos"></a>
-                  Favoritos
+                  <a href="/vistoriaprodutos"><img src="imagens/icone sacola.png" class="vistoria-produtos"></a>
+                  Vistoria de Produtos
                 </li>
                 <li>
-                  <a href="/sacola1"><img src="imagens/icone sacola.png" class ="Sacola"></a>
-                  Sacola
+                  <a href="/administradorperfis"><img src="imagens/icone sem cadastro.png" class="admin-perfis"></a>
+                  Administrador de Perfis
                 </li>
                 <li>
-                  <a href="/minhascompras"><img src="imagens/caminhao.png" class="minhas-compras"></a>
-                  Minhas compras
+                  <a href="/denuncias"><img src="imagens/icone informaçao.png" class="denuncias"></a>
+                  Denúncias
+                </li>
+
+                <li>
+                  <a href="/perfilpremium"><img src="imagens/coraçao de fav.png" class="perfil-premium"></a>
+                  Perfil Premium
                 </li>
                 <li>
-                  <a href="#"><img src="imagens/cartao.png" class ="Meus cartões"></a>
-                  Meus cartões
-                </li>
-                <li>
-                  <a href="/blog"><img src="imagens/icone blog.png" class ="Blog"></a>
+                  <a href="/blog"><img src="imagens/icone blog.png" class="blog"></a>
                   Blog
                 </li>
               </ul>
@@ -126,7 +127,8 @@
 
       <!--                           Carrossel de banners  mobile                                          -->
       <section class="oculto-mobile">
-        <section class="carousel-container">
+        <section class="carousel-container" style="position: relative;">
+          <a href="/editarbanners" style="position: absolute; top: 20px; left: 20px; background: #7d2838; color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; font-size: 18px; font-weight: bold; z-index: 10;">Alterar Banners</a>
           <section class="carousel-slide">
             <img src="imagens/banner outono.png" alt="Imagem 1">
             <img src="imagens/banner desk.png" alt="Imagem 2">
@@ -140,7 +142,8 @@
       <!--                           Carrossel de banners  desktop                                   -->
    
       <section class="oculto-desktop">
-        <section class="carousel-container">
+        <section class="carousel-container" style="position: relative;">
+          <a href="/editarbanners" style="position: absolute; top: 15px; left: 15px; background: #7d2838; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-size: 16px; font-weight: bold; z-index: 10;">Alterar Banners</a>
           <section class="carousel-slide">
             <img src="imagens/banner outono mobile.png" alt="Imagem 1">
             <img src="imagens/banner primavera mobile.png" alt="Imagem 2">
@@ -152,25 +155,30 @@
         </section>
       </section>
       <!--                                      Carrossel das categorias                                              -->
-      <nav class="category-nav">
-
-        <br>
-
-        <span class="garimpe-text">Garimpe na</span><br>
-        <span class="vintelo-text">Vintélo</span>
-
       
+      <!--  Mobile -->
+      <nav class="category-nav category-nav-mobile">
+      <br>
+      <span class="garimpe-text">Garimpe na</span><br>
+      <span class="vintelo-text">Vintélo</span>
+      <br>
+      </nav>
 
-        <br>
+      <!-- Navegação Desktop -->
+      <nav class="category-nav category-nav-desktop">
+        <section class="garimpe-vintelo-container">
+          <span class="garimpe-text">Garimpe na</span><br>
+          <span class="vintelo-text">Vintélo</span>
+        </section>
+
         <section class="carousel-container">
           <ul>
             <li><a href="#" onclick="showSection('novidades')">Novidades</a></li>
             <li><a href="#" onclick="showSection('descontos')">Descontos</a></li>
             <li><a href="#" onclick="showSection('brechos')">Brechós</a></li>
             <li><a href="/categorias">Categorias</a></li>
-            <li><a href="#" onclick="showSection('plussize')">Plusize</a></li>
+            <li><a href="#" onclick="showSection('plussize')">Plus Size</a></li>
             <li><a href="#" onclick="showSection('reformadas')">Peças Reformadas</a></li>
-
           </ul>
         </section>
       </nav>
@@ -273,7 +281,10 @@
       <br>
       <br>
       <!--                                        Perfil dos Brechós                                              -->
-      <img src="imagens/encontre brechos.png" class="titulo-brecho">
+      <section class="titulo-brecho-section">
+        <span class="garimpe-text">Encontre</span><br>
+        <span class="vintelo-text">Brechós</span>
+      </section>
       <br>
       <br>
       <center>
@@ -423,7 +434,10 @@
         </section>
         <!--                                        Seção de artigos                                               -->
 
-        <img src="imagens/tendencias vintelo.png" class="titulo-artigo">
+        <section class="titulo-artigo-section">
+          <span class="garimpe-text">Tendências</span><br>
+          <span class="vintelo-text">Vintélo</span>
+        </section>
         <section class="artigos">
           <br>
           <a href="/cadastro"><img src="imagens/boss milão.png" class="img-Boss"></a>
@@ -456,7 +470,7 @@
       <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
     </footer>
 
-<script src="js/dinamica-home.js"></script>
+<script src="script/dinamicahome.js"></script>
 </body>
 
 </html>

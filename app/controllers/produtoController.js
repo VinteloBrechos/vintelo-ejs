@@ -9,7 +9,7 @@ const https = require('https');
 
 const { carrinho } = require("../util/carrinho");
 
-const hqController = {
+const produtoController = {
 
     listar: async (req, res) => {
         req.session.autenticado.login = req.query.login;

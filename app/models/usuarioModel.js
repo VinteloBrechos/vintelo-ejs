@@ -6,10 +6,10 @@ const usuarioModel = {
         try {
             const [resultados] = await pool.query(
                 "SELECT u.ID_USUARIO, u.NOME_USUARIO, u.USER_USUARIO, " +
-                "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, U.TIPO_USUARIO, " +
-                "u.STATUS_USUARIO, T.TIPO_USUARIO, T.DESCRICAO_USUARIO " +
-                "FROM USUARIOS u, TIPO_USUARIO t where u.STATUS_USUARIO = 1 and " + 
-                "u.TIPO_USUARIO = t.ID_TIPO_USUARIO"
+                "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, u.TIPO_USUARIO, " +
+                "u.STATUS_USUARIO, t.TIPO_USUARIO as NOME_TIPO, t.DESCRICAO_USUARIO " +
+                "FROM USUARIOS u INNER JOIN TIPO_USUARIO t ON u.TIPO_USUARIO = t.ID_TIPO_USUARIO " +
+                "WHERE u.STATUS_USUARIO = 1"
             );
             return resultados;
         } catch (error) {
@@ -48,10 +48,10 @@ const usuarioModel = {
             const [resultados] = await pool.query(
                 "SELECT u.ID_USUARIO, u.NOME_USUARIO, u.USER_USUARIO, " + 
                 "u.SENHA_USUARIO, u.EMAIL_USUARIO, u.CELULAR_USUARIO, u.TIPO_USUARIO, " +
-                "u.STATUS_USUARIO, u.NUMERO_USUARIO, u.CEP_USUARIO, u.IMAGEM_USUARIO," + 
-                " t.ID_TIPO_USUARIO, t.DESCRICAO_USUARIO " +
-                "FROM USUARIOS u, TIPO_USUARIO t where u.STATUS_USUARIO = 1 and " +
-                "u.TIPO_USUARIO = t.ID_TIPO_USUARIO and u.ID_USUARIO = ? ", [id]
+                "u.STATUS_USUARIO, u.NUMERO_USUARIO, u.CEP_USUARIO, u.IMAGEM_USUARIO, " + 
+                "t.ID_TIPO_USUARIO, t.DESCRICAO_USUARIO " +
+                "FROM USUARIOS u INNER JOIN TIPO_USUARIO t ON u.TIPO_USUARIO = t.ID_TIPO_USUARIO " +
+                "WHERE u.STATUS_USUARIO = 1 AND u.ID_USUARIO = ?", [id]
             )
             return resultados;
         } catch (error) {
@@ -63,8 +63,21 @@ const usuarioModel = {
     create: async (camposForm) => {
         try {
             const [resultados] = await pool.query(
-                "INSERT INTO USUARIOS (NOME_USUARIO, USER_USUARIO, EMAIL_USUARIO, SENHA_USUARIO, TIPO_USUARIO, STATUS_USUARIO) VALUES (?, ?, ?, ?, ?, ?)",
-                [camposForm.nome_usuario, camposForm.user_usuario, camposForm.email_usuario, camposForm.senha_usuario, camposForm.tipo_usuario, camposForm.status_usuario]
+                "INSERT INTO USUARIOS SET ?",
+                [camposForm]
+            )
+            return resultados;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    },
+
+    createBrecho: async (camposForm) => {
+        try {
+            const [resultados] = await pool.query(
+                "INSERT INTO BRECHOS (ID_BRECHO, CNPJ_BRECHO, RAZAO_SOCIAL, NOME_FANTASIA) VALUES (?, ?, ?, ?)",
+                [camposForm.ID_BRECHO, camposForm.CNPJ_BRECHO, camposForm.RAZAO_SOCIAL, camposForm.NOME_FANTASIA]
             )
             return resultados;
         } catch (error) {

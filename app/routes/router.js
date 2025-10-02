@@ -7,7 +7,7 @@ const {
   gravarUsuAutenticado,
 } = require("../models/autenticador_middleware");
 
-const { usuarioController } = require("../controllers/usuarioController");
+const usuarioController = require("../controllers/usuarioController");
 const { carrinhoController } = require("../controllers/carrinhoController");
 const { produtoController } = require("../controllers/produtoController");
 
@@ -66,44 +66,9 @@ router.get("/sair", limparSessao, function (req, res) {
   res.redirect("/");
 });
 
-router.post("/login", function (req, res) {
-  const { nomeusu_usu, senha_usu } = req.body;
-
-  if (nomeusu_usu === "nomeusu_usu" && senha_usu === "senha_usu") {
-    res.redirect("/homecomprador");
-  } else {
-    res.render("pages/homecomprador", {
-      listaErros: "Credenciais inválidas",
-      dadosNotificacao: null
-    });
-  }
-});
 
 
-router.post(
-  "/login",
-  usuarioController.regrasValidacaoFormLogin,
-  gravarUsuAutenticado,
-  function (req, res) {
-    usuarioController.logar(req, res);
-  }
-);
 
-router.get("/cadastro", function (req, res) {
-  res.render("pages/cadastro", {
-    listaErros: null,
-    dadosNotificacao: null,
-    valores: { nome_usu: "", nomeusu_usu: "", email_usu: "", senha_usu: "" },
-  });
-});
-
-router.post(
-  "/cadastro",
-  usuarioController.regrasValidacaoFormCad,
-  async function (req, res) {
-    usuarioController.cadastrar(req, res);
-  }
-);
 
 /*router.get(
   "/adm",
@@ -158,6 +123,13 @@ router.get('/produto4', function(req, res){
     res.render('pages/produto4');
 })
 
+router.get('/login', function(req, res){
+    res.render('pages/login', {
+        valores: {},
+        avisoErro: {}
+    });
+});
+
 router.get('/cadastro', function(req, res){
     res.render('pages/cadastro', {
         valores: {},
@@ -165,11 +137,12 @@ router.get('/cadastro', function(req, res){
     });
 });
 
-router.post("/cadastro", (req, res) => {
-    res.render("pages/cadastro", { 
-        valores: req.body || {},
-        avisoErro: {}
-    });
+router.post('/login', usuarioController.regrasValidacaoFormLogin, async function(req, res){
+    usuarioController.cadastrar(req, res);
+});
+
+router.post("/cadastro", usuarioController.regrasValidacaoFormCad, async function(req, res){
+    usuarioController.cadastrar(req, res);
 });
 
 router.get('/carrinho', function(req, res){
@@ -188,17 +161,27 @@ router.get('/perfil3', function(req, res){
     res.render('pages/perfil3');
 })
 
-/*router.get('/homecomprador', verificarUsuAutorizado([1, 2, 3], "pages/entrar"), function(req, res){
+router.get('/homecomprador', function(req, res){
     res.render('pages/homecomprador', {
         autenticado: req.session.autenticado
     });
 });
 
-router.get('/homevendedor', verificarUsuAutorizado([2, 3], "pages/entrar"), function(req, res){
+router.get('/homevendedor', function(req, res){
+    const brechoData = req.session.brecho || {
+        nome: 'Meu Brechó',
+        proprietario: 'Vendedor',
+        avaliacao: '0.0',
+        itens_venda: '0',
+        vendidos: '0',
+        seguidores: '0'
+    };
+    
     res.render('pages/homevendedor', {
+        brecho: brechoData,
         autenticado: req.session.autenticado
     });
-});*/
+});
 
 
 router.get('/adicionar', function(req, res){
@@ -254,18 +237,18 @@ router.get('/avaliasao', function(req, res){
 })
 
 router.get('/perfilvender', function(req, res){
-    
     const brechoData = {
-        nome: req.session.brecho_nome || 'Nome do Brechó',
-        imagem: req.session.brecho_imagem || null,
-        avaliacao: req.session.brecho_avaliacao || '0.0',
-        itens_venda: req.session.brecho_itens_venda || '0',
-        vendidos: req.session.brecho_vendidos || '0',
-        seguidores: req.session.brecho_seguidores || '0'
+        nome: (req.session.autenticado && req.session.autenticado.nome) || 'Nome do Brechó',
+        imagem: (req.session.autenticado && req.session.autenticado.imagem_usuario) || null,
+        avaliacao: '5.0',
+        itens_venda: '0',
+        vendidos: '0',
+        seguidores: '0'
     };
     
     res.render('pages/perfilvender', {
-        brecho: brechoData
+        brecho: brechoData,
+        autenticado: req.session.autenticado
     });
 })
 
@@ -273,61 +256,84 @@ router.get('/criarbrecho', function(req, res){
     res.render('pages/criarbrecho');
 });
 
-router.post('/criarbrecho', function(req, res){
-    const { brecho, email, nome, password, senha, phone, cep, endereco, bairro, cidade, uf } = req.body;
+router.post('/criarbrecho', async function(req, res){
+    const bcrypt = require('bcryptjs');
+    const usuarioModel = require('../models/usuarioModel');
+    const tipoUsuarioModel = require('../models/tipoUsuarioModel');
+    const { nomeusu_usu, email_usu, nome_usu, senha_usu, confirmar_senha, fone_usu, cep, endereco, bairro, cidade, uf } = req.body;
     
-   
-    if (!req.session) {
-        req.session = {};
-    }
+    console.log('Dados do brechó recebidos:', req.body);
     
-    console.log(req.body);
-    
-
-    if (!brecho || !email_usu || !nome_usu || !senha_usu || !fone_usu || !cep || !endereco || !bairro || !cidade || !uf) {
+    // Validação básica
+    if (!nomeusu_usu || !email_usu || !nome_usu || !senha_usu || !fone_usu) {
         return res.render('pages/criarbrecho', {
-            erro: 'Todos os campos são obrigatórios',
+            erro: 'Todos os campos obrigatórios devem ser preenchidos',
             valores: req.body
         });
     }
     
-    if (password !== senha) {
+    // Verificar se senhas coincidem
+    if (senha_usu !== confirmar_senha) {
         return res.render('pages/criarbrecho', {
             erro: 'As senhas não coincidem',
             valores: req.body
         });
     }
     
-    req.session.brecho_nome = brecho;
-    req.session.brecho_email = email;
-    req.session.brecho_proprietario = nome;
-    req.session.brecho_telefone = phone;
-    req.session.brecho_endereco = `${endereco}, ${bairro}, ${cidade} - ${uf}, ${cep}`;
-    req.session.brecho_avaliacao = '5.0';
-    req.session.brecho_itens_venda = '0';
-    req.session.brecho_vendidos = '0';
-    req.session.brecho_seguidores = '0';
-    
-    res.redirect('/perfilvender');
-})
-
-
-
-router.post('/criarbrecho', function(req, res){
-    const { brecho, email_usu, nome_usu, senha_usu, fone_usu, cpf, } = req.body;
-    
-     if (!brecho || !email_usu || !nome_usu || !senha_usu || !fone_usu || !cpf) {
-         return res.render('pages/criarbrecho', {
-            erro: 'Todos os campos são obrigatórios'
+    try {
+        // Buscar ID do tipo brecho
+        const tipoBrecho = await tipoUsuarioModel.findByTipo('brecho');
+        
+        // 1. Criar usuário vendedor
+        const dadosUsuario = {
+            NOME_USUARIO: nome_usu,
+            USER_USUARIO: nomeusu_usu,
+            EMAIL_USUARIO: email_usu,
+            SENHA_USUARIO: bcrypt.hashSync(senha_usu, 10),
+            CELULAR_USUARIO: fone_usu,
+            CEP_USUARIO: cep,
+            TIPO_USUARIO: tipoBrecho.length > 0 ? tipoBrecho[0].ID_TIPO_USUARIO : 3,
+            STATUS_USUARIO: 1
+        };
+        
+        console.log('Tentando criar usuário vendedor:', dadosUsuario);
+        
+        const resultadoUsuario = await usuarioModel.create(dadosUsuario);
+        
+        if (resultadoUsuario && resultadoUsuario.insertId) {
+            // Salvar na sessão
+            req.session.autenticado = {
+                autenticado: nome_usu,
+                id: resultadoUsuario.insertId,
+                tipo: tipoBrecho.length > 0 ? tipoBrecho[0].ID_TIPO_USUARIO : 3,
+                nome: nome_usu,
+                email: email_usu
+            };
+            
+            req.session.brecho = {
+                nome: nomeusu_usu,
+                email: email_usu,
+                proprietario: nome_usu,
+                telefone: fone_usu,
+                endereco: endereco ? `${endereco}, ${bairro}, ${cidade} - ${uf}, ${cep}` : null,
+                avaliacao: '5.0',
+                itens_venda: '0',
+                vendidos: '0',
+                seguidores: '0'
+            };
+            
+            console.log('Brechó criado com sucesso:', resultadoUsuario.insertId);
+            res.redirect('/homevendedor');
+        } else {
+            throw new Error('Falha ao criar usuário');
+        }
+    } catch (error) {
+        console.log('Erro ao criar brechó:', error);
+        res.render('pages/criarbrecho', {
+            erro: 'Erro ao criar brechó. Tente novamente.',
+            valores: req.body
         });
     }
-      if (password !== senha) {
-         return res.render('pages/criarbrecho', {
-            erro: 'As senhas não coincidem'
-       });
-     }
-    
-    res.redirect('/perfilvender');
 });
 
 router.get('/entrar', function(req, res){
@@ -337,8 +343,84 @@ router.get('/entrar', function(req, res){
     });
 });
 
-router.post('/entrar', usuarioController.regrasValidacaoFormLogin, gravarUsuAutenticado, function(req, res){
-    usuarioController.logar(req, res);
+router.post('/entrar', async function(req, res){
+    const bcrypt = require('bcryptjs');
+    const usuarioModel = require('../models/usuarioModel');
+    const { nome_usu, senha_usu } = req.body;
+    
+    console.log('Tentativa de login:', { nome_usu, senha_usu });
+    
+    if (!nome_usu || !senha_usu) {
+        return res.render('pages/entrar', {
+            listaErros: null,
+            dadosNotificacao: {
+                titulo: 'Erro!',
+                mensagem: 'Todos os campos são obrigatórios',
+                tipo: 'error'
+            }
+        });
+    }
+    
+    try {
+        const usuarios = await usuarioModel.findUserEmail({ user_usuario: nome_usu });
+        
+        if (usuarios.length > 0) {
+            const usuario = usuarios[0];
+            const senhaValida = bcrypt.compareSync(senha_usu, usuario.SENHA_USUARIO);
+            
+            if (senhaValida) {
+                req.session.autenticado = {
+                    autenticado: usuario.NOME_USUARIO,
+                    id: usuario.ID_USUARIO,
+                    tipo: usuario.TIPO_USUARIO,
+                    nome: usuario.NOME_USUARIO,
+                    email: usuario.EMAIL_USUARIO
+                };
+                
+                if (usuario.TIPO_USUARIO == 2) {
+                    req.session.brecho = {
+                        nome: 'Meu Brechó',
+                        proprietario: usuario.NOME_USUARIO,
+                        avaliacao: '4.5',
+                        itens_venda: '15',
+                        vendidos: '8',
+                        seguidores: '25'
+                    };
+                    res.redirect('/homevendedor');
+                } else {
+                    res.redirect('/homecomprador');
+                }
+            } else {
+                res.render('pages/entrar', {
+                    listaErros: null,
+                    dadosNotificacao: {
+                        titulo: 'Falha ao logar!',
+                        mensagem: 'Senha inválida!',
+                        tipo: 'error'
+                    }
+                });
+            }
+        } else {
+            res.render('pages/entrar', {
+                listaErros: null,
+                dadosNotificacao: {
+                    titulo: 'Falha ao logar!',
+                    mensagem: 'Usuário não encontrado!',
+                    tipo: 'error'
+                }
+            });
+        }
+    } catch (error) {
+        console.log('Erro no login:', error);
+        res.render('pages/entrar', {
+            listaErros: null,
+            dadosNotificacao: {
+                titulo: 'Erro no sistema!',
+                mensagem: 'Tente novamente mais tarde!',
+                tipo: 'error'
+            }
+        });
+    }
 });
 
 router.get('/esqueceusenha', function(req, res){
@@ -351,6 +433,15 @@ router.get('/estatistica', function(req, res){
 
 router.get('/categorias', function(req, res){
     res.render('pages/categorias');
+})
+
+router.get('/editarbanners', function(req, res){
+    res.render('pages/editarbanners');
+})
+
+router.post('/editarbanners', function(req, res){
+    console.log('Banners atualizados:', req.files);
+    res.redirect('/homeadm');
 })
 
 router.get('/minhascompras', function(req, res){
@@ -426,6 +517,52 @@ router.get('/perfilcliente', function(req, res){
 
 router.get('/home-adm',function(req, res){
     res.render('pages/home-adm');
+})
+
+router.get('/homeadm', function(req, res){
+    res.render('pages/homeadm');
+})
+
+router.get('/vistoriapedidos', function(req, res){
+    res.render('pages/vistoriapedidos');
+})
+
+router.get('/vistoriaprodutos', function(req, res){
+    res.render('pages/vistoriaprodutos');
+})
+
+router.get('/administradorperfis', function(req, res){
+    res.render('pages/administradorperfis');
+})
+
+router.get('/denuncias', function(req, res){
+    res.render('pages/denuncias');
+})
+
+router.get('/perfilpremium', function(req, res){
+    res.render('pages/perfilpremium');
+})
+
+router.get('/blogadm', function(req, res){
+    res.render('pages/blogadm');
+})
+
+router.post('/blogadm', function(req, res){
+    const { titulo, categoria, conteudo, data } = req.body;
+    
+    // Simular salvamento do post
+    console.log('Novo post criado:', {
+        titulo,
+        categoria,
+        conteudo,
+        data: data || new Date().toLocaleDateString('pt-BR')
+    });
+    
+    res.redirect('/blogadm');
+})
+
+router.get('/avaliacaoadm', function(req, res){
+    res.render('pages/avaliacaoadm');
 })
 
 

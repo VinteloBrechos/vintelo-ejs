@@ -15,7 +15,7 @@ const favoritoModel = {
     findID: async (idProduto, idUsuario) => {
         try {
             const [resultados] = await pool.query(
-                "SELECT * FROM FAVORITOS where PRODUTO_ID_PRODUTO = ? and USUARIO_ID_USUARIO = ? ",
+                "SELECT * FROM FAVORITOS WHERE PRODUTO_ID_PRODUTO = ? AND USUARIO_ID_USUARIO = ?",
                 [idProduto, idUsuario]);
             return resultados;
         } catch (error) {
@@ -37,7 +37,7 @@ const favoritoModel = {
     update: async (camposJson, idProduto, idUsuario) => {
         try {
             const [resultados] = await pool.query(
-                "UPDATE FAVORITOS SET ? WHERE PRODUTO_ID_PRODUTO = ? and USUARIO_ID_USUARIO = ? ", 
+                "UPDATE FAVORITOS SET ? WHERE PRODUTO_ID_PRODUTO = ? AND USUARIO_ID_USUARIO = ?", 
                 [camposJson, idProduto, idUsuario])
             return resultados;
         } catch (error) {
@@ -50,7 +50,7 @@ const favoritoModel = {
     delete: async (idProduto, idUsuario) => {
         try {
             const [resultados] = await pool.query(
-                "UPDATE FAVORITOS SET STATUS_FAVORITO = 0 WHERE PRODUTO_ID_PRODUTO = ? and USUARIO_ID_USUARIO = ?", 
+                "UPDATE FAVORITOS SET STATUS_FAVORITO = 0 WHERE PRODUTO_ID_PRODUTO = ? AND USUARIO_ID_USUARIO = ?", 
                 [idProduto, idUsuario]);
             return resultados;
         } catch (error) {
@@ -73,7 +73,7 @@ const favoritoModel = {
                     let obj = {
                         PRODUTO_ID_PRODUTO: dadosFavorito.idProduto,
                         USUARIO_ID_USUARIO: dadosFavorito.idUsuario,
-                        DT_INCLUSAO_FAVORITO: moment().format("YYYY/MM/DD"),
+                        DT_INCLUSAO_FAVORITO: moment().format("YYYY-MM-DD"),
                         STATUS_FAVORITO: 1
                     }
                     return await favoritoModel.create(obj);
