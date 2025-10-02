@@ -184,7 +184,9 @@ nav a {
 
 /* OCULTAR CHECKBOX */
 input {
- height: 0dvw;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 /* ANIMAÇÃO HAMBURGER AO CLICAR */
@@ -196,11 +198,13 @@ input:checked ~ label .hamburguer {
 input:checked ~ label .hamburguer:before {
   transform: rotate(90deg);
   top: 0;
+  background: #ffffff;
 }
 
 input:checked ~ label .hamburguer:after {
   transform: rotate(90deg);
   bottom: 0;
+  background: #ffffff;
 }
 
 /* MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO */
@@ -1114,7 +1118,6 @@ h3 {
     align-items: center;
     background-color: white;
     padding: 10px 35px;
-    margin-bottom: 10px;
     border-radius: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     gap: 10px;
