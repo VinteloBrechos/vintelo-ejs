@@ -596,4 +596,10 @@ router.get('/usuariosadm', function(req, res){
     res.render('pages/usuariosadm');
 })
 
+// Rotas para Premium
+const premiumController = require('../controllers/premiumController');
+
+router.post('/premium/atualizar-plano', premiumController.atualizarPlano);
+router.post('/premium/alternar-status', premiumController.alternarStatusPlano);
+
 module.exports = router;

@@ -21,30 +21,84 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Botões de salvar planos
     document.querySelectorAll('.btn-save').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', async function() {
             const planCard = this.closest('.plan-card');
             const planName = planCard.querySelector('h3').textContent;
             const priceInput = planCard.querySelector('input');
             const newPrice = priceInput.value;
             
-            showNotification(`${planName} atualizado! Novo valor: R$ ${newPrice}`, 'success');
+            // Determinar tipo do plano
+            let planType = 'basic';
+            if (planName.includes('Premium')) planType = 'premium';
+            if (planName.includes('Enterprise')) planType = 'enterprise';
+            
+            try {
+                const response = await fetch('/premium/atualizar-plano', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        planType: planType,
+                        price: newPrice
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showNotification(result.message, 'success');
+                } else {
+                    showNotification(result.message, 'error');
+                }
+            } catch (error) {
+                console.error('Erro ao salvar plano:', error);
+                showNotification('Erro ao salvar plano. Tente novamente.', 'error');
+            }
         });
     });
     
     // Botões de ativar/desativar planos
     document.querySelectorAll('.btn-toggle').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', async function() {
             const planCard = this.closest('.plan-card');
             const planName = planCard.querySelector('h3').textContent;
+            const isActive = this.textContent === 'Desativar';
             
-            if (this.textContent === 'Desativar') {
-                this.textContent = 'Ativar';
-                planCard.style.opacity = '0.6';
-                showNotification(`${planName} desativado`, 'warning');
-            } else {
-                this.textContent = 'Desativar';
-                planCard.style.opacity = '1';
-                showNotification(`${planName} ativado`, 'success');
+            // Determinar tipo do plano
+            let planType = 'basic';
+            if (planName.includes('Premium')) planType = 'premium';
+            if (planName.includes('Enterprise')) planType = 'enterprise';
+            
+            try {
+                const response = await fetch('/premium/alternar-status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        planType: planType,
+                        status: !isActive
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    if (isActive) {
+                        this.textContent = 'Ativar';
+                        planCard.style.opacity = '0.6';
+                    } else {
+                        this.textContent = 'Desativar';
+                        planCard.style.opacity = '1';
+                    }
+                    showNotification(result.message, isActive ? 'warning' : 'success');
+                } else {
+                    showNotification(result.message, 'error');
+                }
+            } catch (error) {
+                console.error('Erro ao alterar status do plano:', error);
+                showNotification('Erro ao alterar status. Tente novamente.', 'error');
             }
         });
     });
