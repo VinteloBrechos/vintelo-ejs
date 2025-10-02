@@ -123,4 +123,4 @@ var pool = require("../config/pool_conexoes");
         }
     };
 
-module.exports = {PedidoModel}
+module.exports = { pedidoModel: PedidoModel }

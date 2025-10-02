@@ -531,6 +531,7 @@ nav.grid-2 p:hover {
 .category-nav ul li a.active {
   background-color: #5a2424; 
   color: #ffffff; 
+  gap: 10px;
 }
 
 /* Transição suave para mudança de conteúdo */
@@ -1123,7 +1124,7 @@ h3 {
    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
    gap: 10px;
    margin: 10px;
-   margin-bottom: -45px;
+   margin-bottom: 45px;
  }
 
 

@@ -1,5 +1,5 @@
 
-const {pedidoModel } = require("../models/pedidoModel");
+const { pedidoModel } = require("../models/pedidoModel");
 const moment = require("moment");
 
 const pedidoController = {
@@ -32,4 +32,4 @@ const pedidoController = {
     
 }
 
-module.exports = {pedidoController}
+module.exports = pedidoController

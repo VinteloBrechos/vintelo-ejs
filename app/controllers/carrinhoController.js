@@ -7,10 +7,9 @@ const carrinhoController = {
             const { id, preco } = req.query;
             carrinho.addItem(id, 1, preco);
             carrinho.atualizarCarrinho(req);
- referer = req.get('Referer') || "/";
+            const referer = req.get('Referer') || "/";
             const caminho = referer.split("/")[3] ? "/" + referer.split("/")[3] : "/";
-            res.re
-            constdirect(caminho);
+            res.redirect(caminho);
         } catch (e) {
             console.error(e);
             res.render("pages/index", {
@@ -92,4 +91,4 @@ const carrinhoController = {
     },
 };
 
-module.exports = { carrinhoController };
+module.exports = carrinhoController;

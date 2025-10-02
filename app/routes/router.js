@@ -1,3 +1,4 @@
+
 var express = require("express");
 var router = express.Router();
 
@@ -5,25 +6,28 @@ const {
   verificarUsuAutenticado,
   limparSessao,
   gravarUsuAutenticado,
+  verificarUsuAutorizado
 } = require("../models/autenticador_middleware");
 
 const usuarioController = require("../controllers/usuarioController");
-const { carrinhoController } = require("../controllers/carrinhoController");
-const { produtoController } = require("../controllers/produtoController");
+const carrinhoController = require("../controllers/carrinhoController");
+const produtoController = require("../controllers/produtoController");
 const { adicionarController } = require("../controllers/adicionarController");
+const categoriaController = require("../controllers/categoriaController");
 const denunciaController = require("../controllers/denunciaController");
+const { atualizarPlano, alternarStatusPlano } = require("../controllers/premiumController");
 
-const uploadFile = require("../util/uploader")("./app/public/imagem/perfil/");
+const uploadFile = require("../util/uploader");
 const uploadProduto = require("../util/uploaderProduto");
 
 const { MercadoPagoConfig, Preference } = require('mercadopago');
-const { pedidoController } = require("../controllers/pedidoController");
+const pedidoController = require("../controllers/pedidoController");
 
 const client = new MercadoPagoConfig({
   accessToken: process.env.accessToken
 });
 
-/*router.get("/adicionar", function (req, res) {
+router.get("/addItem", function (req, res) {
   carrinhoController.addItem(req, res);
 });
 
@@ -37,25 +41,25 @@ router.get("/excluirItem", function (req, res) {
 
 router.get("/listar-carrinho", function (req, res) {
   carrinhoController.listarcarrinho(req, res);
-});*/
+});
 
-/*router.get(
+router.get(
   "/perfil",
-  verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
+  verificarUsuAutorizado([1, 2, 3], "pages/adm"),
   async function (req, res) {
     usuarioController.mostrarPerfil(req, res);
   }
-);*/
+);
 
-/*router.post(
-  "/perfil",
+router.post(
+  "/adm",
   uploadFile("imagem-perfil_usu"),
   usuarioController.regrasValidacaoPerfil,
   verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
   async function (req, res) {
     usuarioController.gravarPerfil(req, res);
   }
-);*/
+);
 
 router.get("/", verificarUsuAutenticado, function (req, res) {
   produtoController.listar(req, res);
@@ -69,42 +73,68 @@ router.get("/sair", limparSessao, function (req, res) {
   res.redirect("/");
 });
 
+router.get("/login", function (req, res) {
+  res.render("pages/login", { listaErros: null, dadosNotificacao: null });
+});
 
+router.post(
+  "/login",
+  usuarioController.regrasValidacaoFormLogin,
+  gravarUsuAutenticado,
+  function (req, res) {
+    usuarioController.logar(req, res);
+  }
+);
 
+router.get("/cadastro", function (req, res) {
+  res.render("pages/cadastro", {
+    listaErros: null,
+    dadosNotificacao: null,
+    valores: { nome_usu: "", nomeusu_usu: "", email_usu: "", senha_usu: "" },
+  });
+});
 
+router.post(
+  "/cadastro",
+  usuarioController.regrasValidacaoFormCad,
+  async function (req, res) {
+    usuarioController.cadastrar(req, res);
+  }
+);
 
-/*router.get(
+router.get(
   "/adm",
   verificarUsuAutenticado,
   verificarUsuAutorizado([2, 3], "pages/restrito"),
   function (req, res) {
     res.render("pages/adm", req.session.autenticado);
   }
-);*/
+);
 
-/*router.post("/create-preference", function (req, res) {
-  const preference = new Preference(client);
-  console.log(req.body.items);
-  preference.create({
-    body: {
-      items: req.body.items,
-      back_urls: {
-        "success": process.env.URL_BASE + "/feedback",
-        "failure": process.env.URL_BASE + "/feedback",
-        "pending": process.env.URL_BASE + "/feedback"
-      },
-      auto_return: "approved",
-    }
-  })
-    .then((value) => {
-      res.json(value)
-    })
-    .catch(console.log)
-});
-*/
-router.get("/feedback", function (req, res) {
+// router.post("/create-preference", function (req, res) {
+//   const preference = new Preference(client);
+//   console.log(req.body.items);
+//   preference.create({
+//     body: {
+//       items: req.body.items,
+//       back_urls: {
+//         "success": process.env.URL_BASE + "/feedback",
+//         "failure": process.env.URL_BASE + "/feedback",
+//         "pending": process.env.URL_BASE + "/feedback"
+//       },
+//       auto_return: "approved",
+//     }
+//   })
+//     .then((value) => {
+//       res.json(value)
+//     })
+//     .catch(console.log)
+// });
+
+router.get("/avaliasao", function (req, res) {
   pedidoController.gravarPedido(req, res);
 });
+
 
 router.get('/index', function(req, res){
     res.render('pages/index');
@@ -268,7 +298,7 @@ router.post('/criarbrecho', async function(req, res){
     const bcrypt = require('bcryptjs');
     const usuarioModel = require('../models/usuarioModel');
     const tipoUsuarioModel = require('../models/tipoUsuarioModel');
-    const { nomeusu_usu, email_usu, nome_usu, senha_usu, confirmar_senha, fone_usu, cep, endereco, bairro, cidade, uf } = req.body;
+    const { nomeusu_usu, email_usu, nome_usu, senha_usu, fone_usu, cep, endereco, bairro, cidade, uf } = req.body;
     
     console.log('Dados do brechó recebidos:', req.body);
     
@@ -287,10 +317,9 @@ router.post('/criarbrecho', async function(req, res){
     }
     
     try {
-        // Buscar ID do tipo brecho
+        
         const tipoBrecho = await tipoUsuarioModel.findByTipo('brecho');
         
-        // 1. Criar usuário vendedor
         const dadosUsuario = {
             NOME_USUARIO: nome_usu,
             USER_USUARIO: nomeusu_usu,
@@ -307,25 +336,25 @@ router.post('/criarbrecho', async function(req, res){
         const resultadoUsuario = await usuarioModel.create(dadosUsuario);
         
         if (resultadoUsuario && resultadoUsuario.insertId) {
-            // Salvar na sessão
+            
             req.session.autenticado = {
                 autenticado: nome_usu,
                 id: resultadoUsuario.insertId,
                 tipo: tipoBrecho.length > 0 ? tipoBrecho[0].ID_TIPO_USUARIO : 3,
-                nome: nome_usu,
-                email: email_usu
+                NOME_USUARIO: nome_usu,
+                EMAIL_USUARIO: email_usu
             };
             
             req.session.brecho = {
-                nome: nomeusu_usu,
-                email: email_usu,
-                proprietario: nome_usu,
-                telefone: fone_usu,
+                USER_USUARIO: nomeusu_usu,
+                EMAIL_USUARIO: email_usu,
+                NOME_USUARIO: nome_usu,
+                CELULAR_USUARIO: fone_usu,
                 endereco: endereco ? `${endereco}, ${bairro}, ${cidade} - ${uf}, ${cep}` : null,
-                avaliacao: '5.0',
-                itens_venda: '0',
-                vendidos: '0',
-                seguidores: '0'
+                NOTA: '5.0',
+                ID_ITEM_PEDIDO: '0',
+                VENDIDAS: '0',
+                SEGUIDORES: '0'
             };
             
             console.log('Brechó criado com sucesso:', resultadoUsuario.insertId);
@@ -379,8 +408,8 @@ router.post('/entrar', async function(req, res){
                     autenticado: usuario.NOME_USUARIO,
                     id: usuario.ID_USUARIO,
                     tipo: usuario.TIPO_USUARIO,
-                    nome: usuario.NOME_USUARIO,
-                    email: usuario.EMAIL_USUARIO
+                    nome_usu: usuario.NOME_USUARIO,
+                    email_usu: usuario.EMAIL_USUARIO
                 };
                 
                 if (usuario.TIPO_USUARIO == 2) {
@@ -437,9 +466,8 @@ router.get('/estatistica', function(req, res){
     res.render('pages/estatistica');
 })
 
-router.get('/categorias', function(req, res){
-    res.render('pages/categorias');
-})
+router.get('/categorias', categoriaController.mostrarCategorias);
+router.get('/categorias/filtrar/:categoryId', categoriaController.filtrarProdutos);
 
 router.get('/editarbanners', function(req, res){
     res.render('pages/editarbanners');
@@ -597,9 +625,7 @@ router.get('/usuariosadm', function(req, res){
 })
 
 // Rotas para Premium
-const premiumController = require('../controllers/premiumController');
-
-router.post('/premium/atualizar-plano', premiumController.atualizarPlano);
-router.post('/premium/alternar-status', premiumController.alternarStatusPlano);
+router.post('/premium/atualizar-plano', atualizarPlano);
+router.post('/premium/alternar-status', alternarStatusPlano);
 
 module.exports = router;
