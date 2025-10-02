@@ -1120,17 +1120,17 @@ h3 {
    align-items: center;
    background-color: white;
    padding: 40px 35px;
-   border-radius: 30px;
-   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+   border-radius: 40px;
+   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
    gap: 10px;
    margin: 10px;
-   margin-bottom: 45px;
+   margin-bottom: -150px;
  }
 
 
   .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
   }
@@ -1160,12 +1160,13 @@ h3 {
     color: #ffc107;
   }
 
+
   .follow-button {
     background-color: #8a2b38;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 20px 35px;
+    border-radius: 18px;
     font-size: 30px ;
     cursor: pointer;
     font-weight: bold;
@@ -1174,7 +1175,7 @@ h3 {
     position:inherit; 
     top: 50%; 
     left: 50%; 
-    transform: translate( 9%, 0%);
+    transform: translate( 0%, 0%);
   }
 
   .follow-button:hover {
@@ -1235,6 +1236,7 @@ h3 {
   display: block;
   margin: 50px;
   width: 90%;
+   margin-top: 270px;
 }
 /* Estilo padrão: ocultar o banner */
  @media  (max-width: 768px)  {

@@ -9,40 +9,42 @@
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
 </head>
 <body>
-    <!-- Banner -->
-    <section class="discount-banner">
-        <span class="highlight">10% OFF Na primeira compra</span>
-    </section>
-
-    <!-- Header Desktop -->
-    <section class="oculto-mobile">
-        <header class="main-header">
-            <a href="/homecomprador">
-                <img src="/imagens/logo.png" class="img-logo">
-            </a>
-            <nav>
-                <a href="/categorias?categoria=1">Vestidos</a>
-                <a href="/categorias?categoria=2">Saias</a>
-                <a href="/categorias?categoria=3">Blusas</a>
-                <a href="/categorias?categoria=4">Calças</a>
-                <a href="/categorias?categoria=5">Outros</a>
-            </nav>
-            <section class="search-profile">
-                <form>
-                    <input type="text" placeholder="Buscar...">
-                </form>
-                <ul>
-                    <li><a href="/sacola1"><img src="/imagens/icone saco.png" class="img-tamanho"></a></li>
-                    <li><a href="/menu"><img src="/imagens/imagem sem cadastro.avif" class="maria"></a></li>
-                    <li><a href="/favoritos"><img src="/imagens/icone coraçao.png" class="img-tamanho2"></a></li>
-                </ul>
+    <header>
+        <center>
+            <section class="discount-banner">
+                <span class="highlight">10% OFF Na primeira compra</span>
             </section>
-        </header>
-    </section>
+        </center>
+        <br>
 
-    <!-- Header Mobile -->
-    <section class="oculto-desktop">
-        <header>
+        <!-- Header Desktop -->
+        <section class="oculto-mobile">
+            <header class="main-header">
+                <a href="/homecomprador">
+                    <img src="/imagens/logo.png" class="img-logo">
+                </a>
+                <nav>
+                    <a href="/categorias">Vestidos</a>
+                    <a href="/categorias">Saias</a>
+                    <a href="/categorias">Blusas</a>
+                    <a href="/categorias">Calças</a>
+                    <a href="/categorias">Outros</a>
+                </nav>
+                <section class="search-profile">
+                    <form>
+                        <input type="text" placeholder="Buscar...">
+                    </form>
+                    <ul>
+                        <li><a href="/sacola1"><img src="/imagens/icone saco.png" class="img-tamanho"></a></li>
+                        <li><a href="/menu"><img src="/imagens/imagem sem cadastro.avif" class="maria"></a></li>
+                        <li><a href="/favoritos"><img src="/imagens/icone coraçao.png" class="img-tamanho2"></a></li>
+                    </ul>
+                </section>
+            </header>
+        </section>
+
+        <!-- Header Mobile -->
+        <section class="oculto-desktop">
             <nav class="grid">
                 <nav class="menu-hamburger">
                     <input id="menu-hamburguer" type="checkbox" />
@@ -52,259 +54,228 @@
                         </section>
                     </label>
                     <ul class="menu-hamburguer-elements show">
-                        <section class="profile-section">
-                            <img src="/imagens/imagem sem cadastro.avif" alt="Usuário" class="profile-pic">
-                            <section class="profile-info">
-                                <h2><%= (typeof autenticado !== 'undefined' && autenticado && autenticado.nome) ? autenticado.nome : 'Visitante' %></h2>
-                            </section>
-                        </section>
+                        <br>
+                        <li>
+                            <a href="/criarbrecho">
+                                <section class="profile-section">
+                                    <img src="/imagens/imagem sem cadastro.avif" alt="Usuário" class="profile-pic">
+                                    <section class="profile-info">
+                                        <h2><%= (typeof autenticado !== 'undefined' && autenticado && autenticado.nome) ? autenticado.nome : 'Visitante' %></h2>
+                                    </section>
+                                    <button class="create-btn">Criar brechó</button>
+                                </section>
+                            </a>
+                        </li>
+                        <br><br><br>
                         <aside class="sidebar-menu">
                             <ul>
-                                <li><a href="/perfilcliente"><img src="/imagens/icone informaçao.png"> Informação da conta</a></li>
-                                <li><a href="/favoritos"><img src="/imagens/coraçao de fav.png"> Favoritos</a></li>
-                                <li><a href="/sacola1"><img src="/imagens/icone sacola.png"> Sacola</a></li>
-                                <li><a href="/minhascompras"><img src="/imagens/caminhao.png"> Minhas compras</a></li>
-                                <li><a href="/blog"><img src="/imagens/icone blog.png"> Blog</a></li>
+                                <li><a href="/perfilcliente"><img src="/imagens/icone informaçao.png" alt="Informação da conta"></a> Informação da conta</li>
+                                <li><a href="/sacola1"><img src="/imagens/icone sacola.png" alt="Sacola"></a> Sacola</li>
+                                <li><a href="/minhascompras"><img src="/imagens/caminhao.png" alt="Minhas compras"></a> Minhas compras</li>
+                                <li><a href="/favoritos"><img src="/imagens/coraçao de fav.png" alt="Favoritos"></a> Favoritos</li>
+                                <li><a href="/blog"><img src="/imagens/icone blog.png" alt="Blog"></a> Blog</li>
                             </ul>
                         </aside>
                     </ul>
                 </nav>
-                <img src="/imagens/logo.png" class="logo">
+                <center><img src="/imagens/logo.png" class="logo"></center>
                 <a href="/menu"><img src="/imagens/carrinho.png" alt="Menu"></a>
             </nav>
-        </header>
-
-        <!-- Barra de Pesquisa Mobile -->
-        <section class="search-section">
-            <section class="search-container">
-                <form class="search-form">
-                    <button type="button" class="search-icon">
-                        <img src="/imagens/pesquisa.png" alt="Pesquisar">
-                    </button>
-                    <input type="text" placeholder="Buscar produtos..." required>
-                </form>
-            </section>
+            <br>
         </section>
-    </section>
+    </header>
 
     <main>
-        <section class="categorias-container">
-            <!-- Header da Página -->
-            <section class="categorias-header">
-                <h1 class="categorias-title">
-                    <%= categoriaAtual ? categoriaAtual.NOME_CATEGORIA_PROD : 'Todas as Categorias' %>
-                </h1>
-                <p class="categorias-subtitle">Encontre as melhores peças de brechó</p>
-            </section>
-
-            <!-- Navegação de Categorias -->
-            <nav class="categorias-nav">
-                <a href="/categorias" class="categoria-btn <%= !categoriaAtual ? 'active' : '' %>">Todas</a>
-                <% categorias.forEach(categoria => { %>
-                    <a href="/categorias?categoria=<%= categoria.ID_CATEGORIA_PROD %>" 
-                       class="categoria-btn <%= categoriaAtual && categoriaAtual.ID_CATEGORIA_PROD == categoria.ID_CATEGORIA_PROD ? 'active' : '' %>">
-                        <%= categoria.NOME_CATEGORIA_PROD %>
-                    </a>
-                <% }) %>
-            </nav>
-
-            <!-- Filtros Mobile -->
-            <section class="filtros-mobile">
-                <button class="filtros-toggle" onclick="toggleFiltros()">
-                    <span>Filtros</span>
-                    <span id="filtros-icon">▼</span>
-                </button>
-                <section class="filtros-content" id="filtros-content">
-                    <form id="filtros-form">
-                        <input type="hidden" name="categoria" value="<%= categoriaAtual ? categoriaAtual.ID_CATEGORIA_PROD : '' %>">
-                        
-                        <!-- Tamanho -->
-                        <section class="filtro-group">
-                            <h4>Tamanho</h4>
-                            <section class="filtro-options">
-                                <% filtros.tamanhos.forEach(tamanho => { %>
-                                    <section class="filtro-option">
-                                        <input type="checkbox" name="tamanho" value="<%= tamanho %>" 
-                                               id="tamanho-<%= tamanho %>" 
-                                               <%= filtrosAplicados.tamanho === tamanho ? 'checked' : '' %>>
-                                        <label for="tamanho-<%= tamanho %>"><%= tamanho %></label>
-                                    </section>
-                                <% }) %>
-                            </section>
-                        </section>
-
-                        <!-- Cor -->
-                        <section class="filtro-group">
-                            <h4>Cor</h4>
-                            <section class="filtro-options">
-                                <% filtros.cores.slice(0, 8).forEach(cor => { %>
-                                    <section class="filtro-option">
-                                        <input type="checkbox" name="cor" value="<%= cor %>" 
-                                               id="cor-<%= cor %>" 
-                                               <%= filtrosAplicados.cor === cor ? 'checked' : '' %>>
-                                        <label for="cor-<%= cor %>"><%= cor %></label>
-                                    </section>
-                                <% }) %>
-                            </section>
-                        </section>
-
-                        <!-- Condição -->
-                        <section class="filtro-group">
-                            <h4>Condição</h4>
-                            <section class="filtro-options">
-                                <% filtros.condicoes.forEach(condicao => { %>
-                                    <section class="filtro-option">
-                                        <input type="radio" name="condicao" value="<%= condicao %>" 
-                                               id="condicao-<%= condicao %>" 
-                                               <%= filtrosAplicados.condicao === condicao ? 'checked' : '' %>>
-                                        <label for="condicao-<%= condicao %>"><%= condicao %></label>
-                                    </section>
-                                <% }) %>
-                            </section>
-                        </section>
-
-                        <!-- Preço -->
-                        <section class="filtro-group">
-                            <h4>Faixa de Preço</h4>
-                            <section class="preco-range">
-                                <input type="number" name="precoMin" placeholder="Min" class="preco-input" 
-                                       value="<%= filtrosAplicados.precoMin || '' %>">
-                                <span>até</span>
-                                <input type="number" name="precoMax" placeholder="Max" class="preco-input" 
-                                       value="<%= filtrosAplicados.precoMax || '' %>">
-                            </section>
-                        </section>
-
-                        <section class="filtros-actions">
-                            <button type="submit" class="btn-aplicar">Aplicar</button>
-                            <button type="button" class="btn-limpar" onclick="limparFiltros()">Limpar</button>
-                        </section>
+        <!-- Barra de Pesquisa Mobile -->
+        <section class="oculto-desktop">
+            <section class="search-section">
+                <section class="search-container">
+                    <form class="search-form">
+                        <button type="button" class="search-icon">
+                            <img src="/imagens/pesquisa.png" alt="Pesquisar">
+                        </button>
+                        <input type="text" placeholder="Busque..." required>
                     </form>
                 </section>
             </section>
+        </section>
 
-            <!-- Layout Principal -->
-            <section class="main-content">
-                <!-- Filtros Desktop -->
-                <aside class="filtros-desktop">
-                    <h3 class="filtros-title">Filtros</h3>
-                    <form id="filtros-form-desktop">
-                        <input type="hidden" name="categoria" value="<%= categoriaAtual ? categoriaAtual.ID_CATEGORIA_PROD : '' %>">
-                        
-                        <!-- Tamanho -->
-                        <section class="filtro-group">
-                            <h4>Tamanho</h4>
-                            <section class="filtro-options">
-                                <% filtros.tamanhos.forEach(tamanho => { %>
-                                    <section class="filtro-option">
-                                        <input type="checkbox" name="tamanho" value="<%= tamanho %>" 
-                                               id="desktop-tamanho-<%= tamanho %>" 
-                                               <%= filtrosAplicados.tamanho === tamanho ? 'checked' : '' %>>
-                                        <label for="desktop-tamanho-<%= tamanho %>"><%= tamanho %></label>
-                                    </section>
-                                <% }) %>
-                            </section>
-                        </section>
+        <!-- Título Principal -->
+        <section class="page-title">
+            <span class="garimpe-text">Explore por</span>
+            <span class="vintelo-text">Categorias</span>
+        </section>
 
-                        <!-- Cor -->
-                        <section class="filtro-group">
-                            <h4>Cor</h4>
-                            <section class="filtro-options">
-                                <% filtros.cores.slice(0, 10).forEach(cor => { %>
-                                    <section class="filtro-option">
-                                        <input type="checkbox" name="cor" value="<%= cor %>" 
-                                               id="desktop-cor-<%= cor %>" 
-                                               <%= filtrosAplicados.cor === cor ? 'checked' : '' %>>
-                                        <label for="desktop-cor-<%= cor %>"><%= cor %></label>
-                                    </section>
-                                <% }) %>
-                            </section>
-                        </section>
+        <!-- Vestidos -->
+        <section class="categoria-section">
+            <div class="categoria-header">
+                <h3>Vestidos</h3>
+                <a href="#" class="ver-tudo">ver tudo</a>
+            </div>
+            <div class="product-carousel">
+                <article class="product-card">
+                    <img src="/imagens/vestido branco.png" alt="Vestido branco">
+                    <div class="product-info">
+                        <h4>Vestido branco</h4>
+                        <p class="price">R$49,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/vestido roxo.png" alt="Vestido roxo">
+                    <div class="product-info">
+                        <h4>Vestido roxo</h4>
+                        <p class="price">R$39,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/vestido rosa.png" alt="Vestido rosa">
+                    <div class="product-info">
+                        <h4>Vestido rosa</h4>
+                        <p class="price">R$59,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-                        <!-- Condição -->
-                        <section class="filtro-group">
-                            <h4>Condição</h4>
-                            <section class="filtro-options">
-                                <% filtros.condicoes.forEach(condicao => { %>
-                                    <section class="filtro-option">
-                                        <input type="radio" name="condicao" value="<%= condicao %>" 
-                                               id="desktop-condicao-<%= condicao %>" 
-                                               <%= filtrosAplicados.condicao === condicao ? 'checked' : '' %>>
-                                        <label for="desktop-condicao-<%= condicao %>"><%= condicao %></label>
-                                    </section>
-                                <% }) %>
-                            </section>
-                        </section>
+        <!-- Saias -->
+        <section class="categoria-section">
+            <div class="categoria-header">
+                <h3>Saias</h3>
+                <a href="#" class="ver-tudo">ver tudo</a>
+            </div>
+            <div class="product-carousel">
+                <article class="product-card">
+                    <img src="/imagens/saia preta.png" alt="Saia preta">
+                    <div class="product-info">
+                        <h4>Saia preta</h4>
+                        <p class="price">R$35,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/saia longa.png" alt="Saia longa">
+                    <div class="product-info">
+                        <h4>Saia longa</h4>
+                        <p class="price">R$45,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/saia marrom.png" alt="Saia marrom">
+                    <div class="product-info">
+                        <h4>Saia marrom</h4>
+                        <p class="price">R$42,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-                        <!-- Preço -->
-                        <section class="filtro-group">
-                            <h4>Faixa de Preço</h4>
-                            <section class="preco-range">
-                                <input type="number" name="precoMin" placeholder="Min" class="preco-input" 
-                                       value="<%= filtrosAplicados.precoMin || '' %>">
-                                <span>até</span>
-                                <input type="number" name="precoMax" placeholder="Max" class="preco-input" 
-                                       value="<%= filtrosAplicados.precoMax || '' %>">
-                            </section>
-                        </section>
+        <!-- Blusas -->
+        <section class="categoria-section">
+            <div class="categoria-header">
+                <h3>Blusas</h3>
+                <a href="#" class="ver-tudo">ver tudo</a>
+            </div>
+            <div class="product-carousel">
+                <article class="product-card">
+                    <img src="/imagens/regata branca.png" alt="Regata branca">
+                    <div class="product-info">
+                        <h4>Regata branca</h4>
+                        <p class="price">R$19,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/cropped rosa.png" alt="Cropped rosa">
+                    <div class="product-info">
+                        <h4>Cropped rosa</h4>
+                        <p class="price">R$25,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/cropped verde.png" alt="Cropped verde">
+                    <div class="product-info">
+                        <h4>Cropped verde</h4>
+                        <p class="price">R$28,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-                        <section class="filtros-actions">
-                            <button type="submit" class="btn-aplicar">Aplicar</button>
-                            <button type="button" class="btn-limpar" onclick="limparFiltrosDesktop()">Limpar</button>
-                        </section>
-                    </form>
-                </aside>
-
-                <!-- Seção de Produtos -->
-                <section class="produtos-section">
-                    <% if (produtos && produtos.length > 0) { %>
-                        <section class="produtos-header">
-                            <span class="produtos-count"><%= produtos.length %> produtos encontrados</span>
-                            <select class="ordenacao-select" onchange="ordenarProdutos(this.value)">
-                                <option value="recente">Mais recentes</option>
-                                <option value="preco-asc">Menor preço</option>
-                                <option value="preco-desc">Maior preço</option>
-                                <option value="nome">Nome A-Z</option>
-                            </select>
-                        </section>
-
-                        <section class="produtos-grid" id="produtos-grid">
-                            <% produtos.forEach(produto => { %>
-                                <article class="produto-card">
-                                    <img src="<%= produto.URL_IMG || '/imagens/produto-placeholder.png' %>" 
-                                         alt="<%= produto.NOME_PROD %>" class="produto-image">
-                                    <section class="produto-info">
-                                        <h3 class="produto-nome"><%= produto.NOME_PROD %></h3>
-                                        <p class="produto-preco">R$ <%= produto.PRECO_PRODUTO.toFixed(2).replace('.', ',') %></p>
-                                        <p class="produto-vendedor">Por <%= produto.NOME_USUARIO %></p>
-                                        <section class="produto-detalhes">
-                                            <% if (produto.TAMANHO) { %>
-                                                <span class="produto-tag"><%= produto.TAMANHO %></span>
-                                            <% } %>
-                                            <span class="produto-tag"><%= produto.COR_PRODUTO %></span>
-                                            <span class="produto-tag"><%= produto.CONDICAO %></span>
-                                        </section>
-                                        <section class="produto-actions">
-                                            <button class="btn-favorito" onclick="toggleFavorito(<%= produto.ID_PROD %>)">
-                                                ♡ Favoritar
-                                            </button>
-                                            <button class="btn-sacola" onclick="adicionarSacola(<%= produto.ID_PROD %>)">
-                                                🛒 Sacola
-                                            </button>
-                                        </section>
-                                    </section>
-                                </article>
-                            <% }) %>
-                        </section>
-                    <% } else { %>
-                        <section class="empty-state">
-                            <img src="/imagens/sacola vazia.png" alt="Nenhum produto">
-                            <h3>Nenhum produto encontrado</h3>
-                            <p>Tente ajustar os filtros ou explore outras categorias</p>
-                        </section>
-                    <% } %>
-                </section>
-            </section>
+        <!-- Acessórios -->
+        <section class="categoria-section">
+            <div class="categoria-header">
+                <h3>Acessórios</h3>
+                <a href="#" class="ver-tudo">ver tudo</a>
+            </div>
+            <div class="product-carousel">
+                <article class="product-card">
+                    <img src="/imagens/bolsa.png" alt="Bolsa preta">
+                    <div class="product-info">
+                        <h4>Bolsa preta</h4>
+                        <p class="price">R$89,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/oculos.png" alt="Óculos de sol">
+                    <div class="product-info">
+                        <h4>Óculos de sol</h4>
+                        <p class="price">R$45,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="/imagens/colar.png" alt="Colar">
+                    <div class="product-info">
+                        <h4>Colar dourado</h4>
+                        <p class="price">R$32,99</p>
+                        <div class="product-actions">
+                            <button class="favorite"><img src="/imagens/coraçao de fav2.png"></button>
+                            <button class="cart"><img src="/imagens/sacola.png"></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -314,12 +285,9 @@
         <section class="social-media">
             <p class="p-footer">Siga nossas redes sociais</p>
             <ul class="social-links">
-                <li><a href="https://facebook.com" target="_blank" class="social-link">
-                    <img src="/imagens/Facebook.png" alt="Facebook"></a></li>
-                <li><a href="https://twitter.com" target="_blank" class="social-link">
-                    <img src="/imagens/Pinterest.png" alt="Pinterest"></a></li>
-                <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link">
-                    <img src="/imagens/Instagram.png" alt="Instagram"></a></li>
+                <li><a href="https://facebook.com" target="_blank"><img src="/imagens/Facebook.png" alt="Facebook"></a></li>
+                <li><a href="https://twitter.com" target="_blank"><img src="/imagens/Pinterest.png" alt="Pinterest"></a></li>
+                <li><a href="https://www.instagram.com/vintelobrechos" target="_blank"><img src="/imagens/Instagram.png" alt="Instagram"></a></li>
             </ul>
         </section>
         <p class="copyright">©2024 Vintélo. Todos os direitos reservados.</p>
