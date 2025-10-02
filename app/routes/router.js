@@ -10,8 +10,10 @@ const {
 const usuarioController = require("../controllers/usuarioController");
 const { carrinhoController } = require("../controllers/carrinhoController");
 const { produtoController } = require("../controllers/produtoController");
+const { adicionarController } = require("../controllers/adicionarController");
 
 const uploadFile = require("../util/uploader")("./app/public/imagem/perfil/");
+const uploadProduto = require("../util/uploaderProduto");
 
 const { MercadoPagoConfig, Preference } = require('mercadopago');
 const { pedidoController } = require("../controllers/pedidoController");
@@ -184,9 +186,13 @@ router.get('/homevendedor', function(req, res){
 });
 
 
-router.get('/adicionar', function(req, res){
-    res.render('pages/adicionar');
-})
+router.get('/adicionar', adicionarController.mostrarFormulario);
+
+router.post('/adicionar', 
+    uploadProduto.array('fotos', 5),
+    adicionarController.regrasValidacao,
+    adicionarController.criarProduto
+);
 
 router.get('/blog', function(req, res){
     res.render('pages/blog');

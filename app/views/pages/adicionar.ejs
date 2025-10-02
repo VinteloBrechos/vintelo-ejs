@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vintélo</title>
     <link rel="stylesheet" href="css/adicionar.css">
-
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
-    
 </head>
 <body>
     <!-- Header Desktop -->
@@ -58,49 +56,58 @@
         <section class="container">
             <h1>Adicionar Peça</h1>
             
+            <% if (typeof avisoErro !== 'undefined' && avisoErro.mensagem) { %>
+                <div class="alert alert-error">
+                    <strong><%= avisoErro.titulo %></strong>
+                    <p><%= avisoErro.mensagem %></p>
+                </div>
+            <% } %>
+            
             <section class="content-wrapper">
                 <!-- Upload de Fotos -->
                 <section class="photo-section">
-                    <section class="main-photo">
-                        <img id="main-photo" src="imagens/add foto.png" alt="Foto principal">
-                        <button class="photo-btn" onclick="selectMainPhoto()">
-                            <span>+</span>
-                        </button>
-                        <input type="file" id="main-photo-input" accept="image/*" style="display: none;" onchange="handlePhotoUpload(this, 'main-photo')">
-                    </section>
+                    <h3>Fotos do Produto</h3>
+                    <p class="photo-instructions">Adicione até 5 fotos do produto</p>
                     
-                    <section class="photo-thumbnails">
-                        <section class="thumbnail-slot" onclick="selectPhoto(0)">
-                            <img id="thumb-0" src="imagens/add foto.png" alt="Miniatura 1">
-                            <input type="file" id="thumb-input-0" accept="image/*" style="display: none;" onchange="handlePhotoUpload(this, 'thumb-0')">
+                    <section class="photo-grid">
+                        <section class="photo-input-group">
+                            <label for="foto1" class="photo-label">Foto Principal</label>
+                            <input type="file" id="foto1" name="fotos" accept="image/*" class="photo-input">
                         </section>
-                        <section class="thumbnail-slot" onclick="selectPhoto(1)">
-                            <button class="add-photo-btn">+</button>
-                            <input type="file" id="thumb-input-1" accept="image/*" style="display: none;" onchange="handlePhotoUpload(this, 'thumb-1')">
+                        <section class="photo-input-group">
+                            <label for="foto2" class="photo-label">Foto 2</label>
+                            <input type="file" id="foto2" name="fotos" accept="image/*" class="photo-input">
                         </section>
-                        <section class="thumbnail-slot" onclick="selectPhoto(2)">
-                            <button class="add-photo-btn">+</button>
-                            <input type="file" id="thumb-input-2" accept="image/*" style="display: none;" onchange="handlePhotoUpload(this, 'thumb-2')">
+                        <section class="photo-input-group">
+                            <label for="foto3" class="photo-label">Foto 3</label>
+                            <input type="file" id="foto3" name="fotos" accept="image/*" class="photo-input">
                         </section>
-                        <section class="thumbnail-slot" onclick="selectPhoto(3)">
-                            <button class="add-photo-btn">+</button>
-                            <input type="file" id="thumb-input-3" accept="image/*" style="display: none;" onchange="handlePhotoUpload(this, 'thumb-3')">
+                        <section class="photo-input-group">
+                            <label for="foto4" class="photo-label">Foto 4</label>
+                            <input type="file" id="foto4" name="fotos" accept="image/*" class="photo-input">
+                        </section>
+                        <section class="photo-input-group">
+                            <label for="foto5" class="photo-label">Foto 5</label>
+                            <input type="file" id="foto5" name="fotos" accept="image/*" class="photo-input">
                         </section>
                     </section>
-                    <p class="photo-instructions">Clique para adicionar fotos da galeria</p>
                 </section>
 
                 <!-- Formulário -->
                 <section class="form-section">
-                    <form class="item-form" onsubmit="submitForm(event)">
+                    <form class="item-form" method="POST" action="/adicionar" enctype="multipart/form-data">
                         <section class="form-row">
                             <section class="form-group">
                                 <label for="nome_produto">Nome da peça</label>
-                                <input type="nome_produto" id="nome_produto" name="nome_produto" placeholder="Ex: Vestido longo floral" required>
+                                <input type="text" id="nome_produto" name="nome_produto" 
+                                       value="<%= typeof valores !== 'undefined' ? valores.nome_produto || '' : '' %>"
+                                       placeholder="Ex: Vestido longo floral" required>
                             </section>
                             <section class="form-group desktop-only">
                                 <label for="preco_produto">Preço</label>
-                                <input type="preco_produto" id="preco_produto" name="preco_produto" placeholder="R$ 0,00" oninput="formatPrice(this)" required>
+                                <input type="text" id="preco_produto" name="preco_produto" 
+                                       value="<%= typeof valores !== 'undefined' ? valores.preco_produto || '' : '' %>"
+                                       placeholder="R$ 0,00" required>
                             </section>
                         </section>
                         
@@ -109,47 +116,49 @@
                                 <label for="categoria_produto">Categoria</label>
                                 <select id="categoria_produto" name="categoria_produto" required>
                                     <option value="">Selecione a categoria</option>
-                                    <option value="vestidos">Vestidos</option>
-                                    <option value="saias">Saias</option>
-                                    <option value="blusas">Blusas</option>
-                                    <option value="calcas">Calças</option>
-                                    <option value="acessorios">Acessórios</option>
+                                    <option value="vestidos" <%= typeof valores !== 'undefined' && valores.categoria_produto === 'vestidos' ? 'selected' : '' %>>Vestidos</option>
+                                    <option value="saias" <%= typeof valores !== 'undefined' && valores.categoria_produto === 'saias' ? 'selected' : '' %>>Saias</option>
+                                    <option value="blusas" <%= typeof valores !== 'undefined' && valores.categoria_produto === 'blusas' ? 'selected' : '' %>>Blusas</option>
+                                    <option value="calcas" <%= typeof valores !== 'undefined' && valores.categoria_produto === 'calcas' ? 'selected' : '' %>>Calças</option>
+                                    <option value="acessorios" <%= typeof valores !== 'undefined' && valores.categoria_produto === 'acessorios' ? 'selected' : '' %>>Acessórios</option>
                                 </select>
                             </section>
                             <section class="form-group desktop-only">
                                 <label for="cor_produto">Cor</label>
-                                <input type="cor_produto" id="cor_produto" name="cor_produto" placeholder="Ex: Azul marinho" required>
+                                <input type="text" id="cor_produto" name="cor_produto" 
+                                       value="<%= typeof valores !== 'undefined' ? valores.cor_produto || '' : '' %>"
+                                       placeholder="Ex: Azul marinho">
                             </section>
                         </section>
-                            
                         
                         <section class="form-row">
                             <section class="form-group">
                                 <label for="condicao_produto">Estado da peça</label>
                                 <select id="condicao_produto" name="condicao_produto" required>
                                     <option value="">Selecione o estado</option>
-                                    <option value="novo">Novo com etiqueta</option>
-                                    <option value="sem-uso">Sem uso</option>
-                                    <option value="pouco-uso">Pouco uso</option>
-                                    <option value="usado">Usado</option>
+                                    <option value="novo" <%= typeof valores !== 'undefined' && valores.condicao_produto === 'novo' ? 'selected' : '' %>>Novo com etiqueta</option>
+                                    <option value="sem-uso" <%= typeof valores !== 'undefined' && valores.condicao_produto === 'sem-uso' ? 'selected' : '' %>>Sem uso</option>
+                                    <option value="pouco-uso" <%= typeof valores !== 'undefined' && valores.condicao_produto === 'pouco-uso' ? 'selected' : '' %>>Pouco uso</option>
+                                    <option value="usado" <%= typeof valores !== 'undefined' && valores.condicao_produto === 'usado' ? 'selected' : '' %>>Usado</option>
                                 </select>
                             </section>
                             <section class="form-group">
-                                <label>Tamanho</label>
-                                <section class="tamanho_produto">
-                                    <button type="button" class="size-btn" data-size="PP" onclick="selectSize(this)">PP</button>
-                                    <button type="button" class="size-btn" data-size="P" onclick="selectSize(this)">P</button>
-                                    <button type="button" class="size-btn" data-size="M" onclick="selectSize(this)">M</button>
-                                    <button type="button" class="size-btn" data-size="G" onclick="selectSize(this)">G</button>
-                                    <button type="button" class="size-btn" data-size="GG" onclick="selectSize(this)">GG</button>
-                                </section>
-                                <input type="tamanho_produto" id="tamanho_produto" name="tamanho_produto" required>
+                                <label for="tamanho_produto">Tamanho</label>
+                                <select id="tamanho_produto" name="tamanho_produto" required>
+                                    <option value="">Selecione o tamanho</option>
+                                    <option value="PP" <%= typeof valores !== 'undefined' && valores.tamanho_produto === 'PP' ? 'selected' : '' %>>PP</option>
+                                    <option value="P" <%= typeof valores !== 'undefined' && valores.tamanho_produto === 'P' ? 'selected' : '' %>>P</option>
+                                    <option value="M" <%= typeof valores !== 'undefined' && valores.tamanho_produto === 'M' ? 'selected' : '' %>>M</option>
+                                    <option value="G" <%= typeof valores !== 'undefined' && valores.tamanho_produto === 'G' ? 'selected' : '' %>>G</option>
+                                    <option value="GG" <%= typeof valores !== 'undefined' && valores.tamanho_produto === 'GG' ? 'selected' : '' %>>GG</option>
+                                </select>
                             </section>
                         </section>
                         
                         <section class="form-group">
                             <label for="descricao_produto">Descrição (opcional)</label>
-                            <textarea id="descricao_produto" name="descricao_produto" placeholder="Descreva detalhes sobre a peça, marca, tecido, etc..."></textarea>
+                            <textarea id="descricao_produto" name="descricao_produto" 
+                                      placeholder="Descreva detalhes sobre a peça, marca, tecido, etc..."><%= typeof valores !== 'undefined' ? valores.descricao_produto || '' : '' %></textarea>
                         </section>
 
                         <button type="submit" class="submit-btn">
@@ -167,14 +176,12 @@
         <section class="social-media">
             <p class="p-footer">Siga-nos nas redes sociais</p>
             <ul class="social-links">
-                <li><a href="https://www.instagram.com/vintelobrechos" target="_blank" class="social-link"><img src="imagens/Instagram.png" alt="Instagram"></a></li>
-                <li><a href="https://facebook.com" target="_blank" class="social-link"><img src="imagens/Facebook.png" alt="Facebook"></a></li>
+                <li><a href="#" class="social-link"><img src="imagens/Facebook.png" alt="Facebook"></a></li>
+                <li><a href="#" class="social-link"><img src="imagens/Instagram.png" alt="Instagram"></a></li>
                 <li><a href="#" class="social-link"><img src="imagens/TikTok.png" alt="TikTok"></a></li>
             </ul>
         </section>
-        <p class="copyright">&copy; 2024 Vintélo. Todos os direitos reservados.</p>
+        <p class="copyright">© 2024 Vintélo. Todos os direitos reservados.</p>
     </footer>
-
-    <script src="script/adicionar.js"></script>
 </body>
 </html>

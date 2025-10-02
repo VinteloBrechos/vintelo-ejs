@@ -131,91 +131,51 @@ body {
     border-radius: 15px;
 }
 
-.main-photo {
-    position: relative;
-    width: 100%;
-    margin: 0 auto 15px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    background: linear-gradient(135deg, #7D2838, #a64d61);
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.main-photo img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    background: linear-gradient(135deg, #7D2838, #a64d61);
-}
-
-.photo-btn {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: #7D2838;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
+.photo-input-group {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    flex-direction: column;
 }
 
-.photo-btn:hover {
-    background: #5a1e2a;
-    transform: scale(1.1);
+.photo-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-.photo-thumbnails {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.thumbnail-slot {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    overflow: hidden;
+.photo-input {
+    padding: 10px;
     border: 2px dashed #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
     cursor: pointer;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, #7D2838, #a64d61);
+    transition: border-color 0.3s;
 }
 
-.thumbnail-slot:hover {
+.photo-input:hover {
     border-color: #7D2838;
 }
 
-.thumbnail-slot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: linear-gradient(135deg, #7D2838, #a64d61);
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
 }
 
-.add-photo-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #7D2838;
-    color: white;
-    border: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 12px;
+.alert-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
 }
+
+
 
 .photo-instructions {
     text-align: center;
