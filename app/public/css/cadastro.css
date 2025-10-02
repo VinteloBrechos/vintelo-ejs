@@ -180,6 +180,17 @@ input {
   border-radius: 15px;
 }
 
+input[readonly] {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+input[readonly]:focus {
+  background-color: #f8f9fa;
+  border-color: #ddd;
+}
+
 .checkbox-group {
   margin: 10px 0;
 }

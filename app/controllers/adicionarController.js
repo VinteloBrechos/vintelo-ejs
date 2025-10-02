@@ -50,14 +50,22 @@ const adicionarController = {
             });
         }
 
+        // Validar se pelo menos uma imagem foi enviada
+        if (!req.files || req.files.length === 0) {
+            return res.render('pages/adicionar', {
+                valores: req.body,
+                avisoErro: {
+                    titulo: 'Imagem obrigatória!',
+                    mensagem: 'Por favor, adicione pelo menos uma foto do produto',
+                    tipo: 'error'
+                }
+            });
+        }
+
         const { nome_produto, preco_produto, categoria_produto, cor_produto, condicao_produto, tamanho_produto, descricao_produto } = req.body;
         
         try {
-
-            let imagensProduto = [];
-            if (req.files && req.files.length > 0) {
-                imagensProduto = req.files.map(file => file.filename);
-            }
+            let imagensProduto = req.files.map(file => file.filename);
             
             
             const dadosProduto = {

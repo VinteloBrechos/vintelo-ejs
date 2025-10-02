@@ -66,36 +66,39 @@
             <section class="content-wrapper">
                 <!-- Upload de Fotos -->
                 <section class="photo-section">
-                    <h3>Fotos do Produto</h3>
-                    <p class="photo-instructions">Adicione até 5 fotos do produto</p>
+                    <section class="main-photo">
+                        <img id="main-photo" src="imagens/add foto.png" alt="Foto principal">
+                        <label for="main-photo-input" class="photo-btn">
+                            <span>+</span>
+                        </label>
+                        <input type="file" id="main-photo-input" name="fotos" accept="image/*" style="display: none;">
+                    </section>
                     
-                    <section class="photo-grid">
-                        <section class="photo-input-group">
-                            <label for="foto1" class="photo-label">Foto Principal</label>
-                            <input type="file" id="foto1" name="fotos" accept="image/*" class="photo-input">
+                    <section class="photo-thumbnails">
+                        <section class="thumbnail-slot">
+                            <img id="thumb-0" src="imagens/add foto.png" alt="Miniatura 1">
+                            <label for="thumb-input-0" class="add-photo-btn">+</label>
+                            <input type="file" id="thumb-input-0" name="fotos" accept="image/*" style="display: none;">
                         </section>
-                        <section class="photo-input-group">
-                            <label for="foto2" class="photo-label">Foto 2</label>
-                            <input type="file" id="foto2" name="fotos" accept="image/*" class="photo-input">
+                        <section class="thumbnail-slot">
+                            <label for="thumb-input-1" class="add-photo-btn">+</label>
+                            <input type="file" id="thumb-input-1" name="fotos" accept="image/*" style="display: none;">
                         </section>
-                        <section class="photo-input-group">
-                            <label for="foto3" class="photo-label">Foto 3</label>
-                            <input type="file" id="foto3" name="fotos" accept="image/*" class="photo-input">
+                        <section class="thumbnail-slot">
+                            <label for="thumb-input-2" class="add-photo-btn">+</label>
+                            <input type="file" id="thumb-input-2" name="fotos" accept="image/*" style="display: none;">
                         </section>
-                        <section class="photo-input-group">
-                            <label for="foto4" class="photo-label">Foto 4</label>
-                            <input type="file" id="foto4" name="fotos" accept="image/*" class="photo-input">
-                        </section>
-                        <section class="photo-input-group">
-                            <label for="foto5" class="photo-label">Foto 5</label>
-                            <input type="file" id="foto5" name="fotos" accept="image/*" class="photo-input">
+                        <section class="thumbnail-slot">
+                            <label for="thumb-input-3" class="add-photo-btn">+</label>
+                            <input type="file" id="thumb-input-3" name="fotos" accept="image/*" style="display: none;">
                         </section>
                     </section>
+                    <p class="photo-instructions">Clique para adicionar fotos da galeria</p>
                 </section>
 
                 <!-- Formulário -->
                 <section class="form-section">
-                    <form class="item-form" method="POST" action="/adicionar" enctype="multipart/form-data">
+                    <form class="item-form" method="POST" action="/adicionar" enctype="multipart/form-data" onsubmit="return validateForm(this)">
                         <section class="form-row">
                             <section class="form-group">
                                 <label for="nome_produto">Nome da peça</label>
@@ -183,5 +186,74 @@
         </section>
         <p class="copyright">© 2024 Vintélo. Todos os direitos reservados.</p>
     </footer>
+    
+    <script>
+        function validateForm(form) {
+            const fileInputs = form.querySelectorAll('input[type="file"]');
+            let hasPhoto = false;
+            fileInputs.forEach(input => {
+                if (input.files && input.files.length > 0) {
+                    hasPhoto = true;
+                }
+            });
+            
+            if (!hasPhoto) {
+                alert('Por favor, adicione pelo menos uma foto do produto.');
+                return false;
+            }
+            return true;
+        }
+        
+        // Preview das imagens
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="file"]');
+            
+            inputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (!file) return;
+                    
+                    if (!file.type.startsWith('image/')) {
+                        alert('Por favor, selecione apenas arquivos de imagem.');
+                        this.value = '';
+                        return;
+                    }
+                    
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('A imagem deve ter no máximo 5MB.');
+                        this.value = '';
+                        return;
+                    }
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        let img;
+                        if (input.id === 'main-photo-input') {
+                            img = document.getElementById('main-photo');
+                        } else {
+                            const index = input.id.replace('thumb-input-', '');
+                            img = document.getElementById('thumb-' + index);
+                            if (!img) {
+                                // Criar img se não existir
+                                img = document.createElement('img');
+                                img.id = 'thumb-' + index;
+                                img.style.width = '100%';
+                                img.style.height = '100%';
+                                img.style.objectFit = 'cover';
+                                input.parentNode.appendChild(img);
+                                // Esconder botão +
+                                const btn = input.parentNode.querySelector('.add-photo-btn');
+                                if (btn) btn.style.display = 'none';
+                            }
+                        }
+                        if (img) {
+                            img.src = e.target.result;
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

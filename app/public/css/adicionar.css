@@ -131,35 +131,93 @@ body {
     border-radius: 15px;
 }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
+.main-photo {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #7D2838, #a64d61);
 }
 
-.photo-input-group {
-    display: flex;
-    flex-direction: column;
+.main-photo img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, #7D2838, #a64d61);
 }
 
-.photo-label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-.photo-input {
-    padding: 10px;
-    border: 2px dashed #ddd;
-    border-radius: 8px;
-    background: #f9f9f9;
+.photo-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #7D2838;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: border-color 0.3s;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.photo-input:hover {
+.photo-btn:hover {
+    background: #5a1e2a;
+    transform: scale(1.1);
+}
+
+.photo-thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.thumbnail-slot {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px dashed #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #7D2838, #a64d61);
+}
+
+.thumbnail-slot:hover {
     border-color: #7D2838;
+}
+
+.thumbnail-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #7D2838, #a64d61);
+}
+
+.add-photo-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #7D2838;
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .alert {
