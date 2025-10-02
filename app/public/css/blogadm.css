@@ -385,7 +385,7 @@ body {
 .mobile-hero {
     padding: 30px 20px;
     text-align: center;
-    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    background: #ffffff;
     position: relative;
 }
 
