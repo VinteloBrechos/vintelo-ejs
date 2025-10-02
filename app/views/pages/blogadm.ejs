@@ -158,7 +158,7 @@
                 <article class="mobile-card">
                     <img src="imagens/tendencia sweer.png" alt="Tendência Sweet">
                     <section class="mobile-card-content">
-                        <h2>Tendência | Sweet</h2>
+                        <h2>Tendência <br> Sweet</h2>
                         <a href="/sweer">Ver artigo</a>
                     </section>
                     <section class="admin-controls">
@@ -176,6 +176,18 @@
                         <button class="admin-btn" onclick="editarPost(5)">Editar</button>
                     </section>
                 </article>
+
+                <section class="mobile-featured">
+                    <section class="featured-text">
+                        <h3>MODA <span>Sustentável</span></h3>
+                        <p class="subtitle">Fast fashion <br> Moda sustentável</p>
+                        <a href="/ecologicoartigo" class="description">NOSSO LADO ECOLÓGICO</a>
+                    </section>
+                    <img src="imagens/moda sustentável.png" alt="Moda sustentável" class="featured-img">
+                    <section class="admin-controls">
+                        <button class="admin-btn" onclick="editarPost(6)">Editar</button>
+                    </section>
+                </section>
             </section>
         </main>
     </main>
@@ -296,9 +308,7 @@
         }
         
         function editarPost(id) {
-            if (confirm('Deseja editar este post?')) {
-                alert('Redirecionando para edição do post ' + id);
-            }
+            window.location.href = '/editarpost?id=' + id;
         }
         
         function excluirPost(id) {

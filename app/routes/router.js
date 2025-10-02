@@ -263,6 +263,7 @@ router.get('/criarbrecho', function(req, res){
 });
 
 router.post('/criarbrecho', async function(req, res){
+    console.log(req);
     const bcrypt = require('bcryptjs');
     const usuarioModel = require('../models/usuarioModel');
     const tipoUsuarioModel = require('../models/tipoUsuarioModel');
@@ -569,6 +570,15 @@ router.post('/blogadm', function(req, res){
 
 router.get('/avaliacaoadm', function(req, res){
     res.render('pages/avaliacaoadm');
+})
+
+router.get('/editarpost', function(req, res){
+    res.render('pages/editarpost');
+})
+
+router.post('/editarpost', function(req, res){
+    console.log('Post editado:', req.body);
+    res.redirect('/blogadm');
 })
 
 

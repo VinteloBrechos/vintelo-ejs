@@ -328,7 +328,6 @@ body {
 .category-tag.boss { background: rgba(255, 243, 224, 0.8); color: #f57c00; }
 .category-tag.gucci { background: rgba(252, 228, 236, 0.8); color: #c2185b; }
 
-/* Status Badges */
 .status-badge {
     padding: 8px 16px;
     border-radius: 20px;
@@ -342,7 +341,6 @@ body {
 .status-badge.rascunho { background: rgba(255, 243, 205, 0.8); color: #856404; }
 .status-badge.agendado { background: rgba(209, 236, 241, 0.8); color: #0c5460; }
 
-/* Action Buttons */
 .actions {
     display: flex;
     gap: 10px;
@@ -380,7 +378,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Mobile Content */
 .mobile-content {
     padding: 0;
 }
@@ -458,7 +455,7 @@ body {
 .mobile-card-content a {
     background: linear-gradient(135deg, #7D2838 0%, #a03450 100%);
     color: white;
-    padding: 10px 20px;
+    padding: 6px 14px;
     border-radius: 25px;
     text-decoration: none;
     font-size: 0.9rem;
@@ -472,7 +469,52 @@ body {
     box-shadow: 0 5px 15px rgba(125, 40, 56, 0.3);
 }
 
-/* Mobile Admin Controls */
+.mobile-featured {
+    background: linear-gradient(135deg, #818F84 0%, #6b7a6e 100%);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    position: relative;
+}
+
+.featured-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.featured-text span {
+    color: #f0f0f0;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.description {
+    background: rgba(255, 255, 255, 0.9);
+    color: #818F84;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.featured-img {
+    width: 130px;
+    height: 160px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 .mobile-card .admin-controls,
 .mobile-hero .admin-controls {
     position: absolute;
@@ -503,7 +545,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -568,7 +609,6 @@ body {
     padding: 20px 40px 40px;
 }
 
-/* Form Styles */
 .form-row {
     display: flex;
     flex-direction: column;
@@ -648,7 +688,6 @@ body {
     flex: 1;
 }
 
-/* Footer */
 .footer {
     background: linear-gradient(135deg, #7D2838 0%, #5a1e2a 100%);
     color: #fff;
@@ -692,7 +731,6 @@ body {
     opacity: 0.8;
 }
 
-/* Responsividade Desktop */
 @media (min-width: 768px) {
     .mobile-only {
         display: none;
@@ -730,7 +768,6 @@ body {
     }
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 767px) {
     .mobile-only {
         display: block;
