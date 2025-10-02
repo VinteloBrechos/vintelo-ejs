@@ -588,6 +588,12 @@ router.post('/editarpost', function(req, res){
     res.redirect('/blogadm');
 })
 
+router.get('/brechoadm', function(req, res){
+    res.render('pages/brechoadm');
+})
 
+router.get('/usuariosadm', function(req, res){
+    res.render('pages/usuariosadm');
+})
 
 module.exports = router;

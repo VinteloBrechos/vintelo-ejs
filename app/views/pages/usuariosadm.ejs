@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vistoria de Brechós - Vintélo Admin</title>
-    <link rel="stylesheet" href="css/brechoadm.css">
+    <title>Vistoria de Usuários - Vintélo Admin</title>
+    <link rel="stylesheet" href="css/usuariosadm.css">
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
 </head>
 <body>
@@ -24,7 +24,7 @@
     <!-- Header Desktop -->
     <section class="oculto-mobile">
         <section class="discount-banner">
-            <span class="highlight">Painel Administrativo - Vistoria de Brechós</span>
+            <span class="highlight">Painel Administrativo - Vistoria de Usuários</span>
         </section>
         <header class="main-header">
             <a href="/homeadm">
@@ -32,7 +32,7 @@
             </a>
             <nav>
                 <a href="/homeadm">Voltar ao Painel</a>
-                <a href="/usuariosadm">Usuários</a>
+                <a href="/brechoadm">Brechós</a>
             </nav>
             <section class="search-profile">
                 <ul>
@@ -46,46 +46,45 @@
 
     <main class="admin-container">
         <section class="admin-header">
-            <h1>Vistoria de Brechós</h1>
-            <p>Gerencie e monitore todos os perfis de vendedores</p>
+            <h1>Vistoria de Usuários</h1>
+            <p>Gerencie e monitore todos os perfis de clientes</p>
         </section>
 
         <!-- Filtros -->
         <section class="filters-section">
             <select class="filter-select">
-                <option value="todos">Todos os brechós</option>
+                <option value="todos">Todos os usuários</option>
                 <option value="ativos">Ativos</option>
                 <option value="suspensos">Suspensos</option>
-                <option value="pendentes">Pendentes</option>
+                <option value="novos">Novos (30 dias)</option>
             </select>
             <select class="filter-select">
-                <option value="todas">Todas avaliações</option>
-                <option value="alta">Alta (4.5+)</option>
-                <option value="media">Média (3.0-4.4)</option>
-                <option value="baixa">Baixa (< 3.0)</option>
+                <option value="todas">Todas atividades</option>
+                <option value="compradores">Compradores ativos</option>
+                <option value="inativos">Sem compras</option>
             </select>
-            <input type="text" class="search-input" placeholder="Buscar por nome ou usuário...">
+            <input type="text" class="search-input" placeholder="Buscar por nome, email ou CPF...">
         </section>
 
-        <!-- Lista de Brechós -->
+        <!-- Lista de Usuários -->
         <section class="perfis-grid">
-            <!-- Brechó 1 -->
+            <!-- Usuário 1 -->
             <article class="perfil-card" data-status="ativo">
                 <section class="perfil-header">
-                    <img src="imagens/brecho1.png" alt="Perfil" class="perfil-img">
+                    <img src="imagens/icone sem cadastro.png" alt="Perfil" class="perfil-img">
                     <section class="perfil-info">
-                        <h3>@mayte_brecho</h3>
-                        <p>Mayte Silva</p>
+                        <h3>@maria_cliente</h3>
+                        <p>Maria Silva Santos</p>
                         <span class="status-badge ativo">Ativo</span>
                     </section>
                     <section class="perfil-stats">
                         <div class="stat">
-                            <span class="stat-number">4.8</span>
-                            <span class="stat-label">Avaliação</span>
+                            <span class="stat-number">23</span>
+                            <span class="stat-label">Compras</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">156</span>
-                            <span class="stat-label">Vendas</span>
+                            <span class="stat-number">R$ 1.2k</span>
+                            <span class="stat-label">Gasto</span>
                         </div>
                     </section>
                 </section>
@@ -93,50 +92,50 @@
                 <section class="perfil-detalhes">
                     <div class="detalhe-item">
                         <label>Email:</label>
-                        <span>mayte@email.com</span>
+                        <span>maria.silva@email.com</span>
                     </div>
                     <div class="detalhe-item">
                         <label>Telefone:</label>
                         <span>(11) 99999-9999</span>
                     </div>
                     <div class="detalhe-item">
-                        <label>CNPJ:</label>
-                        <span>12.345.678/0001-90</span>
+                        <label>CPF:</label>
+                        <span>123.456.789-00</span>
                     </div>
                     <div class="detalhe-item">
                         <label>Cadastro:</label>
-                        <span>15/01/2024</span>
+                        <span>10/01/2024</span>
                     </div>
                     <div class="detalhe-item">
-                        <label>Produtos:</label>
-                        <span>45 ativos</span>
+                        <label>Última compra:</label>
+                        <span>15/12/2024</span>
                     </div>
                 </section>
                 
                 <section class="perfil-actions">
                     <button class="btn-visualizar" onclick="visualizarPerfil(1)">Visualizar</button>
                     <button class="btn-suspender" onclick="suspenderPerfil(1)">Suspender</button>
-                    <button class="btn-denuncias" onclick="verDenuncias(1)">Denúncias (2)</button>
+                    <button class="btn-historico" onclick="verHistorico(1)">Histórico</button>
                 </section>
             </article>
 
-            <!-- Brechó 2 -->
+            <!-- Usuário 2 -->
             <article class="perfil-card" data-status="suspenso">
                 <section class="perfil-header">
-                    <img src="imagens/brecho2.png" alt="Perfil" class="perfil-img">
+                    <img src="imagens/icone sem cadastro.png" alt="Perfil" class="perfil-img">
                     <section class="perfil-info">
-                        <h3>@karine_vintage</h3>
-                        <p>Karine Santos</p>
+                        <h3>@joao_comprador</h3>
+                        <p>João Oliveira</p>
                         <span class="status-badge suspenso">Suspenso</span>
                     </section>
                     <section class="perfil-stats">
                         <div class="stat">
-                            <span class="stat-number">3.2</span>
-                            <span class="stat-label">Avaliação</span>
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Compras</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">89</span>
-                            <span class="stat-label">Vendas</span>
+                            <span class="stat-number">R$ 320</span>
+                            <span class="stat-label">Gasto</span>
                         </div>
                     </section>
                 </section>
@@ -144,50 +143,50 @@
                 <section class="perfil-detalhes">
                     <div class="detalhe-item">
                         <label>Email:</label>
-                        <span>karine@email.com</span>
+                        <span>joao@email.com</span>
                     </div>
                     <div class="detalhe-item">
                         <label>Telefone:</label>
                         <span>(11) 88888-8888</span>
                     </div>
                     <div class="detalhe-item">
-                        <label>CNPJ:</label>
-                        <span>98.765.432/0001-10</span>
+                        <label>CPF:</label>
+                        <span>987.654.321-00</span>
                     </div>
                     <div class="detalhe-item">
                         <label>Cadastro:</label>
-                        <span>03/02/2024</span>
+                        <span>25/02/2024</span>
                     </div>
                     <div class="detalhe-item">
-                        <label>Produtos:</label>
-                        <span>12 ativos</span>
+                        <label>Suspensão:</label>
+                        <span>10/12/2024</span>
                     </div>
                 </section>
                 
                 <section class="perfil-actions">
                     <button class="btn-visualizar" onclick="visualizarPerfil(2)">Visualizar</button>
                     <button class="btn-reativar" onclick="reativarPerfil(2)">Reativar</button>
-                    <button class="btn-denuncias" onclick="verDenuncias(2)">Denúncias (5)</button>
+                    <button class="btn-historico" onclick="verHistorico(2)">Histórico</button>
                 </section>
             </article>
 
-            <!-- Brechó 3 -->
+            <!-- Usuário 3 -->
             <article class="perfil-card" data-status="ativo">
                 <section class="perfil-header">
                     <img src="imagens/icone sem cadastro.png" alt="Perfil" class="perfil-img">
                     <section class="perfil-info">
-                        <h3>@vintage_store</h3>
-                        <p>Loja Vintage Ltda</p>
+                        <h3>@ana_fashion</h3>
+                        <p>Ana Carolina</p>
                         <span class="status-badge ativo">Ativo</span>
                     </section>
                     <section class="perfil-stats">
                         <div class="stat">
-                            <span class="stat-number">4.6</span>
-                            <span class="stat-label">Avaliação</span>
+                            <span class="stat-number">67</span>
+                            <span class="stat-label">Compras</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">234</span>
-                            <span class="stat-label">Vendas</span>
+                            <span class="stat-number">R$ 3.4k</span>
+                            <span class="stat-label">Gasto</span>
                         </div>
                     </section>
                 </section>
@@ -195,30 +194,30 @@
                 <section class="perfil-detalhes">
                     <div class="detalhe-item">
                         <label>Email:</label>
-                        <span>contato@vintagestore.com</span>
+                        <span>ana.carolina@email.com</span>
                     </div>
                     <div class="detalhe-item">
                         <label>Telefone:</label>
                         <span>(11) 77777-7777</span>
                     </div>
                     <div class="detalhe-item">
-                        <label>CNPJ:</label>
-                        <span>11.222.333/0001-44</span>
+                        <label>CPF:</label>
+                        <span>456.789.123-00</span>
                     </div>
                     <div class="detalhe-item">
                         <label>Cadastro:</label>
-                        <span>20/12/2023</span>
+                        <span>05/11/2023</span>
                     </div>
                     <div class="detalhe-item">
-                        <label>Produtos:</label>
-                        <span>78 ativos</span>
+                        <label>Última compra:</label>
+                        <span>18/12/2024</span>
                     </div>
                 </section>
                 
                 <section class="perfil-actions">
                     <button class="btn-visualizar" onclick="visualizarPerfil(3)">Visualizar</button>
                     <button class="btn-suspender" onclick="suspenderPerfil(3)">Suspender</button>
-                    <button class="btn-denuncias" onclick="verDenuncias(3)">Denúncias (0)</button>
+                    <button class="btn-historico" onclick="verHistorico(3)">Histórico</button>
                 </section>
             </article>
         </section>
@@ -226,25 +225,25 @@
 
     <script>
         function visualizarPerfil(id) {
-            window.location.href = `/perfil/brecho/${id}`;
+            window.location.href = `/perfil/cliente/${id}`;
         }
 
         function suspenderPerfil(id) {
-            if (confirm(`Tem certeza que deseja suspender o brechó ${id}?`)) {
-                alert(`Brechó ${id} suspenso com sucesso!`);
+            if (confirm(`Tem certeza que deseja suspender o usuário ${id}?`)) {
+                alert(`Usuário ${id} suspenso com sucesso!`);
                 location.reload();
             }
         }
 
         function reativarPerfil(id) {
-            if (confirm(`Tem certeza que deseja reativar o brechó ${id}?`)) {
-                alert(`Brechó ${id} reativado com sucesso!`);
+            if (confirm(`Tem certeza que deseja reativar o usuário ${id}?`)) {
+                alert(`Usuário ${id} reativado com sucesso!`);
                 location.reload();
             }
         }
 
-        function verDenuncias(id) {
-            window.location.href = `/denuncias?brecho=${id}`;
+        function verHistorico(id) {
+            window.location.href = `/usuario/historico/${id}`;
         }
 
         // Filtros

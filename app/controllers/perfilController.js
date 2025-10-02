@@ -4,23 +4,40 @@ const { body, validationResult } = require("express-validator");
 const perfilController = {
 
   regrasValidacaoPerfil: [
-    body("descricao")
-      .isLength({ min: 3, max: 255 })
-      .withMessage("Descrição deve ter entre 3 e 255 caracteres"),
-    body("site")
-      .optional({ checkFalsy: true })
-      .isURL()
-      .withMessage("Site deve ser uma URL válida"),
-    // Adicione outras validações para os campos que seu perfil tem
-  ],
+   cadastrar: async (req, res) => {
+    const erros = validationResult(req);
+    if (!erros.isEmpty()) {
+      return res.render("pages/cadastro", {
+        listaErros: erros,
+        dadosNotificacao: null,
+        valores: req.body,
+      });
+    }
+
+    try {
+     
+      const dadosForm = {
+        NOME_USUARIO: req.body.nome_usu,
+        USER_USUARIO: req.body.nomeusu_usu,
+        EMAIL_USUARIO: req.body.email_usu,
+        SENHA_USUARIO: req.body.senha_usu, 
+        CELULAR_USUARIO: req.body.fone_usu || null,
+        CEP_USUARIO: req.body.cep ? req.body.cep.replace("-", "") : null,
+        ENDERECO_USUARIO: req.body.endereco || null,
+        NUMERO_USUARIO: req.body.numero || null,
+        BAIRRO_USUARIO: req.body.bairro || null,
+        CIDADE_USUARIO: req.body.cidade || null,
+        UF_USUARIO: req.body.uf || null,
+      };
+    ],
 
   listarPerfis: async (req, res) => {
     try {
       const perfis = await perfilModel.findAll();
-      res.render("pages/listarPerfis", { perfis, listaErros: null, dadosNotificacao: null });
+      res.render("pages/perfilcliente", { perfis, listaErros: null, dadosNotificacao: null });
     } catch (error) {
       console.error(error);
-      res.render("pages/listarPerfis", { perfis: [], listaErros: null, dadosNotificacao: { titulo: "Erro", mensagem: "Erro ao carregar perfis.", tipo: "error" } });
+      res.render("pages/cadastro", { perfis: [], listaErros: null, dadosNotificacao: { titulo: "Erro", mensagem: "Erro ao carregar perfis.", tipo: "error" } });
     }
   },
 
@@ -34,22 +51,22 @@ const perfilController = {
       const perfis = await perfilModel.findByUserId(idUsuario);
 
       if (perfis.length === 0) {
-        return res.render("pages/perfil", { valores: {}, listaErros: null, dadosNotificacao: null });
+        return res.render("pages/perfilcliente", { valores: {}, listaErros: null, dadosNotificacao: null });
       }
 
       const perfil = perfis[0];
 
-      res.render("pages/perfil", { valores: perfil, listaErros: null, dadosNotificacao: null });
+      res.render("pages/perfilcliente", { valores: perfil, listaErros: null, dadosNotificacao: null });
     } catch (error) {
       console.error(error);
-      res.render("pages/perfil", { valores: {}, listaErros: null, dadosNotificacao: { titulo: "Erro", mensagem: "Erro ao carregar perfil.", tipo: "error" } });
+      res.render("pages/cadastro", { valores: {}, listaErros: null, dadosNotificacao: { titulo: "Erro", mensagem: "Erro ao carregar perfil.", tipo: "error" } });
     }
   },
 
   gravarPerfil: async (req, res) => {
     const erros = validationResult(req);
     if (!erros.isEmpty()) {
-      return res.render("pages/perfil", { valores: req.body, listaErros: erros, dadosNotificacao: null });
+      return res.render("pages/perfilcliente", { valores: req.body, listaErros: erros, dadosNotificacao: null });
     }
 
     try {
@@ -58,7 +75,6 @@ const perfilController = {
         return res.redirect("/login");
       }
 
-      // Monta os dados que quer salvar/atualizar no perfil
       const dadosForm = {
         DESCRICAO: req.body.descricao,
         SITE: req.body.site || null,
