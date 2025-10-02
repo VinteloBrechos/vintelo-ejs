@@ -39,8 +39,59 @@ var pool = require("../config/pool_conexoes");
         createItemPedido: async (camposJson) => {
             try {
                 const [resultados] = await pool.query(
-                    "insert into PEDIDOS SET? ",
+                    "INSERT INTO ITEM_PEDIDO SET ?",
                     [camposJson]
+                )
+                return resultados;
+            } catch (error) {
+                return error;
+            }
+        },
+
+        findItensPedido: async (idPedido) => {
+            try {
+                const [resultados] = await pool.query(
+                    "SELECT * FROM ITEM_PEDIDO WHERE PEDIDO_ID_PEDIDO = ?",
+                    [idPedido]
+                )
+                return resultados;
+            } catch (error) {
+                return error;
+            }
+        },
+
+        findPedidoCompleto: async (idPedido) => {
+            try {
+                const [resultados] = await pool.query(
+                    "SELECT p.*, ip.*, pr.NOME_PROD FROM PEDIDOS p " +
+                    "LEFT JOIN ITEM_PEDIDO ip ON p.ID_PEDIDO = ip.PEDIDO_ID_PEDIDO " +
+                    "LEFT JOIN PRODUTOS pr ON ip.PRODUTO_ID_PRODUTO = pr.ID_PROD " +
+                    "WHERE p.ID_PEDIDO = ?",
+                    [idPedido]
+                )
+                return resultados;
+            } catch (error) {
+                return error;
+            }
+        },
+
+        updateItemPedido: async (camposJson, idItem) => {
+            try {
+                const [resultados] = await pool.query(
+                    "UPDATE ITEM_PEDIDO SET ? WHERE ID_ITEM_PEDIDO = ?",
+                    [camposJson, idItem]
+                )
+                return resultados;
+            } catch (error) {
+                return error;
+            }
+        },
+
+        deleteItemPedido: async (idItem) => {
+            try {
+                const [resultados] = await pool.query(
+                    "DELETE FROM ITEM_PEDIDO WHERE ID_ITEM_PEDIDO = ?",
+                    [idItem]
                 )
                 return resultados;
             } catch (error) {

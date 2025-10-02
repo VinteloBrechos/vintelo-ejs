@@ -11,6 +11,7 @@ const usuarioController = require("../controllers/usuarioController");
 const { carrinhoController } = require("../controllers/carrinhoController");
 const { produtoController } = require("../controllers/produtoController");
 const { adicionarController } = require("../controllers/adicionarController");
+const denunciaController = require("../controllers/denunciaController");
 
 const uploadFile = require("../util/uploader")("./app/public/imagem/perfil/");
 const uploadProduto = require("../util/uploaderProduto");
@@ -540,9 +541,17 @@ router.get('/administradorperfis', function(req, res){
     res.render('pages/administradorperfis');
 })
 
-router.get('/denuncias', function(req, res){
-    res.render('pages/denuncias');
-})
+router.get('/denuncias', denunciaController.listarDenuncias);
+
+router.post('/denuncias/criar', denunciaController.criarDenuncia);
+
+router.post('/denuncias/analisar/:id', denunciaController.analisarDenuncia);
+
+router.post('/denuncias/resolver/:id', denunciaController.resolverDenuncia);
+
+router.post('/denuncias/rejeitar/:id', denunciaController.rejeitarDenuncia);
+
+router.get('/denuncias/analisar/:id', denunciaController.analisarDenunciaDetalhada);
 
 router.get('/perfilpremium', function(req, res){
     res.render('pages/perfilpremium');

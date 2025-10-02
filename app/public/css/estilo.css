@@ -585,17 +585,18 @@ h3 {
 
 .ver{
   font-size: 30px;
-  color: #464344;
-  text-decoration: none;
+  color: #7f7a7b;
   display: block;       
   text-align: right;    
   margin-right: -400px;
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 255, 255);
 }
 
 
 .img-sacola{
   width: 10px;
-  height: auto;
+  height: 70px;
 }
 
 .grid-produtos{
@@ -811,7 +812,6 @@ h3 {
 
 .product-card img {
   width: 95%;
-  height: auto;
   border-radius: 25px;
   color: #000;
   margin-top: 10px
@@ -900,11 +900,6 @@ h3 {
 }
 
 /*                                                         banner de anuncio                                                                  */
-.banner-exemplo{
-  width: 80%;
-  height: auto;
-  padding: 0px 80px;
-}
 
 .exemplo-desktop{
   width: 80%;
@@ -1659,6 +1654,7 @@ h1 {
   line-height: 1.2;
   margin-left: 60px;
   display: inline-block;
+  margin-left: 100px
 }
 
 .titulo-artigo-section .garimpe-text {
