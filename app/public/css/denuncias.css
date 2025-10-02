@@ -34,7 +34,7 @@ header nav.grid img {
 }
 
 .img-branca {
-    height: 30px;
+    height: 40px;
 }
 
 /* Header Desktop */
@@ -135,17 +135,22 @@ header nav.grid img {
 }
 
 .status-badge.pendente {
-    background: #ffc107;
+    background: #7D2838;
     color: #000;
 }
 
 .status-badge.analisada {
-    background: #17a2b8;
+    background: #7D2838;
     color: white;
 }
 
 .status-badge.resolvida {
-    background: #28a745;
+    background: #7D2838;
+    color: white;
+}
+
+.status-badge.analisada {
+    background: #7D2838;
     color: white;
 }
 
@@ -289,16 +294,103 @@ header nav.grid img {
     margin-bottom: 30px;
 }
 
-.social-media p {
+.social-media {
+    margin-bottom: 30px;
+}
+
+.social-media .p-footer {
     font-size: 1rem;
     margin-bottom: 20px;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
 
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.social-link {
+    display: inline-block;
+}
+
+.social-link a {
+    display: block;
+}
+
+.social-link img {
+    height: 50px;
+    width: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover img {
+    transform: scale(1.2);
+}
+
 .copyright {
     font-size: 0.9rem;
     opacity: 0.8;
+}
+
+/* Validação via CSS */
+.denuncia-card:not([data-id]) {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+.denuncia-card[data-status="resolvida"] .btn-analisar,
+.denuncia-card[data-status="resolvida"] .btn-resolver,
+.denuncia-card[data-status="resolvida"] .btn-rejeitar {
+    display: none;
+}
+
+.denuncia-card[data-status="resolvida"] .status-text {
+    display: inline-block;
+}
+
+.denuncia-card:not([data-status="resolvida"]) .status-text {
+    display: none;
+}
+
+.perfil-img[src=""],
+.perfil-img:not([src]) {
+    background: linear-gradient(135deg, #7D2838, #a03450);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.perfil-img[src=""]::before,
+.perfil-img:not([src])::before {
+    content: "?";
+    font-size: 1.2rem;
+}
+
+.motivo:empty::after {
+    content: "Sem descrição";
+    color: #999;
+    font-style: italic;
+}
+
+/* Estados visuais */
+.denuncia-card[data-status="pendente"] {
+    border-left-color: #7D2838;
+}
+
+.denuncia-card[data-status="analisada"] {
+    border-left-color: #7D2838;
+}
+
+.denuncia-card[data-status="resolvida"] {
+    border-left-color: #7D2838;
+    background: #f8fff9;
 }
 
 /* Responsividade Mobile */

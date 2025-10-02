@@ -87,23 +87,42 @@ const denunciaController = {
     },
 
     analisarDenunciaDetalhada: async function(req, res) {
-        try {
-            const id = req.params.id;
-            const denuncias = await denunciaModel.listarDenuncias();
-            const denuncia = denuncias.find(d => d.ID_DENUNCIA == id);
-            
-            if (!denuncia) {
-                return res.status(404).send('Denúncia não encontrada');
+        const id = req.params.id;
+        
+        // Dados estáticos para demonstração
+        const denunciasEstaticas = {
+            '1': {
+                ID_DENUNCIA: 1,
+                TIPO_ALVO: 'Brecho',
+                MOTIVO: 'Perfil inadequado',
+                DESCRICAO: 'Usuário está vendendo produtos falsificados e usando imagens de outros perfis.',
+                DATA_DENUNCIA: new Date(),
+                STATUS: 'pendente',
+                USER_ALVO: 'mayte_brecho',
+                NOME_ALVO: 'Mayte Silva',
+                USER_DENUNCIANTE: 'maria_cliente',
+                DENUNCIANTE: 'Maria Cliente'
+            },
+            '2': {
+                ID_DENUNCIA: 2,
+                TIPO_ALVO: 'Brecho',
+                MOTIVO: 'Comportamento inadequado',
+                DESCRICAO: 'Vendedor está sendo agressivo com clientes nos comentários e não entrega produtos.',
+                DATA_DENUNCIA: new Date(),
+                STATUS: 'analisando',
+                USER_ALVO: 'karine_vintage',
+                NOME_ALVO: 'Karine Santos',
+                USER_DENUNCIANTE: 'ana_compras',
+                DENUNCIANTE: 'Ana Compras'
             }
-            
-            res.render('pages/analisar-denuncia', { 
-                denuncia: denuncia,
-                usuario: req.session.autenticado
-            });
-        } catch (error) {
-            console.log(error);
-            res.status(500).send('Erro interno do servidor');
-        }
+        };
+        
+        const denuncia = denunciasEstaticas[id] || denunciasEstaticas['1'];
+        
+        res.render('pages/analisar-denuncia', { 
+            denuncia: denuncia,
+            usuario: req.session.autenticado
+        });
     }
 };
 

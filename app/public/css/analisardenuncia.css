@@ -73,6 +73,42 @@ header nav.grid img {
     color: #7D2838;
 }
 
+.search-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-profile ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search-profile img {
+    height: 35px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search-profile img:hover {
+    transform: scale(1.1);
+}
+
+.maria {
+    height: 35px;
+}
+
+.img-tamanho {
+    height: 35px;
+}
+
+.img-tamanho2 {
+    height: 35px;
+}
+
 .admin-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -414,11 +450,42 @@ header nav.grid img {
     margin-bottom: 30px;
 }
 
-.social-media p {
+.social-media {
+    margin-bottom: 30px;
+}
+
+.social-media .p-footer {
     font-size: 1rem;
     margin-bottom: 20px;
     font-weight: 300;
     letter-spacing: 0.5px;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.social-link {
+    display: inline-block;
+}
+
+.social-link a {
+    display: block;
+}
+
+.social-link img {
+    height: 50px;
+    width: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover img {
+    transform: scale(1.2);
 }
 
 .copyright {

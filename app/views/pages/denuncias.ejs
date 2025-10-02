@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denúncias - Vintélo Admin</title>
+    <title>Vintélo</title>
     <link rel="stylesheet" href="css/denuncias.css">
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
 </head>
@@ -16,7 +16,7 @@
                     <img src="imagens/seta.png" alt="Voltar">
                 </a>
                 <img src="imagens/logo.png" alt="Logo">
-                <img src="imagens/imagembranca.png" class="img-branca">
+                <img src="imagens/foto-branca.png" class="img-branca">
             </nav>
         </header>
     </section>
@@ -62,7 +62,7 @@
         <section class="denuncias-list">
             <% if (typeof denuncias !== 'undefined' && denuncias.length > 0) { %>
                 <% denuncias.forEach(function(denuncia) { %>
-                    <article class="denuncia-card">
+                    <article class="denuncia-card" data-id="<%= denuncia.ID_DENUNCIA %>" data-status="<%= denuncia.STATUS || 'pendente' %>">
                         <section class="denuncia-header">
                             <span class="status-badge <%= denuncia.STATUS || 'pendente' %>"><%= denuncia.STATUS === 'analisando' ? 'Em análise' : denuncia.STATUS === 'resolvida' ? 'Resolvida' : 'Pendente' %></span>
                             <span class="data"><%= new Date(denuncia.DATA_DENUNCIA).toLocaleDateString('pt-BR') %></span>
@@ -101,7 +101,7 @@
                 <% }); %>
             <% } else { %>
                 <!-- Denúncia 1 -->
-                <article class="denuncia-card">
+                <article class="denuncia-card" data-id="1" data-status="pendente">
                     <section class="denuncia-header">
                         <span class="status-badge pendente">Pendente</span>
                         <span class="data">15/12/2024</span>
@@ -132,7 +132,7 @@
                 </article>
 
                 <!-- Denúncia 2 -->
-                <article class="denuncia-card">
+                <article class="denuncia-card" data-id="2" data-status="analisada">
                     <section class="denuncia-header">
                         <span class="status-badge analisada">Em análise</span>
                         <span class="data">14/12/2024</span>
@@ -163,7 +163,7 @@
                 </article>
 
                 <!-- Denúncia 3 -->
-                <article class="denuncia-card">
+                <article class="denuncia-card" data-id="3" data-status="resolvida">
                     <section class="denuncia-header">
                         <span class="status-badge resolvida">Resolvida</span>
                         <span class="data">12/12/2024</span>

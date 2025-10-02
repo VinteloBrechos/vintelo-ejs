@@ -1116,7 +1116,7 @@ h3 {
     padding: 10px 35px;
     margin-bottom: 10px;
     border-radius: 30px;
-    box-shadow: 0 45px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     gap: 10px;
     margin: 10px;
   }
@@ -1649,7 +1649,7 @@ h1 {
 .titulo-brecho-section .vintelo-text {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-  font-size: 60px;
+  font-size: 70px;
   color: #7d2838;
   line-height: 1.2;
   margin-left: 60px;
