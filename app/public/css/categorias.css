@@ -24,6 +24,17 @@ nav.grid img {
   width: auto;
 }
 
+.seta-voltar {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.seta-voltar:hover {
+  transform: scale(1.1);
+}
+
 /* MENU HAMBURGUER */
 .menu-hamburger {
   display: flex;

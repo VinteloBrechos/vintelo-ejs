@@ -84,6 +84,8 @@ router.get("/login", function (req, res) {
   });
 });
 
+
+
 router.post(
   "/login",
   async function (req, res) {
@@ -638,24 +640,18 @@ router.get('/perfilcliente', function(req, res){
 
 // home adm de teste //
 
-router.get('/home-adm',function(req, res){
-    res.render('pages/home-adm');
-})
+
 
 router.get('/homeadm', function(req, res){
     res.render('pages/homeadm');
-})
-
-router.get('/vistoriapedidos', function(req, res){
-    res.render('pages/vistoriapedidos');
 })
 
 router.get('/vistoriaprodutos', function(req, res){
     res.render('pages/vistoriaprodutos');
 })
 
-router.get('/administradorperfis', function(req, res){
-    res.render('pages/administradorperfis');
+router.get('/vistoriaprodutos', function(req, res){
+    res.render('pages/vistoriaprodutos');
 })
 
 router.get('/denuncias', denunciaController.listarDenuncias);
@@ -671,7 +667,7 @@ router.post('/denuncias/rejeitar/:id', denunciaController.rejeitarDenuncia);
 router.get('/denuncias/analisar/:id', denunciaController.analisarDenunciaDetalhada);
 
 router.get('/analisardenuncia', function(req, res){
-    res.render('pages/analisar-denuncia');
+    res.render('pages/analisardenuncia');
 });
 
 router.get('/perfilpremium', function(req, res){

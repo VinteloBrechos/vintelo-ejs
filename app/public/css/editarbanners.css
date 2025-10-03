@@ -18,6 +18,81 @@ body {
     padding: 20px;
 }
 
+/*                                                   Cabeçalho                                                          */
+h2 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+p {
+  color: #666;
+  font-size: 16px;
+  text-align: center;
+}
+
+header {
+  background-color: #fff;
+  padding: 10px 0;
+}
+
+
+nav.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+nav.grid img {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+}
+
+nav.grid img perfil {
+  height: 120px;
+  width: auto;
+  cursor: pointer;
+}
+
+.img-sem-perfil
+{
+  height: 130px;
+  cursor: pointer;
+}
+
+nav.grid-2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  background-color: #fff;
+}
+
+nav.grid-2 p {
+  font-size: 18px;
+  color: #e0e0e0;
+  background-color: #7D2838;
+  padding: 20px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav.grid-2 p:hover {
+  background-color: #ccc;
+}
+
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 .admin-header {
     background: #ffffff;
     color: rgb(0, 0, 0);
@@ -477,3 +552,12 @@ body {
         min-width: auto;
     }
 }
+
+@media (max-width: 768px) 
+  .oculto-desktop {
+      display: block;
+  }
+@media (min-width: 992px) 
+  .oculto-desktop {
+      display: none;
+  }

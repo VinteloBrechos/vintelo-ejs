@@ -43,63 +43,9 @@
     <section class="oculto-desktop">
         <header>
             <nav class="grid">
-                <nav class="menu-hamburger">
-                    <input id="menu-hamburguer" type="checkbox" />
-                    <label for="menu-hamburguer">
-                        <section class="menu">
-                            <span class="hamburguer"></span>
-                        </section>
-                    </label>
-                    <ul class="menu-hamburguer-elements">
-                        <li>
-                            <% if (typeof autenticado !== 'undefined' && autenticado) { %>
-                                <section class="profile-section">
-                                    <img src="<%= autenticado.imagem || 'imagens/imagem sem cadastro.avif' %>" alt="<%= autenticado.nome %>" class="profile-pic">
-                                    <section class="profile-info">
-                                        <h2><%= autenticado.nome %></h2>
-                                        <p class="user-email"><%= autenticado.email %></p>
-                                    </section>
-                                </section>
-                            <% } else { %>
-                                <a href="/cadastro">
-                                    <section class="profile-section">
-                                        <img src="imagens/icone sem cadastro.png" alt="Usuário" class="profile-pic">
-                                        <section class="profile-info">
-                                            <h2>Nome de usuário</h2>
-                                        </section>
-                                        <button class="create-btn">Criar Conta</button>
-                                    </section>
-                                </a>
-                            <% } %>
-                        </li>
-                        <aside class="sidebar-menu">
-                            <ul>
-                                <% if (typeof autenticado !== 'undefined' && autenticado) { %>
-                                    <li><a href="/informacao"><img src="imagens/icone informaçao.png">Informação da conta</a></li>
-                                    <li><a href="/favoritos"><img src="imagens/coraçao de fav.png">Favoritos</a></li>
-                                    <li><a href="/sacola1"><img src="imagens/icone sacola.png">Sacola</a></li>
-                                    <li><a href="/minhascompras"><img src="imagens/caminhao.png">Minhas compras</a></li>
-                                    <li><a href="#"><img src="imagens/cartao.png">Meus cartões</a></li>
-                                    <li><a href="/blog"><img src="imagens/icone blog.png">Blog</a></li>
-                                    <li><a href="/sair"><img src="imagens/sair.png">Sair</a></li>
-                                <% } else { %>
-                                    <li><a href="/login"><img src="imagens/icone informaçao.png">Fazer Login</a></li>
-                                    <li><a href="/cadastro"><img src="imagens/icone sem cadastro.png">Criar Conta</a></li>
-                                    <li><a href="/criarbrecho"><img src="imagens/icone brecho.png">Criar Brechó</a></li>
-                                    <li><a href="/blog"><img src="imagens/icone blog.png">Blog</a></li>
-                                <% } %>
-                            </ul>
-                            <h3>Categorias</h3>
-                            <ul class="categories-menu">
-                                <li><a href="/categorias">Vestidos</a></li>
-                                <li><a href="/categorias">Saias</a></li>
-                                <li><a href="/categorias">Blusas</a></li>
-                                <li><a href="/categorias">Calças</a></li>
-                                <li><a href="/categorias">Outros</a></li>
-                            </ul>
-                        </aside>
-                    </ul>
-                </nav>
+                <a href="/homecomprador">
+                    <img src="imagens/seta.png" class="seta-voltar" alt="Voltar">
+                </a>
                 <img src="imagens/logo.png" alt="Logo" class="logo">
                 <a href="/sacola1">
                     <img src="imagens/carrinho.png" alt="Carrinho" class="logo">
