@@ -76,6 +76,28 @@ const produtoModel = {
             return error;
         }
     },
+
+    findRecent: async (limit = 8) => {
+        try {
+            const [resultados] = await pool.query(
+                `SELECT p.PRODUTO_ID_PRODUTO as ID_PRODUTO, p.NOME_PRODUTO, p.PRECO_PRODUTO, 
+                 p.TIPO_PRODUTO, p.TAMANHO_PRODUTO, p.COR_PRODUTO, p.CONDICAO_PRODUTO,
+                 i.URL_IMG, u.NOME_USUARIO as VENDEDOR
+                 FROM PRODUTOS p 
+                 LEFT JOIN IMG_PRODUTOS i ON p.PRODUTO_ID_PRODUTO = i.PRODUTO_ID_PRODUTO
+                 LEFT JOIN USUARIOS u ON p.ID_USUARIO = u.ID_USUARIO
+                 WHERE p.STATUS_PRODUTO = 'disponivel'
+                 GROUP BY p.PRODUTO_ID_PRODUTO
+                 ORDER BY p.DATA_CADASTRO DESC 
+                 LIMIT ?`, 
+                [limit]
+            );
+            return resultados;
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    },
 }
 
 module.exports = { produtoModel };

@@ -120,7 +120,20 @@ const usuarioController = {
                     nome: dadosForm.NOME_USUARIO,
                     email: dadosForm.EMAIL_USUARIO
                 };
-                res.redirect('/perfilvender');
+                
+                // Se for requisição AJAX, retornar JSON
+                if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+                    return res.json({
+                        success: true,
+                        userData: {
+                            nome: dadosForm.NOME_USUARIO,
+                            email: dadosForm.EMAIL_USUARIO,
+                            imagem: null
+                        }
+                    });
+                }
+                
+                res.redirect('/homecomprador');
             }
         } catch (e) {
             console.log(e);

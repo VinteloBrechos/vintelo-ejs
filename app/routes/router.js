@@ -61,8 +61,10 @@ router.post(
   }
 );
 
-router.get("/", verificarUsuAutenticado, function (req, res) {
-  produtoController.listar(req, res);
+router.get("/", function (req, res) {
+  res.render('pages/index', {
+    autenticado: req.session ? req.session.autenticado : null
+  });
 });
 
 router.get("/favoritar", verificarUsuAutenticado, function (req, res) {
@@ -214,7 +216,9 @@ router.get("/avaliasao", function (req, res) {
 
 
 router.get('/index', function(req, res){
-    res.render('pages/index');
+    res.render('pages/index', {
+        autenticado: req.session ? req.session.autenticado : null
+    });
 })
 
 router.get('/produto1', function(req, res){
@@ -255,10 +259,22 @@ router.get('/perfil3', function(req, res){
     res.render('pages/perfil3');
 })
 
-router.get('/homecomprador', function(req, res){
-    res.render('pages/homecomprador', {
-        autenticado: req.session.autenticado
-    });
+router.get('/homecomprador', async function(req, res){
+    try {
+        const { produtoModel } = require('../models/produtoModel');
+        const produtos = await produtoModel.findRecent(8) || [];
+        
+        res.render('pages/homecomprador', {
+            autenticado: req.session.autenticado,
+            produtos: produtos
+        });
+    } catch (error) {
+        console.log('Erro ao buscar produtos:', error);
+        res.render('pages/homecomprador', {
+            autenticado: req.session.autenticado,
+            produtos: []
+        });
+    }
 });
 
 router.get('/homevendedor', function(req, res){
@@ -402,8 +418,8 @@ router.post('/criarbrecho', async function(req, res){
                 autenticado: nome_usu,
                 id: resultadoUsuario.insertId,
                 tipo: tipoBrecho.length > 0 ? tipoBrecho[0].ID_TIPO_USUARIO : 3,
-                NOME_USUARIO: nome_usu,
-                EMAIL_USUARIO: email_usu
+                nome: nome_usu,
+                email: email_usu
             };
             
             req.session.brecho = {
@@ -417,6 +433,18 @@ router.post('/criarbrecho', async function(req, res){
                 VENDIDAS: '0',
                 SEGUIDORES: '0'
             };
+            
+            // Se for requisição AJAX, retornar JSON
+            if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+                return res.json({
+                    success: true,
+                    userData: {
+                        nome: nome_usu,
+                        email: email_usu,
+                        imagem: null
+                    }
+                });
+            }
             
             console.log('Brechó criado com sucesso:', resultadoUsuario.insertId);
             res.redirect('/homevendedor');

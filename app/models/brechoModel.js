@@ -78,7 +78,7 @@ const brechoModel = {
             if (camposForm.CNPJ_BRECHO && camposForm.CNPJ_BRECHO.length !== 14) {
                 throw new Error('CNPJ deve ter 14 caracteres');
             }
-            if (!camposForm.ID_USUARIO || !camposForm.RAZAO_SOCIAL || !camposForm.HOME_FANTASIA) {
+            if (!camposForm.ID_USUARIO || !camposForm.RAZAO_SOCIAL || !camposForm.NOME_FANTASIA) {
                 throw new Error('Campos obrigatórios não foram preenchidos');
             }
             const [resultados] = await pool.query('INSERT INTO BRECHOS SET ?', [camposForm]);

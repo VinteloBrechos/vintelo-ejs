@@ -337,6 +337,55 @@ input[readonly]:focus {
   }
 }
 
+/* Seções Colapsáveis */
+.collapsible-section {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.section-header {
+    background-color: #f8f9fa;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.section-header:hover {
+    background-color: #e9ecef;
+}
+
+.section-header h4 {
+    margin: 0;
+    color: #7D2838;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.arrow {
+    color: #7D2838;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.section-content {
+    padding: 20px;
+    background-color: white;
+    display: none;
+}
+
+.section-content label {
+    margin-top: 10px;
+}
+
+.section-content label:first-child {
+    margin-top: 0;
+}
+
 /* Estilos para telas maiores */
 @media (min-width: 992px) {
   .header {
