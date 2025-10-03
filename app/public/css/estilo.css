@@ -523,7 +523,23 @@ nav.grid-2 p:hover {
 .category-nav ul li a:hover,
 .category-nav ul li a.active {
   background-color: #5a2424; 
-  color: #ffffff;
+  color: #ffffff; 
+  gap: 10px;
+} 
+  border-radius: 40px; 
+  color: #5a2424;
+  font-size: 40px; 
+  font-weight: 500; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block; 
+  font-family: 'Raleway', sans-serif;
+}
+
+.category-nav ul li a:hover,
+.category-nav ul li a.active {
+  background-color: #5a2424; 
+  color: #ffffff; 
+  gap: 10px;
 }
 
 /* Transição suave para mudança de conteúdo */
@@ -840,7 +856,7 @@ h3 {
 }
 
 .product-card .favorite:hover {
-    background: #7D2838;
+    background: #a71732ff;
     transform: scale(1.1);
 }
 
@@ -1108,11 +1124,6 @@ h3 {
   color: #333;
 }
 
-.profile-item .rating, .profile-item .stars {
-  font-size: 29px;
-  color: #999;
-}
-
 .follow-button {
   background-color: #5a2424;
   color: white;
@@ -1176,7 +1187,7 @@ h3 {
 
   .rating small {
     font-size: 25px;
-    color: #888;
+    color: #680c0c;
   }
 
   .stars {
@@ -1693,11 +1704,15 @@ h1 {
   }
 }
 
-.texto-esquerda {
-  text-align: left;
-  margin-left: 20px;
-  font-size: 20px;
-}
+/* Alinhar LER AGORA dos artigos */
+ .texto-esquerda {
+      text-align: left;       /* Garante o alinhamento à esquerda */
+      margin-left: 20px;      /* Define a margem à esquerda */
+      font-size: 20px;
+
+ }
+
+/* fonte da home GARIMPE NA VINTELO */
 
 .garimpe-text {
   font-family: 'Raleway', sans-serif;
@@ -1732,6 +1747,7 @@ h1 {
   padding: 20px 0 0 90px;
 }
 
+/* Mobile - alinhar à esquerda */
 @media (max-width: 991px) {
   .titulo-brecho-section {
     text-align: left;
@@ -1785,6 +1801,7 @@ h1 {
   display: inline-block;
 }
 
+/* Mobile - remover margens laterais */
 @media (max-width: 991px) {
   .titulo-brecho-section .garimpe-text,
   .titulo-artigo-section .garimpe-text {
@@ -1806,9 +1823,12 @@ h1 {
   display: block;
 }
 
+/* Garantir que o carrossel de categorias seja visível no mobile */
 .category-nav {
   display: block;
 }
+
+/* Mobile - manter texto na posição original */
 @media (max-width: 991px) {
   .category-nav-desktop {
     display: none;
@@ -1820,7 +1840,7 @@ h1 {
     padding: 20px;
   }
   
-
+  /* Manter carrossel de categorias visível no mobile */
   .category-nav ul {
     display: flex !important;
     gap: 10px;
@@ -1850,7 +1870,7 @@ h1 {
   }
 }
 
-
+/* Desktop - texto ao lado do carrossel */
 @media (min-width: 992px) {
   .category-nav-desktop {
     display: flex;
@@ -1877,6 +1897,15 @@ h1 {
     justify-content: center;
   }
 }
+
+/* estrelas de avaliação */
+
+.rating .stars {
+  color: #a00c0cff;       /* cor das estrelas */
+  font-size: 24px;   /* tamanho das estrelas */
+  /* você pode ajustar o font-weight, sombra, etc, se quiser */
+}
+
 
 
 

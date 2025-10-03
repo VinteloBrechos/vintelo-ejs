@@ -209,10 +209,10 @@ const brechoController = {
             await usuario.update({ STATUS_USUARIO: 0 }, req.session.autenticado.id);
             
             req.session.destroy();
-            res.redirect('/');
+            res.redirect('/homevendedor');
         } catch (error) {
             console.log(error);
-            res.render("pages/informacao", {
+            res.render("pages/perfilvender", {
                 dadosNotificacao: {
                     titulo: "Erro!",
                     mensagem: "Erro ao excluir brechó!",

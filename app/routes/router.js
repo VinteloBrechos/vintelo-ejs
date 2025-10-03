@@ -19,7 +19,7 @@ const { atualizarPlano, alternarStatusPlano } = require("../controllers/premiumC
 
 const uploadFile = require("../util/uploader");
 const uploadProduto = require("../util/uploaderProduto");
-const passport = require('../config/passport');
+
 
 const { MercadoPagoConfig, Preference } = require('mercadopago');
 const pedidoController = require("../controllers/pedidoController");
