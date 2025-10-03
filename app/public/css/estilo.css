@@ -65,9 +65,9 @@ nav a {
 }
 
 .search-profile form input {
-  padding: 18px;
+  padding: 14px;
   border: 1px solid #7d2738;
-  border-radius: 18px;
+  border-radius: 28px;
   width: 130%;
 }
 
@@ -523,8 +523,7 @@ nav.grid-2 p:hover {
 .category-nav ul li a:hover,
 .category-nav ul li a.active {
   background-color: #5a2424; 
-  color: #ffffff; 
-  gap: 10px;
+  color: #ffffff;
 }
 
 /* Transição suave para mudança de conteúdo */
@@ -826,9 +825,8 @@ h3 {
 
 .product-card .favorite {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.9);
+    top: 35px;
+    right: 35px;
     border: none;
     border-radius: 50%;
     width: 45px;
@@ -855,8 +853,8 @@ h3 {
 }
 
 .product-card .favorite img {
-    width: 28px;
-    height: 28px;
+    width: 60px;
+    height: 60px;
     margin: 0;
 }
 
@@ -1677,12 +1675,12 @@ h1 {
 
   .category-nav-desktop ul li a {
     text-decoration: none;
-    padding: 14px 22px;
+    padding: 12px 18px;
     background-color: transparent; 
     border: 2px solid #5a2424; 
     border-radius: 40px; 
     color: #5a2424;
-    font-size: 18px; 
+    font-size: 16px; 
     font-weight: 500; 
     transition: background-color 0.3s ease, color 0.3s ease;
     display: inline-block;
@@ -1695,36 +1693,32 @@ h1 {
   }
 }
 
-/* Alinhar LER AGORA dos artigos */
- .texto-esquerda {
-      text-align: left;       /* Garante o alinhamento à esquerda */
-      margin-left: 20px;      /* Define a margem à esquerda */
-      font-size: 20px;
-
- }
-
-/* fonte da home GARIMPE NA VINTELO */
+.texto-esquerda {
+  text-align: left;
+  margin-left: 20px;
+  font-size: 20px;
+}
 
 .garimpe-text {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
-  font-size: 30px;
-  letter-spacing: 4px;
+  font-size: 24px;
+  letter-spacing: 3px;
   color: #7d2838; 
   margin-left: 90px;
   display: inline-block;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .vintelo-text {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-  font-size: 90px;
+  font-size: 70px;
   color: #7d2838; 
   line-height: 1.2;
   margin-left: 150px;
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 /* Estilos para os títulos das seções */
@@ -1736,6 +1730,18 @@ h1 {
 .titulo-brecho-section {
   text-align: left;
   padding: 20px 0 0 90px;
+}
+
+@media (max-width: 991px) {
+  .titulo-brecho-section {
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .titulo-artigo-section {
+    text-align: left;
+    padding: 20px;
+  }
 }
 
 .titulo-brecho-section .garimpe-text {
@@ -1779,6 +1785,18 @@ h1 {
   display: inline-block;
 }
 
+@media (max-width: 991px) {
+  .titulo-brecho-section .garimpe-text,
+  .titulo-artigo-section .garimpe-text {
+    margin-left: 0;
+  }
+  
+  .titulo-brecho-section .vintelo-text,
+  .titulo-artigo-section .vintelo-text {
+    margin-left: 0;
+  }
+}
+
 
 .category-nav-desktop {
   display: none;
@@ -1788,13 +1806,75 @@ h1 {
   display: block;
 }
 
-
-@media (min-width: 768px) {
+.category-nav {
+  display: block;
+}
+@media (max-width: 991px) {
   .category-nav-desktop {
-    display: block;
+    display: none;
   }
+  
+  .category-nav-mobile {
+    display: block;
+    text-align: left;
+    padding: 20px;
+  }
+  
+
+  .category-nav ul {
+    display: flex !important;
+    gap: 10px;
+    list-style: none;
+    padding: 10px 30px;
+    margin: 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .category-nav ul li {
+    flex: 0 0 auto;
+  }
+  
+  .category-nav ul li a {
+    text-decoration: none;
+    padding: 18px 26px;
+    background-color: transparent;
+    border: 2px solid #5a2424;
+    border-radius: 40px;
+    color: #5a2424;
+    font-size: 40px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .category-nav-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
   .category-nav-mobile {
     display: none;
+  }
+  
+  .garimpe-vintelo-container {
+    flex-shrink: 0;
+    text-align: left;
+  }
+  
+  .category-nav-desktop .carousel-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
   }
 }
 

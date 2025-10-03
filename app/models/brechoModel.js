@@ -106,7 +106,7 @@ const brechoModel = {
     delete: async (id) => {
         try {
             const [resultados] = await pool.query(
-                "UPDATE USUARIOS SET STATUS USUARIO = 'inativo' WHERE ID_USUARIO = ?",
+                "UPDATE USUARIOS SET STATUS_USUARIO = 'inativo' WHERE ID_USUARIO = ?",
                 [id]
             );
             return resultados;

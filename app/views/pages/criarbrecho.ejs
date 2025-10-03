@@ -119,8 +119,8 @@
                             </section>
 
                             <section class="form-group">
-                                <label for="confirmar_senha">Confirmar Senha</label>
-                                <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Digite sua senha...">
+                                <label for="senha_usu">Confirmar Senha</label>
+                                <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha...">
                             </section>
 
                             <section class="form-group">
@@ -222,7 +222,6 @@
             }
         }
 
-        // Funcionalidade de CEP
         function buscarCEP(cep) {
             fetch(`https://viacep.com.br/ws/${cep}/json/`)
                 .then(response => response.json())
@@ -242,12 +241,10 @@
                 });
         }
 
-        // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('personal-info').style.display = 'none';
             document.getElementById('address-info').style.display = 'none';
             
-            // CEP functionality
             const cepInput = document.getElementById('cep');
             if (cepInput) {
                 cepInput.addEventListener('input', function(e) {

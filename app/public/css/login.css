@@ -153,26 +153,8 @@ p {
 .submit-btn {
   width: 100%;
   padding: 20px;
-  background-color: #6f2a2a;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 40px;
-  cursor: pointer;
-}
-.submit-btn:hover {
-  background-color: #582121;
-}
-@media (max-width: 400px) {
-  .social-btn {
-      width: 40px;
-      height: 40px;
-      font-size: 24px;
-  }
-}
-.submit-btn {
   background-color: #7D2838;
-  padding: 10px;
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 50px;
@@ -197,6 +179,8 @@ p {
 .submit-btn:hover {
   background-color: #651e2c;
 }
+
+
 
 .submit-btn:hover .link-branco {
   color: white; 

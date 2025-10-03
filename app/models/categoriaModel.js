@@ -30,9 +30,9 @@ const categoriaModel = {
             let query = `
                 SELECT DISTINCT p.*, u.NOME_USUARIO, img.URL_IMG
                 FROM PRODUTOS p
-                INNER JOIN PRODUTOS_CATEGORIAS pc ON p.PRODUTO_ID_PRODUTO = pc.PRODUTO_ID_PRODUTO
+                INNER JOIN PRODUTOS_CATEGORIAS pc ON p.ID_PRODUTO = pc.ID_PRODUTO
                 INNER JOIN USUARIOS u ON p.ID_USUARIO = u.ID_USUARIO
-                LEFT JOIN IMG_PRODUTOS img ON p.PRODUTO_ID_PRODUTO = img.PRODUTO_ID_PRODUTO
+                LEFT JOIN IMG_PRODUTOS img ON p.ID_PRODUTO = img.ID_PRODUTO
                 WHERE pc.ID_CATEGORIA_PRODUTO = ?
             `;
             
@@ -87,16 +87,16 @@ const categoriaModel = {
             );
             
             return {
-                tamanhos: (tamanhos || []).map(t => t.TAMANHO_PRODUTO),
-                cores: (cores || []).map(c => c.COR_PRODUTO),
-                condicoes: (condicoes || []).map(c => c.CONDICAO_PRODUTO)
+                tamanho_produto: (tamanhos || []).map(t => t.TAMANHO_PRODUTO),
+                cor_produto: (cores || []).map(c => c.COR_PRODUTO),
+                condicao_produto: (condicoes || []).map(c => c.CONDICAO_PRODUTO)
             };
         } catch (error) {
             console.log('Erro ao buscar filtros:', error);
             return {
-                tamanhos: [],
-                cores: [],
-                condicoes: []
+                tamanho_produto: [],
+                cor_produto: [],
+                condicao_produto: []
             };
         }
     }
