@@ -4,7 +4,7 @@ const categoriaModel = {
     findAll: async () => {
         try {
             const [resultados] = await pool.execute(
-                'SELECT * FROM CATEGORIAS_PRODUTOS ORDER BY NOME_CATEGORIA_PROD'
+                'SELECT * FROM CATEGORIAS_PRODUTOS ORDER BY NOME_CATEGORIA_PRODUTO'
             );
             return resultados || [];
         } catch (error) {
@@ -16,7 +16,7 @@ const categoriaModel = {
     findById: async (id) => {
         try {
             const [resultados] = await pool.execute(
-                'SELECT * FROM CATEGORIAS_PRODUTOS WHERE ID_CATEGORIA_PROD = ?',
+                'SELECT * FROM CATEGORIAS_PRODUTOS WHERE ID_CATEGORIA_PRODUTO = ?',
                 [id]
             );
             return resultados;
@@ -30,16 +30,16 @@ const categoriaModel = {
             let query = `
                 SELECT DISTINCT p.*, u.NOME_USUARIO, img.URL_IMG
                 FROM PRODUTOS p
-                INNER JOIN PRODUTOS_CATEGORIAS pc ON p.ID_PROD = pc.ID_PROD
+                INNER JOIN PRODUTOS_CATEGORIAS pc ON p.PRODUTO_ID_PRODUTO = pc.PRODUTO_ID_PRODUTO
                 INNER JOIN USUARIOS u ON p.ID_USUARIO = u.ID_USUARIO
-                LEFT JOIN IMG_PRODUTOS img ON p.ID_PROD = img.ID_PROD
-                WHERE pc.ID_CATEGORIA_PROD = ?
+                LEFT JOIN IMG_PRODUTOS img ON p.PRODUTO_ID_PRODUTO = img.PRODUTO_ID_PRODUTO
+                WHERE pc.ID_CATEGORIA_PRODUTO = ?
             `;
             
             let params = [categoryId];
             
             if (filters.tamanho) {
-                query += ' AND p.TAMANHO = ?';
+                query += ' AND p.TAMANHO_PRODUTO = ?';
                 params.push(filters.tamanho);
             }
             
@@ -49,7 +49,7 @@ const categoriaModel = {
             }
             
             if (filters.condicao) {
-                query += ' AND p.CONDICAO = ?';
+                query += ' AND p.CONDICAO_PRODUTO = ?';
                 params.push(filters.condicao);
             }
             
@@ -75,7 +75,7 @@ const categoriaModel = {
     getFilters: async () => {
         try {
             const [tamanhos] = await pool.execute(
-                'SELECT DISTINCT TAMANHO FROM PRODUTOS WHERE TAMANHO IS NOT NULL ORDER BY TAMANHO'
+                'SELECT DISTINCT TAMANHO_PRODUTO FROM PRODUTOS WHERE TAMANHO_PRODUTO IS NOT NULL ORDER BY TAMANHO_PRODUTO'
             );
             
             const [cores] = await pool.execute(
@@ -83,13 +83,13 @@ const categoriaModel = {
             );
             
             const [condicoes] = await pool.execute(
-                'SELECT DISTINCT CONDICAO FROM PRODUTOS ORDER BY CONDICAO'
+                'SELECT DISTINCT CONDICAO_PRODUTO FROM PRODUTOS ORDER BY CONDICAO_PRODUTO'
             );
             
             return {
-                tamanhos: (tamanhos || []).map(t => t.TAMANHO),
+                tamanhos: (tamanhos || []).map(t => t.TAMANHO_PRODUTO),
                 cores: (cores || []).map(c => c.COR_PRODUTO),
-                condicoes: (condicoes || []).map(c => c.CONDICAO)
+                condicoes: (condicoes || []).map(c => c.CONDICAO_PRODUTO)
             };
         } catch (error) {
             console.log('Erro ao buscar filtros:', error);

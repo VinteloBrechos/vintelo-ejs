@@ -12,13 +12,23 @@ body {
     min-height: 100vh;
 }
 
-/* Header Mobile */
-.oculto-desktop {
-    display: block;
+/* Classes de visibilidade responsiva */
+@media (max-width: 768px) {
+    .oculto-desktop {
+        display: block;
+    }
+    .oculto-mobile {
+        display: none;
+    }
 }
 
-.oculto-mobile {
-    display: none;
+@media (min-width: 769px) {
+    .oculto-desktop {
+        display: none;
+    }
+    .oculto-mobile {
+        display: block;
+    }
 }
 
 header nav.grid {
@@ -184,11 +194,12 @@ header nav.grid img {
 
 .perfil-card {
     background: white;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    border-left: 5px solid #7D2838;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-left: 4px solid #7D2838;
     transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .perfil-card:hover {
@@ -305,18 +316,20 @@ header nav.grid img {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .btn-visualizar, .btn-suspender, .btn-reativar, .btn-denuncias {
     padding: 10px 16px;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 0.85rem;
     font-weight: 600;
     transition: all 0.3s ease;
     flex: 1;
     min-width: 100px;
+    text-align: center;
 }
 
 .btn-visualizar {
@@ -389,16 +402,7 @@ header nav.grid img {
     opacity: 0.8;
 }
 
-/* Responsividade */
-@media (min-width: 768px) {
-    .oculto-desktop {
-        display: none;
-    }
-    
-    .oculto-mobile {
-        display: block;
-    }
-}
+
 
 @media (max-width: 768px) {
     .admin-container {
