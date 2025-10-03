@@ -196,10 +196,6 @@
         </section>
     </main>
 
-    <script src="script/cep.js"></script>
-    <script src="js/cadastro-ajax.js"></script>
-   
-    
     <script>
         function handleProfilePhotoUpload(input) {
             if (input.files && input.files[0]) {
@@ -226,10 +222,49 @@
             }
         }
 
-        // Inicializar seções fechadas
+        // Funcionalidade de CEP
+        function buscarCEP(cep) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.erro) {
+                        document.getElementById('endereco').value = data.logradouro || '';
+                        document.getElementById('bairro').value = data.bairro || '';
+                        document.getElementById('cidade').value = data.localidade || '';
+                        document.getElementById('uf').value = data.uf || '';
+                    } else {
+                        alert('CEP não encontrado!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar CEP:', error);
+                    alert('Erro ao buscar CEP.');
+                });
+        }
+
+        // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('personal-info').style.display = 'none';
             document.getElementById('address-info').style.display = 'none';
+            
+            // CEP functionality
+            const cepInput = document.getElementById('cep');
+            if (cepInput) {
+                cepInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 5) {
+                        value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+                    }
+                    e.target.value = value;
+                });
+                
+                cepInput.addEventListener('blur', function() {
+                    const cep = this.value.replace(/\D/g, '');
+                    if (cep.length === 8) {
+                        buscarCEP(cep);
+                    }
+                });
+            }
         });
     </script>
    

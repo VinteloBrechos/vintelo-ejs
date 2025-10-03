@@ -308,6 +308,10 @@ router.get('/blog', function(req, res){
     res.render('pages/blog');
 })
 
+router.get('/artigo', function(req, res){
+    res.redirect('/blog');
+})
+
 router.get('/bossartigo', function(req, res){
     res.render('pages/bossartigo');
 })
