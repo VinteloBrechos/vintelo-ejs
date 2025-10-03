@@ -9,6 +9,7 @@
   "author": "Lavinia",
   "license": "ISC",
   "dependencies": {
+    "audit": "^0.0.6",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.2.2",
