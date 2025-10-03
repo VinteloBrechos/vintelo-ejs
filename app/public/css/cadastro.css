@@ -30,7 +30,7 @@ header .grid {
 
 .login-container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .seta{
@@ -43,6 +43,7 @@ header .grid {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .mannequin {
@@ -98,10 +99,12 @@ header .grid {
 /*                                  formulário                         */
 .form-section {
   width: 50%;
+  background: white;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 80px 0px;
+  align-items: flex-start;
+  padding: 80px 40px;
+  min-height: 100vh;
 }
 
 .form-container {
