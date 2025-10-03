@@ -203,7 +203,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -289,11 +288,16 @@ body {
     align-items: center;
     padding: 20px 40px;
     background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .img-logo {
     height: 60px;
+}
+
+.main-header nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
 .main-header nav a {
@@ -303,10 +307,14 @@ body {
     font-size: 1rem;
     transition: color 0.3s ease;
     letter-spacing: 0.5px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    white-space: nowrap;
 }
 
 .main-header nav a:hover {
     color: #7D2838;
+    background-color: rgba(125, 40, 56, 0.1);
 }
 
 .search-profile {

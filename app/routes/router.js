@@ -74,15 +74,92 @@ router.get("/sair", limparSessao, function (req, res) {
 });
 
 router.get("/login", function (req, res) {
-  res.render("pages/login", { listaErros: null, dadosNotificacao: null });
+  res.render("pages/login", { 
+    listaErros: null, 
+    dadosNotificacao: null,
+    valores: {},
+    avisoErro: {}
+  });
 });
 
 router.post(
   "/login",
-  usuarioController.regrasValidacaoFormLogin,
-  gravarUsuAutenticado,
-  function (req, res) {
-    usuarioController.logar(req, res);
+  async function (req, res) {
+    const bcrypt = require('bcryptjs');
+    const usuarioModel = require('../models/usuarioModel');
+    const { email_usu, senha_usu } = req.body;
+    
+    if (!email_usu || !senha_usu) {
+        return res.render('pages/login', {
+            listaErros: null,
+            dadosNotificacao: {
+                titulo: 'Erro!',
+                mensagem: 'Todos os campos são obrigatórios',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: {}
+        });
+    }
+    
+    try {
+        const usuarios = await usuarioModel.findUserEmail({ user_usuario: email_usu });
+        
+        if (usuarios.length > 0) {
+            const usuario = usuarios[0];
+            const senhaValida = bcrypt.compareSync(senha_usu, usuario.SENHA_USUARIO);
+            
+            if (senhaValida) {
+                req.session.autenticado = {
+                    autenticado: usuario.NOME_USUARIO,
+                    id: usuario.ID_USUARIO,
+                    tipo: usuario.TIPO_USUARIO,
+                    nome: usuario.NOME_USUARIO,
+                    email: usuario.EMAIL_USUARIO
+                };
+                
+                if (usuario.TIPO_USUARIO == 2) {
+                    res.redirect('/homevendedor');
+                } else {
+                    res.redirect('/homecomprador');
+                }
+            } else {
+                res.render('pages/login', {
+                    listaErros: null,
+                    dadosNotificacao: {
+                        titulo: 'Falha ao logar!',
+                        mensagem: 'Senha inválida!',
+                        tipo: 'error'
+                    },
+                    valores: req.body,
+                    avisoErro: {}
+                });
+            }
+        } else {
+            res.render('pages/login', {
+                listaErros: null,
+                dadosNotificacao: {
+                    titulo: 'Falha ao logar!',
+                    mensagem: 'Usuário não encontrado!',
+                    tipo: 'error'
+                },
+                valores: req.body,
+                avisoErro: {}
+            });
+        }
+    } catch (error) {
+        console.log('Erro no login:', error);
+        res.render('pages/login', {
+            listaErros: null,
+            dadosNotificacao: {
+                titulo: 'Erro no sistema!',
+                mensagem: 'Tente novamente mais tarde!',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: {}
+        });
+    }
   }
 );
 
@@ -156,23 +233,7 @@ router.get('/produto4', function(req, res){
     res.render('pages/produto4');
 })
 
-router.get('/login', function(req, res){
-    res.render('pages/login', {
-        valores: {},
-        avisoErro: {}
-    });
-});
 
-router.get('/cadastro', function(req, res){
-    res.render('pages/cadastro', {
-        valores: {},
-        avisoErro: {}
-    });
-});
-
-router.post('/login', usuarioController.regrasValidacaoFormLogin, async function(req, res){
-    usuarioController.cadastrar(req, res);
-});
 
 router.post("/cadastro", usuarioController.regrasValidacaoFormCad, async function(req, res){
     usuarioController.cadastrar(req, res);
@@ -580,6 +641,10 @@ router.post('/denuncias/resolver/:id', denunciaController.resolverDenuncia);
 router.post('/denuncias/rejeitar/:id', denunciaController.rejeitarDenuncia);
 
 router.get('/denuncias/analisar/:id', denunciaController.analisarDenunciaDetalhada);
+
+router.get('/analisardenuncia', function(req, res){
+    res.render('pages/analisar-denuncia');
+});
 
 router.get('/perfilpremium', function(req, res){
     res.render('pages/perfilpremium');

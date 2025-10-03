@@ -96,55 +96,72 @@
                         <input type="text" id="nomeusu_usu" name="nomeusu_usu" placeholder="Digite o nome do brechó">
                     </section>
 
-                    <section class="form-group">
-                        <label for="email_usu">Endereço de email</label>
-                        <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com">
+                    <!-- Seção Informações Pessoais -->
+                    <section class="collapsible-section">
+                        <section class="section-header" onclick="toggleSection('personal-info')">
+                            <h3>Informações Pessoais</h3>
+                            <span class="arrow" id="personal-arrow">▼</span>
+                        </section>
+                        <section class="section-content" id="personal-info">
+                            <section class="form-group">
+                                <label for="email_usu">Endereço de email</label>
+                                <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com">
+                            </section>
+
+                            <section class="form-group">
+                                <label for="nome_usu">Nome Completo</label>
+                                <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome">
+                            </section>
+
+                            <section class="form-group">
+                                <label for="senha_usu">Senha</label>
+                                <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha...">
+                            </section>
+
+                            <section class="form-group">
+                                <label for="confirmar_senha">Confirmar Senha</label>
+                                <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Digite sua senha...">
+                            </section>
+
+                            <section class="form-group">
+                                <label for="fone_usu">Contato</label>
+                                <input type="tel" id="fone_usu" name="fone_usu" placeholder="(**) *****-****">
+                            </section>
+                        </section>
                     </section>
 
-                    <section class="form-group">
-                        <label for="nome_usu">Nome Completo</label>
-                        <input type="text" id="nome_usu" name="nome_usu" placeholder="Digite seu nome">
-                    </section>
+                    <!-- Seção Endereço -->
+                    <section class="collapsible-section">
+                        <section class="section-header" onclick="toggleSection('address-info')">
+                            <h3>Endereço</h3>
+                            <span class="arrow" id="address-arrow">▼</span>
+                        </section>
+                        <section class="section-content" id="address-info">
+                            <section class="form-group">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required>
+                            </section>
 
-                    <section class="form-group">
-                        <label for="senha_usu">Senha</label>
-                        <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha...">
-                    
-                    </section>
+                            <section class="form-group">
+                                <label for="endereco">Endereço</label>
+                                <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida..." required>
+                            </section>
 
-                    <section class="form-group">
-                        <label for="confirmar_senha">Confirmar Senha</label>
-                        <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Digite sua senha...">
-                    </section>
+                            <section class="form-group">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                            </section>
 
-                    <section class="form-group">
-                        <label for="fone_usu">Contato</label>
-                        <input type="tel" id="fone_usu" name="fone_usu" placeholder="(**) *****-****">
-                    </section>
+                            <section class="form-group">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                            </section>
 
-                    <section class="form-group">
-                        <label for="cep">CEP</label>
-                        <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required>
-                    </section>
-
-                    <section class="form-group">
-                        <label for="endereco">Endereço</label>
-                        <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida..." required>
-                    </section>
-
-                    <section class="form-group">
-                        <label for="bairro">Bairro</label>
-                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
-                    </section>
-
-                    <section class="form-group">
-                        <label for="cidade">Cidade</label>
-                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
-                    </section>
-
-                    <section class="form-group">
-                        <label for="uf">UF</label>
-                        <input type="text" id="uf" name="uf" placeholder="SP" maxlength="2" required>
+                            <section class="form-group">
+                                <label for="uf">UF</label>
+                                <input type="text" id="uf" name="uf" placeholder="SP" maxlength="2" required>
+                            </section>
+                        </section>
                     </section>
                     <br>
 
@@ -194,6 +211,25 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const arrow = document.getElementById(sectionId.replace('-info', '-arrow'));
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                arrow.innerHTML = '▲';
+            } else {
+                content.style.display = 'none';
+                arrow.innerHTML = '▼';
+            }
+        }
+
+        // Inicializar seções fechadas
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('personal-info').style.display = 'none';
+            document.getElementById('address-info').style.display = 'none';
+        });
     </script>
    
 </body>

@@ -27,6 +27,13 @@
     background-color: #fff;
 }
 
+@media (max-width: 768px) {
+  .top-bar,
+  .main-header {
+    display: none;
+  }
+}
+
 .main-header h1 {
     color: #8a2b38;
     font-size: 1.8rem;
@@ -58,7 +65,7 @@ nav a {
 }
 
 .img-tamanho{
-    width: 60px;
+    width: 50px;
     height: auto;
 }
 
@@ -360,114 +367,189 @@ nav a {
     border-radius: 3px;
   }
 
-  /* Responsividade Mobile */
-  @media (max-width: 480px) {
-    .dashboard {
-      display: flex;
-      flex-direction: column;
+  /* Classes de ocultação */
+  .mobile-only {
+    display: none;
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+  
+  /* Layout específico mobile */
+  @media (max-width: 768px) {
+    .mobile-only {
+      display: block;
+    }
+    
+    .desktop-only {
+      display: none;
+    }
+    
+    .oculto-mobile {
+      display: none;
+    }
+    
+    .oculto-desktop {
+      display: block;
+    }
+    
+    body {
+      background: #f8f9fa;
+    }
+    
+    /* Layout mobile específico */
+    .mobile-dashboard {
+      padding: 10px;
+      min-height: 100vh;
+    }
+    
+    .mobile-title {
+      background: linear-gradient(135deg, #8c2b44 0%, #a64d61 100%);
+      color: white;
       padding: 15px;
-      gap: 20px;
-    }
-    
-    .stats-card {
-      padding: 25px;
-      margin: 0;
-    }
-    
-    .stats-card h3 {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-    
-    .stats-value {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-    
-    .stats-change {
-      font-size: 14px;
-    }
-    
-    .chart-container {
-      padding: 25px 15px;
-      margin: 0;
-    }
-    
-    .chart-title {
+      border-radius: 12px;
+      text-align: center;
       font-size: 20px;
-      margin-bottom: 25px;
+      margin: 10px 0 15px 0;
+      font-weight: bold;
     }
     
-    .titulo {
-      font-size: 32px;
-      padding: 25px 15px;
-    }
-    
-    /* Gráfico de Barras Mobile */
-    .bar-chart {
-      height: 280px;
-      gap: 15px;
-      padding: 30px 10px;
-      justify-content: space-around;
-    }
-    
-    .bar {
-      flex: 1;
-      max-width: 50px;
-      min-width: 35px;
-    }
-    
-    .bar-value {
-      font-size: 14px;
-      top: -30px;
-    }
-    
-    .bar-label {
-      font-size: 13px;
-      bottom: -30px;
-    }
-    
-    /* Gráfico de Pizza Mobile */
-    .pie-chart {
-      width: 280px;
-      height: 280px;
-      margin: 25px auto;
-    }
-    
-    .pie-center {
-      width: 140px;
-      height: 140px;
-      font-size: 20px;
-    }
-    
-    .pie-legend {
+    .mobile-stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 25px;
-      padding: 0 10px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
     
-    .legend-item {
+    .mobile-stat-card {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border-left: 3px solid #8c2b44;
+    }
+    
+    .mobile-stat-card h4 {
+      color: #8c2b44;
+      font-size: 12px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    
+    .mobile-stat-value {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 3px;
+    }
+    
+    .mobile-stat-change {
+      font-size: 10px;
+      color: #28a745;
+      font-weight: 500;
+    }
+    
+    .mobile-chart-section {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-chart-title {
+      color: #8c2b44;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .mobile-bar-chart {
+      display: flex;
+      align-items: end;
+      height: 200px;
+      gap: 10px;
+      padding: 20px 10px;
+      background: #f8f9fa;
+      border-radius: 10px;
+    }
+    
+    .mobile-bar {
+      flex: 1;
+      background: linear-gradient(to top, #8c2b44, #a64d61);
+      border-radius: 5px 5px 0 0;
+      position: relative;
+      max-width: 40px;
+    }
+    
+    .mobile-bar-label {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: #666;
+    }
+    
+    .mobile-pie-section {
+      text-align: center;
+    }
+    
+    .mobile-pie-chart {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #8c2b44 0deg 144deg,
+        #a64d61 144deg 252deg,
+        #c96d7e 252deg 324deg,
+        #e8a5b0 324deg 360deg
+      );
+      margin: 20px auto;
+      position: relative;
+    }
+    
+    .mobile-pie-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #8c2b44;
       font-size: 14px;
+    }
+    
+    .mobile-legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .mobile-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
       padding: 8px;
-      justify-content: flex-start;
-      min-width: auto;
+      background: #f8f9fa;
+      border-radius: 8px;
     }
     
-    .legend-color {
-      width: 16px;
-      height: 16px;
-    }
-    
-    .main-header {
-      padding: 15px 20px;
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    nav {
-      display: none;
+    .mobile-legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
     }
   }
   
