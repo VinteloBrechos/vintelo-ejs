@@ -34,29 +34,48 @@
         <br>
         <p class="divider">ou acesse via email</p>
         <br>
+        <!-- Exibir notificações -->
+        <% if (dadosNotificacao) { %>
+            <div class="alert alert-<%= dadosNotificacao.tipo %>">
+                <strong><%= dadosNotificacao.titulo || '' %></strong>
+                <%= dadosNotificacao.mensagem %>
+            </div>
+        <% } %>
+        
+        <!-- Exibir erros de validação -->
+        <% if (listaErros && !listaErros.isEmpty()) { %>
+            <div class="alert alert-error">
+                <ul>
+                    <% listaErros.errors.forEach(function(erro) { %>
+                        <li><%= erro.msg %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
+        
         <form id="registerForm" action="/cadastro" method="post">
             <section class="form-group">
                 <label for="nome_usuario">Nome Completo</label>
                 <input type="text" id="nome_completo" name="nome_usu" placeholder="Digite seu nome" 
-                    value="<%= valores?.nome_completo|| '' %>">
+                    value="<%= valores?.nome_usu || '' %>" required>
             </section>
             
             <section class="form-group">
                 <label for="nome_usuario">Nome de Usuário</label>
                 <input type="text" id="nome_usuario" name="nomeusu_usu" placeholder="Digite seu nome de usuário" 
-                    value="<%= valores?.nomeusu_usu || '' %>">
+                    value="<%= valores?.nomeusu_usu || '' %>" required>
             </section>
             
             <section class="form-group">
                 <label for="email_usu">Endereço de email</label>
                 <input type="email" id="email_usu" name="email_usu" placeholder="conta.sanders@exemplo.com"
-                    value="<%= valores?.email_usu || '' %>" class="<%= avisoErro?.email_usu || '' %>">
+                    value="<%= valores?.email_usu || '' %>" required>
             </section>
          
             <section class="form-group">
                 <label for="senha_usu">Senha</label>
                 <input type="password" id="senha_usu" name="senha_usu" placeholder="Digite sua senha..."
-                    value="<%= valores?.senha_usu || '' %>" class="<%= avisoErro?.senha_usu || '' %>">
+                    value="<%= valores?.senha_usu || '' %>" required>
             </section>
             
             <section class="form-group">
@@ -74,7 +93,7 @@
             <section class="form-group">
                 <label for="celular_usuario">Telefone</label>
                 <input type="tel" id="celular_usuario" name="celular_usuario" placeholder="(11) 99999-9999" 
-                       value="<%=valores?.celular_usuario || '' %>" required>
+                       value="<%=valores?.celular_usuario || '' %>">
             </section>
             
             <section class="form-group">
@@ -128,5 +147,6 @@
         </form>
     </main>
 
+    <script src="js/login.js"></script>
 </body>
 </html>

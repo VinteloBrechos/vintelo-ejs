@@ -40,11 +40,11 @@ header nav.grid {
 }
 
 header nav.grid img {
-    height: 30px;
+    height: 40px;
 }
 
 .img-branca {
-    height: 30px;
+    height: 40px;
 }
 
 /*                cabeçalho Desktop                   */
@@ -98,7 +98,7 @@ header nav.grid img {
 }
 
 .search-profile img {
-    height: 50px;
+    height: 40px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -107,8 +107,12 @@ header nav.grid img {
     transform: scale(1.1);
 }
 
-.maria, .img-tamanho, .img-tamanho2 {
-    height: 35px;
+.maria, .img-tamanho {
+    height: 40px;
+}
+
+.img-tamanho2 {
+    height: 40px;
 }
 
 .admin-container {

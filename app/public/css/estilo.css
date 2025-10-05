@@ -141,6 +141,8 @@ nav a {
   border-radius: 80px;
   cursor: pointer;
   display: flex;
+  z-index: 100001;
+  position: relative;
 }
 
 .hamburguer {
@@ -153,12 +155,13 @@ nav a {
   left: 15px;
   transition: 0.5s ease-in-out;
   line-height: 3px;
+  z-index: 100002;
 }
 
 
 .hamburguer:before,
 .hamburguer:after {
-  background: #ffff;
+  background: #ffffff;
   content: '';
   display: block;
   width: 100%;
@@ -187,7 +190,7 @@ nav a {
 }
 
 #menu-hamburguer:checked ~ label .hamburguer:before {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   top: 0;
   background: #ffffff;
 }
@@ -228,8 +231,8 @@ nav a {
 }
 
 .sidebar-menu li img {
-  width: 90px;
-  height: 30px;
+  width: 60px;
+  height: 20px;
   margin-right: 0.75rem;
 }
 
@@ -763,6 +766,7 @@ h3 {
     width: 100%;
     max-width: 400px;
     gap: 15px;
+    flex-direction: row;
   }
 
   .brechos-grid .profile-image {
@@ -1274,7 +1278,7 @@ h3 {
 }
 
 .imagem-artigo {
-  width: 100%;
+  width: 120%;
   border-radius: 10px;
 }
 .grid-artigos{
@@ -1487,10 +1491,9 @@ h1 {
 .container {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 40px;
+  gap: 80px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 60px;
   align-items: start;
 }
 
@@ -1642,6 +1645,11 @@ h1 {
     margin: 0 auto;
   }
 
+  .create-btn {
+    padding: 2rem;
+    font-size: 36px;
+  }
+
 }
 
 
@@ -1762,7 +1770,6 @@ h1 {
 
 .titulo-brecho-section, .titulo-artigo-section {
   text-align: center;
-  padding: 20px 0;
 }
 
 
@@ -1783,8 +1790,9 @@ h1 {
   font-size: 24px;
   letter-spacing: 3px;
   color: #7d2838;
-  margin-left: 0;
-  display: block;
+  margin-left: 90px;
+  display: inline-block;
+  margin-top: 40px;
 }
 
 .titulo-brecho-section .vintelo-text {
@@ -1793,8 +1801,9 @@ h1 {
   font-size: 70px;
   color: #7d2838;
   line-height: 1.2;
-  margin-left: 0;
-  display: block;
+  margin-left: 150px;
+  display: inline-block;
+  margin-bottom: 30px;
 }
 
 .titulo-artigo-section .garimpe-text {
@@ -1827,6 +1836,20 @@ h1 {
   display: flex;
 }
 
+
+@media (min-width: 992px) {
+  .titulo-brecho-section .garimpe-text {
+    font-size: 18px;
+    margin-left: 60px;
+    margin-top: 30px;
+  }
+  
+  .titulo-brecho-section .vintelo-text {
+    font-size: 50px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+  }
+}
 
 @media (max-width: 991px) {
   .titulo-brecho-section .garimpe-text,

@@ -151,6 +151,8 @@ router.get("/cadastro", function (req, res) {
 
 router.post("/cadastro", usuarioController.regrasValidacaoFormCad, usuarioController.cadastrar);
 
+// Remover a rota POST /login conflitante - o form já aponta para /cadastro
+
 router.get('/cadastroadm', function(req, res){ res.render('pages/cadastroadm'); });
 
 router.get("/adm", verificarUsuAutenticado, verificarUsuAutorizado([2, 3], "pages/restrito"), function (req, res) {

@@ -1,12 +1,12 @@
 const usuario = require("../models/usuarioModel");
 const tipoUsuario = require("../models/tipoUsuarioModel");
+const cliente = require("../models/clienteModel"); // cria os registros da tabela clientes .nany
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 const {removeImg} = require("../util/removeImg");
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const https = require('https');
-const clienteModel = require("../models/clienteModel");
 
 const usuarioController = {
 
@@ -40,7 +40,7 @@ const usuarioController = {
         body("nomeusu_usu")
             .isLength({ min: 8, max: 45 }).withMessage("Nome de usuário deve ter de 8 a 45 caracteres!")
             .custom(async value => {
-                const nomeUsu = await usuario.findCampoCustom({ 'user_usuario': value });
+                const nomeUsu = await usuario.findCampoCustom('user_usuario', value);
                 if (nomeUsu > 0) {
                     throw new Error('Nome de usuário em uso!');
                 }
@@ -48,14 +48,36 @@ const usuarioController = {
         body("email_usu")
             .isEmail().withMessage("Digite um e-mail válido!")
             .custom(async value => {
-                const nomeUsu = await usuario.findCampoCustom({ 'email_usuario': value });
+                const nomeUsu = await usuario.findCampoCustom('email_usuario', value);
                 if (nomeUsu > 0) {
                     throw new Error('E-mail em uso!');
                 }
             }),
         body("senha_usu")
             .isStrongPassword()
-            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
+            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
+        body("cpf_cliente")
+            .optional()
+            .isLength({ min: 11, max: 14 }).withMessage("CPF deve ter 11 dígitos!")
+            .matches(/^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/).withMessage("CPF inválido!")
+            .custom(async value => {
+                if (value) {
+                    const cpfLimpo = value.replace(/\D/g, '');
+                    const cpfExistente = await cliente.findByCpf(cpfLimpo);
+                    if (cpfExistente.length > 0) {
+                        throw new Error('CPF já cadastrado!');
+                    }
+                }
+            }),
+        body("data_nasc")
+            .optional()
+            .isDate().withMessage("Data de nascimento inválida!"),
+        body("celular_usuario")
+            .optional()
+            .isLength({ min: 10, max: 15 }).withMessage("Telefone deve ter entre 10 e 15 dígitos!"),
+        body("cep_usuario")
+            .optional()
+            .isPostalCode('BR').withMessage("CEP inválido!")
     ],
 
 
@@ -108,12 +130,28 @@ const usuarioController = {
         };
         
         if (!erros.isEmpty()) {
-            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+            return res.render("pages/login", { 
+                listaErros: erros, 
+                dadosNotificacao: null, 
+                valores: req.body,
+                avisoErro: {}
+            })
         }
         
         try {
             let create = await usuario.create(dadosForm);
             if (create && create.insertId) {
+                // Criar registro na tabela CLIENTES se tiver dados de cliente
+                if (req.body.cpf_cliente || req.body.data_nasc) {
+                    const dadosCliente = {
+                        ID_USUARIO: create.insertId,
+                        CPF_CLIENTE: req.body.cpf_cliente ? req.body.cpf_cliente.replace(/\D/g, '') : null,
+                        DATA_NASC: req.body.data_nasc || null
+                    };
+                    
+                    await cliente.create(dadosCliente);
+                }
+                
                 req.session.autenticado = {
                     autenticado: dadosForm.NOME_USUARIO,
                     id: create.insertId,
@@ -138,10 +176,15 @@ const usuarioController = {
             }
         } catch (e) {
             console.log(e);
-            res.render("pages/cadastro", {
-                listaErros: null, dadosNotificacao: {
-                    titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
-                }, valores: req.body
+            res.render("pages/login", {
+                listaErros: null, 
+                dadosNotificacao: {
+                    titulo: "Erro ao cadastrar!", 
+                    mensagem: "Verifique os valores digitados!", 
+                    tipo: "error"
+                }, 
+                valores: req.body,
+                avisoErro: {}
             })
         }
     },

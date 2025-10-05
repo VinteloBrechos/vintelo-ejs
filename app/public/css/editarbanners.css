@@ -72,10 +72,10 @@ nav.grid-2 {
 }
 
 nav.grid-2 p {
-  font-size: 18px;
+  font-size: 20px;
   color: #e0e0e0;
   background-color: #7D2838;
-  padding: 20px 25px;
+  padding: 20px;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -416,7 +416,7 @@ nav.grid-2 p:hover {
 }
 
 .search-profile img {
-    height: 35px;
+    height: 45px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -458,7 +458,7 @@ nav.grid-2 p:hover {
     }
     
     .oculto-desktop{
-        display: block;
+        display: none;
     }
     .form-actions {
         justify-content: flex-end;
