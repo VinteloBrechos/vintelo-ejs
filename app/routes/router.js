@@ -335,7 +335,6 @@ router.post('/criarbrecho', async function(req, res){
                 SEGUIDORES: '0'
             };
             
-            // Se for requisição AJAX, retornar JSON
             if (req.xhr || req.headers.accept.indexOf('json') > -1) {
                 return res.json({
                     success: true,
@@ -362,27 +361,30 @@ router.post('/criarbrecho', async function(req, res){
 });
 
 router.get('/entrar', function(req, res){
-    res.render('pages/entrar', { listaErros: null, dadosNotificacao: null });
+    res.render('pages/entrar', { listaErros: null, dadosNotificacao: null,
+        valores: {}
+     });
 });
 
 router.post('/entrar', async function(req, res){
-    const { nome_usu, senha_usu } = req.body;
+    const { email_usu, senha_usu } = req.body;
     
-    console.log('Tentativa de login:', { nome_usu, senha_usu });
+    console.log('Tentativa de login:', { email_usu, senha_usu });
     
-    if (!nome_usu || !senha_usu) {
+    if (!email_usu || !senha_usu) {
         return res.render('pages/entrar', {
             listaErros: null,
             dadosNotificacao: {
                 titulo: 'Erro!',
                 mensagem: 'Todos os campos são obrigatórios',
                 tipo: 'error'
-            }
+            },
+            valores: req.body
         });
     }
     
     try {
-        const usuarios = await usuarioModel.findUserEmail({ user_usuario: nome_usu });
+        const usuarios = await usuarioModel.findUserEmail({ user_usuario: email_usu });
         
         if (usuarios.length > 0) {
             const usuario = usuarios[0];
@@ -393,8 +395,8 @@ router.post('/entrar', async function(req, res){
                     autenticado: usuario.NOME_USUARIO,
                     id: usuario.ID_USUARIO,
                     tipo: usuario.TIPO_USUARIO,
-                    nome_usu: usuario.NOME_USUARIO,
-                    email_usu: usuario.EMAIL_USUARIO
+                    nome: usuario.NOME_USUARIO,
+                    email: usuario.EMAIL_USUARIO
                 };
                 
                 if (usuario.TIPO_USUARIO == 2) {
@@ -417,7 +419,8 @@ router.post('/entrar', async function(req, res){
                         titulo: 'Falha ao logar!',
                         mensagem: 'Senha inválida!',
                         tipo: 'error'
-                    }
+                    },
+                    valores: req.body
                 });
             }
         } else {
@@ -427,7 +430,8 @@ router.post('/entrar', async function(req, res){
                     titulo: 'Falha ao logar!',
                     mensagem: 'Usuário não encontrado!',
                     tipo: 'error'
-                }
+                },
+                valores: req.body
             });
         }
     } catch (error) {
@@ -438,7 +442,8 @@ router.post('/entrar', async function(req, res){
                 titulo: 'Erro no sistema!',
                 mensagem: 'Tente novamente mais tarde!',
                 tipo: 'error'
-            }
+            },
+            valores: req.body
         });
     }
 });

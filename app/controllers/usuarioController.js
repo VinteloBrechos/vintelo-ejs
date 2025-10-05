@@ -1,6 +1,6 @@
 const usuario = require("../models/usuarioModel");
 const tipoUsuario = require("../models/tipoUsuarioModel");
-const cliente = require("../models/clienteModel"); // cria os registros da tabela clientes .nany
+const cliente = require("../models/clienteModel"); // cria os registros da tabela clientes -nany
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
@@ -36,9 +36,11 @@ const usuarioController = {
 
     regrasValidacaoFormCad: [
         body("nome_usu")
-            .isLength({ min: 3, max: 45 }).withMessage("Nome deve ter de 3 a 45 caracteres!"),
+            .notEmpty().withMessage("Nome completo é obrigatório!")
+            .isLength({ min: 3, max: 70 }).withMessage("Nome deve ter de 3 a 70 caracteres!"),
         body("nomeusu_usu")
-            .isLength({ min: 8, max: 45 }).withMessage("Nome de usuário deve ter de 8 a 45 caracteres!")
+            .notEmpty().withMessage("Nome de usuário é obrigatório!")
+            .isLength({ min: 3, max: 50 }).withMessage("Nome de usuário deve ter de 3 a 50 caracteres!")
             .custom(async value => {
                 const nomeUsu = await usuario.findCampoCustom('user_usuario', value);
                 if (nomeUsu > 0) {
@@ -46,38 +48,50 @@ const usuarioController = {
                 }
             }),
         body("email_usu")
+            .notEmpty().withMessage("E-mail é obrigatório!")
             .isEmail().withMessage("Digite um e-mail válido!")
             .custom(async value => {
-                const nomeUsu = await usuario.findCampoCustom('email_usuario', value);
-                if (nomeUsu > 0) {
+                const emailUsu = await usuario.findCampoCustom('email_usuario', value);
+                if (emailUsu > 0) {
                     throw new Error('E-mail em uso!');
                 }
             }),
         body("senha_usu")
+            .notEmpty().withMessage("Senha é obrigatória!")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
         body("cpf_cliente")
-            .optional()
+            .notEmpty().withMessage("CPF é obrigatório!")
             .isLength({ min: 11, max: 14 }).withMessage("CPF deve ter 11 dígitos!")
             .matches(/^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/).withMessage("CPF inválido!")
             .custom(async value => {
-                if (value) {
-                    const cpfLimpo = value.replace(/\D/g, '');
-                    const cpfExistente = await cliente.findByCpf(cpfLimpo);
-                    if (cpfExistente.length > 0) {
-                        throw new Error('CPF já cadastrado!');
-                    }
+                const cpfLimpo = value.replace(/\D/g, '');
+                const cpfExistente = await cliente.findByCpf(cpfLimpo);
+                if (cpfExistente.length > 0) {
+                    throw new Error('CPF já cadastrado!');
                 }
             }),
         body("data_nasc")
-            .optional()
+            .notEmpty().withMessage("Data de nascimento é obrigatória!")
             .isDate().withMessage("Data de nascimento inválida!"),
         body("celular_usuario")
-            .optional()
+            .notEmpty().withMessage("Telefone é obrigatório!")
             .isLength({ min: 10, max: 15 }).withMessage("Telefone deve ter entre 10 e 15 dígitos!"),
         body("cep_usuario")
-            .optional()
-            .isPostalCode('BR').withMessage("CEP inválido!")
+            .notEmpty().withMessage("CEP é obrigatório!")
+            .isPostalCode('BR').withMessage("CEP inválido!"),
+        body("logradouro_usuario")
+            .notEmpty().withMessage("Logradouro é obrigatório!")
+            .isLength({ min: 5, max: 100 }).withMessage("Logradouro deve ter de 5 a 100 caracteres!"),
+        body("bairro_usuario")
+            .notEmpty().withMessage("Bairro é obrigatório!")
+            .isLength({ min: 2, max: 30 }).withMessage("Bairro deve ter de 2 a 30 caracteres!"),
+        body("cidade_usuario")
+            .notEmpty().withMessage("Cidade é obrigatória!")
+            .isLength({ min: 2, max: 30 }).withMessage("Cidade deve ter de 2 a 30 caracteres!"),
+        body("uf_usuario")
+            .notEmpty().withMessage("UF é obrigatória!")
+            .isLength({ min: 2, max: 2 }).withMessage("UF deve ter 2 caracteres!")
     ],
 
 
@@ -115,18 +129,19 @@ const usuarioController = {
     cadastrar: async (req, res) => {
         const erros = validationResult(req);
         
-        const tipoCliente = await tipoUsuario.findByTipo('cliente');
-        
         var dadosForm = {
             USER_USUARIO: req.body.nomeusu_usu,
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
             NOME_USUARIO: req.body.nome_usu,
             EMAIL_USUARIO: req.body.email_usu,
-            CELULAR_USUARIO: req.body.celular_usuario || null,
-            CEP_USUARIO: req.body.cep_usuario ? req.body.cep_usuario.replace("-", "") : null,
-            NUMERO_USUARIO: req.body.numero || null,
-            TIPO_USUARIO: tipoCliente.length > 0 ? tipoCliente[0].ID_TIPO_USUARIO : 2,
-            STATUS_USUARIO: 1
+            CELULAR_USUARIO: req.body.celular_usuario,
+            CEP_USUARIO: req.body.cep_usuario.replace("-", ""),
+            LOGRADOURO_USUARIO: req.body.logradouro_usuario,
+            BAIRRO_USUARIO: req.body.bairro_usuario,
+            CIDADE_USUARIO: req.body.cidade_usuario,
+            UF_USUARIO: req.body.uf_usuario.toUpperCase(),
+            TIPO_USUARIO: 'cliente',
+            STATUS_USUARIO: 'ativo'
         };
         
         if (!erros.isEmpty()) {
@@ -141,16 +156,14 @@ const usuarioController = {
         try {
             let create = await usuario.create(dadosForm);
             if (create && create.insertId) {
-                // Criar registro na tabela CLIENTES se tiver dados de cliente
-                if (req.body.cpf_cliente || req.body.data_nasc) {
-                    const dadosCliente = {
-                        ID_USUARIO: create.insertId,
-                        CPF_CLIENTE: req.body.cpf_cliente ? req.body.cpf_cliente.replace(/\D/g, '') : null,
-                        DATA_NASC: req.body.data_nasc || null
-                    };
-                    
-                    await cliente.create(dadosCliente);
-                }
+                // Criar registro na tabela CLIENTES (obrigatório)
+                const dadosCliente = {
+                    ID_USUARIO: create.insertId,
+                    CPF_CLIENTE: req.body.cpf_cliente.replace(/\D/g, ''),
+                    DATA_NASC: req.body.data_nasc
+                };
+                
+                await cliente.create(dadosCliente);
                 
                 req.session.autenticado = {
                     autenticado: dadosForm.NOME_USUARIO,
