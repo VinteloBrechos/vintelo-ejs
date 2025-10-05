@@ -184,6 +184,10 @@ router.post(
   }
 );
 
+router.get('/cadastroadm', function(req, res){
+    res.render('pages/cadastroadm');
+})
+
 router.get(
   "/adm",
   verificarUsuAutenticado,
@@ -718,55 +722,7 @@ router.get('/usuariosadm', function(req, res){
     res.render('pages/usuariosadm');
 })
 
-// Rotas para Premium
 router.post('/premium/atualizar-plano', atualizarPlano);
 router.post('/premium/alternar-status', alternarStatusPlano);
-
-// Rotas de autenticação social
-// Google
-router.get('/auth/google', passport.authenticate('google', {
-    scope: ['profile', 'email']
-}));
-
-router.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/entrar' }),
-    (req, res) => {
-        req.session.autenticado = {
-            autenticado: req.user.NOME_USUARIO,
-            id: req.user.ID_USUARIO,
-            tipo: req.user.TIPO_USUARIO,
-            nome: req.user.NOME_USUARIO,
-            email: req.user.EMAIL_USUARIO
-        };
-        
-        if (req.user.TIPO_USUARIO == 2) {
-            res.redirect('/homevendedor');
-        } else {
-            res.redirect('/homecomprador');
-        }
-    }
-);
-
-// Instagram
-router.get('/auth/instagram', passport.authenticate('instagram'));
-
-router.get('/auth/instagram/callback',
-    passport.authenticate('instagram', { failureRedirect: '/entrar' }),
-    (req, res) => {
-        req.session.autenticado = {
-            autenticado: req.user.NOME_USUARIO,
-            id: req.user.ID_USUARIO,
-            tipo: req.user.TIPO_USUARIO,
-            nome: req.user.NOME_USUARIO,
-            email: req.user.EMAIL_USUARIO
-        };
-        
-        if (req.user.TIPO_USUARIO == 2) {
-            res.redirect('/homevendedor');
-        } else {
-            res.redirect('/homecomprador');
-        }
-    }
-);
 
 module.exports = router;

@@ -10,7 +10,7 @@
     background-color: #ffffff;
     color: #333;
   }
-  /*                                                   modo desktop                                                     */
+  /*                                                 modo desktop                                                     */
   .top-bar {
     background-color: #8c2b44;
     text-align: center;
@@ -73,7 +73,7 @@ nav a {
     width: 120px;
     height: auto;
 }
-  /*                                                Header - Mobile First                                                */
+  /*                  cabeçalho mobile                            */
   header {
     background-color: #fff;
     padding: 40px;
@@ -99,7 +99,7 @@ nav a {
     text-align: center;
   }
 
-  /* Dashboard de Estatísticas */
+  /*                Dashboard de Estatísticas             */
   .dashboard {
     max-width: 1200px;
     margin: 0 auto;
@@ -164,7 +164,7 @@ nav a {
     color: #dc3545;
   }
 
-  /* Gráfico de Barras CSS */
+  /*                    Gráfico de Barras                    */
   .chart-container {
     background: #fff;
     border-radius: 15px;
@@ -254,7 +254,7 @@ nav a {
     transform: translateX(-50%) translateY(-5px);
   }
 
-  /* Gráfico de Pizza CSS */
+  /*                  Gráfico de Pizza      */
   .pie-chart {
     width: 200px;
     height: 200px;
@@ -367,7 +367,7 @@ nav a {
     border-radius: 3px;
   }
 
-  /* Classes de ocultação */
+  /*                ocultação             */
   .mobile-only {
     display: none;
   }
@@ -376,7 +376,7 @@ nav a {
     display: block;
   }
   
-  /* Layout específico mobile */
+  /*               Layout mobile          */
   @media (max-width: 768px) {
     .mobile-only {
       display: block;
@@ -398,7 +398,6 @@ nav a {
       background: #f8f9fa;
     }
     
-    /* Layout mobile específico */
     .mobile-dashboard {
       padding: 15px;
       min-height: 100vh;
@@ -416,7 +415,7 @@ nav a {
       box-shadow: 0 4px 15px rgba(140, 43, 68, 0.3);
     }
     
-    /* Receita Principal */
+    /*           Receita Principal          */
     .mobile-main-stat {
       background: white;
       padding: 25px;
@@ -447,7 +446,7 @@ nav a {
       font-weight: 500;
     }
     
-    /* Estatísticas Secundárias */
+    /*             Estatísticas Secundárias             */
     .mobile-secondary-stats {
       display: flex;
       flex-direction: column;
@@ -493,7 +492,7 @@ nav a {
       background: rgba(220, 53, 69, 0.1);
     }
     
-    /* Seções */
+    /*                   Seções                    */
     .mobile-revenue-section,
     .mobile-sales-section {
       background: white;
@@ -511,7 +510,7 @@ nav a {
       text-align: center;
     }
     
-    /* Lista de Receita */
+    /*                    Lista de Receita             */
     .mobile-revenue-list {
       display: flex;
       flex-direction: column;
@@ -545,7 +544,7 @@ nav a {
       text-align: right;
     }
     
-    /* Grid de Vendas */
+    /*             Grid de Vendas                */
     .mobile-sales-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -579,7 +578,7 @@ nav a {
       font-weight: 500;
     }
     
-    /* Rodapé Mobile */
+    /*            Rodapé              */
     .footer .social-links {
       flex-direction: row;
       flex-wrap: wrap;
@@ -603,7 +602,7 @@ nav a {
     }
   }
   
-  /* Responsividade Tablet */
+  /*              Responsividade Tablet         */
   @media (min-width: 481px) and (max-width: 768px) {
     .mobile-main-value {
       font-size: 42px;
@@ -686,7 +685,7 @@ nav a {
     }
   }
   
-  /* Responsividade Desktop Pequeno */
+  /*           Responsividade Desktop Pequeno          */
   @media (min-width: 769px) and (max-width: 1024px) {
     .dashboard {
       grid-template-columns: repeat(2, 1fr);
@@ -748,8 +747,6 @@ nav a {
   }
   
 
-
-  /* Classes de visibilidade corrigidas */
   .oculto-mobile {
     display: block;
   }
@@ -768,7 +765,7 @@ nav a {
     }
   }
    
-  /* Desktop Grande */
+  /*             Desktop Grande             */
   @media (min-width: 1025px) {
     .dashboard {
       grid-template-columns: repeat(4, 1fr);

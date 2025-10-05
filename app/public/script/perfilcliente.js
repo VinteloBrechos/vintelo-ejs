@@ -1,12 +1,8 @@
-// Funcionalidades do Perfil Cliente
-
-// Mostrar seções
 function showSection(sectionId) {
     hideAllSections();
     document.getElementById(sectionId).style.display = 'block';
 }
 
-// Ocultar todas as seções
 function hideAllSections() {
     const sections = document.querySelectorAll('.content-section');
     sections.forEach(section => {
@@ -14,12 +10,10 @@ function hideAllSections() {
     });
 }
 
-// Editar foto do perfil
 function editProfilePhoto() {
     document.getElementById('profile-photo-input').click();
 }
 
-// Upload da foto do perfil
 function handleProfilePhotoUpload(input) {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
@@ -30,7 +24,6 @@ function handleProfilePhotoUpload(input) {
     }
 }
 
-// Atualizar informações pessoais
 function updatePersonalInfo(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -44,7 +37,6 @@ function updatePersonalInfo(event) {
     hideAllSections();
 }
 
-// Funcionalidades de pedidos
 function toggleOrderDetails(button) {
     const orderCard = button.closest('.order-card');
     const details = orderCard.querySelector('.order-details');
@@ -71,7 +63,6 @@ function toggleTracking(button) {
     }
 }
 
-// Funcionalidades de favoritos
 function removeFavorite(id) {
     if (confirm('Deseja remover este item dos favoritos?')) {
         const favoriteItem = event.target.closest('.favorite-item');
@@ -79,7 +70,6 @@ function removeFavorite(id) {
     }
 }
 
-// Funcionalidades de endereços
 function addNewAddress() {
     document.getElementById('modal-title').textContent = 'Adicionar Novo Endereço';
     document.getElementById('address-modal').style.display = 'flex';
@@ -107,7 +97,6 @@ function saveAddress(event) {
     closeAddressModal();
 }
 
-// Funcionalidades de pagamento
 function addNewPayment() {
     alert('Funcionalidade de adicionar cartão em desenvolvimento');
 }
@@ -122,7 +111,6 @@ function deletePayment(id) {
     }
 }
 
-// Busca CEP
 document.addEventListener('DOMContentLoaded', function() {
     const cepInput = document.getElementById('address-cep');
     if (cepInput) {
@@ -145,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Fechar modal clicando fora
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('address-modal');
     if (event.target === modal) {

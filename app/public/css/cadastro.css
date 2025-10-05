@@ -93,7 +93,7 @@ header .grid {
 }
 
 .button:hover {
-  background-color: #5a1f2b; /* Cor mais escura ao passar o mouse */
+  background-color: #5a1f2b; 
 }
 
 /*                                  formulário                         */
@@ -225,7 +225,12 @@ input[readonly]:focus {
   height: 100%; 
 }
 
-/* Estilos para telas maiores */
+.link-preto {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+/*              telas maiores             */
 @media (min-width: 768px) {
   .container {
       flex-direction: row;
@@ -265,7 +270,7 @@ input[readonly]:focus {
           }
       }
   
-      /* Estilos para tablets e desktops (mínimo 768px) */
+      /*               desktops              */
 @media (min-width: 768px) {
   .container {
       flex-direction: row;
@@ -299,7 +304,7 @@ input[readonly]:focus {
   }
 }
 
-/* Estilos para dispositivos móveis (máximo 768px) */
+/*                   mobile                 */
 @media (max-width: 768px) {
   .container {
       flex-direction: column;
@@ -333,14 +338,12 @@ input[readonly]:focus {
   }
 }
 
-/* Estilos para telas maiores */
 @media (max-width: 768px) {
   .header {
       display: block;
   }
 }
 
-/* Seções Colapsáveis */
 .collapsible-section {
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -389,7 +392,6 @@ input[readonly]:focus {
     margin-top: 0;
 }
 
-/* Estilos para telas maiores */
 @media (min-width: 992px) {
   .header {
       display: none;

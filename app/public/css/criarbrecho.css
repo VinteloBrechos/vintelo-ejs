@@ -8,7 +8,7 @@ body {
     font-family: 'Prata', 'Montserrat';
 }
 
-/* Cabeçalho */
+/*                  Cabeçalho               */
 header {
     background-color: #fff;
     padding: 20px;
@@ -27,7 +27,7 @@ header .grid {
     height: 40px;
 }
 
-/* Container principal */
+/*               Container principal                 */
 .container {
     display: flex;
     justify-content: center;
@@ -210,7 +210,7 @@ h3 {
     align-items: center;
 }
 
-/* Rodapé */
+/*                        Rodapé                    */
 footer {
     text-align: center;
     padding: 20px;
@@ -244,7 +244,7 @@ footer {
     height: 100%; 
   }
 
-/* Estilos para telas maiores */
+/*              responsividade                 */
 @media (min-width: 768px) {
     .container {
         flex-direction: row;
@@ -280,7 +280,7 @@ footer {
             }
         }
     
-        /* Estilos para tablets e desktops (mínimo 768px) */
+        /*            tablets e desktops           */
 @media (min-width: 768px) {
     .container {
         flex-direction: row;
@@ -307,7 +307,7 @@ footer {
     }
 }
 
-/* Estilos para dispositivos móveis (máximo 768px) */
+/*           mobile           */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -331,35 +331,32 @@ footer {
     }
 }
 
-/* Estilos para telas maiores */
+
 @media (max-width: 768px) {
     .oculto-desktop {
         display: block;
     }
 }
 
-/* Estilos para telas maiores */
 @media (min-width: 992px) {
     .oculto-desktop {
         display: none;
     }
 }
 
-/* Estilos para telas maiores */
 @media (max-width: 768px) {
     .oculto-mobile {
         display: none;
     }
 }
 
-/* Estilos para telas maiores */
 @media (min-width: 992px) {
     .oculto-mobile {
         display: block;
     }
 }
 
-/* Estilos para seções colapsáveis - Estilo delicado */
+/*               Estilos para seções colapsáveis       */
 .collapsible-section {
     margin-bottom: 20px;
     background: white;

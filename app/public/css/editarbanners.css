@@ -304,7 +304,7 @@ nav.grid-2 p:hover {
     font-size: 1.2rem;
 }
 
-/* Footer */
+/*            rodapé            */
 .footer {
     background: linear-gradient(135deg, #7D2838 0%, #5a1e2a 100%);
     color: #fff;
@@ -445,6 +445,9 @@ nav.grid-2 p:hover {
     display: none;
 }
 
+ .oculto-desktop{
+        display: block;
+}
 @media (min-width: 768px) {
     .mobile-only {
         display: none;
@@ -454,6 +457,9 @@ nav.grid-2 p:hover {
         display: block;
     }
     
+    .oculto-desktop{
+        display: block;
+    }
     .form-actions {
         justify-content: flex-end;
     }
@@ -552,12 +558,3 @@ nav.grid-2 p:hover {
         min-width: auto;
     }
 }
-
-@media (max-width: 768px) 
-  .oculto-desktop {
-      display: block;
-  }
-@media (min-width: 992px) 
-  .oculto-desktop {
-      display: none;
-  }

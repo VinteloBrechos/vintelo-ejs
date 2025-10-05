@@ -8,8 +8,7 @@ body {
 }
 
 
-
-/* Banner em GIF - full width */
+/*                                           Banner em GIF                                       */
 .discount-banner {
   background-color: #92444d;
   color: white;
@@ -25,12 +24,11 @@ body {
   margin: 20px 0p 0px;
 }
 
-/* Corrigindo o peso da fonte */
+
 .highlight {
   font-weight: bold;
 }
 
-/* Animação */
 @keyframes fadeIn {
   0% {
     opacity: 0.1;
@@ -39,7 +37,7 @@ body {
     opacity: 1;
   }
 }
-/* Estilos para o cabeçalho desktop */
+/*                                        cabeçalho desktop                                      */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -86,9 +84,6 @@ nav a {
   width: 60px;
 }
 
-/* Responsividade */
-
-/* Ocultar o cabeçalho em dispositivos móveis (telas menores que 992px) */
 @media (max-width: 992px) {
   .oculto-mobile {
       display: none;
@@ -107,7 +102,6 @@ nav a {
   color: white;
 }
 
-/* ELEMENTOS DO MENU */
 .menu-hamburguer-elements {
   width: 80%;
   height: 100%;
@@ -139,7 +133,6 @@ nav a {
   color: rgb(71, 22, 22);
 }
 
-/* BOTÃO MENU HAMBURGER */
 .menu {
   background-color: #7d2838;
   width: 110px;
@@ -182,14 +175,12 @@ nav a {
   bottom: -10px;
 }
 
-/* OCULTAR CHECKBOX */
 #menu-hamburguer {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* ANIMAÇÃO HAMBURGER AO CLICAR */
 #menu-hamburguer:checked ~ label .hamburguer {
   transform: rotate(45deg);
   background: transparent;
@@ -207,7 +198,6 @@ nav a {
   background: #ffffff;
 }
 
-/* MOSTRAR MENU QUANDO O BOTÃO HAMBURGER FOR CLICADO */
 #menu-hamburguer:checked ~ .menu-hamburguer-elements {
   left: 0;
   z-index: 99999;
@@ -217,6 +207,11 @@ nav a {
   padding: 10px;
   position: center;
   padding: 20px;
+}
+
+.icones{
+  width: 20px;
+  height: auto;
 }
 /*                                                     icones de menu                                                   */
 
@@ -310,7 +305,7 @@ nav.grid {
 }
 
 nav.grid img {
-  height: 140px;
+  height: 120px;
   width: auto;
   cursor: pointer;
 }
@@ -399,12 +394,12 @@ nav.grid-2 p:hover {
 }
 
 .mic-icon img {
-  width: 50px; /* O ícone de microfone pode ser ligeiramente maior */
+  width: 50px; 
   height: 50px;
 }
 
 
-/*                                                          Carrossel de banners                                                              */
+/*                                                 Carrossel de banners                                                              */
 
 .carousel-container {
   position: relative;
@@ -413,7 +408,6 @@ nav.grid-2 p:hover {
   overflow: hidden;
 }
 
-/*                                                  Slides do carrossel                                                 */
 .carousel-slide {
   display: flex;
   width: 100%;
@@ -426,7 +420,6 @@ nav.grid-2 p:hover {
   flex: 1 0 100%;
 }
 
-/*                                                  Animação do carrossel                                               */
 @keyframes slide-animation {
   0% { transform: translateX(0%); }
   33% { transform: translateX(-100%); }
@@ -476,7 +469,7 @@ nav.grid-2 p:hover {
 
 
 
-/*                                                       botão para as categorias                                     */ 
+/*                                                botão para as categorias                                     */ 
 .garimpe{
  width: auto;
  height: auto;
@@ -526,6 +519,8 @@ nav.grid-2 p:hover {
   color: #ffffff; 
   gap: 10px;
 } 
+ .category-nav ul li a:hover,
+ .category-nav ul li a.active{
   border-radius: 40px; 
   color: #5a2424;
   font-size: 40px; 
@@ -542,14 +537,13 @@ nav.grid-2 p:hover {
   gap: 10px;
 }
 
-/* Transição suave para mudança de conteúdo */
+
 .product-grid, .brechos-grid {
   transition: opacity 0.3s ease;
   padding: 0px 50px;
   gap: 0px;
 }
 
-/* Estilo para preços antigos em descontos */
 .old-price {
   text-decoration: line-through;
   color: #999;
@@ -571,7 +565,7 @@ nav.grid-2 p:hover {
 }
 
 
-/*                                          Estilos para a seção de produtos                                           */
+/*                                           seção de produtos                                           */
 h3 {
   font-size: 40px;
   color: #797373;
@@ -628,7 +622,6 @@ h3 {
   position: center;
 }
 
-/* Desktop layout - 4 produtos por fileira */
 @media (min-width: 992px) {
   .product-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -637,7 +630,6 @@ h3 {
   }
 }
 
-/* Mobile layout for product cards */
 @media (max-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -676,7 +668,6 @@ h3 {
   }
 }
 
-/* Mobile layout for brechos-grid */
 @media (max-width: 768px) {
   .brechos-grid {
     list-style: none;
@@ -751,7 +742,6 @@ h3 {
   }
 }
 
-/* Desktop layout for brechos-grid */
 @media (min-width: 992px) {
   .brechos-grid {
     display: grid;
@@ -856,7 +846,7 @@ h3 {
 }
 
 .product-card .favorite:hover {
-    background: #a71732ff;
+    background: #7D2838;
     transform: scale(1.1);
 }
 
@@ -923,47 +913,24 @@ h3 {
 }
 
 
-/*                                           seção produtos ocultos para mobile                                     */
+/*                                      produtos ocultos para mobile                                     */
 
-/* A partir de 768px, exibe 4 colunas */
 @media (min-width: 768px) {
   .produto-grid {
       display: none;
       grid-template-columns: repeat(4, 1fr);
     }
-  }
-/* A partir de 768px, exibe 4 colunas */
+
 @media (max-width: 769px) {
 .produto-grid {
     display: inline-block;
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
-/*                                                         banner de anuncio                                                                  */
-
-.exemplo-desktop{
-  width: 80%;
-  height: auto;
-  padding: 0px 190px;
-  display: none;
-}
-@media  (max-width: 768px){
-  .exemplo-desktop {display: none;
-  }
-}
-@media  (min-width: 993px){
-  .exemplo-desktop {display: block;
-  }
 }
 
-@media  (min-width: 993px){
-  .banner-exemplo {display: none;
-  }
-}
+/*                                               botão dos perfis                                                         */
 
-/*                                                    Estilos para o botão dos perfis                                                         */
-/*                                      Estilo básico da lista de perfis                                              */
 
 .profile-list, .profile-list-oculta {
   list-style: none;
@@ -971,14 +938,11 @@ h3 {
   margin: 0;
 }
 
-/* Layout mobile (até 768px) */
 @media (max-width: 768px) {
-  /* Ocultar a lista de perfis específica para desktop */
   .profile-list-oculta {
     display: none;
   }
 
-  /* Exibir os itens em coluna no mobile com layout melhorado */
   .profile-list {
     list-style: none;
     padding: 20px;
@@ -988,8 +952,7 @@ h3 {
     flex-direction: column;
     gap: 15px;
   }
-  
-  /* Estilo dos itens individuais no mobile - layout completo */
+
   .profile-item {
     display: flex;
     align-items: center;
@@ -1053,21 +1016,19 @@ h3 {
   }
 }
 
-/* Layout desktop (a partir de 992px) */
+
 @media (min-width: 992px) {
-  /* Exibir a lista de perfis com layout de 5 itens por linha */
   .profile-list, .profile-list-oculta {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px; /* Ajusta o espaço entre os perfis */
-    max-width: 1200px; /* Limita a largura máxima da lista para alinhamento centralizado */
+    gap: 50px; 
+    max-width: 1200px; 
     margin: 0 auto;
   }
 
-  /* Definir largura dos itens para ocupar 1/5 da linha */
   .profile-item {
-    flex: 1 1 calc(20% - 20px); /* Calcula a largura para 5 itens por linha, com espaço entre eles */
+    flex: 1 1 calc(20% - 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1111,7 +1072,6 @@ h3 {
   }
 }
 
-/* Estilo adicional para os textos e botões */
 .titulo-brecho {
   width: auto;
   height: auto;
@@ -1122,6 +1082,11 @@ h3 {
 .profile-item strong {
   font-size: 20px;
   color: #333;
+}
+
+.profile-item .rating, .profile-item .stars {
+  font-size: 29px;
+  color: #999;
 }
 
 .follow-button {
@@ -1136,7 +1101,7 @@ h3 {
 .follow-button:hover {
   background-color: #7b3333;
 }
-/* Estilos base para desktop - aplicados quando não há media query específica */
+
 @media (min-width: 769px) {
   .profile-list {
     list-style: none;
@@ -1187,7 +1152,7 @@ h3 {
 
   .rating small {
     font-size: 25px;
-    color: #680c0c;
+    color: #888;
   }
 
   .stars {
@@ -1247,7 +1212,7 @@ h3 {
   }
 } 
 
-/*                         perfis de brecho                   */
+/*                                              perfis de brecho                                */
 @media (max-width: 768px) {
   .profile-list-oculta{
       display: none;
@@ -1258,14 +1223,13 @@ h3 {
 .profile-list-oculta,
 .profile-list {
   display: inline-flex;
-  align-items: center; /* opcional, centraliza o conteúdo verticalmente */
-  gap: 20px; /* ajusta o espaço entre os itens */
+  align-items: center;
+  gap: 20px; 
   padding: 50px 250px;
 }
 
 }
-/*                                                 Estilos para a seção de banner                                       */
-/*                                                       banner  de cadastro                                                                  */
+/*                                              seção de banner                                       */
 
 .img-cashback{
   display: block;
@@ -1273,7 +1237,7 @@ h3 {
   width: 90%;
    margin-top: 270px;
 }
-/* Estilo padrão: ocultar o banner */
+
  @media  (max-width: 768px)  {
   .img-cashback#phone  {display: block;}
   .img-cashback {display: none;}
@@ -1284,7 +1248,7 @@ h3 {
   .img-cashback {display: none;}
   
 }
-/*                                    seção de artigos que ficara oculta para mobile                                  */
+/*                                 artigos que ficam ocultos para mobile                                  */
 .artigos-section {
   text-align: center;
   padding: 20px 60px;
@@ -1310,18 +1274,18 @@ h3 {
 }
 
 .imagem-artigo {
-  width: 70%;
+  width: 100%;
   border-radius: 10px;
 }
 .grid-artigos{
   display: flex;
   justify-content:space-evenly;
-  gap: 100px;
-  padding: 10px 80px;
+  gap: 0px;
+  padding: 10px 0px;
   background-color: #fff;
 }
 .artigo-texto {
-  padding-left: 20px; /* Espaçamento entre o texto e a imagem */
+  padding-left: 0px; 
   text-align: left;
 }
 
@@ -1336,14 +1300,13 @@ h3 {
   text-decoration: none;
 }
 
-/* Estilos para o banner de Cashback */
 .cashback-banner {
   position: relative;
-  width: 40%; /* Largura para desktop/PC */
+  width: 50%; 
 }
 
 .imagem-banner {
-  width: 90%;
+  width: 200%;
   border-radius: 10px;
 }
 
@@ -1363,14 +1326,14 @@ h3 {
   text-decoration: none;
 }
 
-/* Estilos para dispositivos móveis */
+
 @media (max-width: 768px) {
   .artigos-section {
     display: none;
   }
 }
 
-/* Estilos para telas maiores (tablets, desktops e PCs) */
+
 @media (min-width: 992px) {
   .artigos-section {
     display: block;
@@ -1392,7 +1355,6 @@ h1 {
   display: none;
 }
 
-/* Produtos ocultos com mesma estrutura da primeira seção */
 .produtos-ocultos .product-card {
   background-color: #fff;
   border-radius: 50px;
@@ -1450,20 +1412,19 @@ h1 {
   right: 10px;
 }
 
-/* Ate 768px  exibe */
 @media (max-width: 768px) {
   .produtos-ocultos {
       display: none;
     }
   }
-/* A partir de 769px, oculta*/
+
 @media (min-width: 992px) {
   .produtos-ocultos {
     display: block;
   }
 }
 
-/*                                              Estilos para a seção de artigos                                        */
+/*                                            seção de artigos                                        */
 .titulo-artigo{
   width: auto;
   height: auto;
@@ -1478,7 +1439,7 @@ h1 {
 
 .p-artigos {
   color: #666;
-  font-size: 25px;
+  font-size: 40px;
   text-align: left;
 }
 
@@ -1500,11 +1461,6 @@ h1 {
 .span-artigos{
   padding: 0;
 }
-.h3-artigos{
-  color: #000000;
-  font-size: 90px;
-  text-align: left;
-}
 
 .img-Boss{
   width: 100%;
@@ -1512,47 +1468,120 @@ h1 {
 
 .link-preto {
   color: rgb(0, 0, 0); 
-  text-decoration: none; 
+  text-decoration: none;
+  text-align: left;
+  font-size: 25px; 
 }
 
 /*                                                ocultação do blog                                                 */
 .sweet-colors {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
   gap: 20px;
   padding: 40px;
   max-width: 2200px;
   margin: 0 auto;
-  background-color: #edd4d5; /* Cor suave de fundo da seção */
-  display: none;
+  background: linear-gradient(90deg, #9a5de586, #cbbae4, #9e3a478a);
 }
-.image-container{
-  width: 100%; /* A imagem ocupa toda a largura do container */
+
+.container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 60px;
+  align-items: start;
+}
+
+.image-section figure img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+  gap: 10px;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; 
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.title p {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.title h1 {
+  font-size: 38px;
+  font-weight: 600;
+  margin-top: 4px;
+  color: #201f1f;
+}
+
+.intro-text p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3a3a3a;
+  max-width: 90%;
+}
+
+.images-section {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.image-item img {
+  width: 180px;
   height: auto;
+  border-radius: 4px;
+  object-fit: cover;
 }
-/* Ate 768px  exibe */
+
+.extra-info {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.7;
+  max-width: 90%;
+}
+
+.extra-info p + p {
+  margin-top: 12px;
+}
+
+.footer-link {
+  margin-top: 10px;
+}
+
+.link {
+  font-size: 14px;
+  color: #4a3b3b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .artigos {
       display: block;
     }
   }
-/* A partir de 769px, oculta*/
+
 @media (min-width: 992px) {
   .artigos {
     display: none;
   }
 }
 
-/*    Ate 768px oculta   */
-@media (max-width: 768px) {
-  .sweet-colors {
-      display: none;
-    }
-  }
-/* A partir de 769px exibe*/
-@media (min-width: 992px) {
-  .sweet-colors {
-    display: block;
-  }
-}
 
 /*                                                      Rodapé                                                      */
 .footer {
@@ -1567,7 +1596,7 @@ h1 {
   font-size: 20px;
 }
 .footer .footer-image {
-  height: 150px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -1589,7 +1618,7 @@ h1 {
 }
 
 .footer .social-link img {
-  height: 90px;
+  height: 50px;
   transition: transform 0.3s;
 }
 
@@ -1613,12 +1642,9 @@ h1 {
     margin: 0 auto;
   }
 
-  .footer .social-links {
-    flex-direction: column;
-  }
 }
 
-/* Oculta .oculto-desktop em telas pequenas (max-width: 768px) e exibe em telas grandes (min-width: 992px) */
+
 @media (max-width: 768px) {
   .oculto-desktop {
       display: block;
@@ -1648,9 +1674,8 @@ h1 {
 
 
 
-/*                             carrossel desktop                  */
+/*                                 carrossel desktop                  */
 @media (min-width: 992px) {
-  /* Configura o container para exibir o texto e o carrossel lado a lado */
   .category-nav-desktop {
     display: flex;
     align-items: center;
@@ -1661,13 +1686,12 @@ h1 {
     margin: 0 auto;
   }
 
-  /* Container do texto "Garimpe na Vintélo" */
+  /*                                Garimpe na Vintélo                */
   .garimpe-vintelo-container {
     flex-shrink: 0;
     text-align: left;
   }
 
-  /* Estiliza o container do carrossel */
   .category-nav-desktop .carousel-container {
     flex-grow: 1;
     display: flex;
@@ -1704,15 +1728,14 @@ h1 {
   }
 }
 
-/* Alinhar LER AGORA dos artigos */
+/*                            artigos                 */
  .texto-esquerda {
-      text-align: left;       /* Garante o alinhamento à esquerda */
-      margin-left: 20px;      /* Define a margem à esquerda */
+      text-align: left;       
+      margin-left: 20px;      
       font-size: 20px;
 
  }
 
-/* fonte da home GARIMPE NA VINTELO */
 
 .garimpe-text {
   font-family: 'Raleway', sans-serif;
@@ -1736,18 +1759,13 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Estilos para os títulos das seções */
+
 .titulo-brecho-section, .titulo-artigo-section {
   text-align: center;
   padding: 20px 0;
 }
 
-.titulo-brecho-section {
-  text-align: left;
-  padding: 20px 0 0 90px;
-}
 
-/* Mobile - alinhar à esquerda */
 @media (max-width: 991px) {
   .titulo-brecho-section {
     text-align: left;
@@ -1755,7 +1773,6 @@ h1 {
   }
   
   .titulo-artigo-section {
-    text-align: left;
     padding: 20px;
   }
 }
@@ -1763,11 +1780,11 @@ h1 {
 .titulo-brecho-section .garimpe-text {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
-  font-size: 30px;
-  letter-spacing: 4px;
+  font-size: 24px;
+  letter-spacing: 3px;
   color: #7d2838;
   margin-left: 0;
-  display: inline-block;
+  display: block;
 }
 
 .titulo-brecho-section .vintelo-text {
@@ -1776,9 +1793,8 @@ h1 {
   font-size: 70px;
   color: #7d2838;
   line-height: 1.2;
-  margin-left: 60px;
-  display: inline-block;
-  margin-left: 100px
+  margin-left: 0;
+  display: block;
 }
 
 .titulo-artigo-section .garimpe-text {
@@ -1801,7 +1817,17 @@ h1 {
   display: inline-block;
 }
 
-/* Mobile - remover margens laterais */
+.artigo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 90px;
+  color: #000000;
+  line-height: 1.2;
+  text-align: left;
+  display: flex;
+}
+
+
 @media (max-width: 991px) {
   .titulo-brecho-section .garimpe-text,
   .titulo-artigo-section .garimpe-text {
@@ -1823,12 +1849,12 @@ h1 {
   display: block;
 }
 
-/* Garantir que o carrossel de categorias seja visível no mobile */
+
 .category-nav {
   display: block;
 }
 
-/* Mobile - manter texto na posição original */
+
 @media (max-width: 991px) {
   .category-nav-desktop {
     display: none;
@@ -1840,7 +1866,7 @@ h1 {
     padding: 20px;
   }
   
-  /* Manter carrossel de categorias visível no mobile */
+  /*               carrossel de categorias mobile            */
   .category-nav ul {
     display: flex !important;
     gap: 10px;
@@ -1870,7 +1896,7 @@ h1 {
   }
 }
 
-/* Desktop - texto ao lado do carrossel */
+/*                       Desktop do carrossel               */
 @media (min-width: 992px) {
   .category-nav-desktop {
     display: flex;
@@ -1897,15 +1923,6 @@ h1 {
     justify-content: center;
   }
 }
-
-/* estrelas de avaliação */
-
-.rating .stars {
-  color: #a00c0cff;       /* cor das estrelas */
-  font-size: 24px;   /* tamanho das estrelas */
-  /* você pode ajustar o font-weight, sombra, etc, se quiser */
-}
-
 
 
 

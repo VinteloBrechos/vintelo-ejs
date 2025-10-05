@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header Mobile */
+/*                cabeçalho Mobile                 */
 .oculto-desktop {
     display: block;
 }
@@ -37,7 +37,7 @@ header nav.grid img {
     height: 30px;
 }
 
-/* Header Desktop */
+/*        cabeçalho Desktop                */
 .discount-banner {
     background: #7D2838;
     color: white;
@@ -366,7 +366,7 @@ header nav.grid img {
     transform: translateY(-2px);
 }
 
-/* Footer */
+/*                rodapé                   */
 .footer {
     background: linear-gradient(135deg, #7D2838 0%, #5a1e2a 100%);
     color: #fff;
@@ -396,7 +396,7 @@ header nav.grid img {
     opacity: 0.8;
 }
 
-/* Responsividade */
+/*                    Responsividade                         */
 @media (min-width: 768px) {
     .oculto-desktop {
         display: none;

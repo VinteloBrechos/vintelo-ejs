@@ -1,13 +1,15 @@
-/* CSS Reformulado - Perfil Premium */
-
-/* Container Principal */
+/*                     Container Principal                */
 .premium-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Cabeçalho da Página */
+/*                      Cabeçalho da Página                  */
+    .grid-adm{
+        width: 50px;
+    }
+
 .premium-header {
     text-align: center;
     margin-bottom: 30px;
@@ -24,7 +26,7 @@
     font-size: 1.1rem;
 }
 
-/* Navegação por Abas */
+/*                       Navegação                      */
 .tab-navigation {
     display: flex;
     justify-content: center;
@@ -53,7 +55,7 @@
     color: #7D2838;
 }
 
-/* Conteúdo das Abas */
+/*                     Conteúdo              */
 .tab-content {
     display: none;
 }
@@ -62,7 +64,7 @@
     display: block;
 }
 
-/* Seção de Planos */
+/*                     Seção de Planos                   */
 .plans-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -193,7 +195,7 @@
     background: #e0e0e0;
 }
 
-/* Seção de Estatísticas */
+/*                        Seção de Estatísticas                      */
 .stats-overview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -237,7 +239,7 @@
     color: #d32f2f;
 }
 
-/* Área de Gráficos */
+/*                         Área de Gráficos                       */
 .charts-area {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -257,7 +259,7 @@
     font-size: 1.1rem;
 }
 
-/* Gráfico de Barras */
+/*                       Gráfico de Barras                   */
 .chart-bars {
     display: flex;
     flex-direction: column;
@@ -291,7 +293,7 @@
     transition: width 0.5s ease;
 }
 
-/* Lista de Usuários */
+/*                     Lista de Usuários              */
 .users-list {
     display: flex;
     flex-direction: column;
@@ -362,7 +364,7 @@
     background: #ffcdd2;
 }
 
-/* Responsividade */
+/*                      Responsividade                        */
 @media (max-width: 768px) {
     .premium-container {
         padding: 15px;

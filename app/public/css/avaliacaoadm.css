@@ -1,3 +1,20 @@
+.discount-banner {
+    background-color: #7D2838;
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.img-logo {
+    width: 100px;
+}
+
+.adm{
+    font-size: 20px;
+}
+
 .admin-info {
     text-align: center;
     color: #7d2838;
@@ -41,14 +58,14 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    transition: background 0.3s;
+    transition:0.3s;
 }
 
 .btn-delete:hover {
     background: #c82333;
 }
 
-/* Mobile adjustments */
+/*            ajustes responsividade mobile      */
 @media (max-width: 768px) {
     .review-item {
         flex-direction: column;

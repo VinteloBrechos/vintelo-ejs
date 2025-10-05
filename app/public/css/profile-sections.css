@@ -1,6 +1,4 @@
-/* Estilos para seções de perfil logado */
-
-/* Menu Hamburger - Perfil Logado */
+/*                 Menu Hamburger - Perfil Logado                           */
 .profile-section.logged-in {
     background: linear-gradient(135deg, #7D2838 0%, #9d3448 100%);
     border-radius: 15px;
@@ -41,7 +39,7 @@
     margin-top: 5px;
 }
 
-/* Botão Vinho Padrão */
+/*                  Botão Vinho Padrão                      */
 .wine-btn {
     background: #7D2838;
     color: white;
@@ -76,7 +74,7 @@
     font-size: 16px;
 }
 
-/* Seção de Boas-vindas Desktop */
+/*                   Seção de Boas-vindas Desktop                */
 .user-welcome-section {
     background: linear-gradient(135deg, #7D2838 0%, #9d3448 100%);
     border-radius: 20px;
@@ -118,7 +116,7 @@
 
 
 
-/* Seção de Boas-vindas Mobile */
+/*                 Seção de Boas-vindas Mobile                */
 .user-welcome-mobile {
     background: linear-gradient(135deg, #7D2838 0%, #9d3448 100%);
     border-radius: 15px;
@@ -157,7 +155,7 @@
 
 
 
-/* Menu lateral - item vinho */
+/*              Menu lateral                */
 .wine-menu-item {
     background: #7D2838;
     border-radius: 10px;
@@ -180,7 +178,7 @@
     filter: brightness(0) invert(1);
 }
 
-/* Responsividade */
+/*                   Responsividade                   */
 @media (max-width: 768px) {
     .user-welcome-section {
         flex-direction: column;

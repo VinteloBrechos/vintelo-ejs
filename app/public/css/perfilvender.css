@@ -1,4 +1,4 @@
-/* Reset */
+/*                  Reset                    */
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +11,7 @@ body {
   color: #333;
 }
 
-/* Cabeçalho */
-/*                                             Estilização do cabeçalho                                                 */
+/*               Cabeçalho                     */
 header {
   background-color: #fff;
   padding: 20px;
@@ -34,7 +33,7 @@ header img {
   gap: 40px;
 }
 
-/*                                                   modo desktop                                                     */
+/*                       modo desktop                              */
 .top-bar {
   background-color: #8c2b44;
   text-align: center;
@@ -93,7 +92,7 @@ nav a {
   height: auto;
 }
 
-/*                                                   Seção do Perfil                                                  */
+/*                     Seção do Perfil                        */
 
 
 .profile-section {
@@ -136,7 +135,7 @@ nav a {
   color: #ffffff;
 }
 
-/* Informações da Loja */
+/*                  Informações da Loja                     */
 .store-section {
   background-color: #fff;
   padding: 20px;
@@ -151,7 +150,7 @@ nav a {
   font-size: 14px;
 }
 
-/* Grade de Produtos */
+/*                      Grade de Produtos                  */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -172,7 +171,7 @@ nav a {
   }
 }
 
-/* Adicionar Item */
+/*                   Adicionar Item               */
 .add-item {
   background-color: #8c2b44;
   color: #fff;
@@ -196,7 +195,7 @@ nav a {
   color: #fff;
 }
 
-/* Cartão de Produto */
+/*                      Cartão de Produto                */
 .product-card {
   background-color: #fff;
   border-radius: 25px;
@@ -251,7 +250,7 @@ nav a {
   height: auto;
 }
 
-/* Seção de Newsletter */
+/*                    Seção de formulario                */
 .newsletter {
   background-color: #fceaea;
   text-align: center;
@@ -291,7 +290,7 @@ nav a {
   border: none;
 }
 
-/* Rodapé */
+/*                          Rodapé                       */
 .footer {
   background-color: #7D2838;
   color: #fff;
@@ -332,7 +331,7 @@ nav a {
 }
 
 
-/*                                                  responsividade                                                       */
+/*                                responsividade                                       */
 .oculto-mobile{
   margin: 0;
 }

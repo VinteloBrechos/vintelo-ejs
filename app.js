@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const env = require('dotenv').config();
-const passport = require('./app/config/passport');
 
 const app = express();
 
@@ -13,11 +12,6 @@ app.use(
     saveUninitialized: false, 
   })
 );
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-// const PORT = process.env.APP_PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 app.set('view engine', 'ejs');

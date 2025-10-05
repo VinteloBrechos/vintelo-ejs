@@ -1,4 +1,4 @@
-/* Reset básico */
+/*                  Reset básico                     */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@
     background-color: #fff;
   }
   
-  /* Estilos gerais */
+  /*              Estilos gerais                  */
   header {
     background-color: #fff;
     padding: 40px;

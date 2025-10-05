@@ -1,4 +1,4 @@
-/* Reset e Base */
+/*                Reset              */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     line-height: 1.6;
 }
 
-/* Utilitários de Responsividade */
+/*          Responsividade          */
 .mobile-only {
     display: block;
 }
@@ -21,7 +21,7 @@ body {
     display: none;
 }
 
-/* Header Desktop */
+/*            cabeçalho Desktop         */
 .desktop-header {
     display: none;
 }
@@ -86,7 +86,7 @@ body {
     width: 40px;
 }
 
-/* Header Mobile */
+/*            cabeçalho Mobile          */
 .mobile-header {
     display: block;
 }
@@ -103,7 +103,7 @@ body {
     height: 35px;
 }
 
-/* Container Principal */
+/*                 Container Principal              */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -118,14 +118,14 @@ body {
     font-weight: 600;
 }
 
-/* Layout Responsivo */
+/*                    Layout Responsivo                */
 .content-wrapper {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-/* Seção do Perfil */
+/*                    Seção do Perfil                  */
 .profile-section {
     background: white;
     padding: 25px;
@@ -185,7 +185,7 @@ body {
     margin-top: 5px;
 }
 
-/* Estatísticas do Perfil */
+/*                 Estatísticas do Perfil               */
 .profile-stats {
     display: flex;
     justify-content: space-around;
@@ -210,7 +210,7 @@ body {
     text-transform: uppercase;
 }
 
-/* Menu de Opções */
+/*             Menu de Opções                   */
 .menu-section {
     background: white;
     padding: 25px;
@@ -266,7 +266,7 @@ body {
     opacity: 0.8;
 }
 
-/* Seções de Conteúdo */
+/*                   Seções de Conteúdo                   */
 .content-section {
     background: white;
     padding: 25px;
@@ -299,7 +299,7 @@ body {
     font-size: 14px;
 }
 
-/* Formulário do Perfil */
+/*                    Formulário do Perfil             */
 .profile-form {
     display: flex;
     flex-direction: column;
@@ -363,7 +363,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Lista de Pedidos */
+/*                     Lista de Pedidos             */
 .orders-list {
     display: flex;
     flex-direction: column;
@@ -470,7 +470,7 @@ body {
     border-radius: 5px;
     font-size: 12px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .track-btn:hover, .details-btn:hover {
@@ -552,7 +552,7 @@ body {
     color: #666;
 }
 
-/* Grid de Favoritos */
+/*                     Grid de Favoritos                 */
 .favorites-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -629,7 +629,7 @@ body {
     align-self: flex-start;
 }
 
-/* Lista de Endereços */
+/*                 Lista de Endereços               */
 .addresses-list {
     display: flex;
     flex-direction: column;
@@ -698,7 +698,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Modal de Endereço */
+/*                  Endereço                */
 .address-modal {
     display: none;
     position: fixed;
@@ -796,7 +796,7 @@ body {
     color: #333;
 }
 
-/* Métodos de Pagamento */
+/*                  Métodos de Pagamento                         */
 .payment-methods {
     display: flex;
     flex-direction: column;
@@ -859,7 +859,7 @@ body {
     margin-top: 15px;
 }
 
-/* Configurações de Notificação */
+/*                  Configurações de Notificação                 */
 .notifications-settings {
     display: flex;
     flex-direction: column;
@@ -886,7 +886,7 @@ body {
     color: #666;
 }
 
-/* Toggle Switch */
+
 .toggle-switch {
     position: relative;
     display: inline-block;
@@ -932,7 +932,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Footer */
+/*                   rodapé                 */
 .footer {
     background-color: #7D2838;
     color: #fff;
@@ -1049,7 +1049,7 @@ input:checked + .slider:before {
     }
 }
 
-/* Animações */
+/*                      Animações                        */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
