@@ -1,11 +1,10 @@
-
 var express = require("express");
 var router = express.Router();
+const bcrypt = require('bcryptjs');
 
 const {
   verificarUsuAutenticado,
   limparSessao,
-  gravarUsuAutenticado,
   verificarUsuAutorizado
 } = require("../models/autenticador_middleware");
 
@@ -16,14 +15,14 @@ const { adicionarController } = require("../controllers/adicionarController");
 const categoriaController = require("../controllers/categoriaController");
 const denunciaController = require("../controllers/denunciaController");
 const { atualizarPlano, alternarStatusPlano } = require("../controllers/premiumController");
+const pedidoController = require("../controllers/pedidoController");
+const usuarioModel = require('../models/usuarioModel');
+const tipoUsuarioModel = require('../models/tipoUsuarioModel');
 
 const uploadFile = require("../util/uploader");
 const uploadProduto = require("../util/uploaderProduto");
 
-
 const { MercadoPagoConfig, Preference } = require('mercadopago');
-const pedidoController = require("../controllers/pedidoController");
-
 const client = new MercadoPagoConfig({
   accessToken: process.env.accessToken
 });
@@ -68,6 +67,12 @@ router.get("/", function (req, res) {
   });
 });
 
+router.get("/index", function (req, res) {
+  res.render('pages/index', {
+    autenticado: req.session ? req.session.autenticado : null
+  });
+});
+
 router.get("/favoritar", verificarUsuAutenticado, function (req, res) {
   produtoController.favoritar(req, res);
 });
@@ -87,21 +92,13 @@ router.get("/login", function (req, res) {
 
 
 
-router.post(
-  "/login",
-  async function (req, res) {
-    const bcrypt = require('bcryptjs');
-    const usuarioModel = require('../models/usuarioModel');
+router.post("/login", async function (req, res) {
     const { email_usu, senha_usu } = req.body;
     
     if (!email_usu || !senha_usu) {
         return res.render('pages/login', {
             listaErros: null,
-            dadosNotificacao: {
-                titulo: 'Erro!',
-                mensagem: 'Todos os campos são obrigatórios',
-                tipo: 'error'
-            },
+            dadosNotificacao: { titulo: 'Erro!', mensagem: 'Todos os campos são obrigatórios', tipo: 'error' },
             valores: req.body,
             avisoErro: {}
         });
@@ -123,50 +120,26 @@ router.post(
                     email: usuario.EMAIL_USUARIO
                 };
                 
-                if (usuario.TIPO_USUARIO == 2) {
-                    res.redirect('/homevendedor');
-                } else {
-                    res.redirect('/homecomprador');
-                }
-            } else {
-                res.render('pages/login', {
-                    listaErros: null,
-                    dadosNotificacao: {
-                        titulo: 'Falha ao logar!',
-                        mensagem: 'Senha inválida!',
-                        tipo: 'error'
-                    },
-                    valores: req.body,
-                    avisoErro: {}
-                });
+                return res.redirect(usuario.TIPO_USUARIO == 2 ? '/homevendedor' : '/homecomprador');
             }
-        } else {
-            res.render('pages/login', {
-                listaErros: null,
-                dadosNotificacao: {
-                    titulo: 'Falha ao logar!',
-                    mensagem: 'Usuário não encontrado!',
-                    tipo: 'error'
-                },
-                valores: req.body,
-                avisoErro: {}
-            });
         }
+        
+        res.render('pages/login', {
+            listaErros: null,
+            dadosNotificacao: { titulo: 'Falha ao logar!', mensagem: usuarios.length > 0 ? 'Senha inválida!' : 'Usuário não encontrado!', tipo: 'error' },
+            valores: req.body,
+            avisoErro: {}
+        });
     } catch (error) {
         console.log('Erro no login:', error);
         res.render('pages/login', {
             listaErros: null,
-            dadosNotificacao: {
-                titulo: 'Erro no sistema!',
-                mensagem: 'Tente novamente mais tarde!',
-                tipo: 'error'
-            },
+            dadosNotificacao: { titulo: 'Erro no sistema!', mensagem: 'Tente novamente mais tarde!', tipo: 'error' },
             valores: req.body,
             avisoErro: {}
         });
     }
-  }
-);
+});
 
 router.get("/cadastro", function (req, res) {
   res.render("pages/cadastro", {
@@ -176,26 +149,13 @@ router.get("/cadastro", function (req, res) {
   });
 });
 
-router.post(
-  "/cadastro",
-  usuarioController.regrasValidacaoFormCad,
-  async function (req, res) {
-    usuarioController.cadastrar(req, res);
-  }
-);
+router.post("/cadastro", usuarioController.regrasValidacaoFormCad, usuarioController.cadastrar);
 
-router.get('/cadastroadm', function(req, res){
-    res.render('pages/cadastroadm');
-})
+router.get('/cadastroadm', function(req, res){ res.render('pages/cadastroadm'); });
 
-router.get(
-  "/adm",
-  verificarUsuAutenticado,
-  verificarUsuAutorizado([2, 3], "pages/restrito"),
-  function (req, res) {
+router.get("/adm", verificarUsuAutenticado, verificarUsuAutorizado([2, 3], "pages/restrito"), function (req, res) {
     res.render("pages/adm", req.session.autenticado);
-  }
-);
+});
 
 // router.post("/create-preference", function (req, res) {
 //   const preference = new Preference(client);
@@ -217,56 +177,23 @@ router.get(
 //     .catch(console.log)
 // });
 
-router.get("/avaliasao", function (req, res) {
-  pedidoController.gravarPedido(req, res);
-});
+// Produtos
+router.get('/produto1', (req, res) => res.render('pages/produto1'));
+router.get('/produto2', (req, res) => res.render('pages/produto2'));
+router.get('/produto3', (req, res) => res.render('pages/produto3'));
+router.get('/produto4', (req, res) => res.render('pages/produto4'));
 
-
-
-
-router.get('/produto1', function(req, res){
-    res.render('pages/produto1');
-})
-
-router.get('/produto2', function(req, res){
-    res.render('pages/produto2');
-})
-
-router.get('/produto3', function(req, res){
-    res.render('pages/produto3');
-})
-
-router.get('/produto4', function(req, res){
-    res.render('pages/produto4');
-})
-
-
-
-router.post("/cadastro", usuarioController.regrasValidacaoFormCad, async function(req, res){
-    usuarioController.cadastrar(req, res);
-});
-
+// Carrinho e Perfis
 router.get('/carrinho', function(req, res){
-    const carrinho = req.session.carrinho || [];
-    const autenticado = req.session.autenticado || { autenticado: false };
-    
     res.render('pages/carrinho', {
-        carrinho: carrinho,
-        autenticado: autenticado
+        carrinho: req.session.carrinho || [],
+        autenticado: req.session.autenticado || { autenticado: false }
     });
-})
+});
 
-router.get('/perfil1', function(req, res){
-    res.render('pages/perfil1');
-})
-
-router.get('/perfil2', function(req, res){
-    res.render('pages/perfil2');
-})
-
-router.get('/perfil3', function(req, res){
-    res.render('pages/perfil3');
-})
+router.get('/perfil1', (req, res) => res.render('pages/perfil1'));
+router.get('/perfil2', (req, res) => res.render('pages/perfil2'));
+router.get('/perfil3', (req, res) => res.render('pages/perfil3'));
 
 router.get('/homecomprador', async function(req, res){
     try {
@@ -311,57 +238,22 @@ router.post('/adicionar',
     adicionarController.criarProduto
 );
 
-router.get('/blog', function(req, res){
-    res.render('pages/blog');
-})
+// Blog e Artigos
+router.get('/blog', (req, res) => res.render('pages/blog'));
+router.get('/artigo', (req, res) => res.render('pages/artigo'));
+router.get('/bossartigo', (req, res) => res.render('pages/bossartigo'));
+router.get('/gucciartigo', (req, res) => res.render('pages/gucciartigo'));
+router.get('/ecologicoartigo', (req, res) => res.render('pages/ecologicoartigo'));
+router.get('/tensustentavel', (req, res) => res.render('pages/tensustentavel'));
+router.get('/sweer', (req, res) => res.render('pages/sweer'));
 
-router.get('/artigo', function(req, res){
-    res.render('pages/artigo');
-})
-
-router.get('/bossartigo', function(req, res){
-    res.render('pages/bossartigo');
-})
-
-router.get('/gucciartigo', function(req, res){
-    res.render('pages/gucciartigo');
-})
-
-router.get('/ecologicoartigo', function(req, res){
-    res.render('pages/ecologicoartigo');
-})
-
-router.get('/tensustentavel', function(req, res){
-    res.render('pages/tensustentavel');
-})
-
-router.get('/sweer', function(req, res){
-    res.render('pages/sweer');
-})
-
-router.get('/pedidoconf', function(req, res){
-    res.render('pages/pedidoconf');
-})
-
-router.get('/finalizandocompra1', function(req, res){
-    res.render('pages/finalizandocompra1');
-})
-
-router.get('/finalizandocompra2', function(req, res){
-    res.render('pages/finalizandocompra2');
-})
-
-router.get('/favoritos', function(req, res){
-    res.render('pages/favoritos');
-})
-
-router.get('/sacola1', function(req, res){
-    res.render('pages/sacola1');
-})
-
-router.get('/avaliasao', function(req, res){
-    res.render('pages/avaliasao');
-})
+// Compras e Avaliações
+router.get('/pedidoconf', (req, res) => res.render('pages/pedidoconf'));
+router.get('/finalizandocompra1', (req, res) => res.render('pages/finalizandocompra1'));
+router.get('/finalizandocompra2', (req, res) => res.render('pages/finalizandocompra2'));
+router.get('/favoritos', (req, res) => res.render('pages/favoritos'));
+router.get('/sacola1', (req, res) => res.render('pages/sacola1'));
+router.get('/avaliasao', (req, res) => res.render('pages/avaliasao'));
 
 router.get('/perfilvender', function(req, res){
     const brechoData = {
@@ -379,15 +271,9 @@ router.get('/perfilvender', function(req, res){
     });
 })
 
-router.get('/criarbrecho', function(req, res){
-    res.render('pages/criarbrecho');
-});
+router.get('/criarbrecho', (req, res) => res.render('pages/criarbrecho'));
 
 router.post('/criarbrecho', async function(req, res){
-    console.log(req);
-    const bcrypt = require('bcryptjs');
-    const usuarioModel = require('../models/usuarioModel');
-    const tipoUsuarioModel = require('../models/tipoUsuarioModel');
     const { nomeusu_usu, email_usu, nome_usu, senha_usu, fone_usu, cep, endereco, bairro, cidade, uf } = req.body;
     
     console.log('Dados do brechó recebidos:', req.body);
@@ -474,15 +360,10 @@ router.post('/criarbrecho', async function(req, res){
 });
 
 router.get('/entrar', function(req, res){
-    res.render('pages/entrar', {
-        listaErros: null,
-        dadosNotificacao: null
-    });
+    res.render('pages/entrar', { listaErros: null, dadosNotificacao: null });
 });
 
 router.post('/entrar', async function(req, res){
-    const bcrypt = require('bcryptjs');
-    const usuarioModel = require('../models/usuarioModel');
     const { nome_usu, senha_usu } = req.body;
     
     console.log('Tentativa de login:', { nome_usu, senha_usu });
@@ -561,72 +442,265 @@ router.post('/entrar', async function(req, res){
 });
 
 router.get('/esqueceusenha', function(req, res){
-    res.render('pages/esqueceusenha');
+    res.render('pages/esqueceusenha', {
+        etapa: 'email',
+        dadosNotificacao: null,
+        valores: { email_usu: '' },
+        avisoErro: {}
+    });
+});
+
+router.post('/esqueceusenha', async function(req, res){
+    const { email_usu } = req.body;
+    
+    if (!email_usu) {
+        return res.render('pages/esqueceusenha', {
+            etapa: 'email',
+            dadosNotificacao: {
+                mensagem: 'E-mail é obrigatório',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: { email_usu: 'Campo obrigatório' }
+        });
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email_usu)) {
+        return res.render('pages/esqueceusenha', {
+            etapa: 'email',
+            dadosNotificacao: {
+                mensagem: 'E-mail inválido',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: { email_usu: 'E-mail inválido' }
+        });
+    }
+    
+    try {
+        const usuarios = await usuarioModel.findUserEmail({ user_usuario: email_usu });
+        
+        if (usuarios.length > 0) {
+            // Gerar código de 6 dígitos
+            const codigo = Math.floor(100000 + Math.random() * 900000).toString();
+            
+            // Salvar código na sessão (em produção, salvar no banco com expiração)
+            req.session.codigoRecuperacao = {
+                email: email_usu,
+                codigo: codigo,
+                expira: Date.now() + 10 * 60 * 1000 // 10 minutos
+            };
+            
+            console.log('Código de recuperação:', codigo, 'para:', email_usu);
+            
+            res.render('pages/esqueceusenha', {
+                etapa: 'codigo',
+                email_usu: email_usu,
+                dadosNotificacao: {
+                    mensagem: 'Código de verificação enviado para seu e-mail!',
+                    tipo: 'success'
+                },
+                valores: {},
+                avisoErro: {}
+            });
+        } else {
+            res.render('pages/esqueceusenha', {
+                etapa: 'email',
+                dadosNotificacao: {
+                    mensagem: 'E-mail não encontrado em nossa base de dados',
+                    tipo: 'error'
+                },
+                valores: req.body,
+                avisoErro: { email_usu: 'E-mail não cadastrado' }
+            });
+        }
+    } catch (error) {
+        console.log('Erro ao processar recuperação:', error);
+        res.render('pages/esqueceusenha', {
+            etapa: 'email',
+            dadosNotificacao: {
+                mensagem: 'Erro interno. Tente novamente mais tarde.',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: {}
+        });
+    }
 })
 
-router.get('/estatistica', function(req, res){
-    res.render('pages/estatistica');
+router.post('/esqueceusenha/verificar', function(req, res){
+    const { email_usu, codigo } = req.body;
+    
+    if (!req.session.codigoRecuperacao) {
+        return res.render('pages/esqueceusenha', {
+            etapa: 'email',
+            dadosNotificacao: {
+                mensagem: 'Sessão expirada. Solicite um novo código.',
+                tipo: 'error'
+            },
+            valores: {},
+            avisoErro: {}
+        });
+    }
+    
+    const { email: emailSessao, codigo: codigoSessao, expira } = req.session.codigoRecuperacao;
+    
+    if (Date.now() > expira) {
+        delete req.session.codigoRecuperacao;
+        return res.render('pages/esqueceusenha', {
+            etapa: 'email',
+            dadosNotificacao: {
+                mensagem: 'Código expirado. Solicite um novo código.',
+                tipo: 'error'
+            },
+            valores: {},
+            avisoErro: {}
+        });
+    }
+    
+    if (email_usu !== emailSessao || codigo !== codigoSessao) {
+        return res.render('pages/esqueceusenha', {
+            etapa: 'codigo',
+            email_usu: email_usu,
+            dadosNotificacao: {
+                mensagem: 'Código inválido',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: { codigo: 'Código incorreto' }
+        });
+    }
+    
+    res.render('pages/esqueceusenha', {
+        etapa: 'senha',
+        email_usu: email_usu,
+        codigo: codigo,
+        dadosNotificacao: {
+            mensagem: 'Código verificado! Defina sua nova senha.',
+            tipo: 'success'
+        },
+        valores: {},
+        avisoErro: {}
+    });
 })
+
+router.post('/esqueceusenha/redefinir', async function(req, res){
+    const { email_usu, codigo, nova_senha, confirmar_senha } = req.body;
+    
+    if (!nova_senha || !confirmar_senha) {
+        return res.render('pages/esqueceusenha', {
+            etapa: 'senha',
+            email_usu: email_usu,
+            codigo: codigo,
+            dadosNotificacao: {
+                mensagem: 'Todos os campos são obrigatórios',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: { 
+                nova_senha: !nova_senha ? 'Campo obrigatório' : '',
+                confirmar_senha: !confirmar_senha ? 'Campo obrigatório' : ''
+            }
+        });
+    }
+    
+    if (nova_senha !== confirmar_senha) {
+        return res.render('pages/esqueceusenha', {
+            etapa: 'senha',
+            email_usu: email_usu,
+            codigo: codigo,
+            dadosNotificacao: {
+                mensagem: 'As senhas não coincidem',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: { confirmar_senha: 'Senhas não coincidem' }
+        });
+    }
+    
+    if (nova_senha.length < 8) {
+        return res.render('pages/esqueceusenha', {
+            etapa: 'senha',
+            email_usu: email_usu,
+            codigo: codigo,
+            dadosNotificacao: {
+                mensagem: 'A senha deve ter pelo menos 8 caracteres',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: { nova_senha: 'Mínimo 8 caracteres' }
+        });
+    }
+    
+    try {
+        
+        const usuarios = await usuarioModel.findUserEmail({ user_usuario: email_usu });
+        
+        if (usuarios.length > 0) {
+            const senhaHash = bcrypt.hashSync(nova_senha, 10);
+            await usuarioModel.updatePassword(usuarios[0].ID_USUARIO, senhaHash);
+            
+            delete req.session.codigoRecuperacao;
+            
+            res.render('pages/esqueceusenha', {
+                etapa: 'email',
+                dadosNotificacao: {
+                    mensagem: 'Senha redefinida com sucesso! Faça login com sua nova senha.',
+                    tipo: 'success'
+                },
+                valores: {},
+                avisoErro: {}
+            });
+        } else {
+            res.render('pages/esqueceusenha', {
+                etapa: 'email',
+                dadosNotificacao: {
+                    mensagem: 'Erro ao redefinir senha. Tente novamente.',
+                    tipo: 'error'
+                },
+                valores: {},
+                avisoErro: {}
+            });
+        }
+    } catch (error) {
+        console.log('Erro ao redefinir senha:', error);
+        res.render('pages/esqueceusenha', {
+            etapa: 'senha',
+            email_usu: email_usu,
+            codigo: codigo,
+            dadosNotificacao: {
+                mensagem: 'Erro interno. Tente novamente mais tarde.',
+                tipo: 'error'
+            },
+            valores: req.body,
+            avisoErro: {}
+        });
+    }
+})
+
+// Estatísticas
+router.get('/estatistica', (req, res) => res.render('pages/estatistica'));
+router.get('/estatistica-mobile', (req, res) => res.render('pages/estatistica-mobile'));
+router.get('/estatistica-desktop', (req, res) => res.render('pages/estatistica-desktop'));
 
 router.get('/categorias', categoriaController.mostrarCategorias);
 router.get('/categorias/filtrar/:categoryId', categoriaController.filtrarProdutos);
 
-router.get('/editarbanners', function(req, res){
-    res.render('pages/editarbanners');
-})
-
-router.post('/editarbanners', function(req, res){
-    console.log('Banners atualizados:', req.files);
-    res.redirect('/homeadm');
-})
-
-router.get('/minhascompras', function(req, res){
-    res.render('pages/minhascompras');
-})
-
-router.get('/finalizandopagamento', function(req, res){
-    res.render('pages/finalizandopagamento');
-})
-
-router.get('/pedidos', function(req, res){
-    res.render('pages/pedidos');
-})
-
-router.get('/enviopedido', function(req, res){
-    res.render('pages/enviopedido');
-})
-
-router.get('/menu', function(req, res){
-    res.render('pages/menu');
-})
-
-router.get('/minhascomprasdesktop', function(req, res){
-    res.render('pages/minhascomprasdesktop');
-})
-
-router.get('/menuvendedor', function(req, res){
-    res.render('pages/menuvendedor');
-})
-
-router.get('/informacao', function(req, res){
-    res.render('pages/informacao');
-})
-
-router.get('/perfilcliente', function(req, res){
-    res.render('pages/perfilcliente');
-})
-
-router.get('/menufavoritos', function(req, res){
-    res.render('pages/menufavoritos');
-})
-
-router.get('/menucompras', function(req, res){
-    res.render('pages/menucompras');
-})
-
-router.get('/planos', function(req, res){
-    res.render('pages/planos');
-})
+// Páginas Administrativas e Menus
+router.get('/editarbanners', (req, res) => res.render('pages/editarbanners'));
+router.post('/editarbanners', function(req, res){ console.log('Banners atualizados:', req.files); res.redirect('/homeadm'); });
+router.get('/minhascompras', (req, res) => res.render('pages/minhascompras'));
+router.get('/finalizandopagamento', (req, res) => res.render('pages/finalizandopagamento'));
+router.get('/pedidos', (req, res) => res.render('pages/pedidos'));
+router.get('/enviopedido', (req, res) => res.render('pages/enviopedido'));
+router.get('/menu', (req, res) => res.render('pages/menu'));
+router.get('/minhascomprasdesktop', (req, res) => res.render('pages/minhascomprasdesktop'));
+router.get('/menuvendedor', (req, res) => res.render('pages/menuvendedor'));
+router.get('/informacao', (req, res) => res.render('pages/informacao'));
+router.get('/menufavoritos', (req, res) => res.render('pages/menufavoritos'));
+router.get('/menucompras', (req, res) => res.render('pages/menucompras'));
+router.get('/planos', (req, res) => res.render('pages/planos'));
 
 router.get('/perfilcliente', function(req, res){
    
@@ -649,21 +723,9 @@ router.get('/perfilcliente', function(req, res){
 });
 
 
-// home adm de teste //
-
-
-
-router.get('/homeadm', function(req, res){
-    res.render('pages/homeadm');
-})
-
-router.get('/vistoriaprodutos', function(req, res){
-    res.render('pages/vistoriaprodutos');
-})
-
-router.get('/vistoriaprodutos', function(req, res){
-    res.render('pages/vistoriaprodutos');
-})
+// Administração
+router.get('/homeadm', (req, res) => res.render('pages/homeadm'));
+router.get('/vistoriaprodutos', (req, res) => res.render('pages/vistoriaprodutos'));
 
 router.get('/denuncias', denunciaController.listarDenuncias);
 
@@ -677,52 +739,23 @@ router.post('/denuncias/rejeitar/:id', denunciaController.rejeitarDenuncia);
 
 router.get('/denuncias/analisar/:id', denunciaController.analisarDenunciaDetalhada);
 
-router.get('/analisardenuncia', function(req, res){
-    res.render('pages/analisardenuncia');
-});
-
-router.get('/perfilpremium', function(req, res){
-    res.render('pages/perfilpremium');
-})
-
-router.get('/blogadm', function(req, res){
-    res.render('pages/blogadm');
-})
+router.get('/analisardenuncia', (req, res) => res.render('pages/analisardenuncia'));
+router.get('/perfilpremium', (req, res) => res.render('pages/perfilpremium'));
+router.get('/blogadm', (req, res) => res.render('pages/blogadm'));
 
 router.post('/blogadm', function(req, res){
     const { titulo, categoria, conteudo, data } = req.body;
-    
-    // Simular salvamento do post
-    console.log('Novo post criado:', {
-        titulo,
-        categoria,
-        conteudo,
-        data: data || new Date().toLocaleDateString('pt-BR')
-    });
-    
+    console.log('Novo post criado:', { titulo, categoria, conteudo, data: data || new Date().toLocaleDateString('pt-BR') });
     res.redirect('/blogadm');
-})
+});
 
-router.get('/avaliacaoadm', function(req, res){
-    res.render('pages/avaliacaoadm');
-})
+router.get('/avaliacaoadm', (req, res) => res.render('pages/avaliacaoadm'));
+router.get('/editarpost', (req, res) => res.render('pages/editarpost'));
 
-router.get('/editarpost', function(req, res){
-    res.render('pages/editarpost');
-})
+router.post('/editarpost', function(req, res){ console.log('Post editado:', req.body); res.redirect('/blogadm'); });
 
-router.post('/editarpost', function(req, res){
-    console.log('Post editado:', req.body);
-    res.redirect('/blogadm');
-})
-
-router.get('/brechoadm', function(req, res){
-    res.render('pages/brechoadm');
-})
-
-router.get('/usuariosadm', function(req, res){
-    res.render('pages/usuariosadm');
-})
+router.get('/brechoadm', (req, res) => res.render('pages/brechoadm'));
+router.get('/usuariosadm', (req, res) => res.render('pages/usuariosadm'));
 
 router.post('/premium/atualizar-plano', atualizarPlano);
 router.post('/premium/alternar-status', alternarStatusPlano);

@@ -22,10 +22,11 @@ header .grid {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  padding: 10px;
 }
 
 header img {
-  height: 50px;
+  height: 80px;
 }
 
 /*                      cabeçalho Desktop                     */
@@ -349,7 +350,7 @@ nav a:hover {
   text-align: right;
 }
 
-/*           rodapé            */
+/*                                                      Rodapé                                                      */
 .footer {
   background-color: #7D2838;
   color: #fff;
@@ -357,8 +358,12 @@ nav a:hover {
   text-align: center;
 }
 
+.p-footer{
+  color: #ffffffe7;
+  font-size: 20px;
+}
 .footer .footer-image {
-  height: 80px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -367,7 +372,7 @@ nav a:hover {
 }
 
 .footer .social-media p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
@@ -380,7 +385,7 @@ nav a:hover {
 }
 
 .footer .social-link img {
-  height: 40px;
+  height: 50px;
   transition: transform 0.3s;
 }
 
@@ -389,10 +394,11 @@ nav a:hover {
 }
 
 .copyright {
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 20px;
   color: #ffffffe7;
 }
+
 
 /*        responsividade   Tablet           */
 @media (min-width: 768px) {

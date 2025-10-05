@@ -6,6 +6,7 @@ var salt = bcrypt.genSaltSync(12);
 const {removeImg} = require("../util/removeImg");
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const https = require('https');
+const clienteModel = require("../models/clienteModel");
 
 const usuarioController = {
 
@@ -65,9 +66,9 @@ const usuarioController = {
             .isLength({ min: 8, max: 45 }).withMessage("Nome de usuário deve ter de 8 a 45 caracteres!"),
         body("email_usu")
             .isEmail().withMessage("Digite um e-mail válido!"),
-        body("fone_usu")
+        body("celular_usuario")
             .isLength({ min: 12, max: 15 }).withMessage("Digite um telefone válido!"),
-        body("cep")
+        body("cep_usuario")
             .isPostalCode('BR').withMessage("Digite um CEP válido!"),
         body("numero")
             .isNumeric().withMessage("Digite um número para o endereço!"),
@@ -99,8 +100,8 @@ const usuarioController = {
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
             NOME_USUARIO: req.body.nome_usu,
             EMAIL_USUARIO: req.body.email_usu,
-            CELULAR_USUARIO: req.body.fone_usu || null,
-            CEP_USUARIO: req.body.cep ? req.body.cep.replace("-", "") : null,
+            CELULAR_USUARIO: req.body.celular_usuario || null,
+            CEP_USUARIO: req.body.cep_usuario ? req.body.cep_usuario.replace("-", "") : null,
             NUMERO_USUARIO: req.body.numero || null,
             TIPO_USUARIO: tipoCliente.length > 0 ? tipoCliente[0].ID_TIPO_USUARIO : 2,
             STATUS_USUARIO: 1
@@ -173,7 +174,7 @@ const usuarioController = {
                 uf: viaCep.uf,
                 img_perfil_pasta: results[0].IMAGEM_USUARIO,
                 nomeusu_usu: results[0].USER_USUARIO, 
-                fone_usu: results[0].CELULAR_USUARIO, 
+                celular_usuario: results[0].CELULAR_USUARIO, 
                 senha_usu: ""
             }
 
@@ -183,7 +184,7 @@ const usuarioController = {
             res.render("pages/informacao", {
                 listaErros: null, dadosNotificacao: null, valores: {
                     img_perfil_banco: "", img_perfil_pasta: "", nome_usu: "", email_usu: "",
-                    nomeusu_usu: "", fone_usu: "", senha_usu: "", cep: "", numero: "", complemento: "",
+                    nomeusu_usu: "", celular_usuario: "", senha_usu: "", cep: "", numero: "", complemento: "",
                     logradouro: "", bairro: "", localidade: "", uf: ""
                 }
             })
@@ -206,7 +207,7 @@ const usuarioController = {
                 USER_USUARIO: req.body.nomeusu_usu,
                 NOME_USUARIO: req.body.nome_usu,
                 EMAIL_USUARIO: req.body.email_usu,
-                CELULAR_USUARIO: req.body.fone_usu,
+                CELULAR_USUARIO: req.body.celular_usuario,
                 CEP_USUARIO: req.body.cep.replace("-",""),
                 NUMERO_USUARIO: req.body.numero,
                 COMPLEMENTO_USUARIO: req.body.complemento,
@@ -243,7 +244,7 @@ const usuarioController = {
                         EMAIL_USUARIO: result[0].EMAIL_USUARIO,
                         imagem_usuario: result[0].IMAGEM_USUARIO,
                         nomeusu_usu: result[0].USER_USUARIO, 
-                        fone_usu: result[0].CELULAR_USUARIO, 
+                        celular_usuario: result[0].CELULAR_USUARIO, 
                         senha_usu: ""
                     }
                     res.render("pages/homecomprador", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });

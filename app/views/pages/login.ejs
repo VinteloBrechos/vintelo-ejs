@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" href="/imagens/brilhoescuro.png" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <nav class="grid">
-            <a href="/index">
+            <a href="/">
                 <img src="imagens/seta.png" alt="Seta Voltar">
             </a>
             <img src="imagens/logo.png" alt="Logo" class="logo-vintelo">
@@ -33,15 +34,17 @@
         <br>
         <p class="divider">ou acesse via email</p>
         <br>
-        <form id="registerForm" action="/login" method="post">
+        <form id="registerForm" action="/cadastro" method="post">
             <section class="form-group">
                 <label for="nome_usuario">Nome Completo</label>
-                <input type="text" id="nome_usuario" name="nome_usu" placeholder="Digite seu nome" value="<%= valores?.nome_usuario || '' %>">
+                <input type="text" id="nome_completo" name="nome_usu" placeholder="Digite seu nome" 
+                    value="<%= valores?.nome_completo|| '' %>">
             </section>
             
             <section class="form-group">
                 <label for="nome_usuario">Nome de Usuário</label>
-                <input type="text" id="nome_completo" name="nomeusu_usu" placeholder="Digite seu nome de usuário" value="<%= valores?.nome_usuario || '' %>">
+                <input type="text" id="nome_usuario" name="nomeusu_usu" placeholder="Digite seu nome de usuário" 
+                    value="<%= valores?.nomeusu_usu || '' %>">
             </section>
             
             <section class="form-group">
@@ -71,7 +74,7 @@
             <section class="form-group">
                 <label for="celular_usuario">Telefone</label>
                 <input type="tel" id="celular_usuario" name="celular_usuario" placeholder="(11) 99999-9999" 
-                       value="<%= valores?.celular_usuario || '' %>">
+                       value="<%=valores?.celular_usuario || '' %>" required>
             </section>
             
             <section class="form-group">

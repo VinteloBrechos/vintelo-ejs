@@ -1,4 +1,4 @@
-/* Reset básico */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -11,273 +11,197 @@ body {
   color: #333;
 }
 
-/* MOBILE FIRST - Ocultar desktop por padrão */
-.oculto-mobile,
-.desktop-only,
-.titulo {
+/* MOBILE FIRST - Padrão (até 768px) */
+.desktop-header {
   display: none;
 }
 
-.oculto-desktop,
-.mobile-only {
-  display: block;
-}
-
-/* Cabeçalho mobile */
-.oculto-desktop header {
+.mobile-header {
   background: #fff;
   padding: 15px 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.oculto-desktop header .grid {
+.mobile-header .grid {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.oculto-desktop header img {
+.mobile-header img {
   height: 40px;
 }
 
-/* Layout Mobile - Dashboard */
-.mobile-dashboard {
+.footer {
+  display: none;
+}
+
+/* Título Mobile */
+.titulo {
+  font-size: 20px;
   padding: 20px 15px;
-  min-height: calc(100vh - 80px);
-}
-
-.mobile-title {
-  background: linear-gradient(135deg, #8c2b44 0%, #a64d61 100%);
-  color: white;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 22px;
-  margin: 0 0 20px 0;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(140, 43, 68, 0.3);
-}
-
-/* Receita Principal */
-.mobile-main-stat {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  text-align: center;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  border: 2px solid #8c2b44;
-}
-
-.mobile-main-stat h3 {
   color: #8c2b44;
-  font-size: 16px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.mobile-main-value {
-  font-size: 36px;
+  text-align: center;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 8px;
 }
 
-.mobile-main-change {
-  font-size: 14px;
-  color: #28a745;
-  font-weight: 500;
-}
-
-/* Estatísticas Secundárias */
-.mobile-secondary-stats {
+/* Dashboard Mobile */
+.dashboard {
+  padding: 0 15px 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 25px;
+  gap: 15px;
 }
 
-.mobile-stat-item {
-  background: white;
-  padding: 15px 20px;
+.stats-card {
+  background: #fff;
   border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 20px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   border-left: 4px solid #8c2b44;
 }
 
-.mobile-stat-number {
+.stats-card h3 {
+  color: #8c2b44;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.stats-value {
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  margin-bottom: 6px;
 }
 
-.mobile-stat-label {
-  font-size: 14px;
-  color: #666;
-  flex: 1;
-  margin-left: 15px;
-}
-
-.mobile-stat-trend {
+.stats-change {
   font-size: 12px;
   color: #28a745;
-  font-weight: 600;
-  padding: 4px 8px;
-  background: rgba(40, 167, 69, 0.1);
-  border-radius: 8px;
-}
-
-.mobile-stat-trend.negative {
-  color: #dc3545;
-  background: rgba(220, 53, 69, 0.1);
-}
-
-/* Seções */
-.mobile-revenue-section,
-.mobile-sales-section {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.mobile-section-title {
-  color: #8c2b44;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Lista de Receita */
-.mobile-revenue-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.mobile-revenue-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.mobile-revenue-bar {
-  height: 8px;
-  background: linear-gradient(90deg, #8c2b44, #a64d61);
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-.mobile-revenue-label {
-  flex: 1;
-  font-size: 14px;
-  color: #333;
-}
-
-.mobile-revenue-value {
-  font-size: 14px;
-  font-weight: bold;
-  color: #8c2b44;
-  min-width: 35px;
-  text-align: right;
-}
-
-/* Grid de Vendas */
-.mobile-sales-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-.mobile-sales-card {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  border: 2px solid #8c2b44;
-  transition: transform 0.3s ease;
-}
-
-.mobile-sales-card:hover {
-  transform: translateY(-3px);
-}
-
-.mobile-sales-number {
-  display: block;
-  font-size: 28px;
-  font-weight: bold;
-  color: #8c2b44;
-  margin-bottom: 8px;
-}
-
-.mobile-sales-category {
-  font-size: 12px;
-  color: #666;
   font-weight: 500;
 }
 
-/* Rodapé */
-.footer {
-  background-color: #7D2838;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
+.stats-change.negative {
+  color: #dc3545;
 }
 
-.p-footer {
-  color: #ffffffe7;
+.chart-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.chart-container h3 {
+  color: #8c2b44;
   font-size: 16px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
 }
 
-.footer .footer-image {
-  height: 80px;
-  margin-bottom: 20px;
-}
-
-.footer .social-media {
-  margin-bottom: 20px;
-}
-
-.footer .social-links {
-  list-style: none;
-  padding: 0;
+/* Gráfico de Barras Mobile */
+.bar-chart {
   display: flex;
+  align-items: end;
+  height: 120px;
+  gap: 8px;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(to top, #8c2b44, #a64d61);
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  min-width: 35px;
+}
+
+.bar-label {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.bar-value {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Gráfico Pizza Mobile */
+.pie-chart {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #8c2b44 0deg 144deg,
+    #a64d61 144deg 252deg,
+    #c96d7e 252deg 324deg,
+    #e8a5b0 324deg 360deg
+  );
+  margin: 10px auto;
+  position: relative;
+}
+
+.pie-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.footer .social-link img {
-  height: 50px;
-  transition: transform 0.3s;
-}
-
-.footer .social-link img:hover {
-  transform: scale(1.2);
-}
-
-.copyright {
+  font-weight: bold;
+  color: #8c2b44;
   font-size: 12px;
-  margin-top: 20px;
-  color: #ffffffe7;
 }
 
-/* DESKTOP - Media Query */
+.pie-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+/* DESKTOP - Media Query (769px+) */
 @media (min-width: 769px) {
-  .oculto-mobile,
-  .desktop-only,
-  .titulo {
+  .mobile-header {
+    display: none;
+  }
+  
+  .desktop-header {
     display: block;
   }
   
-  .oculto-desktop,
-  .mobile-only {
-    display: none;
+  .footer {
+    display: block;
   }
   
   body {
@@ -301,12 +225,7 @@ body {
     background-color: #fff;
   }
   
-  .main-header h1 {
-    color: #8a2b38;
-    font-size: 1.8rem;
-  }
-  
-  nav a {
+  .main-header nav a {
     color: #333;
     text-decoration: none;
     margin: 0 15px;
@@ -341,14 +260,12 @@ body {
     height: auto;
   }
   
+  /* Desktop Dashboard */
   .titulo {
     font-size: 50px;
     padding: 70px 50px;
-    color: #8c2b44;
-    text-align: center;
   }
   
-  /* Desktop Dashboard */
   .dashboard {
     max-width: 1200px;
     margin: 0 auto;
@@ -359,103 +276,67 @@ body {
   }
   
   .stats-card {
-    background: #fff;
-    border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
     border-left: 5px solid #8c2b44;
-    transition: all 0.3s ease;
   }
   
   .stats-card h3 {
-    color: #8c2b44;
     font-size: 18px;
     margin-bottom: 15px;
   }
   
   .stats-value {
     font-size: 32px;
-    font-weight: bold;
-    color: #333;
     margin-bottom: 10px;
   }
   
   .stats-change {
     font-size: 14px;
-    color: #28a745;
-  }
-  
-  .stats-change.negative {
-    color: #dc3545;
   }
   
   .chart-container {
-    background: #fff;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     grid-column: span 2;
+    padding: 25px;
+    border-radius: 15px;
   }
   
-  .chart-title {
-    color: #8c2b44;
+  .chart-container h3 {
     font-size: 20px;
     margin-bottom: 20px;
-    text-align: center;
   }
   
   .bar-chart {
-    display: flex;
-    align-items: end;
     height: 200px;
     gap: 15px;
     padding: 20px 0;
   }
   
   .bar {
-    flex: 1;
-    background: linear-gradient(to top, #8c2b44, #a64d61);
     border-radius: 5px 5px 0 0;
-    position: relative;
+    min-width: auto;
   }
   
   .bar-label {
-    position: absolute;
     bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 12px;
-    color: #666;
+  }
+  
+  .bar-value {
+    top: -25px;
+    font-size: 12px;
   }
   
   .pie-chart {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
-    background: conic-gradient(
-      #8c2b44 0deg 144deg,
-      #a64d61 144deg 252deg,
-      #c96d7e 252deg 324deg,
-      #e8a5b0 324deg 360deg
-    );
     margin: 20px auto;
-    position: relative;
   }
   
   .pie-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 100px;
     height: 100px;
-    background: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #8c2b44;
+    font-size: 16px;
   }
   
   .pie-legend {
@@ -467,10 +348,8 @@ body {
   }
   
   .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     font-size: 14px;
+    gap: 8px;
   }
   
   .legend-color {
@@ -479,12 +358,27 @@ body {
     border-radius: 3px;
   }
   
+  /* Rodapé Desktop */
+  .footer {
+    background-color: #7D2838;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
   .p-footer {
+    color: #ffffffe7;
     font-size: 20px;
   }
   
   .footer .footer-image {
     height: 90px;
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-media {
+    margin-bottom: 20px;
   }
   
   .footer .social-media p {
@@ -492,11 +386,27 @@ body {
     margin-bottom: 10px;
   }
   
+  .footer .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
   .footer .social-link img {
     height: 60px;
+    transition: transform 0.3s;
+  }
+  
+  .footer .social-link img:hover {
+    transform: scale(1.2);
   }
   
   .copyright {
     font-size: 15px;
+    margin-top: 20px;
+    color: #ffffffe7;
   }
 }
