@@ -1,3 +1,155 @@
+/*                     Reset                */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/*                     Visibilidade                */
+.oculto-mobile {
+    display: none;
+}
+
+.oculto-desktop {
+    display: block;
+}
+
+@media (min-width: 769px) {
+    .oculto-mobile {
+        display: block;
+    }
+    
+    .oculto-desktop {
+        display: none;
+    }
+}
+
+/*                     Cabeçalho Desktop                */
+.discount-banner {
+    background: #7D2838;
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+}
+
+.img-logo {
+    height: 60px;
+}
+
+.main-header nav {
+    display: flex;
+    gap: 30px;
+}
+
+.main-header nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-header nav a:hover {
+    color: #7D2838;
+}
+
+.search-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-profile input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.search-profile ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.maria {
+    height: 35px;
+}
+
+/*                     Cabeçalho Mobile                */
+.grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+}
+
+.grid img {
+    height: 35px;
+}
+
+/*                     Rodapé                */
+.footer {
+    background: #7D2838;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-image {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.social-media {
+    margin-bottom: 20px;
+}
+
+.p-footer {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.social-link img {
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-link img:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
 /*                     Container Principal                */
 .premium-container {
     max-width: 1200px;
@@ -24,6 +176,30 @@
 .premium-header p {
     color: #666;
     font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        padding: 10px 15px;
+    }
+    
+    .grid img {
+        height: 28px;
+    }
+    
+    .premium-header h1 {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+    
+    .premium-header p {
+        font-size: 0.85rem;
+    }
+    
+    .premium-header {
+        margin-bottom: 15px;
+        padding: 5px 0;
+    }
 }
 
 /*                       Navegação                      */

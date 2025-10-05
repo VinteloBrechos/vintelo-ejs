@@ -52,8 +52,8 @@ header nav.grid img {
     background: #7D2838;
     color: white;
     text-align: center;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 20px;
+    font-size: 20px;
     font-weight: 300;
 }
 
@@ -98,7 +98,7 @@ header nav.grid img {
 }
 
 .search-profile img {
-    height: 35px;
+    height: 50px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -118,7 +118,7 @@ header nav.grid img {
 }
 
 .admin-header {
-    background: linear-gradient(135deg, #7D2838 0%, #5a1e2a 100%);
+    background:white;
     color: white;
     padding: 40px 30px;
     border-radius: 20px;
@@ -131,12 +131,14 @@ header nav.grid img {
     font-weight: 300;
     margin-bottom: 10px;
     letter-spacing: 1px;
+    color: black;
 }
 
 .admin-header p {
     font-size: 1.2rem;
     opacity: 0.9;
     font-weight: 300;
+    color: black;
 }
 
 .filters-section {
@@ -249,17 +251,17 @@ header nav.grid img {
 }
 
 .status-badge.ativo {
-    background: #28a745;
+    background: #7D2838;
     color: white;
 }
 
 .status-badge.suspenso {
-    background: #dc3545;
+    background: #7D2838;
     color: white;
 }
 
 .status-badge.pendente {
-    background: #ffc107;
+    background: #7D2838;
     color: #000;
 }
 
@@ -332,48 +334,53 @@ header nav.grid img {
 }
 
 .btn-visualizar {
-    background: #17a2b8;
+    background: #7D2838;
     color: white;
 }
 
 .btn-visualizar:hover {
-    background: #138496;
+    background: #7D2838;
     transform: translateY(-2px);
 }
 
 .btn-suspender {
-    background: #dc3545;
+    background: #7D2838;
+    color: white;
+}
+
+.btn-suspender {
+    background: #7D2838;
     color: white;
 }
 
 .btn-suspender:hover {
-    background: #c82333;
+    background: #7D2838;
     transform: translateY(-2px);
 }
 
 .btn-reativar {
-    background: #28a745;
+    background: #7D2838;
     color: white;
 }
 
 .btn-reativar:hover {
-    background: #218838;
+    background: #7D2838;
     transform: translateY(-2px);
 }
 
 .btn-denuncias {
-    background: #ffc107;
+    background: #7D2838;
     color: #000;
 }
 
 .btn-denuncias:hover {
-    background: #ffb300;
+    background: #7D2838;
     transform: translateY(-2px);
 }
 
 /*               rodapé              */
 .footer {
-    background: linear-gradient(135deg, #7D2838 0%, #5a1e2a 100%);
+    background:#7D2838 ;
     color: #fff;
     padding: 50px 20px 30px;
     text-align: center;
@@ -396,9 +403,29 @@ header nav.grid img {
     letter-spacing: 0.5px;
 }
 
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+}
+
+.social-link img {
+    height: 35px;
+    width: 35px;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover img {
+    opacity: 0.7;
+}
+
 .copyright {
     font-size: 0.9rem;
     opacity: 0.8;
+    margin-top: 15px;
 }
 
 
@@ -454,5 +481,19 @@ header nav.grid img {
     .btn-visualizar, .btn-suspender, .btn-reativar, .btn-denuncias {
         min-width: auto;
         width: 100%;
+    }
+    
+    .footer {
+        padding: 30px 15px 20px;
+    }
+    
+    .footer-image {
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    
+    .social-link img {
+        height: 30px;
+        width: 30px;
     }
 }

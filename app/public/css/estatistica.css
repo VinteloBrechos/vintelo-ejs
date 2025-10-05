@@ -1,105 +1,354 @@
-/*                                                  Reset básico                                                       */
+/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Prata, Montserrat;
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* MOBILE FIRST - Ocultar desktop por padrão */
+.oculto-mobile,
+.desktop-only,
+.titulo {
+  display: none;
+}
+
+.oculto-desktop,
+.mobile-only {
+  display: block;
+}
+
+/* Cabeçalho mobile */
+.oculto-desktop header {
+  background: #fff;
+  padding: 15px 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.oculto-desktop header .grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.oculto-desktop header img {
+  height: 40px;
+}
+
+/* Layout Mobile - Dashboard */
+.mobile-dashboard {
+  padding: 20px 15px;
+  min-height: calc(100vh - 80px);
+}
+
+.mobile-title {
+  background: linear-gradient(135deg, #8c2b44 0%, #a64d61 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 22px;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(140, 43, 68, 0.3);
+}
+
+/* Receita Principal */
+.mobile-main-stat {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 2px solid #8c2b44;
+}
+
+.mobile-main-stat h3 {
+  color: #8c2b44;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.mobile-main-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.mobile-main-change {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+/* Estatísticas Secundárias */
+.mobile-secondary-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.mobile-stat-item {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border-left: 4px solid #8c2b44;
+}
+
+.mobile-stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.mobile-stat-label {
+  font-size: 14px;
+  color: #666;
+  flex: 1;
+  margin-left: 15px;
+}
+
+.mobile-stat-trend {
+  font-size: 12px;
+  color: #28a745;
+  font-weight: 600;
+  padding: 4px 8px;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 8px;
+}
+
+.mobile-stat-trend.negative {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+/* Seções */
+.mobile-revenue-section,
+.mobile-sales-section {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mobile-section-title {
+  color: #8c2b44;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Lista de Receita */
+.mobile-revenue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mobile-revenue-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-revenue-bar {
+  height: 8px;
+  background: linear-gradient(90deg, #8c2b44, #a64d61);
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+.mobile-revenue-label {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+.mobile-revenue-value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8c2b44;
+  min-width: 35px;
+  text-align: right;
+}
+
+/* Grid de Vendas */
+.mobile-sales-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.mobile-sales-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #8c2b44;
+  transition: transform 0.3s ease;
+}
+
+.mobile-sales-card:hover {
+  transform: translateY(-3px);
+}
+
+.mobile-sales-number {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #8c2b44;
+  margin-bottom: 8px;
+}
+
+.mobile-sales-category {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Rodapé */
+.footer {
+  background-color: #7D2838;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.p-footer {
+  color: #ffffffe7;
+  font-size: 16px;
+}
+
+.footer .footer-image {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.footer .social-media {
+  margin-bottom: 20px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer .social-link img {
+  height: 50px;
+  transition: transform 0.3s;
+}
+
+.footer .social-link img:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #ffffffe7;
+}
+
+/* DESKTOP - Media Query */
+@media (min-width: 769px) {
+  .oculto-mobile,
+  .desktop-only,
+  .titulo {
+    display: block;
+  }
+  
+  .oculto-desktop,
+  .mobile-only {
+    display: none;
   }
   
   body {
-    font-family: Prata, Montserrat;
-    background-color: #ffffff;
-    color: #333;
+    background: #ffffff;
   }
-  /*                                                 modo desktop                                                     */
+  
+  /* Desktop Header */
   .top-bar {
     background-color: #8c2b44;
     text-align: center;
     color: white;
     padding: 20px;
     font-size: 20px;
-}
-
-.main-header {
+  }
+  
+  .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
     background-color: #fff;
-}
-
-@media (max-width: 768px) {
-  .top-bar,
-  .main-header {
-    display: none;
   }
-}
-
-.main-header h1 {
+  
+  .main-header h1 {
     color: #8a2b38;
     font-size: 1.8rem;
-}
-
-nav a {
+  }
+  
+  nav a {
     color: #333;
     text-decoration: none;
     margin: 0 15px;
     font-size: 1rem;
-}
-
-.search-profile {
+  }
+  
+  .search-profile {
     display: flex;
     align-items: center;
-}
-
-.search-profile form input {
+  }
+  
+  .search-profile form input {
     padding: 8px;
     border: 1px solid #8c2b44;
     border-radius: 24px;
     min-width: 150px;
-}
-
-.search-profile ul {
+  }
+  
+  .search-profile ul {
     display: flex;
     list-style: none;
     margin-left: 20px;
-}
-
-.img-tamanho{
+  }
+  
+  .img-tamanho {
     width: 50px;
     height: auto;
-}
-
-.img-logo{
+  }
+  
+  .img-logo {
     width: 120px;
     height: auto;
-}
-  /*                  cabeçalho mobile                            */
-  header {
-    background-color: #fff;
-    padding: 40px;
-  }
-
-  .header1 {
-    background-color: #fff;
   }
   
-  header .grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  header img {
-    height: 100px;
-  }
-  .titulo{
+  .titulo {
     font-size: 50px;
     padding: 70px 50px;
     color: #8c2b44;
     text-align: center;
   }
-
-  /*                Dashboard de Estatísticas             */
+  
+  /* Desktop Dashboard */
   .dashboard {
     max-width: 1200px;
     margin: 0 auto;
@@ -108,7 +357,7 @@ nav a {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
   }
-
+  
   .stats-card {
     background: #fff;
     border-radius: 15px;
@@ -116,117 +365,60 @@ nav a {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-left: 5px solid #8c2b44;
     transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
   }
-
-  .stats-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(140, 43, 68, 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .stats-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    border-left-width: 8px;
-  }
-
-  .stats-card:hover::before {
-    left: 100%;
-  }
-
+  
   .stats-card h3 {
     color: #8c2b44;
     font-size: 18px;
     margin-bottom: 15px;
   }
-
+  
   .stats-value {
     font-size: 32px;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
   }
-
+  
   .stats-change {
     font-size: 14px;
     color: #28a745;
   }
-
+  
   .stats-change.negative {
     color: #dc3545;
   }
-
-  /*                    Gráfico de Barras                    */
+  
   .chart-container {
     background: #fff;
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     grid-column: span 2;
-    transition: all 0.3s ease;
   }
-
-  .chart-container:hover {
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  }
-
+  
   .chart-title {
     color: #8c2b44;
     font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
   }
-
+  
   .bar-chart {
     display: flex;
     align-items: end;
     height: 200px;
     gap: 15px;
     padding: 20px 0;
-    overflow-x: auto;
   }
-
+  
   .bar {
     flex: 1;
     background: linear-gradient(to top, #8c2b44, #a64d61);
     border-radius: 5px 5px 0 0;
     position: relative;
-    transition: all 0.4s ease;
-    cursor: pointer;
-    opacity: 0;
-    animation: barGrow 1s ease-out forwards;
   }
-
-  .bar:hover {
-    transform: scale(1.1);
-    background: linear-gradient(to top, #a64d61, #c96d7e);
-    box-shadow: 0 5px 15px rgba(140, 43, 68, 0.3);
-  }
-
-  .bar:nth-child(1) { animation-delay: 0.1s; }
-  .bar:nth-child(2) { animation-delay: 0.2s; }
-  .bar:nth-child(3) { animation-delay: 0.3s; }
-  .bar:nth-child(4) { animation-delay: 0.4s; }
-  .bar:nth-child(5) { animation-delay: 0.5s; }
-
-  @keyframes barGrow {
-    from {
-      height: 0 !important;
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
+  
   .bar-label {
     position: absolute;
     bottom: -25px;
@@ -234,59 +426,22 @@ nav a {
     transform: translateX(-50%);
     font-size: 12px;
     color: #666;
-    white-space: nowrap;
   }
-
-  .bar-value {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12px;
-    font-weight: bold;
-    color: #333;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .bar:hover .bar-value {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-5px);
-  }
-
-  /*                  Gráfico de Pizza      */
+  
   .pie-chart {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background: conic-gradient(
-      #8c2b44 0deg 0deg,
-      #a64d61 0deg 0deg,
-      #c96d7e 0deg 0deg,
-      #e8a5b0 0deg 0deg
+      #8c2b44 0deg 144deg,
+      #a64d61 144deg 252deg,
+      #c96d7e 252deg 324deg,
+      #e8a5b0 324deg 360deg
     );
     margin: 20px auto;
     position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    animation: pieGrow 2s ease-out forwards;
   }
-
-  .pie-chart:hover {
-    transform: scale(1.05);
-  }
-
-  @keyframes pieGrow {
-    to {
-      background: conic-gradient(
-        #8c2b44 0deg 144deg,
-        #a64d61 144deg 252deg,
-        #c96d7e 252deg 324deg,
-        #e8a5b0 324deg 360deg
-      );
-    }
-  }
-
+  
   .pie-center {
     position: absolute;
     top: 50%;
@@ -302,7 +457,7 @@ nav a {
     font-weight: bold;
     color: #8c2b44;
   }
-
+  
   .pie-legend {
     display: flex;
     flex-wrap: wrap;
@@ -310,412 +465,26 @@ nav a {
     justify-content: center;
     margin-top: 20px;
   }
-
+  
   .legend-item {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    min-width: 120px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 5px;
-    border-radius: 5px;
   }
-
-  .legend-item:hover {
-    background-color: rgba(140, 43, 68, 0.1);
-    transform: translateX(5px);
-  }
-
-  .legend-item.active {
-    background-color: rgba(140, 43, 68, 0.2);
-    font-weight: bold;
-  }
-
-  .bar.active {
-    background: linear-gradient(to top, #c96d7e, #e8a5b0) !important;
-    transform: scale(1.15) !important;
-  }
-
-  /* Tooltip */
-  .chart-tooltip {
-    position: absolute;
-    background: #333;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    z-index: 1000;
-    pointer-events: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  }
-
-  .chart-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid transparent;
-    border-top-color: #333;
-  }
-
+  
   .legend-color {
     width: 15px;
     height: 15px;
     border-radius: 3px;
   }
-
-  /*                ocultação             */
-  .mobile-only {
-    display: none;
-  }
   
-  .desktop-only {
-    display: block;
-  }
-  
-  /*               Layout mobile          */
-  @media (max-width: 768px) {
-    .mobile-only {
-      display: block;
-    }
-    
-    .desktop-only {
-      display: none;
-    }
-    
-    .oculto-mobile {
-      display: none;
-    }
-    
-    .oculto-desktop {
-      display: block;
-    }
-    
-    body {
-      background: #f8f9fa;
-    }
-    
-    .mobile-dashboard {
-      padding: 15px;
-      min-height: 100vh;
-    }
-    
-    .mobile-title {
-      background: linear-gradient(135deg, #8c2b44 0%, #a64d61 100%);
-      color: white;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      font-size: 22px;
-      margin: 0 0 20px 0;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(140, 43, 68, 0.3);
-    }
-    
-    /*           Receita Principal          */
-    .mobile-main-stat {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border: 2px solid #8c2b44;
-    }
-    
-    .mobile-main-stat h3 {
-      color: #8c2b44;
-      font-size: 16px;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-    
-    .mobile-main-value {
-      font-size: 36px;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 8px;
-    }
-    
-    .mobile-main-change {
-      font-size: 14px;
-      color: #28a745;
-      font-weight: 500;
-    }
-    
-    /*             Estatísticas Secundárias             */
-    .mobile-secondary-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-    
-    .mobile-stat-item {
-      background: white;
-      padding: 15px 20px;
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      border-left: 4px solid #8c2b44;
-    }
-    
-    .mobile-stat-number {
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-    }
-    
-    .mobile-stat-label {
-      font-size: 14px;
-      color: #666;
-      flex: 1;
-      margin-left: 15px;
-    }
-    
-    .mobile-stat-trend {
-      font-size: 12px;
-      color: #28a745;
-      font-weight: 600;
-      padding: 4px 8px;
-      background: rgba(40, 167, 69, 0.1);
-      border-radius: 8px;
-    }
-    
-    .mobile-stat-trend.negative {
-      color: #dc3545;
-      background: rgba(220, 53, 69, 0.1);
-    }
-    
-    /*                   Seções                    */
-    .mobile-revenue-section,
-    .mobile-sales-section {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .mobile-section-title {
-      color: #8c2b44;
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    
-    /*                    Lista de Receita             */
-    .mobile-revenue-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .mobile-revenue-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .mobile-revenue-bar {
-      height: 8px;
-      background: linear-gradient(90deg, #8c2b44, #a64d61);
-      border-radius: 4px;
-      min-width: 20px;
-    }
-    
-    .mobile-revenue-label {
-      flex: 1;
-      font-size: 14px;
-      color: #333;
-    }
-    
-    .mobile-revenue-value {
-      font-size: 14px;
-      font-weight: bold;
-      color: #8c2b44;
-      min-width: 35px;
-      text-align: right;
-    }
-    
-    /*             Grid de Vendas                */
-    .mobile-sales-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-    
-    .mobile-sales-card {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      border: 2px solid #8c2b44;
-      transition: transform 0.3s ease;
-    }
-    
-    .mobile-sales-card:hover {
-      transform: translateY(-3px);
-    }
-    
-    .mobile-sales-number {
-      display: block;
-      font-size: 28px;
-      font-weight: bold;
-      color: #8c2b44;
-      margin-bottom: 8px;
-    }
-    
-    .mobile-sales-category {
-      font-size: 12px;
-      color: #666;
-      font-weight: 500;
-    }
-    
-    /*            Rodapé              */
-    .footer .social-links {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .footer .social-link img {
-      height: 50px;
-    }
-    
-    .footer .footer-image {
-      height: 80px;
-    }
-    
-    .p-footer {
-      font-size: 16px;
-    }
-    
-    .copyright {
-      font-size: 12px;
-    }
-  }
-  
-  /*              Responsividade Tablet         */
-  @media (min-width: 481px) and (max-width: 768px) {
-    .mobile-main-value {
-      font-size: 42px;
-    }
-    
-    .mobile-stat-number {
-      font-size: 28px;
-    }
-    
-    .mobile-sales-number {
-      font-size: 32px;
-    }
-    
-    .mobile-section-title {
-      font-size: 20px;
-    }
-    .dashboard {
-      grid-template-columns: repeat(2, 1fr);
-      padding: 20px;
-      gap: 25px;
-    }
-    
-    .stats-card {
-      padding: 22px;
-    }
-    
-    .stats-card h3 {
-      font-size: 17px;
-    }
-    
-    .stats-value {
-      font-size: 30px;
-    }
-    
-    .stats-change {
-      font-size: 13px;
-    }
-    
-    .chart-container {
-      grid-column: span 2;
-      padding: 25px;
-    }
-    
-    .chart-title {
-      font-size: 19px;
-    }
-    
-    .titulo {
-      font-size: 36px;
-      padding: 30px 20px;
-    }
-    
-    .bar-chart {
-      height: 220px;
-      gap: 12px;
-    }
-    
-    .pie-chart {
-      width: 220px;
-      height: 220px;
-    }
-    
-    .pie-center {
-      width: 110px;
-      height: 110px;
-      font-size: 16px;
-    }
-    
-    .legend-item {
-      font-size: 13px;
-    }
-    
-    .main-header {
-      padding: 15px 30px;
-    }
-    
-    nav a {
-      font-size: 16px;
-      margin: 0 8px;
-    }
-  }
-  
-  /*           Responsividade Desktop Pequeno          */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .dashboard {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-    
-    .chart-container {
-      grid-column: span 2;
-    }
-  }
-
-  /*                                                      Rodapé                                                      */
-.footer {
-    background-color: #7D2838;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .p-footer{
-    color: #ffffffe7;
+  .p-footer {
     font-size: 20px;
   }
+  
   .footer .footer-image {
     height: 90px;
-    margin-bottom: 20px;
-  }
-  
-  .footer .social-media {
-    margin-bottom: 20px;
   }
   
   .footer .social-media p {
@@ -723,65 +492,11 @@ nav a {
     margin-bottom: 10px;
   }
   
-  .footer .social-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
   .footer .social-link img {
     height: 60px;
-    transition: transform 0.3s;
-  }
-  
-  .footer .social-link img:hover {
-    transform: scale(1.2);
   }
   
   .copyright {
     font-size: 15px;
-    margin-top: 20px;
-    color: #ffffffe7;
   }
-  
-
-  .oculto-mobile {
-    display: block;
-  }
-  
-  .oculto-desktop {
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .oculto-mobile {
-      display: none;
-    }
-    
-    .oculto-desktop {
-      display: block;
-    }
-  }
-   
-  /*             Desktop Grande             */
-  @media (min-width: 1025px) {
-    .dashboard {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    
-    .chart-container:first-of-type {
-      grid-column: span 2;
-    }
-    
-    .chart-container:last-of-type {
-      grid-column: span 2;
-    }
-    
-    .titulo {
-      font-size: 45px;
-      padding: 50px 20px;
-    }
-  }
-   
+}

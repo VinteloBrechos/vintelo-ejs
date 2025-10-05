@@ -6,6 +6,70 @@ body {
   background-color: #ffffff;
 }
 
+/*             Banner e Header Desktop             */
+.discount-banner {
+  background-color: #7D2838;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+}
+
+.img-logo {
+  height: 60px;
+}
+
+.main-header nav a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.main-header nav a:hover {
+  color: #7D2838;
+}
+
+.search-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-profile form input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  width: 200px;
+}
+
+.search-profile ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.search-profile img {
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.search-profile img:hover {
+  transform: scale(1.1);
+}
+
 /*             Cabeçalho Mobile                 */
 header {
   background-color: #fff;
@@ -85,12 +149,12 @@ nav.grid img {
   }
   
   .garimpe-text {
-    font-size: 30px;
-    letter-spacing: 4px;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
   
   .vintelo-text {
-    font-size: 70px;
+    font-size: 40px;
   }
 }
 
@@ -260,6 +324,30 @@ h3 {
     margin-top: 10px;
 }
 
+.filtro .category-btn {
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.filtro .category-btn:hover {
+    border-color: #7D2838;
+    color: #7D2838;
+}
+
+.filtro .category-btn.active {
+    background-color: #7D2838;
+    color: white;
+    border-color: #7D2838;
+}
+
 /* Container Principal */
 .container {
     display: block;
@@ -289,6 +377,7 @@ h3 {
         border: 1px solid #e0e0e0;
         border-radius: 15px;
         flex-shrink: 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -536,11 +625,23 @@ input[type="range"]::-webkit-slider-thumb {
   opacity: 0.8;
 }
 
-/*                   Ocultar desktop             */
-.oculto-mobile {
-  display: none;
+/*                   Responsividade             */
+@media (max-width: 767px) {
+  .oculto-mobile {
+    display: none;
+  }
+  
+  .oculto-desktop {
+    display: block;
+  }
 }
 
-.oculto-desktop {
-  display: block;
+@media (min-width: 768px) {
+  .oculto-mobile {
+    display: block;
+  }
+  
+  .oculto-desktop {
+    display: none;
+  }
 }

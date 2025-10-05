@@ -222,11 +222,7 @@ router.get("/avaliasao", function (req, res) {
 });
 
 
-router.get('/index', function(req, res){
-    res.render('pages/index', {
-        autenticado: req.session ? req.session.autenticado : null
-    });
-})
+
 
 router.get('/produto1', function(req, res){
     res.render('pages/produto1');
@@ -251,7 +247,13 @@ router.post("/cadastro", usuarioController.regrasValidacaoFormCad, async functio
 });
 
 router.get('/carrinho', function(req, res){
-    res.render('pages/carrinho');
+    const carrinho = req.session.carrinho || [];
+    const autenticado = req.session.autenticado || { autenticado: false };
+    
+    res.render('pages/carrinho', {
+        carrinho: carrinho,
+        autenticado: autenticado
+    });
 })
 
 router.get('/perfil1', function(req, res){
@@ -314,7 +316,7 @@ router.get('/blog', function(req, res){
 })
 
 router.get('/artigo', function(req, res){
-    res.redirect('/blog');
+    res.render('pages/artigo');
 })
 
 router.get('/bossartigo', function(req, res){
