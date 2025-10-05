@@ -96,6 +96,7 @@ main {
   border-radius: 25px;
   font-size: 200%;
   color: #333;
+  margin: 29px;
 }
 
 .form-group input:focus {
@@ -133,7 +134,7 @@ main {
   font-size: 50px;
   cursor: pointer;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
 
 .submit-btn:hover {
@@ -151,7 +152,7 @@ main {
 .links a {
   color: #7D2838;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -176,7 +177,7 @@ main {
 }
 
 .footer .footer-image {
-  height: 80px;
+  height: 120px;
   margin-bottom: 20px;
 }
 
@@ -194,7 +195,7 @@ main {
 }
 
 .footer .social-link img {
-  height: 50px;
+  height: 80px;
   transition: transform 0.3s;
 }
 
@@ -208,25 +209,3 @@ main {
   color: #ffffffe7;
 }
 
-@media (min-width: 769px) {
-  .p-footer {
-    font-size: 20px;
-  }
-  
-  .footer .footer-image {
-    height: 90px;
-  }
-  
-  .footer .social-media p {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .footer .social-link img {
-    height: 60px;
-  }
-  
-  .copyright {
-    font-size: 15px;
-  }
-}
