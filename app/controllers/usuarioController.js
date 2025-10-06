@@ -91,7 +91,10 @@ const usuarioController = {
             .isLength({ min: 2, max: 30 }).withMessage("Cidade deve ter de 2 a 30 caracteres!"),
         body("uf_usuario")
             .notEmpty().withMessage("UF é obrigatória!")
-            .isLength({ min: 2, max: 2 }).withMessage("UF deve ter 2 caracteres!")
+            .isLength({ min: 2, max: 2 }).withMessage("UF deve ter 2 caracteres!"),
+        body("numero_usuario")
+            .notEmpty().withMessage("Número é obrigatório!")
+            .isLength({ min: 1, max: 4 }).withMessage("Número deve ter de 1 a 4 caracteres!")
     ],
 
 
@@ -137,6 +140,7 @@ const usuarioController = {
             CELULAR_USUARIO: req.body.celular_usuario,
             CEP_USUARIO: req.body.cep_usuario.replace("-", ""),
             LOGRADOURO_USUARIO: req.body.logradouro_usuario,
+            NUMERO_USUARIO: req.body.numero_usuario,
             BAIRRO_USUARIO: req.body.bairro_usuario,
             CIDADE_USUARIO: req.body.cidade_usuario,
             UF_USUARIO: req.body.uf_usuario.toUpperCase(),

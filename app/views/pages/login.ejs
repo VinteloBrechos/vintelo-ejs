@@ -93,8 +93,9 @@
             
             <section class="form-group">
                 <label for="celular_usuario">Telefone</label>
-                <input type="tel" id="celular_usuario" name="celular_usuario" placeholder="(11) 99999-9999" 
-                       value="<%=valores?.celular_usuario || '' %>" required>
+                <input type="text" id="celular_usuario" name="celular_usuario" placeholder="11999999999" 
+                       value="<%=valores?.celular_usuario || '' %>" pattern="[0-9]{11}" 
+                       title="Digite apenas números (11 dígitos)" maxlength="11" required>
             </section>
             
             <section class="form-group">
@@ -107,6 +108,12 @@
                 <label for="logradouro_usuario">Logradouro</label>
                 <input type="text" id="logradouro_usuario" name="logradouro_usuario" placeholder="Rua, Avenida..." 
                        value="<%= valores?.logradouro_usuario || '' %>" required>
+            </section>
+            
+            <section class="form-group">
+                <label for="numero_usuario">Número</label>
+                <input type="text" id="numero_usuario" name="numero_usuario" placeholder="123" 
+                       value="<%= valores?.numero_usuario || '' %>" maxlength="4" required>
             </section>
             
             <section class="form-group">
@@ -128,6 +135,7 @@
             </section>
             <br>
             <br>
+            <fieldset>
                 <label class="stay-connected">
                     <input type="checkbox" name="conectado" checked>
                     <span class="toggle"></span>
@@ -149,6 +157,71 @@
         </form>
     </main>
 
-    <script src="js/login.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Formatação do CEP
+            const cepInput = document.getElementById('cep_usuario');
+            if (cepInput) {
+                cepInput.addEventListener('input', function() {
+                    this.value = formatCEP(this.value);
+                });
+                
+                cepInput.addEventListener('blur', function() {
+                    const cep = this.value.replace(/\D/g, '');
+                    if (cep.length === 8) {
+                        buscarCEP(cep);
+                    }
+                });
+            }
+            
+            // Formatação do CPF
+            const cpfInput = document.getElementById('cpf_cliente');
+            if (cpfInput) {
+                cpfInput.addEventListener('input', function() {
+                    this.value = formatCPF(this.value);
+                });
+            }
+            
+            // Telefone apenas números
+            const telefoneInput = document.getElementById('celular_usuario');
+            if (telefoneInput) {
+                telefoneInput.addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '').substring(0, 11);
+                });
+            }
+            
+            function formatCEP(value) {
+                return value
+                    .replace(/\D/g, '')
+                    .replace(/(\d{5})(\d)/, '$1-$2')
+                    .replace(/(-\d{3})\d+?$/, '$1');
+            }
+            
+            function formatCPF(value) {
+                return value
+                    .replace(/\D/g, '')
+                    .replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+                    .replace(/(-\d{2})\d+?$/, '$1');
+            }
+            
+            function buscarCEP(cep) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.erro) {
+                            document.getElementById('logradouro_usuario').value = data.logradouro || '';
+                            document.getElementById('bairro_usuario').value = data.bairro || '';
+                            document.getElementById('cidade_usuario').value = data.localidade || '';
+                            document.getElementById('uf_usuario').value = data.uf || '';
+                        }
+                    })
+                    .catch(error => {
+                        console.log('Erro ao buscar CEP:', error);
+                    });
+            }
+        });
+    </script>
 </body>
 </html>

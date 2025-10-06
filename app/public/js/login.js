@@ -35,11 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Validação do telefone
+    // Validação do telefone - apenas números
     const telefoneInput = document.getElementById('celular_usuario');
     if (telefoneInput) {
         telefoneInput.addEventListener('input', function() {
-            this.value = formatTelefone(this.value);
+            // Remove tudo que não é número e limita a 11 dígitos
+            this.value = this.value.replace(/\D/g, '').substring(0, 11);
         });
     }
     
@@ -109,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
                 
             case 'celular_usuario':
-                if (value && value.replace(/\D/g, '').length < 10) {
-                    message = 'Telefone deve ter pelo menos 10 dígitos';
+                if (value && (value.length !== 11 || !/^\d{11}$/.test(value))) {
+                    message = 'Telefone deve ter exatamente 11 dígitos numéricos';
                     isValid = false;
                 }
                 break;
@@ -182,14 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .replace(/(-\d{3})\d+?$/, '$1');
     }
     
-    function formatTelefone(value) {
-        return value
-            .replace(/\D/g, '')
-            .replace(/(\d{2})(\d)/, '($1) $2')
-            .replace(/(\d{4})(\d)/, '$1-$2')
-            .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
-            .replace(/(-\d{4})\d+?$/, '$1');
-    }
+
     
     function validarCPF(cpf) {
         cpf = cpf.replace(/\D/g, '');
